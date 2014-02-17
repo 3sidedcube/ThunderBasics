@@ -13,7 +13,7 @@
 		C81982FB18B258BB00659DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FA18B258BB00659DB7 /* XCTest.framework */; };
 		C81982FC18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
 		C81982FE18B258BB00659DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FD18B258BB00659DB7 /* UIKit.framework */; };
-		C819830118B258BB00659DB7 /* libThunder Basics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982E918B258BB00659DB7 /* libThunder Basics.a */; };
+		C819830118B258BB00659DB7 /* libThunderBasics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982E918B258BB00659DB7 /* libThunderBasics.a */; };
 		C819830718B258BB00659DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C819830518B258BB00659DB7 /* InfoPlist.strings */; };
 		C819830918B258BB00659DB7 /* Thunder_BasicsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C819830818B258BB00659DB7 /* Thunder_BasicsTests.m */; };
 /* End PBXBuildFile section */
@@ -42,15 +42,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C81982E918B258BB00659DB7 /* libThunder Basics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libThunder Basics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81982E918B258BB00659DB7 /* libThunderBasics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libThunderBasics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81982EC18B258BB00659DB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C81982F018B258BB00659DB7 /* Thunder Basics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thunder Basics-Prefix.pch"; sourceTree = "<group>"; };
+		C81982F018B258BB00659DB7 /* ThunderBasics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThunderBasics-Prefix.pch"; sourceTree = "<group>"; };
 		C81982F118B258BB00659DB7 /* TSCThunderBasics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSCThunderBasics.h; sourceTree = "<group>"; };
 		C81982F318B258BB00659DB7 /* TSCThunderBasics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSCThunderBasics.m; sourceTree = "<group>"; };
-		C81982F918B258BB00659DB7 /* Thunder BasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Thunder BasicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81982F918B258BB00659DB7 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81982FA18B258BB00659DB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C81982FD18B258BB00659DB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		C819830418B258BB00659DB7 /* Thunder BasicsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Thunder BasicsTests-Info.plist"; sourceTree = "<group>"; };
+		C819830418B258BB00659DB7 /* ThunderBasicsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ThunderBasicsTests-Info.plist"; sourceTree = "<group>"; };
 		C819830618B258BB00659DB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C819830818B258BB00659DB7 /* Thunder_BasicsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Thunder_BasicsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C819830118B258BB00659DB7 /* libThunder Basics.a in Frameworks */,
+				C819830118B258BB00659DB7 /* libThunderBasics.a in Frameworks */,
 				C81982FB18B258BB00659DB7 /* XCTest.framework in Frameworks */,
 				C81982FE18B258BB00659DB7 /* UIKit.framework in Frameworks */,
 				C81982FC18B258BB00659DB7 /* Foundation.framework in Frameworks */,
@@ -91,8 +91,8 @@
 		C81982EA18B258BB00659DB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C81982E918B258BB00659DB7 /* libThunder Basics.a */,
-				C81982F918B258BB00659DB7 /* Thunder BasicsTests.xctest */,
+				C81982E918B258BB00659DB7 /* libThunderBasics.a */,
+				C81982F918B258BB00659DB7 /* ThunderBasicsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 		C81982EF18B258BB00659DB7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C81982F018B258BB00659DB7 /* Thunder Basics-Prefix.pch */,
+				C81982F018B258BB00659DB7 /* ThunderBasics-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 		C819830318B258BB00659DB7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C819830418B258BB00659DB7 /* Thunder BasicsTests-Info.plist */,
+				C819830418B258BB00659DB7 /* ThunderBasicsTests-Info.plist */,
 				C819830518B258BB00659DB7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -146,9 +146,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C81982E818B258BB00659DB7 /* Thunder Basics */ = {
+		C81982E818B258BB00659DB7 /* ThunderBasics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C819830C18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "Thunder Basics" */;
+			buildConfigurationList = C819830C18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "ThunderBasics" */;
 			buildPhases = (
 				C81982E518B258BB00659DB7 /* Sources */,
 				C81982E618B258BB00659DB7 /* Frameworks */,
@@ -158,14 +158,14 @@
 			);
 			dependencies = (
 			);
-			name = "Thunder Basics";
+			name = ThunderBasics;
 			productName = "Thunder Basics";
-			productReference = C81982E918B258BB00659DB7 /* libThunder Basics.a */;
+			productReference = C81982E918B258BB00659DB7 /* libThunderBasics.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		C81982F818B258BB00659DB7 /* Thunder BasicsTests */ = {
+		C81982F818B258BB00659DB7 /* ThunderBasicsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C819830F18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "Thunder BasicsTests" */;
+			buildConfigurationList = C819830F18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "ThunderBasicsTests" */;
 			buildPhases = (
 				C81982F518B258BB00659DB7 /* Sources */,
 				C81982F618B258BB00659DB7 /* Frameworks */,
@@ -176,9 +176,9 @@
 			dependencies = (
 				C819830018B258BB00659DB7 /* PBXTargetDependency */,
 			);
-			name = "Thunder BasicsTests";
+			name = ThunderBasicsTests;
 			productName = "Thunder BasicsTests";
-			productReference = C81982F918B258BB00659DB7 /* Thunder BasicsTests.xctest */;
+			productReference = C81982F918B258BB00659DB7 /* ThunderBasicsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "3 SIDED CUBE";
 			};
-			buildConfigurationList = C81982E418B258BB00659DB7 /* Build configuration list for PBXProject "Thunder Basics" */;
+			buildConfigurationList = C81982E418B258BB00659DB7 /* Build configuration list for PBXProject "ThunderBasics" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -202,8 +202,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C81982E818B258BB00659DB7 /* Thunder Basics */,
-				C81982F818B258BB00659DB7 /* Thunder BasicsTests */,
+				C81982E818B258BB00659DB7 /* ThunderBasics */,
+				C81982F818B258BB00659DB7 /* ThunderBasicsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,7 +241,7 @@
 /* Begin PBXTargetDependency section */
 		C819830018B258BB00659DB7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C81982E818B258BB00659DB7 /* Thunder Basics */;
+			target = C81982E818B258BB00659DB7 /* ThunderBasics */;
 			targetProxy = C81982FF18B258BB00659DB7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -333,9 +333,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/Thunder_Basics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Thunder Basics/Thunder Basics-Prefix.pch";
+				GCC_PREFIX_HEADER = "Thunder Basics/ThunderBasics-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -345,9 +345,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/Thunder_Basics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Thunder Basics/Thunder Basics-Prefix.pch";
+				GCC_PREFIX_HEADER = "Thunder Basics/ThunderBasics-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -367,8 +367,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Thunder BasicsTests/Thunder BasicsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Thunder BasicsTests/ThunderBasicsTests-Info.plist";
+				PRODUCT_NAME = ThunderBasicsTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -384,8 +384,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Thunder Basics/Thunder Basics-Prefix.pch";
-				INFOPLIST_FILE = "Thunder BasicsTests/Thunder BasicsTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Thunder BasicsTests/ThunderBasicsTests-Info.plist";
+				PRODUCT_NAME = ThunderBasicsTests;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -393,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C81982E418B258BB00659DB7 /* Build configuration list for PBXProject "Thunder Basics" */ = {
+		C81982E418B258BB00659DB7 /* Build configuration list for PBXProject "ThunderBasics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C819830A18B258BB00659DB7 /* Debug */,
@@ -402,21 +402,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C819830C18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "Thunder Basics" */ = {
+		C819830C18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "ThunderBasics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C819830D18B258BB00659DB7 /* Debug */,
 				C819830E18B258BB00659DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		C819830F18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "Thunder BasicsTests" */ = {
+		C819830F18B258BB00659DB7 /* Build configuration list for PBXNativeTarget "ThunderBasicsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C819831018B258BB00659DB7 /* Debug */,
 				C819831118B258BB00659DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

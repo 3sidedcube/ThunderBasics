@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C81982E818B258BB00659DB7"
                BuildableName = "libThunder Basics.a"
-               BlueprintName = "Thunder Basics"
-               ReferencedContainer = "container:Thunder Basics.xcodeproj">
+               BlueprintName = "ThunderBasics"
+               ReferencedContainer = "container:ThunderBasics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C81982F818B258BB00659DB7"
                BuildableName = "Thunder BasicsTests.xctest"
-               BlueprintName = "Thunder BasicsTests"
-               ReferencedContainer = "container:Thunder Basics.xcodeproj">
+               BlueprintName = "ThunderBasicsTests"
+               ReferencedContainer = "container:ThunderBasics.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
