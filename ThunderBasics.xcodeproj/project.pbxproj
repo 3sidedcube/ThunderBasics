@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1325EB7E18B3DA7400937928 /* TSCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7318B3DA7400937928 /* TSCDatabase.m */; };
+		1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */; };
+		1325EB8018B3DA7400937928 /* NSArray+TSCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */; };
+		1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */; };
+		1325EB8218B3DA7400937928 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7C18B3DA7400937928 /* TSCObject.m */; };
+		1325EB8F18B3DB0600937928 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB8618B3DB0600937928 /* FMDatabase.m */; };
+		1325EB9018B3DB0600937928 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB8818B3DB0600937928 /* FMDatabaseAdditions.m */; };
+		1325EB9118B3DB0600937928 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB8A18B3DB0600937928 /* FMDatabasePool.m */; };
+		1325EB9218B3DB0600937928 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB8C18B3DB0600937928 /* FMDatabaseQueue.m */; };
+		1325EB9318B3DB0600937928 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB8E18B3DB0600937928 /* FMResultSet.m */; };
 		C81982ED18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
-		C81982F218B258BB00659DB7 /* TSCThunderBasics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C81982F118B258BB00659DB7 /* TSCThunderBasics.h */; };
-		C81982F418B258BB00659DB7 /* TSCThunderBasics.m in Sources */ = {isa = PBXBuildFile; fileRef = C81982F318B258BB00659DB7 /* TSCThunderBasics.m */; };
 		C81982FB18B258BB00659DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FA18B258BB00659DB7 /* XCTest.framework */; };
 		C81982FC18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
 		C81982FE18B258BB00659DB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FD18B258BB00659DB7 /* UIKit.framework */; };
@@ -35,18 +43,35 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				C81982F218B258BB00659DB7 /* TSCThunderBasics.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1325EB7318B3DA7400937928 /* TSCDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDatabase.m; sourceTree = "<group>"; };
+		1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TSCArray.h"; sourceTree = "<group>"; };
+		1325EB7518B3DA7400937928 /* TSCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCObject.h; sourceTree = "<group>"; };
+		1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+TSCDictionary.m"; sourceTree = "<group>"; };
+		1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TSCArray.m"; sourceTree = "<group>"; };
+		1325EB7818B3DA7400937928 /* TSCDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDatabase.h; sourceTree = "<group>"; };
+		1325EB7918B3DA7400937928 /* ThunderBasics-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ThunderBasics-Prefix.pch"; sourceTree = "<group>"; };
+		1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCThunderBasics.m; sourceTree = "<group>"; };
+		1325EB7B18B3DA7400937928 /* TSCThunderBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCThunderBasics.h; sourceTree = "<group>"; };
+		1325EB7C18B3DA7400937928 /* TSCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObject.m; sourceTree = "<group>"; };
+		1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+TSCDictionary.h"; sourceTree = "<group>"; };
+		1325EB8518B3DB0600937928 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
+		1325EB8618B3DB0600937928 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/FMDatabase.m; sourceTree = "<group>"; };
+		1325EB8718B3DB0600937928 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		1325EB8818B3DB0600937928 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = FMDB/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		1325EB8918B3DB0600937928 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = FMDB/FMDatabasePool.h; sourceTree = "<group>"; };
+		1325EB8A18B3DB0600937928 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = FMDB/FMDatabasePool.m; sourceTree = "<group>"; };
+		1325EB8B18B3DB0600937928 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = FMDB/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		1325EB8C18B3DB0600937928 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = FMDB/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		1325EB8D18B3DB0600937928 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
+		1325EB8E18B3DB0600937928 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
 		C81982E918B258BB00659DB7 /* libThunderBasics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libThunderBasics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81982EC18B258BB00659DB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C81982F018B258BB00659DB7 /* ThunderBasics-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ThunderBasics-Prefix.pch"; sourceTree = "<group>"; };
-		C81982F118B258BB00659DB7 /* TSCThunderBasics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSCThunderBasics.h; sourceTree = "<group>"; };
-		C81982F318B258BB00659DB7 /* TSCThunderBasics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSCThunderBasics.m; sourceTree = "<group>"; };
 		C81982F918B258BB00659DB7 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81982FA18B258BB00659DB7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C81982FD18B258BB00659DB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -78,6 +103,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1325EB8318B3DAB200937928 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1325EB7918B3DA7400937928 /* ThunderBasics-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1325EB9418B3DB0A00937928 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				1325EB8518B3DB0600937928 /* FMDatabase.h */,
+				1325EB8618B3DB0600937928 /* FMDatabase.m */,
+				1325EB8718B3DB0600937928 /* FMDatabaseAdditions.h */,
+				1325EB8818B3DB0600937928 /* FMDatabaseAdditions.m */,
+				1325EB8918B3DB0600937928 /* FMDatabasePool.h */,
+				1325EB8A18B3DB0600937928 /* FMDatabasePool.m */,
+				1325EB8B18B3DB0600937928 /* FMDatabaseQueue.h */,
+				1325EB8C18B3DB0600937928 /* FMDatabaseQueue.m */,
+				1325EB8D18B3DB0600937928 /* FMResultSet.h */,
+				1325EB8E18B3DB0600937928 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
 		C81982E018B258BB00659DB7 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +150,7 @@
 		C81982EB18B258BB00659DB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1325EB9418B3DB0A00937928 /* FMDB */,
 				C81982EC18B258BB00659DB7 /* Foundation.framework */,
 				C81982FA18B258BB00659DB7 /* XCTest.framework */,
 				C81982FD18B258BB00659DB7 /* UIKit.framework */,
@@ -110,19 +161,19 @@
 		C81982EE18B258BB00659DB7 /* Thunder Basics */ = {
 			isa = PBXGroup;
 			children = (
-				C81982F118B258BB00659DB7 /* TSCThunderBasics.h */,
-				C81982F318B258BB00659DB7 /* TSCThunderBasics.m */,
-				C81982EF18B258BB00659DB7 /* Supporting Files */,
+				1325EB7B18B3DA7400937928 /* TSCThunderBasics.h */,
+				1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */,
+				1325EB7518B3DA7400937928 /* TSCObject.h */,
+				1325EB7C18B3DA7400937928 /* TSCObject.m */,
+				1325EB7818B3DA7400937928 /* TSCDatabase.h */,
+				1325EB7318B3DA7400937928 /* TSCDatabase.m */,
+				1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */,
+				1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */,
+				1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */,
+				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
+				1325EB8318B3DAB200937928 /* Supporting Files */,
 			);
 			path = "Thunder Basics";
-			sourceTree = "<group>";
-		};
-		C81982EF18B258BB00659DB7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C81982F018B258BB00659DB7 /* ThunderBasics-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C819830218B258BB00659DB7 /* Thunder BasicsTests */ = {
@@ -224,7 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81982F418B258BB00659DB7 /* TSCThunderBasics.m in Sources */,
+				1325EB8018B3DA7400937928 /* NSArray+TSCArray.m in Sources */,
+				1325EB7E18B3DA7400937928 /* TSCDatabase.m in Sources */,
+				1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */,
+				1325EB8F18B3DB0600937928 /* FMDatabase.m in Sources */,
+				1325EB9318B3DB0600937928 /* FMResultSet.m in Sources */,
+				1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */,
+				1325EB9118B3DB0600937928 /* FMDatabasePool.m in Sources */,
+				1325EB9018B3DB0600937928 /* FMDatabaseAdditions.m in Sources */,
+				1325EB8218B3DA7400937928 /* TSCObject.m in Sources */,
+				1325EB9218B3DB0600937928 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TSCObject.h"
+#import "NSArray+TSCArray.h"
+#import "NSDictionary+TSCDictionary.h"
+#import "TSCDatabase.h"
 
 @interface TSCThunderBasics : NSObject
 
