@@ -11,15 +11,21 @@
 
 @implementation TSCObject
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (id)init
 {
     if (self = [super init]) {
         
-        [self TSC_setPropertiesWithDictionary:dictionary];
+        self.identifier = [[NSUUID UUID] UUIDString];
+    }
+    
+    return self;
+}
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    if (self = [self init]) {
         
-        if (!self.identifier) {
-            self.identifier = [[NSUUID UUID] UUIDString];
-        }
+        [self TSC_setPropertiesWithDictionary:dictionary];
     }
     
     return self;
