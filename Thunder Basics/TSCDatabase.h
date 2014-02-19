@@ -11,6 +11,8 @@
 @interface TSCDatabase : NSObject
 
 @property (nonatomic, strong) NSString *databasePath;
+@property (nonatomic, strong) NSString *cachedDatabasePath;
+@property (nonatomic, readonly) NSString *databaseCacheDirectory;
 
 + (id)databaseWithPath:(NSString *)path;
 - (id)initWithDatabasePath:(NSString *)path;
