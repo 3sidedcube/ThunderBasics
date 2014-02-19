@@ -95,7 +95,7 @@ static TSCDatabase *databaseManager = nil;
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
     NSString *query = [NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@)", queryInfo[@"table"], queryInfo[@"scheme"], queryInfo[@"values"]];
-    NSLog(@"Queryt: %@", query);
+
     BOOL result = [db executeUpdate:query withParameterDictionary:object.serialisableRepresentation];
     
     [db close];
