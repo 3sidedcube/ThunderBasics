@@ -35,6 +35,8 @@
 		C829736618B4B13800CA4D59 /* FMDatabasePool.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C829735918B4B0D200CA4D59 /* FMDatabasePool.h */; };
 		C829736718B4B13800CA4D59 /* FMDatabaseQueue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C829735B18B4B0D200CA4D59 /* FMDatabaseQueue.h */; };
 		C829736818B4B13800CA4D59 /* FMResultSet.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C829735D18B4B0D200CA4D59 /* FMResultSet.h */; };
+		C875358518B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */; };
+		C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 				C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */,
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
+				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +103,8 @@
 		C829735C18B4B0D200CA4D59 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = "Thunder Basics/FMDatabaseQueue.m"; sourceTree = "<group>"; };
 		C829735D18B4B0D200CA4D59 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "Thunder Basics/FMResultSet.h"; sourceTree = "<group>"; };
 		C829735E18B4B0D200CA4D59 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "Thunder Basics/FMResultSet.m"; sourceTree = "<group>"; };
+		C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+TSCJSONSerialization.h"; sourceTree = "<group>"; };
+		C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+TSCJSONSerialization.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +200,8 @@
 				1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */,
 				1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */,
 				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
+				C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */,
+				C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */,
 				1325EB8318B3DAB200937928 /* Supporting Files */,
 			);
 			path = "Thunder Basics";
@@ -303,6 +310,7 @@
 				1325EB7E18B3DA7400937928 /* TSCDatabase.m in Sources */,
 				1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */,
 				C829735F18B4B0D200CA4D59 /* FMDatabase.m in Sources */,
+				C875358518B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
 				C829736318B4B0D200CA4D59 /* FMResultSet.m in Sources */,
 				1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */,
 				C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */,

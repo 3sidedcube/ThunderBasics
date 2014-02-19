@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
+// Main
 #import "TSCObject.h"
+#import "TSCDatabase.h"
+
+// Categories
 #import "NSArray+TSCArray.h"
 #import "NSDictionary+TSCDictionary.h"
-#import "TSCDatabase.h"
+#import "NSJSONSerialization+TSCJSONSerialization.h"
 
 @interface TSCThunderBasics : NSObject
 
