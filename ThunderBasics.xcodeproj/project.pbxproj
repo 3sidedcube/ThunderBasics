@@ -24,6 +24,11 @@
 		C819830118B258BB00659DB7 /* libThunderBasics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982E918B258BB00659DB7 /* libThunderBasics.a */; };
 		C819830718B258BB00659DB7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C819830518B258BB00659DB7 /* InfoPlist.strings */; };
 		C819830918B258BB00659DB7 /* Thunder_BasicsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C819830818B258BB00659DB7 /* Thunder_BasicsTests.m */; };
+		C829734C18B4A67700CA4D59 /* TSCThunderBasics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7B18B3DA7400937928 /* TSCThunderBasics.h */; };
+		C829734D18B4A67700CA4D59 /* TSCObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7518B3DA7400937928 /* TSCObject.h */; };
+		C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7818B3DA7400937928 /* TSCDatabase.h */; };
+		C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */; };
+		C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,11 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				C829734C18B4A67700CA4D59 /* TSCThunderBasics.h in CopyFiles */,
+				C829734D18B4A67700CA4D59 /* TSCObject.h in CopyFiles */,
+				C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */,
+				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
+				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
