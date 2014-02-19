@@ -20,5 +20,7 @@
 - (BOOL)insertObject:(TSCObject *)object;
 - (BOOL)removeObject:(TSCObject *)object;
 - (BOOL)updateObject:(TSCObject *)object;
+- (NSArray *)objectsOfClass:(Class)classToSelect;
+- (NSArray *)objectsOfClass:(Class)classToSelect withSQL:(NSString *)sql;
 
 @end
