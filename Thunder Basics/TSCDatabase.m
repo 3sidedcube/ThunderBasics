@@ -133,6 +133,36 @@ static TSCDatabase *databaseManager = nil;
     return result;
 }
 
+- (NSArray *)objectsOfClass:(Class)classToSelect
+{
+    return [self objectsOfClass:classToSelect withSQL:nil];
+}
+
+- (NSArray *)objectsOfClass:(Class)classToSelect withSQL:(NSString *)sql
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:self.cachedDatabasePath];
+    [db open];
+    
+    NSMutableArray *objects = [NSMutableArray array];
+    
+    NSString *table = [[TSCDatabase databaseManager] map][NSStringFromClass(classToSelect)];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM %@ ", table];
+    
+    if (sql) {
+        query = [query stringByAppendingString:sql];
+    }
+    
+    FMResultSet *result = [db executeQuery:query];
+    
+    while ([result next]) {
+        
+        TSCObject *object = [[classToSelect alloc] initWithDictionary:[result resultDictionary]];
+        [objects addObject:object];
+    }
+    
+    return objects;
+}
+
 - (NSDictionary *)TSC_queryInfoWithObject:(TSCObject *)object
 {
     NSDictionary *dictionary = object.serialisableRepresentation;
