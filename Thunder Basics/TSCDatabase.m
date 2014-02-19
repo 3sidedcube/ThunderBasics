@@ -91,10 +91,11 @@ static TSCDatabase *databaseManager = nil;
 - (BOOL)insertObject:(TSCObject *)object
 {
     FMDatabase *db = [FMDatabase databaseWithPath:self.cachedDatabasePath];
+    [db open];
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
     NSString *query = [NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@)", queryInfo[@"table"], queryInfo[@"scheme"], queryInfo[@"values"]];
-    
+    NSLog(@"Queryt: %@", query);
     BOOL result = [db executeUpdate:query withParameterDictionary:object.serialisableRepresentation];
     
     [db close];
@@ -105,6 +106,7 @@ static TSCDatabase *databaseManager = nil;
 - (BOOL)removeObject:(TSCObject *)object
 {
     FMDatabase *db = [FMDatabase databaseWithPath:self.cachedDatabasePath];
+    [db open];
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
     NSString *query = [NSString stringWithFormat:@"DELETE FROM %@ WHERE uniqueIdentifier = (:uniqueIdentifier)", queryInfo[@"table"]];
@@ -119,6 +121,7 @@ static TSCDatabase *databaseManager = nil;
 - (BOOL)updateObject:(TSCObject *)object
 {
     FMDatabase *db = [FMDatabase databaseWithPath:self.cachedDatabasePath];
+    [db open];
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
     NSString *query = [NSString stringWithFormat:@"UPDATE %@ SET %@ WHERE uniqueIdentifier = (:uniqueIdentifier)", queryInfo[@"table"], queryInfo[@"keyAndValues"]];

@@ -17,8 +17,8 @@
         
         [self TSC_setPropertiesWithDictionary:dictionary];
         
-        if (!self.uniqueIdentifier) {
-            self.uniqueIdentifier = [[NSUUID UUID] UUIDString];
+        if (!self.identifier) {
+            self.identifier = [[NSUUID UUID] UUIDString];
         }
     }
     
@@ -48,6 +48,11 @@
         NSString *propertyName = [[NSString alloc] initWithUTF8String:property_getName(property)];
         id object = [self valueForKey:propertyName];
         
+        if ([object isKindOfClass:[NSDate class]]) {
+            NSNumber *timestamp = @([(NSDate *)object timeIntervalSince1970]);
+            [dictionary setObject:timestamp forKey:propertyName];
+        }
+        
         if ([TSCObject isSerialisable:object]) {
             [dictionary setObject:object forKey:propertyName];
         }
@@ -58,8 +63,8 @@
     }
     
     // Because we've dipped down to the run time, looping through properties won't return this on classes that inherit from it, and quite frankly; fuck knows why.
-    if (self.uniqueIdentifier) {
-        [dictionary setObject:self.uniqueIdentifier forKey:@"uniqueIdentifier"];
+    if (self.identifier) {
+        [dictionary setObject:self.identifier forKey:@"identifier"];
     }
     
     free(propertyArray);
