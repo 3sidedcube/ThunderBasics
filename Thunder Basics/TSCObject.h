@@ -10,7 +10,7 @@
 
 @interface TSCObject : NSObject
 
-@property (nonatomic, strong) NSString *uniqueIdentifier;
+@property (nonatomic, strong) NSString *identifier;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)serialisableRepresentation;
