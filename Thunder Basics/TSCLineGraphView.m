@@ -158,7 +158,7 @@
         xLabel.textColor = [UIColor whiteColor];
         xLabel.font = [UIFont systemFontOfSize:12];
         xLabel.textAlignment = NSTextAlignmentCenter;
-        xLabel.frame = CGRectMake(currentPoint.x, self.bounds.size.height, 30, self.bounds.size.width / self.points.count);
+        xLabel.frame = CGRectMake(currentPoint.x, self.bounds.size.height - 30, 30, self.bounds.size.width / self.points.count);
         
         [self addSubview:xLabel];
         [xLabels addObject:xLabel];
