@@ -37,6 +37,10 @@
 		C829736818B4B13800CA4D59 /* FMResultSet.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C829735D18B4B0D200CA4D59 /* FMResultSet.h */; };
 		C875358518B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */; };
 		C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */; };
+		C8EA192318B6115F003EB859 /* TSCLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA192018B6115F003EB859 /* TSCLineGraphView.m */; };
+		C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA192218B6115F003EB859 /* TSCGraphPoint.m */; };
+		C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */; };
+		C8EA192718B611BC003EB859 /* TSCGraphPoint.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EA192118B6115F003EB859 /* TSCGraphPoint.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +66,10 @@
 				C829736718B4B13800CA4D59 /* FMDatabaseQueue.h in CopyFiles */,
 				C829736818B4B13800CA4D59 /* FMResultSet.h in CopyFiles */,
 				C829734C18B4A67700CA4D59 /* TSCThunderBasics.h in CopyFiles */,
+				C8EA192718B611BC003EB859 /* TSCGraphPoint.h in CopyFiles */,
 				C829734D18B4A67700CA4D59 /* TSCObject.h in CopyFiles */,
 				C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */,
+				C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */,
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
 				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
@@ -105,6 +111,10 @@
 		C829735E18B4B0D200CA4D59 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "Thunder Basics/FMResultSet.m"; sourceTree = "<group>"; };
 		C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+TSCJSONSerialization.h"; sourceTree = "<group>"; };
 		C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+TSCJSONSerialization.m"; sourceTree = "<group>"; };
+		C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCLineGraphView.h; sourceTree = "<group>"; };
+		C8EA192018B6115F003EB859 /* TSCLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLineGraphView.m; sourceTree = "<group>"; };
+		C8EA192118B6115F003EB859 /* TSCGraphPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCGraphPoint.h; sourceTree = "<group>"; };
+		C8EA192218B6115F003EB859 /* TSCGraphPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCGraphPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +212,7 @@
 				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
 				C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */,
 				C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */,
+				C8EA192518B61163003EB859 /* Graph */,
 				1325EB8318B3DAB200937928 /* Supporting Files */,
 			);
 			path = "Thunder Basics";
@@ -223,6 +234,17 @@
 				C819830518B258BB00659DB7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8EA192518B61163003EB859 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */,
+				C8EA192018B6115F003EB859 /* TSCLineGraphView.m */,
+				C8EA192118B6115F003EB859 /* TSCGraphPoint.h */,
+				C8EA192218B6115F003EB859 /* TSCGraphPoint.m */,
+			);
+			name = Graph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +332,9 @@
 				1325EB7E18B3DA7400937928 /* TSCDatabase.m in Sources */,
 				1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */,
 				C829735F18B4B0D200CA4D59 /* FMDatabase.m in Sources */,
+				C8EA192318B6115F003EB859 /* TSCLineGraphView.m in Sources */,
 				C875358518B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
+				C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */,
 				C829736318B4B0D200CA4D59 /* FMResultSet.m in Sources */,
 				1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */,
 				C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */,

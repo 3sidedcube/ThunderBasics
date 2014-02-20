@@ -11,6 +11,7 @@
 // Main
 #import "TSCObject.h"
 #import "TSCDatabase.h"
+#import "TSCLineGraphView.h"
 
 // Categories
 #import "NSArray+TSCArray.h"
