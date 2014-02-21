@@ -109,7 +109,7 @@ static TSCDatabase *databaseManager = nil;
     [db open];
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
-    NSString *query = [NSString stringWithFormat:@"DELETE FROM %@ WHERE uniqueIdentifier = (:uniqueIdentifier)", queryInfo[@"table"]];
+    NSString *query = [NSString stringWithFormat:@"DELETE FROM %@ WHERE identifier = (:identifier)", queryInfo[@"table"]];
     
     BOOL result = [db executeUpdate:query withParameterDictionary:object.serialisableRepresentation];
     
@@ -124,7 +124,7 @@ static TSCDatabase *databaseManager = nil;
     [db open];
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
-    NSString *query = [NSString stringWithFormat:@"UPDATE %@ SET %@ WHERE uniqueIdentifier = (:uniqueIdentifier)", queryInfo[@"table"], queryInfo[@"keyAndValues"]];
+    NSString *query = [NSString stringWithFormat:@"UPDATE %@ SET %@ WHERE identifier = (:identifier)", queryInfo[@"table"], queryInfo[@"keyAndValues"]];
     
     BOOL result = [db executeUpdate:query withParameterDictionary:object.serialisableRepresentation];
     
