@@ -404,6 +404,7 @@
 				DSTROOT = /tmp/Thunder_Basics.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Thunder Basics/ThunderBasics-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
