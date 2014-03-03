@@ -12,6 +12,8 @@
 		1325EB8018B3DA7400937928 /* NSArray+TSCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */; };
 		1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */; };
 		1325EB8218B3DA7400937928 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7C18B3DA7400937928 /* TSCObject.m */; };
+		6560DEE018C4AD0600612964 /* TSCLanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6560DEDF18C4AD0600612964 /* TSCLanguageController.m */; };
+		65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6560DEDE18C4AD0600612964 /* TSCLanguageController.h */; };
 		C81982ED18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
 		C81982FB18B258BB00659DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FA18B258BB00659DB7 /* XCTest.framework */; };
 		C81982FC18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
@@ -73,6 +75,7 @@
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
 				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
+				65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,8 @@
 		1325EB7B18B3DA7400937928 /* TSCThunderBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCThunderBasics.h; sourceTree = "<group>"; };
 		1325EB7C18B3DA7400937928 /* TSCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObject.m; sourceTree = "<group>"; };
 		1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+TSCDictionary.h"; sourceTree = "<group>"; };
+		6560DEDE18C4AD0600612964 /* TSCLanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCLanguageController.h; sourceTree = "<group>"; };
+		6560DEDF18C4AD0600612964 /* TSCLanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLanguageController.m; sourceTree = "<group>"; };
 		C81982E918B258BB00659DB7 /* libThunderBasics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libThunderBasics.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81982EC18B258BB00659DB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C81982F918B258BB00659DB7 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,10 +171,21 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		6560DEE118C4AD0A00612964 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				6560DEDE18C4AD0600612964 /* TSCLanguageController.h */,
+				6560DEDF18C4AD0600612964 /* TSCLanguageController.m */,
+			);
+			name = Language;
+			path = "Thunder Basics";
+			sourceTree = "<group>";
+		};
 		C81982E018B258BB00659DB7 = {
 			isa = PBXGroup;
 			children = (
 				C81982EE18B258BB00659DB7 /* Thunder Basics */,
+				6560DEE118C4AD0A00612964 /* Language */,
 				C819830218B258BB00659DB7 /* Thunder BasicsTests */,
 				C81982EB18B258BB00659DB7 /* Frameworks */,
 				C81982EA18B258BB00659DB7 /* Products */,
@@ -340,6 +356,7 @@
 				C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */,
 				C829736018B4B0D200CA4D59 /* FMDatabaseAdditions.m in Sources */,
 				1325EB8218B3DA7400937928 /* TSCObject.m in Sources */,
+				6560DEE018C4AD0600612964 /* TSCLanguageController.m in Sources */,
 				C829736218B4B0D200CA4D59 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
