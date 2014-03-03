@@ -56,6 +56,15 @@ static TSCLanguageController *sharedController = nil;
     }
 }
 
+- (NSString *)stringForDictionary:(NSDictionary *)dictionary
+{
+    if (![dictionary isEqual:[NSNull null]]) {
+        return [self stringForKey:dictionary[@"content"] withFallbackString:nil];
+    }
+    
+    return nil;
+}
+
 #pragma mark - Locale management
 
 - (NSLocale *)localeForLanguageKey:(NSString *)localeString
