@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define TSCLanguageString(key) [[TSCLanguageController sharedController] stringForKey:(key)]
+#define TSCLanguageDictionary(dictionary) [[TSCLanguageController sharedController] stringForDictionary:(dictionary)]
 
 @interface TSCLanguageController : NSObject
 
@@ -17,6 +18,7 @@
 + (TSCLanguageController *)sharedController;
 - (NSString *)stringForKey:(NSString *)key;
 - (NSString *)stringForKey:(NSString *)key withFallbackString:(NSString *)fallbackString;
+- (NSString *)stringForDictionary:(NSDictionary *)dictionary;
 - (NSLocale *)localeForLanguageKey:(NSString *)localeString;
 - (NSString *)localisedLanguageNameForLocale:(NSLocale *)locale;
 - (NSString *)localisedLanguageNameForLocaleIdentifier:(NSString *)localeIdentifier;

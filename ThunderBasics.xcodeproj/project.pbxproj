@@ -13,6 +13,7 @@
 		1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */; };
 		1325EB8218B3DA7400937928 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1325EB7C18B3DA7400937928 /* TSCObject.m */; };
 		6560DEE018C4AD0600612964 /* TSCLanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6560DEDF18C4AD0600612964 /* TSCLanguageController.m */; };
+		65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6560DEDE18C4AD0600612964 /* TSCLanguageController.h */; };
 		C81982ED18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
 		C81982FB18B258BB00659DB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982FA18B258BB00659DB7 /* XCTest.framework */; };
 		C81982FC18B258BB00659DB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C81982EC18B258BB00659DB7 /* Foundation.framework */; };
@@ -74,6 +75,7 @@
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
 				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
+				65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
