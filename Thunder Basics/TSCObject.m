@@ -35,8 +35,17 @@
 {
     for (NSString *key in dictionary.allKeys) {
         
-        if ([self respondsToSelector:NSSelectorFromString(key)]) {
-            [self setValue:dictionary[key] forKey:key];
+        NSString *keyName = nil;
+        
+        if ([key isEqualToString:@"class"]) {
+            keyName = @"className";
+        } else {
+            keyName = key;
+        }
+        
+        if ([self respondsToSelector:NSSelectorFromString(keyName)]) {
+            
+            [self setValue:dictionary[key] forKey:keyName];
         }
     }
 }
@@ -53,6 +62,10 @@
         objc_property_t property = propertyArray[i];
         NSString *propertyName = [[NSString alloc] initWithUTF8String:property_getName(property)];
         id object = [self valueForKey:propertyName];
+        
+        if ([propertyName isEqualToString:@"className"]) {
+            propertyName = @"class";
+        }
         
         if ([object isKindOfClass:[NSDate class]]) {
             NSNumber *timestamp = @([(NSDate *)object timeIntervalSince1970]);
