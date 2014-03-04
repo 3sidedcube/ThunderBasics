@@ -10,8 +10,6 @@
 
 @interface TSCLanguageController ()
 
-@property (nonatomic, strong) NSDictionary *languageDictionary;
-
 @end
 
 @implementation TSCLanguageController
@@ -63,32 +61,6 @@ static TSCLanguageController *sharedController = nil;
     }
     
     return nil;
-}
-
-#pragma mark - Locale management
-
-- (NSLocale *)localeForLanguageKey:(NSString *)localeString
-{
-    NSArray *localeComponents = [localeString componentsSeparatedByString:@"_"];
-    
-    NSLocale *locale = [NSLocale localeWithLocaleIdentifier:[NSLocale localeIdentifierFromComponents:@{NSLocaleLanguageCode: localeComponents[1], NSLocaleCountryCode: localeComponents[0]}]];
-    
-    return locale;
-}
-
-- (NSString *)localisedLanguageNameForLocale:(NSLocale *)locale
-{
-    return [locale displayNameForKey:NSLocaleIdentifier value:locale.localeIdentifier];
-}
-
-- (NSString *)localisedLanguageNameForLocaleIdentifier:(NSString *)localeIdentifier
-{
-    return [self localisedLanguageNameForLocale:[self localeForLanguageKey:localeIdentifier]];
-}
-
-- (NSLocale *)currentLocale
-{
-    return [self localeForLanguageKey:self.currentLanguage];
 }
 
 @end
