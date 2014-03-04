@@ -14,14 +14,12 @@
 @interface TSCLanguageController : NSObject
 
 @property (nonatomic, strong) NSString *currentLanguage;
+@property (nonatomic, strong) NSDictionary *languageDictionary;
 
 + (TSCLanguageController *)sharedController;
 - (NSString *)stringForKey:(NSString *)key;
 - (NSString *)stringForKey:(NSString *)key withFallbackString:(NSString *)fallbackString;
 - (NSString *)stringForDictionary:(NSDictionary *)dictionary;
-- (NSLocale *)localeForLanguageKey:(NSString *)localeString;
-- (NSString *)localisedLanguageNameForLocale:(NSLocale *)locale;
-- (NSString *)localisedLanguageNameForLocaleIdentifier:(NSString *)localeIdentifier;
-- (NSLocale *)currentLocale;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
