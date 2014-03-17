@@ -39,6 +39,12 @@
 		C829736818B4B13800CA4D59 /* FMResultSet.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C829735D18B4B0D200CA4D59 /* FMResultSet.h */; };
 		C875358518B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */; };
 		C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */; };
+		C8AC9DBE18D70F650052A256 /* TSCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC9DBD18D70F650052A256 /* TSCWebViewController.m */; };
+		C8AC9DC318D70FB40052A256 /* TSCWebViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AC9DBC18D70F650052A256 /* TSCWebViewController.h */; };
+		C8AC9DC618D710880052A256 /* TSCAppInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC9DC518D710880052A256 /* TSCAppInfoController.m */; };
+		C8AC9DC718D711520052A256 /* TSCAppInfoController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AC9DC418D710880052A256 /* TSCAppInfoController.h */; };
+		C8AC9DCA18D711810052A256 /* UIColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AC9DC918D711810052A256 /* UIColor+TSCColor.m */; };
+		C8AC9DCB18D711870052A256 /* UIColor+TSCColor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8AC9DC818D711810052A256 /* UIColor+TSCColor.h */; };
 		C8EA192318B6115F003EB859 /* TSCLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA192018B6115F003EB859 /* TSCLineGraphView.m */; };
 		C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA192218B6115F003EB859 /* TSCGraphPoint.m */; };
 		C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */; };
@@ -62,10 +68,13 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				C8AC9DC318D70FB40052A256 /* TSCWebViewController.h in CopyFiles */,
 				C829736418B4B13800CA4D59 /* FMDatabase.h in CopyFiles */,
 				C829736518B4B13800CA4D59 /* FMDatabaseAdditions.h in CopyFiles */,
+				C8AC9DC718D711520052A256 /* TSCAppInfoController.h in CopyFiles */,
 				C829736618B4B13800CA4D59 /* FMDatabasePool.h in CopyFiles */,
 				C829736718B4B13800CA4D59 /* FMDatabaseQueue.h in CopyFiles */,
+				C8AC9DCB18D711870052A256 /* UIColor+TSCColor.h in CopyFiles */,
 				C829736818B4B13800CA4D59 /* FMResultSet.h in CopyFiles */,
 				C829734C18B4A67700CA4D59 /* TSCThunderBasics.h in CopyFiles */,
 				C8EA192718B611BC003EB859 /* TSCGraphPoint.h in CopyFiles */,
@@ -116,6 +125,12 @@
 		C829735E18B4B0D200CA4D59 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "Thunder Basics/FMResultSet.m"; sourceTree = "<group>"; };
 		C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+TSCJSONSerialization.h"; sourceTree = "<group>"; };
 		C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+TSCJSONSerialization.m"; sourceTree = "<group>"; };
+		C8AC9DBC18D70F650052A256 /* TSCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCWebViewController.h; sourceTree = "<group>"; };
+		C8AC9DBD18D70F650052A256 /* TSCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCWebViewController.m; sourceTree = "<group>"; };
+		C8AC9DC418D710880052A256 /* TSCAppInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCAppInfoController.h; sourceTree = "<group>"; };
+		C8AC9DC518D710880052A256 /* TSCAppInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCAppInfoController.m; sourceTree = "<group>"; };
+		C8AC9DC818D711810052A256 /* UIColor+TSCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TSCColor.h"; sourceTree = "<group>"; };
+		C8AC9DC918D711810052A256 /* UIColor+TSCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TSCColor.m"; sourceTree = "<group>"; };
 		C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCLineGraphView.h; sourceTree = "<group>"; };
 		C8EA192018B6115F003EB859 /* TSCLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLineGraphView.m; sourceTree = "<group>"; };
 		C8EA192118B6115F003EB859 /* TSCGraphPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCGraphPoint.h; sourceTree = "<group>"; };
@@ -228,6 +243,12 @@
 				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
 				C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */,
 				C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */,
+				C8AC9DBC18D70F650052A256 /* TSCWebViewController.h */,
+				C8AC9DBD18D70F650052A256 /* TSCWebViewController.m */,
+				C8AC9DC418D710880052A256 /* TSCAppInfoController.h */,
+				C8AC9DC518D710880052A256 /* TSCAppInfoController.m */,
+				C8AC9DC818D711810052A256 /* UIColor+TSCColor.h */,
+				C8AC9DC918D711810052A256 /* UIColor+TSCColor.m */,
 				C8EA192518B61163003EB859 /* Graph */,
 				1325EB8318B3DAB200937928 /* Supporting Files */,
 			);
@@ -344,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8AC9DBE18D70F650052A256 /* TSCWebViewController.m in Sources */,
 				1325EB8018B3DA7400937928 /* NSArray+TSCArray.m in Sources */,
 				1325EB7E18B3DA7400937928 /* TSCDatabase.m in Sources */,
 				1325EB8118B3DA7400937928 /* TSCThunderBasics.m in Sources */,
@@ -353,8 +375,10 @@
 				C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */,
 				C829736318B4B0D200CA4D59 /* FMResultSet.m in Sources */,
 				1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */,
+				C8AC9DCA18D711810052A256 /* UIColor+TSCColor.m in Sources */,
 				C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */,
 				C829736018B4B0D200CA4D59 /* FMDatabaseAdditions.m in Sources */,
+				C8AC9DC618D710880052A256 /* TSCAppInfoController.m in Sources */,
 				1325EB8218B3DA7400937928 /* TSCObject.m in Sources */,
 				6560DEE018C4AD0600612964 /* TSCLanguageController.m in Sources */,
 				C829736218B4B0D200CA4D59 /* FMDatabaseQueue.m in Sources */,
