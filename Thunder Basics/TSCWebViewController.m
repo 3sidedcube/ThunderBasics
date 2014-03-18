@@ -16,8 +16,9 @@
 
 - (id)initWithURL:(NSURL *)url
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
+        
+        self.automaticallySetTitle = YES;
         
         if([url.absoluteString hasPrefix:@"www"]){
             self.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", url]];
@@ -29,8 +30,8 @@
         [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
         
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent": @"Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25"}];
-        
     }
+    
     return self;
 }
 
@@ -59,20 +60,29 @@
     UIBarButtonItem *shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(handleShare:)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    
-    self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[self.forwardButtonItem, shareButtonItem, self.backButtonItem];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setToolbarHidden:NO animated:animated];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self.navigationController setToolbarHidden:NO animated:animated];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setToolbarHidden:YES animated:animated];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self.navigationController setToolbarHidden:YES animated:animated];
+    }
 }
 
 - (void)viewWillLayoutSubviews
@@ -122,7 +132,7 @@
     
     self.backButtonItem.enabled = self.webView.canGoBack;
     self.forwardButtonItem.enabled = self.webView.canGoForward;
-    
+
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -153,7 +163,7 @@
 
 - (void)presentLeavingWarning
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Continue" message:@"You now are leaving ASPCA." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open in Safari", nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Continue" message:@"You now are leaving." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open in Safari", nil];
     [alertView show];
 }
 
