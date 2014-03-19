@@ -125,6 +125,7 @@
         
         // Don't plot first one as it looks fucking cray
         if (![[self.points firstObject] isEqual:previousGraphPoint]) {
+            NSLog(@"Point: %@", NSStringFromCGPoint(currentPoint));
             [path addCurveToPoint:currentPoint controlPoint1:controlPoint1 controlPoint2:controlPoint2];
         }
        
@@ -191,6 +192,13 @@
     CGFloat y = (point.yValue.floatValue / maxY) * height;
     CGFloat x = (point.xValue.floatValue / maxX) * width;
     
+    if (isnan(y)) {
+        y = 0;
+    }
+    
+    if (isnan(x)) {
+        x = 0;
+    }
     CGPoint p = CGPointMake(x, y);
     
     return p;
