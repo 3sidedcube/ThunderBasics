@@ -96,6 +96,10 @@
 {
     [self.shapeLayer removeFromSuperlayer];
     
+    for (UILabel *label in self.xLabels) {
+        [label removeFromSuperview];
+    }
+    
     if (CGRectIsEmpty(self.bounds)) {
         return;
     }
