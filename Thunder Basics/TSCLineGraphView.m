@@ -197,7 +197,7 @@
     CGFloat x = (point.xValue.floatValue / maxX) * width;
     
     if (isnan(y)) {
-        y = 0;
+        y = self.bounds.size.height;
     }
     
     if (isnan(x)) {
