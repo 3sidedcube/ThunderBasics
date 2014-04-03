@@ -63,12 +63,12 @@
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        
         self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDone:)];
     } else {
         self.navigationItem.rightBarButtonItems = @[self.forwardButtonItem, shareButtonItem, self.backButtonItem];
     }
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDone:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
