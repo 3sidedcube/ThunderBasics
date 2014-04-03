@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *identifier;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-- (NSDictionary *)serialisableRepresentation;
+- (id)serialisableRepresentation;
 - (NSData *)JSONRepresentation;
 + (BOOL)isSerialisable:(id)object;
 
