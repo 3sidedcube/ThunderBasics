@@ -92,6 +92,8 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
+    self.webView.frame = self.view.bounds;
 }
 
 #pragma mark Refresh
