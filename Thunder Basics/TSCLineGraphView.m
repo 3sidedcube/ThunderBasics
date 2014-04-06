@@ -96,6 +96,10 @@
 {
     [self.shapeLayer removeFromSuperlayer];
     
+    for (UILabel *label in self.xLabels) {
+        [label removeFromSuperview];
+    }
+    
     if (CGRectIsEmpty(self.bounds)) {
         return;
     }
@@ -189,8 +193,16 @@
     CGFloat height = self.bounds.size.height;
 
     CGFloat y = (point.yValue.floatValue / maxY) * height;
+    y = self.bounds.size.height - y;
     CGFloat x = (point.xValue.floatValue / maxX) * width;
     
+    if (isnan(y)) {
+        y = self.bounds.size.height;
+    }
+    
+    if (isnan(x)) {
+        x = 0;
+    }
     CGPoint p = CGPointMake(x, y);
     
     return p;
