@@ -34,14 +34,16 @@
     return self;
 }
 
-- (void)loadView
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     self.webView.scrollView.delegate = self;
     self.webView.backgroundColor = [UIColor whiteColor];
-    self.view = self.webView;
+    [self.view addSubview:self.webView];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:request];
@@ -62,7 +64,6 @@
     
     self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
 }
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -78,6 +79,8 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
+    self.webView.frame = self.view.bounds;
 }
 
 #pragma mark Refresh
