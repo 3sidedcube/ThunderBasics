@@ -40,7 +40,7 @@ static TSCLanguageController *sharedController = nil;
 
 - (NSString *)stringForKey:(NSString *)key
 {
-    return [self stringForKey:key withFallbackString:nil];
+    return [self stringForKey:key withFallbackString:key];
 }
 
 - (NSString *)stringForKey:(NSString *)key withFallbackString:(NSString *)fallbackString
