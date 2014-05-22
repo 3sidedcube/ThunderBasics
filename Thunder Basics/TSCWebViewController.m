@@ -65,7 +65,10 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         
         self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDone:)];
+        if(self.presentedViewController){
+            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDone:)];
+        }
+        
     } else {
         self.navigationItem.rightBarButtonItems = @[self.forwardButtonItem, shareButtonItem, self.backButtonItem];
     }
