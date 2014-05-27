@@ -26,7 +26,6 @@
 		C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7818B3DA7400937928 /* TSCDatabase.h */; };
 		C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */; };
 		C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */; };
-		C829735218B4B00B00CA4D59 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C829735118B4B00B00CA4D59 /* libsqlite3.dylib */; };
 		C829735F18B4B0D200CA4D59 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C829735618B4B0D200CA4D59 /* FMDatabase.m */; };
 		C829736018B4B0D200CA4D59 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C829735818B4B0D200CA4D59 /* FMDatabaseAdditions.m */; };
 		C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C829735A18B4B0D200CA4D59 /* FMDatabasePool.m */; };
@@ -49,6 +48,9 @@
 		C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EA192218B6115F003EB859 /* TSCGraphPoint.m */; };
 		C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EA191F18B6115F003EB859 /* TSCLineGraphView.h */; };
 		C8EA192718B611BC003EB859 /* TSCGraphPoint.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EA192118B6115F003EB859 /* TSCGraphPoint.h */; };
+		C8EDF5471934C29600865852 /* UITabBarController+TSCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EDF5461934C29600865852 /* UITabBarController+TSCTabBarController.m */; };
+		C8EDF5481934C3A400865852 /* UITabBarController+TSCTabBarController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8EDF5451934C29600865852 /* UITabBarController+TSCTabBarController.h */; };
+		C8EDF54D1934C4A500865852 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C829735118B4B00B00CA4D59 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 				C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */,
 				C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */,
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
+				C8EDF5481934C3A400865852 /* UITabBarController+TSCTabBarController.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
 				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
 				65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */,
@@ -135,6 +138,8 @@
 		C8EA192018B6115F003EB859 /* TSCLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLineGraphView.m; sourceTree = "<group>"; };
 		C8EA192118B6115F003EB859 /* TSCGraphPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCGraphPoint.h; sourceTree = "<group>"; };
 		C8EA192218B6115F003EB859 /* TSCGraphPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCGraphPoint.m; sourceTree = "<group>"; };
+		C8EDF5451934C29600865852 /* UITabBarController+TSCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+TSCTabBarController.h"; sourceTree = "<group>"; };
+		C8EDF5461934C29600865852 /* UITabBarController+TSCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+TSCTabBarController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C829735218B4B00B00CA4D59 /* libsqlite3.dylib in Frameworks */,
+				C8EDF54D1934C4A500865852 /* libsqlite3.dylib in Frameworks */,
 				C81982ED18B258BB00659DB7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +254,8 @@
 				C8AC9DC518D710880052A256 /* TSCAppInfoController.m */,
 				C8AC9DC818D711810052A256 /* UIColor+TSCColor.h */,
 				C8AC9DC918D711810052A256 /* UIColor+TSCColor.m */,
+				C8EDF5451934C29600865852 /* UITabBarController+TSCTabBarController.h */,
+				C8EDF5461934C29600865852 /* UITabBarController+TSCTabBarController.m */,
 				C8EA192518B61163003EB859 /* Graph */,
 				1325EB8318B3DAB200937928 /* Supporting Files */,
 			);
@@ -375,6 +382,7 @@
 				C8EA192418B6115F003EB859 /* TSCGraphPoint.m in Sources */,
 				C829736318B4B0D200CA4D59 /* FMResultSet.m in Sources */,
 				1325EB7F18B3DA7400937928 /* NSDictionary+TSCDictionary.m in Sources */,
+				C8EDF5471934C29600865852 /* UITabBarController+TSCTabBarController.m in Sources */,
 				C8AC9DCA18D711810052A256 /* UIColor+TSCColor.m in Sources */,
 				C829736118B4B0D200CA4D59 /* FMDatabasePool.m in Sources */,
 				C829736018B4B0D200CA4D59 /* FMDatabaseAdditions.m in Sources */,
