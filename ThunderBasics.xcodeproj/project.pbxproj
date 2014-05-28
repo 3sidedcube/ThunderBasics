@@ -191,6 +191,21 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		13A92B621936562B000D1DAA /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				1325EB7518B3DA7400937928 /* TSCObject.h */,
+				1325EB7C18B3DA7400937928 /* TSCObject.m */,
+				1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */,
+				1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */,
+				1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */,
+				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
+				C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */,
+				C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
 		6560DEE118C4AD0A00612964 /* Language */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,16 +253,9 @@
 			children = (
 				1325EB7B18B3DA7400937928 /* TSCThunderBasics.h */,
 				1325EB7A18B3DA7400937928 /* TSCThunderBasics.m */,
-				1325EB7518B3DA7400937928 /* TSCObject.h */,
-				1325EB7C18B3DA7400937928 /* TSCObject.m */,
+				13A92B621936562B000D1DAA /* Object */,
 				1325EB7818B3DA7400937928 /* TSCDatabase.h */,
 				1325EB7318B3DA7400937928 /* TSCDatabase.m */,
-				1325EB7418B3DA7400937928 /* NSArray+TSCArray.h */,
-				1325EB7718B3DA7400937928 /* NSArray+TSCArray.m */,
-				1325EB7D18B3DA7400937928 /* NSDictionary+TSCDictionary.h */,
-				1325EB7618B3DA7400937928 /* NSDictionary+TSCDictionary.m */,
-				C875358318B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h */,
-				C875358418B4C44C005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.m */,
 				C8AC9DBC18D70F650052A256 /* TSCWebViewController.h */,
 				C8AC9DBD18D70F650052A256 /* TSCWebViewController.m */,
 				C8AC9DC418D710880052A256 /* TSCAppInfoController.h */,
