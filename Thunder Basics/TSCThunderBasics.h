@@ -18,6 +18,7 @@
 #import "NSArray+TSCArray.h"
 #import "NSDictionary+TSCDictionary.h"
 #import "NSJSONSerialization+TSCJSONSerialization.h"
+#import "UITabBarController+TSCTabBarController.h" 
 
 @interface TSCThunderBasics : NSObject
 

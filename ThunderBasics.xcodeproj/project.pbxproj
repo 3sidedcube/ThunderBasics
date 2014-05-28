@@ -84,8 +84,8 @@
 				C829734E18B4A67700CA4D59 /* TSCDatabase.h in CopyFiles */,
 				C8EA192618B611BB003EB859 /* TSCLineGraphView.h in CopyFiles */,
 				C829734F18B4A67700CA4D59 /* NSArray+TSCArray.h in CopyFiles */,
-				C8EDF5481934C3A400865852 /* UITabBarController+TSCTabBarController.h in CopyFiles */,
 				C829735018B4A67700CA4D59 /* NSDictionary+TSCDictionary.h in CopyFiles */,
+				C8EDF5481934C3A400865852 /* UITabBarController+TSCTabBarController.h in CopyFiles */,
 				C875358618B4C549005F5DC4 /* NSJSONSerialization+TSCJSONSerialization.h in CopyFiles */,
 				65D7830E18C4D0F20074D86D /* TSCLanguageController.h in CopyFiles */,
 			);
