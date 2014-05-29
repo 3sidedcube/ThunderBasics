@@ -7,7 +7,8 @@
 //
 
 #import <MapKit/MapKit.h>
+#import "TSCAnnotation.h"
 
-@interface TSCMapView : MKMapView
+@interface TSCMapView : MKMapView <MKMapViewDelegate>
 
 @end
