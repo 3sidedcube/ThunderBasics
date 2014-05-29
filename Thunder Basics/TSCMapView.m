@@ -166,11 +166,8 @@
         [annotation setParentAnnotation:nil];
         [annotation setCoordinate:containerCoordinate];
 
-        
-        [UIView animateWithDuration:0.5 delay:0.0 usingSpringWithDamping:0.6 initialSpringVelocity:0.3 options:kNilOptions animations:^{
-            
+        [UIView animateWithDuration:0.3 animations:^{
             [annotation setCoordinate:actualCoordinate];
-
         } completion:nil];
     }
 }
