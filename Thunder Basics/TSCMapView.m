@@ -102,19 +102,22 @@
             // Remove annotations that now have a parent
             for (id <TSCAnnotation> annotation in allAnnotationsInBucket) {
                 
-                [annotation setParentAnnotation:annotationForGrid];
-                [annotation setChildAnnotations:nil];
-                
-                if ([visibleAnnotationsInBucket containsObject:annotation]) {
+                if ([annotation respondsToSelector:@selector(setParentAnnotation:)] && [annotation respondsToSelector:@selector(setChildAnnotations:)]) {
                     
-                    CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
-                    [UIView animateWithDuration:0.3 animations:^{
-                        [annotation setCoordinate:[[annotation parentAnnotation] coordinate]];
-                    } completion:^(BOOL finished) {
+                    [annotation setParentAnnotation:annotationForGrid];
+                    [annotation setChildAnnotations:nil];
+                    
+                    if ([visibleAnnotationsInBucket containsObject:annotation]) {
                         
-                        [annotation setCoordinate:actualCoordinate];
-                        [self removeAnnotation:annotation];
-                    }];
+                        CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
+                        [UIView animateWithDuration:0.3 animations:^{
+                            [annotation setCoordinate:[[annotation parentAnnotation] coordinate]];
+                        } completion:^(BOOL finished) {
+                            
+                            [annotation setCoordinate:actualCoordinate];
+                            [self removeAnnotation:annotation];
+                        }];
+                    }
                 }
             }
             
@@ -184,6 +187,10 @@
         for (MKAnnotationView *annotationView in views) {
             
             id <TSCAnnotation> annotation = annotationView.annotation;
+            
+            if (![annotation respondsToSelector:@selector(parentAnnotation)]) {
+                break;
+            }
             
             CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
             CLLocationCoordinate2D containerCoordinate = [[annotation parentAnnotation] coordinate];
