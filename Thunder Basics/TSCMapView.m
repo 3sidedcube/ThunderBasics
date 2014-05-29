@@ -29,8 +29,29 @@
 
 - (void)addAnnotations:(NSArray *)annotations
 {
-    [self.allAnnotationMapView addAnnotations:annotations];
-    [self updateVisibleAnnotations];
+    if (self.shouldGroupAnnotations) {
+        
+        [self.allAnnotationMapView addAnnotations:annotations];
+        [self updateVisibleAnnotations];
+        
+    } else {
+        [super addAnnotations:annotations];
+    }
+}
+
+- (void)setShouldGroupAnnotations:(BOOL)shouldGroupAnnotations
+{
+    [self willChangeValueForKey:@"shouldGroupAnnotations"];
+    _shouldGroupAnnotations = shouldGroupAnnotations;
+    
+    if (shouldGroupAnnotations) {
+        [self addAnnotations:self.annotations];
+    } else {
+        [self removeAnnotations:self.annotations];
+        [super addAnnotations:self.allAnnotationMapView.annotations];
+    }
+    
+    [self didChangeValueForKey:@"shouldGroupAnnotations"];
 }
 
 #pragma mark Helpers
@@ -151,24 +172,29 @@
 
 - (void)regionDidChangeAnimated:(BOOL)animated
 {
-    [self updateVisibleAnnotations];
+    if (self.shouldGroupAnnotations) {
+        [self updateVisibleAnnotations];
+    }
 }
 
 - (void)didAddAnnotationViews:(NSArray *)views
 {
-    for (MKAnnotationView *annotationView in views) {
+    if (self.shouldGroupAnnotations) {
         
-        id <TSCAnnotation> annotation = annotationView.annotation;
-        
-        CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
-        CLLocationCoordinate2D containerCoordinate = [[annotation parentAnnotation] coordinate];
-        
-        [annotation setParentAnnotation:nil];
-        [annotation setCoordinate:containerCoordinate];
-
-        [UIView animateWithDuration:0.3 animations:^{
-            [annotation setCoordinate:actualCoordinate];
-        } completion:nil];
+        for (MKAnnotationView *annotationView in views) {
+            
+            id <TSCAnnotation> annotation = annotationView.annotation;
+            
+            CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
+            CLLocationCoordinate2D containerCoordinate = [[annotation parentAnnotation] coordinate];
+            
+            [annotation setParentAnnotation:nil];
+            [annotation setCoordinate:containerCoordinate];
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                [annotation setCoordinate:actualCoordinate];
+            } completion:nil];
+        }
     }
 }
 
