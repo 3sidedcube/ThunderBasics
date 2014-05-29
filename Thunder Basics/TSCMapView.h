@@ -11,4 +11,7 @@
 
 @interface TSCMapView : MKMapView <MKMapViewDelegate>
 
+- (void)regionDidChangeAnimated:(BOOL)animated;
+- (void)didAddAnnotationViews:(NSArray *)views;
+
 @end

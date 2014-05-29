@@ -11,6 +11,7 @@
 @interface TSCMapView ()
 
 @property (nonatomic, strong) MKMapView *allAnnotationMapView;
+@property (nonatomic, weak) id <MKMapViewDelegate> externalDelegate;
 
 @end
 
@@ -21,7 +22,6 @@
     if (self = [super init]) {
         
         self.allAnnotationMapView = [MKMapView new];
-        self.delegate = self;
     }
     
     return self;
@@ -147,14 +147,14 @@
     return [sortedAnnotations firstObject];
 }
 
-#pragma mark Map View Delegate
+#pragma mark Map View Delegate - sorta
 
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+- (void)regionDidChangeAnimated:(BOOL)animated
 {
     [self updateVisibleAnnotations];
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+- (void)didAddAnnotationViews:(NSArray *)views
 {
     for (MKAnnotationView *annotationView in views) {
         
