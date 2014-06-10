@@ -76,7 +76,7 @@
             [dictionary setObject:object forKey:propertyName];
         }
         
-        if ([object respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([object respondsToSelector:@selector(serialisableRepresentation)]) {
             [dictionary setObject:[(TSCObject *)object serialisableRepresentation] forKey:propertyName];
         }
     }
