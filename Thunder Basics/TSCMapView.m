@@ -39,6 +39,25 @@
     }
 }
 
+- (NSArray *)allAnnotations
+{
+    return self.allAnnotationMapView.annotations;
+}
+
+- (void)removeAnnotations:(NSArray *)annotations
+{
+    if (self.shouldGroupAnnotations) {
+    
+        NSLog(@"REMOVING ANNOTATIONS: %@", annotations) ;
+        [self.allAnnotationMapView removeAnnotations:annotations];
+        [super removeAnnotations:annotations];
+        [self updateVisibleAnnotations];
+
+    } else {
+        [super removeAnnotations:annotations];
+    }
+}
+
 - (void)setShouldGroupAnnotations:(BOOL)shouldGroupAnnotations
 {
     [self willChangeValueForKey:@"shouldGroupAnnotations"];

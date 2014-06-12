@@ -12,6 +12,7 @@
 @interface TSCMapView : MKMapView <MKMapViewDelegate>
 
 @property (nonatomic, assign) BOOL shouldGroupAnnotations;
+@property (nonatomic, strong) NSArray *allAnnotations;
 
 /**
  Should be implemented in their respective MKMapViewDelegate
