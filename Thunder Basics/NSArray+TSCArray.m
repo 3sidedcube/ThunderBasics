@@ -35,4 +35,21 @@
     return json;
 }
 
++ (NSArray *)arrayWithArrayOfDictionaries:(NSArray *)dictionaries rootInstanceType:(Class)classType
+{
+    if (![classType instancesRespondToSelector:@selector(initWithDictionary:)]) {
+        return nil;
+    }
+    
+    NSMutableArray *objects = [NSMutableArray arrayWithCapacity:dictionaries.count];
+
+    for (NSDictionary *dictionary in dictionaries) {
+        
+        id object = [[classType alloc] initWithDictionary:dictionary];
+        [objects addObject:object];
+    }
+    
+    return objects;
+}
+
 @end

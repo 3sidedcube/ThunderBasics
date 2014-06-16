@@ -12,5 +12,6 @@
 
 - (NSArray *)serialisableRepresentation;
 - (NSData *)JSONRepresentation;
++ (NSArray *)arrayWithArrayOfDictionaries:(NSArray *)dictionaries rootInstanceType:(Class)classType;
 
 @end

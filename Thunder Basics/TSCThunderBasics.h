@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
+// Main
 #import "TSCObject.h"
+#import "TSCDatabase.h"
+#import "TSCLineGraphView.h"
+#import "TSCLanguageController.h"
+
+// Categories
 #import "NSArray+TSCArray.h"
 #import "NSDictionary+TSCDictionary.h"
-#import "TSCDatabase.h"
+#import "NSJSONSerialization+TSCJSONSerialization.h"
+#import "UITabBarController+TSCTabBarController.h" 
 
 @interface TSCThunderBasics : NSObject
 
