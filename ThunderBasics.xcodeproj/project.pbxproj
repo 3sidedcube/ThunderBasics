@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
-		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
-		C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA819C8325D004BD339 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA819C8325D004BD339 /* FMDatabaseAdditions.h */; };
 		C272EFD819C8325D004BD339 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA919C8325D004BD339 /* FMDatabaseAdditions.m */; };
-		C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAA19C8325D004BD339 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAA19C8325D004BD339 /* FMDatabasePool.h */; };
 		C272EFDA19C8325D004BD339 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAB19C8325D004BD339 /* FMDatabasePool.m */; };
-		C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAC19C8325D004BD339 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAC19C8325D004BD339 /* FMDatabaseQueue.h */; };
 		C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAD19C8325D004BD339 /* FMDatabaseQueue.m */; };
-		C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAE19C8325D004BD339 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAE19C8325D004BD339 /* FMResultSet.h */; };
 		C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAF19C8325D004BD339 /* FMResultSet.m */; };
 		C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB119C8325D004BD339 /* NSArray+TSCArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFB219C8325D004BD339 /* NSArray+TSCArray.m */; };
@@ -271,9 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */,
-				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
 				C272EFE919C8325D004BD339 /* TSCAlertAction.h in Headers */,
-				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
 				C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */,
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
 				C272EFF019C8325D004BD339 /* TSCDatabase.h in Headers */,
@@ -282,17 +280,19 @@
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
-				C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */,
-				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
 				C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */,
 				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
-				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
 				C272EFEE19C8325D004BD339 /* TSCAppInfoController.h in Headers */,
+				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
+				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
+				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
+				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
+				C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
