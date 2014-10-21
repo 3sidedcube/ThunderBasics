@@ -18,7 +18,6 @@
 		C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAD19C8325D004BD339 /* FMDatabaseQueue.m */; };
 		C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAE19C8325D004BD339 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAF19C8325D004BD339 /* FMResultSet.m */; };
-		C272EFDF19C8325D004BD339 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C272EFB019C8325D004BD339 /* Info.plist */; };
 		C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB119C8325D004BD339 /* NSArray+TSCArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFB219C8325D004BD339 /* NSArray+TSCArray.m */; };
 		C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -375,7 +374,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C272EFDF19C8325D004BD339 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
