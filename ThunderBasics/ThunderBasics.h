@@ -21,23 +21,36 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCDatabase.h>
 #import <ThunderBasics/TSCLineGraphView.h>
 #import <ThunderBasics/TSCLanguageController.h>
+#import <ThunderBasics/TSCAppInfoController.h>
 
-//Views
+// Database
+#import <ThunderBasics/FMDatabase.h>
+#import <ThunderBasics/FMDatabaseAdditions.h>
+#import <ThunderBasics/FMDatabasePool.h>
+#import <ThunderBasics/FMDatabaseQueue.h>
+#import <ThunderBasics/FMResultsSet.h>
+
+// Views
 #import <ThunderBasics/TSCWebViewController.h>
 
-//Maps
+// Maps
 #import <ThunderBasics/TSCAnnotation.h>
+#import <ThunderBasics/TSCMapView.h>
 
-//Categories
-#import <ThunderBasics/UIColor+TSCColor.h>
+// Graphs
+#import <ThunderBasics/TSCGraphPoint.h>
+#import <ThunderBasics/TSCLineGraphView.h>
 
 // Categories
+#import <ThunderBasics/UIColor+TSCColor.h>
 #import <ThunderBasics/NSArray+TSCArray.h>
 #import <ThunderBasics/NSDictionary+TSCDictionary.h>
 #import <ThunderBasics/NSJSONSerialization+TSCJSONSerialization.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/NSDate+TSCDate.h>
+#import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 
+// Alerts
 #import <ThunderBasics/TSCAlertViewController.h>
 #import <ThunderBasics/TSCAlertAction.h>
 
