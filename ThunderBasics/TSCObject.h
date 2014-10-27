@@ -10,8 +10,10 @@
 
 @interface TSCObject : NSObject
 
+/** A subclass of NSObject which allows for easy JSON serialization */
 @property (nonatomic, strong) NSString *identifier;
 
+/**  */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 - (id)serialisableRepresentation;
 - (NSData *)JSONRepresentation;

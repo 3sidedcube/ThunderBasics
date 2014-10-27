@@ -11,11 +11,17 @@
 
 @class TSCAlertAction;
 
+/** The list of available styles available for a TSCAlertViewController */
 typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
+    /** Lays the TSCAlertViewController out in a UIActionSheet style */
     TSCAlertViewControllerStyleActionSheet = 0,
+    /** Lays the TSCAlertViewController out in a UIAlertView style */
     TSCAlertViewControllerStyleAlert = 1
 };
 
+/**
+ `TSCAlertViewController` Is a wraparound for `UIAlertView` and `UIActionSheet` which allows behaviour identical to that of `UIAlertController` when building for iOS 7.
+ */
 @interface TSCAlertViewController : NSObject <UIAlertViewDelegate, UIActionSheetDelegate>
 
 /**
@@ -57,7 +63,7 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
 - (void)addAction:(TSCAlertAction *)action;
 
 /**
- Displays an alert controller that originates from the specified view.
+ @abstract Displays an alert controller that originates from the specified view.
  @param view The view from which the alert controller originates.
  */
 - (void)showInView:(UIView *)view;
