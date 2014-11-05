@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCNotificationHelper.h; sourceTree = "<group>"; };
+		33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCNotificationHelper.m; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
+				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				C272F00419C832B6004BD339 /* Objects */,
 				C272F00519C832DD004BD339 /* Maps */,
@@ -287,6 +293,7 @@
 				C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */,
 				C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */,
 				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
+				33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */,
 				C272EFEE19C8325D004BD339 /* TSCAppInfoController.h in Headers */,
 				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
 				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
@@ -398,6 +405,7 @@
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
+				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
 				C272EFE319C8325D004BD339 /* NSDate+TSCDate.m in Sources */,
 				C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */,
