@@ -47,4 +47,7 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCAlertViewController.h>
 #import <ThunderBasics/TSCAlertAction.h>
 
+// Notifications
+#import <ThunderBasics/TSCNotificationHelper.h>
+
 
