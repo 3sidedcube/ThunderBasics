@@ -21,6 +21,7 @@
 
 /**
  Returns a pretty printed JSON representation of the `NSDictionary`
+ @discussion This method is useful for creating JSON representations of your model objects for use with a JSON API
  */
 - (NSData *)JSONRepresentation;
 
