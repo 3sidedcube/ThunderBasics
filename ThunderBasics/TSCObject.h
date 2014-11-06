@@ -11,13 +11,6 @@
 /** A subclass of NSObject which allows for easy JSON serialization */
 @interface TSCObject : NSObject
 
-/** 
- Initializes a `TSCObject` from it's dictionary representation.
- @discussion As a base class `TSCObject` this uses objective-c runtime to set properties on all objects inheriting from `TSCObject`.
- @param dictionary The dictionary to initialise the object with.
- */
-- (id)initWithDictionary:(NSDictionary *)dictionary;
-
 /**
  Serialises the object to an object which can be sent using a web request.
  @discussion As a base class `TSCObject` returns an `NSDictionary` containing all the properties on your subclass. Override this to implement custom serialisation.
@@ -42,5 +35,16 @@
  @discussion This should always be non-nil.
  */
 @property (nonatomic, strong) NSString *identifier;
+
+///---------------------------------------------------------------------------------------
+/// @name Initialization
+///---------------------------------------------------------------------------------------
+
+/**
+ Initializes a `TSCObject` from it's dictionary representation.
+ @discussion As a base class `TSCObject` this uses objective-c runtime to set properties on all objects inheriting from `TSCObject`.
+ @param dictionary The dictionary to initialise the object with.
+ */
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
