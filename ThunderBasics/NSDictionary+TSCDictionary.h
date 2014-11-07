@@ -14,7 +14,7 @@
 /**
  Serializes the objects within the `NSDictionary`.
  *
- This method recurses through the Array serialising it's contained objects and returning them in an `NSArray`
+ This method recurses through the Dictionary serialising it's contained objects and returning them in an `NSDictionary`
  @see TSCObject
  */
 - (NSDictionary *)serialisableRepresentation;
