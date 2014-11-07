@@ -151,7 +151,6 @@
     }
     
     NSMutableArray *xLabels = [NSMutableArray array];
-//    NSMutableArray *yLabels = [NSMutableArray array];
 
     for (TSCGraphPoint *graphPoint in self.points) {
         
@@ -166,16 +165,6 @@
         
         [self addSubview:xLabel];
         [xLabels addObject:xLabel];
-        
-//        UILabel *yLabel = [UILabel new];
-//        yLabel.text = graphPoint.yLabel;
-//        yLabel.textColor = [UIColor whiteColor];
-//        yLabel.font = [UIFont systemFontOfSize:12];
-//        yLabel.textAlignment = NSTextAlignmentCenter;
-//        yLabel.frame = CGRectMake(0, currentPoint.y, 30, self.bounds.size.width / self.points.count);
-//        
-//        [self addSubview:yLabel];
-//        [xLabels addObject:yLabel];
     }
     
     self.xLabels = xLabels;
@@ -183,10 +172,8 @@
 
 - (CGPoint)normalisedCGPointWithGraphPoint:(TSCGraphPoint *)point maxY:(TSCGraphPoint *)maxYGraphPoint minY:(TSCGraphPoint *)minYGraphPoint maxX:(TSCGraphPoint *)maxXGraphPoint minX:(TSCGraphPoint *)minXGraphPoint
 {
-//    CGFloat minY = minYGraphPoint.yValue.integerValue;
     CGFloat maxY = maxYGraphPoint.yValue.integerValue;
     
-//    CGFloat minX = minXGraphPoint.xValue.integerValue;
     CGFloat maxX = maxXGraphPoint.xValue.integerValue;
     
     CGFloat width = self.bounds.size.width;
@@ -203,6 +190,7 @@
     if (isnan(x)) {
         x = 0;
     }
+    
     CGPoint p = CGPointMake(x, y);
     
     return p;

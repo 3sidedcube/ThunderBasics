@@ -32,10 +32,8 @@
             self.viewControllers = navigationControllers;
             
         } else {
-            
             self.viewControllers = viewControllers;
         }
-    
     }
     
     return self;

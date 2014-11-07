@@ -29,7 +29,6 @@
             } else {
                 NSLog(@"failed to serialize object : %@. Some required data may not be being sent to the server.",object);
             }
-            
         }
     }
     

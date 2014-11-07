@@ -241,7 +241,6 @@
             } else {
                 [annotation setCoordinate:actualCoordinate];
             }
-            
         }
         
         self.supressAnimations = NO;

@@ -19,13 +19,13 @@ static TSCAppInfoController *sharedController = nil;
             sharedController = [[self alloc] init];
         }
     }
+    
     return sharedController;
 }
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init]) {
         
         self.infoDictionary = [[NSBundle mainBundle] infoDictionary];
         
