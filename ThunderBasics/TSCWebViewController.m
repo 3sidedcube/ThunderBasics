@@ -20,7 +20,7 @@
         
         self.automaticallySetTitle = YES;
         
-        if([url.absoluteString hasPrefix:@"www"]){
+        if ([url.absoluteString hasPrefix:@"www"]) {
             self.url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", url]];
         } else {
             self.url = url;
@@ -65,7 +65,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         
         self.toolbarItems = @[self.backButtonItem, flexibleSpace, shareButtonItem, flexibleSpace, self.forwardButtonItem];
-        if(self.presentedViewController){
+        if (self.presentedViewController) {
             self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDone:)];
         }
         
@@ -145,7 +145,6 @@
     
     self.backButtonItem.enabled = self.webView.canGoBack;
     self.forwardButtonItem.enabled = self.webView.canGoForward;
-
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -155,7 +154,7 @@
     
     BOOL isBlackListedAddress = NO;
     
-    for (NSString *word in blackList){
+    for (NSString *word in blackList) {
         
         NSRange wordRange = [address rangeOfString:word];
         
@@ -187,28 +186,5 @@
         [[UIApplication sharedApplication] openURL:self.pendingURL];
     }
 }
-
-#pragma mark Scroll view delegate
-
-/*
- - (void)scrollViewDidScroll:(UIScrollView *)scrollView
- {
- NSLog(@"Gimme scroll");
- 
- CGPoint offset = scrollView.contentOffset;
- UINavigationBar *navigationBar = self.navigationController.navigationBar;
- UIToolbar *toolbar = self.navigationController.toolbar;
- 
- CGPoint barOffset = CGPointMake(0, - offset.y - navigationBar.frame.size.height - 20);
- 
- if (barOffset.y >= 0) {
- barOffset.y = 0;
- }
- 
- navigationBar.transform = CGAffineTransformMakeTranslation(barOffset.x, barOffset.y);
- toolbar.transform = CGAffineTransformMakeTranslation(-barOffset.x, -barOffset.y);
- 
- }*/
-
 
 @end

@@ -8,9 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+/** A category on `NSDictionary` which allows for easy serialization of `NSDictionary` objects */
 @interface NSDictionary (TSCDictionary)
 
+/**
+ Serializes the objects within the `NSDictionary`.
+ *
+ This method recurses through the Dictionary serialising it's contained objects and returning them in an `NSDictionary`
+ @see TSCObject
+ */
 - (NSDictionary *)serialisableRepresentation;
+
+/**
+ Returns a pretty printed JSON representation of the `NSDictionary`
+ @discussion This method is useful for creating JSON representations of your model objects for use with a JSON API
+ */
 - (NSData *)JSONRepresentation;
 
 @end

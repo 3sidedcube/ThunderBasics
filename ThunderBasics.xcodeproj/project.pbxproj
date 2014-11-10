@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
-		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
-		C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA819C8325D004BD339 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA819C8325D004BD339 /* FMDatabaseAdditions.h */; };
 		C272EFD819C8325D004BD339 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA919C8325D004BD339 /* FMDatabaseAdditions.m */; };
-		C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAA19C8325D004BD339 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAA19C8325D004BD339 /* FMDatabasePool.h */; };
 		C272EFDA19C8325D004BD339 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAB19C8325D004BD339 /* FMDatabasePool.m */; };
-		C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAC19C8325D004BD339 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAC19C8325D004BD339 /* FMDatabaseQueue.h */; };
 		C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAD19C8325D004BD339 /* FMDatabaseQueue.m */; };
-		C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAE19C8325D004BD339 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFAE19C8325D004BD339 /* FMResultSet.h */; };
 		C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFAF19C8325D004BD339 /* FMResultSet.m */; };
-		C272EFDF19C8325D004BD339 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C272EFB019C8325D004BD339 /* Info.plist */; };
 		C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB119C8325D004BD339 /* NSArray+TSCArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFB219C8325D004BD339 /* NSArray+TSCArray.m */; };
 		C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCNotificationHelper.h; sourceTree = "<group>"; };
+		33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCNotificationHelper.m; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
+				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				C272F00419C832B6004BD339 /* Objects */,
 				C272F00519C832DD004BD339 /* Maps */,
@@ -272,9 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */,
-				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
 				C272EFE919C8325D004BD339 /* TSCAlertAction.h in Headers */,
-				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
 				C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */,
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
 				C272EFF019C8325D004BD339 /* TSCDatabase.h in Headers */,
@@ -283,17 +286,20 @@
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
-				C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */,
-				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
 				C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */,
 				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
-				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
+				33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */,
 				C272EFEE19C8325D004BD339 /* TSCAppInfoController.h in Headers */,
+				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
+				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
+				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
+				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
+				C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C272EFDF19C8325D004BD339 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +405,7 @@
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
+				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
 				C272EFE319C8325D004BD339 /* NSDate+TSCDate.m in Sources */,
 				C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */,
@@ -516,6 +522,7 @@
 		C272EF9819C831AC004BD339 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -523,7 +530,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ThunderBasics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -533,6 +540,7 @@
 		C272EF9919C831AC004BD339 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -540,7 +548,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ThunderBasics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

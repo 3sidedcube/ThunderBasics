@@ -115,7 +115,7 @@
             NSMutableSet *allAnnotationsInBucket = [[self.allAnnotationMapView annotationsInMapRect:gridMapRect] mutableCopy];
             NSSet *visibleAnnotationsInBucket = [self annotationsInMapRect:gridMapRect];
             
-            id <TSCAnnotation> annotationForGrid = [self annotationInGrid:gridMapRect usingAnnotations:allAnnotationsInBucket];
+            id annotationForGrid = [self annotationInGrid:gridMapRect usingAnnotations:allAnnotationsInBucket];
             
             if (annotationForGrid && [annotationForGrid respondsToSelector:@selector(childAnnotations)]) {
                 
@@ -216,7 +216,7 @@
         
         for (MKAnnotationView *annotationView in views) {
             
-            id <TSCAnnotation> annotation = annotationView.annotation;
+            id annotation = annotationView.annotation;
             
             if (![annotation respondsToSelector:@selector(parentAnnotation)]) {
                 break;
@@ -241,7 +241,6 @@
             } else {
                 [annotation setCoordinate:actualCoordinate];
             }
-            
         }
         
         self.supressAnimations = NO;

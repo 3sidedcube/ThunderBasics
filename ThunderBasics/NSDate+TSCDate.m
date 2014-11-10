@@ -42,7 +42,6 @@
     } else {
         
         dateFormatString = @"yyyy-MM-dd";
-        
     }
     
     NSDateFormatter *dateFormat = [NSDateFormatter new];
