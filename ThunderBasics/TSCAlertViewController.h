@@ -11,7 +11,7 @@
 
 @class TSCAlertAction;
 
-/** The list of available styles available for a TSCAlertViewController */
+/** The styles available for a TSCAlertViewController */
 typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
     /** Lays the TSCAlertViewController out in a UIActionSheet style */
     TSCAlertViewControllerStyleActionSheet = 0,
