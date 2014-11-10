@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ A wrapper on `UIColor` which adds useful methods.
+ */
 @interface UIColor (TSCColor)
 
+/**
+ Returns a UIColor for a given hex string.
+ @param hexString The hex string to return a `UIColor` instance of.
+ */
 + (UIColor *)colorWithHexString:(NSString *)hexString;
 
 @end

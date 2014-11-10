@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+/** The styles available for a `TSCAlertAction` */
 typedef NS_ENUM(NSInteger, TSCAlertActionStyle) {
+    /** The default style for a `TSCAlertAction` */
     TSCAlertActionStyleDefault = 0,
+    /** The 'cancel button' style for a `TSCAlertAction` */
     TSCAlertActionStyleCancel = 1,
+    /** The 'destructive button' style for a `TSCAlertAction` */
     TSCAlertActionStyleDestructive = 2
 };
 

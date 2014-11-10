@@ -8,13 +8,34 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ `TSCAppInfoController` allows easy access to app information pulled from the info.plist file.
+ */
 @interface TSCAppInfoController : NSObject
 
+/**
+ Returns a shared instance of `TSCAppInfoController`
+ */
 + (TSCAppInfoController *)sharedController;
 
+/**
+ @abstract The info dictionary of the main bundle.
+ */
 @property (nonatomic, strong) NSDictionary *infoDictionary;
+
+/**
+ @abstract The display name of the main bundle.
+ */
 @property (nonatomic, strong) NSString *bundleDisplayName;
+
+/**
+ @abstract The version number of the main bundle.
+ */
 @property (nonatomic, strong) NSString *bundleVersion;
+
+/**
+ @abstract The bundle identifier of the main bundle.
+ */
 @property (nonatomic, strong) NSString *bundleIdentifier;
 
 @end

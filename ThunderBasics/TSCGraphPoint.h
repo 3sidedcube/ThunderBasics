@@ -8,11 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ `TSCGraphPoint` represents a single data point on a 2-dimensional cartesian coordinate system graph.
+ */
 @interface TSCGraphPoint : NSObject
 
+/**
+ @abstract The x value of the data point.
+ */
 @property (nonatomic, strong) NSNumber *xValue;
+
+/**
+ @abstract The y value of the data point.
+ */
 @property (nonatomic, strong) NSNumber *yValue;
+
+/**
+ @abstract The label to be displayed on the x axis on the graph for this data point.
+ */
 @property (nonatomic, strong) NSString *xLabel;
+
+/**
+ @abstract The label to be displayed on the y axis on the graph for this data point.
+ */
 @property (nonatomic, strong) NSString *yLabel;
 
 @end

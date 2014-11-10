@@ -9,21 +9,42 @@
 #import <MapKit/MapKit.h>
 #import "TSCAnnotation.h"
 
+/**
+ `TSCMapView` is a subclass of MKMapView with added grouping of annotations.
+ */
 @interface TSCMapView : MKMapView <MKMapViewDelegate>
 
+/**
+ @abstract A boolean which determines whether the MapView should group annotations or not.
+ */
 @property (nonatomic, assign) BOOL shouldGroupAnnotations;
+
+/**
+ @abstract An array of all the annotations present on the `TSCMapView`.
+ @discussion This is an array of the separate annotations pulled out of their groups.
+ */
 @property (nonatomic, strong) NSArray *allAnnotations;
+
+/**
+ @abstract An array of grouped annotations present on the `TSCMapView`
+ */
 @property (nonatomic, strong) NSMutableArray *groupedAnnotations;
 
+/**
+ This method re-organizes the annotations into the correct groups.
+ @discussion This method is called internally when adding or removing annotations and when the user scrolls the `TSCMapView`. You should not need to call it yourself.
+ */
 - (void)updateVisibleAnnotations;
 
 /**
- Should be implemented in their respective MKMapViewDelegate
+ This method should be implemented in your respective MKMapViewDelegate.
+ @param animated Whether the region change was animated or not.
  */
 - (void)regionDidChangeAnimated:(BOOL)animated;
 
 /**
- Should be implemented in their respective MKMapViewDelegate
+ This method Should be implemented in your respective MKMapViewDelegate.
+ @param views The annotation views which were added to the `TSCMapView`.
  */
 - (void)didAddAnnotationViews:(NSArray *)views;
 
