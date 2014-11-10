@@ -12,37 +12,37 @@ Setting up your app to use Thunder Basics is a simple and quick process. For now
 
 #Tools
 
-##TSCAlertController
+###TSCAlertController
 Block based alert and action sheet system.
 
-##TSCMapView
+###TSCMapView
 Standard iOS Map View with support for grouping pins.
 
-##TSCLineGraphView
+###TSCLineGraphView
 Customisable line graph control for plotting data.
 
-##TSCWebViewController
+###TSCWebViewController
 Web view with all the standard browser controls added.
 
-##TSCAppInfoController
+###TSCAppInfoController
 Allows easy access to properties in the info.plist.
 
-##UIColor+TSCColor
+###UIColor+TSCColor
 Adds support for hex colours to UIColor.
 
-##TSCDatabase
+###TSCDatabase
 Takes object models and stores them into a sqlite database. (Basically an easier version of Apples Core Data)
 
-##TSCObject
+###TSCObject
 Base object that adds serialisation to NSObjects. (All properties from the subclassing objects will be serialised)
 
-##NSJSONSerialization+TSCJSONSerialization
+###NSJSONSerialization+TSCJSONSerialization
 Adds JSON serialisation from a file path
 
-##NSArray+TSCArray
+###NSArray+TSCArray
 Adds easy serialisation of JSON arrays into models.
 
-##NSDictionary+TSCDictionary
+###NSDictionary+TSCDictionary
 Adds easy serialisation of JSON Dictionarys into models.
 
 #License
