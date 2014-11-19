@@ -115,6 +115,7 @@
 - (void)handleShare:(id)sender
 {
     UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.url] applicationActivities:nil];
+    viewController.popoverPresentationController.barButtonItem = sender;
     [self presentViewController:viewController animated:YES completion:nil];
 }
 
