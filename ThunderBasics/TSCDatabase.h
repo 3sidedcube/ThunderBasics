@@ -25,7 +25,7 @@
 /**
  Initializes the `TSCDatabaseObject`
  @param path The path to the database which should be loaded.
-*/
+ */
 + (id)databaseWithPath:(NSString *)path;
 
 /**
@@ -41,13 +41,13 @@
 /**
  @abstract The path of the database.
  */
-@property (nonatomic, strong) NSString *databasePath;
+@property (nonatomic, copy) NSString *databasePath;
 
 /**
  @abstract The path of the cached database.
  @discussion The database is moved to a cached location where in which file editing is allowed. This keeps track of where that cached version is kept.
  */
-@property (nonatomic, strong) NSString *cachedDatabasePath;
+@property (nonatomic, copy) NSString *cachedDatabasePath;
 
 /**
  @abstract The directory which database caches are stored in.

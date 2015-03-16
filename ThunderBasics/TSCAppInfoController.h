@@ -26,16 +26,16 @@
 /**
  @abstract The display name of the main bundle.
  */
-@property (nonatomic, strong) NSString *bundleDisplayName;
+@property (nonatomic, copy) NSString *bundleDisplayName;
 
 /**
  @abstract The version number of the main bundle.
  */
-@property (nonatomic, strong) NSString *bundleVersion;
+@property (nonatomic, copy) NSString *bundleVersion;
 
 /**
  @abstract The bundle identifier of the main bundle.
  */
-@property (nonatomic, strong) NSString *bundleIdentifier;
+@property (nonatomic, copy) NSString *bundleIdentifier;
 
 @end
