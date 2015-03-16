@@ -31,7 +31,7 @@
     return output;
 }
 
--(NSString *)stringByStrippingHTML {
+- (NSString *)stringByStrippingHTML {
     
     NSRange htmlTagRange;
     NSString *string = [NSString stringWithFormat:@"%@",self];

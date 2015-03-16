@@ -10,8 +10,17 @@
 
 @interface NSString (TSCEncoding)
 
+/**
+ Encodes a string to remove characters incompatible with URL's
+ @note Unsure why this exists, as `stringByAddingPercentEscapesUsingEncoding:` should have the same effect
+ @return a URL encoded string
+ */
 - (NSString *)urlEncodedString;
 
+/**
+ Strips HTML from an NSString
+ @return A string with no HTML tags in it
+ */
 - (NSString *)stringByStrippingHTML;
 
 @end
