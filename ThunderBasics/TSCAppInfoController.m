@@ -23,7 +23,7 @@ static TSCAppInfoController *sharedController = nil;
     return sharedController;
 }
 
-- (id)init
+- (instancetype)init
 {
     if (self = [super init]) {
         

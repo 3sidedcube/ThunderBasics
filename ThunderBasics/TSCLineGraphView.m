@@ -115,10 +115,10 @@
     TSCGraphPoint *minXGraphPoint = [xSortedPoints firstObject];
     
     UIBezierPath *path = [UIBezierPath new];
-
+    
     TSCGraphPoint *previousGraphPoint = [self.points firstObject];
     [path moveToPoint:[self normalisedCGPointWithGraphPoint:previousGraphPoint maxY:maxYGraphPoint minY:minYGraphPoint maxX:maxXGraphPoint minX:minXGraphPoint]];
-
+    
     for (TSCGraphPoint *graphPoint in self.points) {
         
         CGPoint previousPoint = [self normalisedCGPointWithGraphPoint:previousGraphPoint maxY:maxYGraphPoint minY:minYGraphPoint maxX:maxXGraphPoint minX:minXGraphPoint];
@@ -131,7 +131,7 @@
         if (![[self.points firstObject] isEqual:previousGraphPoint]) {
             [path addCurveToPoint:currentPoint controlPoint1:controlPoint1 controlPoint2:controlPoint2];
         }
-       
+        
         previousGraphPoint = graphPoint;
     }
     
@@ -151,11 +151,11 @@
     }
     
     NSMutableArray *xLabels = [NSMutableArray array];
-
+    
     for (TSCGraphPoint *graphPoint in self.points) {
         
         CGPoint currentPoint  = [self normalisedCGPointWithGraphPoint:graphPoint maxY:maxYGraphPoint minY:minYGraphPoint maxX:maxXGraphPoint minX:minXGraphPoint];
-
+        
         UILabel *xLabel = [UILabel new];
         xLabel.text = graphPoint.xLabel;
         xLabel.textColor = [UIColor whiteColor];
@@ -178,7 +178,7 @@
     
     CGFloat width = self.bounds.size.width;
     CGFloat height = self.bounds.size.height;
-
+    
     CGFloat y = (point.yValue.floatValue / maxY) * height;
     y = self.bounds.size.height - y;
     CGFloat x = (point.xValue.floatValue / maxX) * width;

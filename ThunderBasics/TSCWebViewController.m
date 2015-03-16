@@ -14,7 +14,7 @@
 
 @implementation TSCWebViewController
 
-- (id)initWithURL:(NSURL *)url
+- (instancetype)initWithURL:(NSURL *)url
 {
     if (self = [super init]) {
         
@@ -52,7 +52,7 @@
     [self.webView.scrollView addSubview:self.refreshControl];
     
     UIImage *navigationBackImage = [UIImage imageNamed:@"TSCBackButton"];
-    UIImage *navigationForwardImage = [UIImage imageWithCGImage:navigationBackImage.CGImage scale:2.0 orientation: UIImageOrientationRight];
+    UIImage *navigationForwardImage = [UIImage imageNamed:@"TSCForwardButton"];
     
     self.backButtonItem = [[UIBarButtonItem alloc] initWithImage:navigationBackImage style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
     self.backButtonItem.enabled = NO;
@@ -115,8 +115,16 @@
 - (void)handleShare:(id)sender
 {
     UIActivityViewController *viewController = [[UIActivityViewController alloc] initWithActivityItems:@[self.url] applicationActivities:nil];
-    viewController.popoverPresentationController.barButtonItem = sender;
-    [self presentViewController:viewController animated:YES completion:nil];
+    
+    if ([viewController respondsToSelector:@selector(popoverPresentationController)]) {
+        viewController.popoverPresentationController.barButtonItem = sender;
+    }
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && ![viewController respondsToSelector:@selector(popoverPresentationController)]) {
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:viewController animated:YES completion:nil];
+    } else {
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
 }
 
 - (void)handleBack:(id)sender
@@ -131,10 +139,6 @@
 
 #pragma mark Webview delegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
-{
-    [self.refreshControl beginRefreshing];
-}
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
@@ -169,6 +173,17 @@
         self.pendingURL = request.URL;
         [self presentLeavingWarning];
         return NO;
+    }
+    
+    if ([[[request URL] scheme] isEqualToString:@"itms-apps"] || [[[request URL] scheme] isEqualToString:@"itms-appss"]) {
+        [webView stopLoading];
+        [[UIApplication sharedApplication] openURL:[request URL]];
+        [self.navigationController popViewControllerAnimated:YES];
+        return NO;
+    }
+    
+    if([request.URL.absoluteString rangeOfString:@"mp3"].location != NSNotFound) {
+        [self.refreshControl beginRefreshing];
     }
     
     return YES;

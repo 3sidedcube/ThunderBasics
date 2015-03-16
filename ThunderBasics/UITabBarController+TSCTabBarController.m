@@ -10,12 +10,12 @@
 
 @implementation UITabBarController (TSCTabBarController)
 
-- (id)initWithViewControllers:(NSArray *)viewControllers
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers
 {
     return [self initWithViewControllers:viewControllers nestInsideNavigationControllers:NO];
 }
 
-- (id)initWithViewControllers:(NSArray *)viewControllers nestInsideNavigationControllers:(BOOL)nest
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers nestInsideNavigationControllers:(BOOL)nest
 {
     if (self = [super init]) {
         

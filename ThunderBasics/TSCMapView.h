@@ -48,4 +48,8 @@
  */
 - (void)didAddAnnotationViews:(NSArray *)views;
 
+- (void)fitMapToPolygons:(NSArray *)polygons;
+
+- (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated;
+
 @end

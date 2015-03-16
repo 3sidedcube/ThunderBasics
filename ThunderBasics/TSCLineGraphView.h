@@ -13,8 +13,8 @@
 
 /**
  This protocol can be implemented to provide data to a `TSCLineGraphView` instance. It allows for:
-    - providing data points to the `TSCLineGraphView`
-    - Providing labels for the `TSCLineGraphView`
+ - providing data points to the `TSCLineGraphView`
+ - Providing labels for the `TSCLineGraphView`
  */
 @protocol TSCGraphViewDataSource <NSObject>
 
@@ -72,7 +72,7 @@
 /**
  @abstract The object which will be used to provide data to the `TSCLineGraphView`.
  @discussion Setting this property will perform an animated reload of the graph.
-*/
+ */
 @property (nonatomic, weak) id <TSCGraphViewDataSource> dataSource;
 
 /**

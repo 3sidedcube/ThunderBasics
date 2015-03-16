@@ -11,7 +11,7 @@
 
 @implementation TSCObject
 
-- (id)init
+- (instancetype)init
 {
     if (self = [super init]) {
         
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (id)initWithDictionary:(NSDictionary *)dictionary
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     if (self = [self init]) {
         
@@ -50,8 +50,16 @@
         }
         
         if ([self respondsToSelector:NSSelectorFromString(keyName)]) {
-            
             [self setValue:dictionary[key] forKey:keyName];
+        } else {
+            
+            NSString *firstLetter = [[keyName substringToIndex:1] lowercaseString];
+            NSString *lowercaseKey = [keyName substringFromIndex:1];
+            lowercaseKey = [NSString stringWithFormat:@"%@%@",firstLetter,lowercaseKey];
+            
+            if ([self respondsToSelector:NSSelectorFromString(lowercaseKey)]) {
+                [self setValue:dictionary[key] forKey:lowercaseKey];
+            }
         }
     }
 }
@@ -119,6 +127,26 @@
     }
     
     return NO;
+}
+
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath context:(void *)context
+{
+    @try {
+        [super removeObserver:observer forKeyPath:keyPath context:context];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Failed to remove observer with exception : %@",exception);
+    }
+}
+
+- (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath
+{
+    @try {
+        [super removeObserver:observer forKeyPath:keyPath];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Failed to remove observer with exception : %@",exception);
+    }
 }
 
 @end

@@ -41,7 +41,14 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/NSJSONSerialization+TSCJSONSerialization.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/NSDate+TSCDate.h>
+#import <ThunderBasics/UIView+TSCView.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
+#import <ThunderBasics/NSTimer+Blocks.h>
+#import <ThunderBasics/NSString+TSCEncoding.h>
+
+//Toasts
+#import <ThunderBasics/TSCToastView.h>
+#import <ThunderBasics/TSCToastNotificationController.h>
 
 // Alerts
 #import <ThunderBasics/TSCAlertViewController.h>
@@ -49,5 +56,9 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 
 // Notifications
 #import <ThunderBasics/TSCNotificationHelper.h>
+
+//Controllers
+#import <ThunderBasics/TSCContactsController.h>
+#import <ThunderBasics/TSCiCloudController.h>
 
 
