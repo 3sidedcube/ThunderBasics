@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ A block called for each view when enumerating over subviews using `enumerateSubviewsUsingHandler:`
+ */
 typedef void (^TSCViewEnumerationHandler)(UIView *view, BOOL *stop);
 
+/**
+ This category adds useful methods for resizing and repositioning UIView's without having to worry about duplicating frame references
+ */
 @interface UIView (TSCView)
 
 /**
@@ -44,7 +50,7 @@ typedef void (^TSCViewEnumerationHandler)(UIView *view, BOOL *stop);
 
 /**
  Moves the view's centre y coordinate to the given position
- @param Y The x value to set the frames centre point to
+ @param y The x value to set the frames centre point to
  */
 - (void)setCenterY:(float)y;
 

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Adds additional encoding methods to NSString
+ */
 @interface NSString (TSCEncoding)
 
 /**

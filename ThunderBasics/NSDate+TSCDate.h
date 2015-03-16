@@ -11,11 +11,17 @@
 #define kDateRangeStartKey @"start"
 #define kDateRangeEndKey @"end"
 
+/** Options available when calculating a date range*/
 typedef NS_OPTIONS(NSInteger, NSDateRangeOptions) {
-    NSDateRangeOptionIncludeOriginalDay           = 1 << 1,
-    NSDateRangeOptionIncludeOriginalWeek             = 1 << 2,
+    /** Include the original day in the date calculation*/
+    NSDateRangeOptionIncludeOriginalDay = 1 << 1,
+    /** Include the original week in the date calculation*/
+    NSDateRangeOptionIncludeOriginalWeek = 1 << 2,
+    /** Include the original month in the date calculation*/
     NSDateRangeOptionIncludeOriginalMonth = 1 << 3,
+    /** Unknown */
     NSDateRangeOptionDirectionFuture = 1 << 6,
+    /** Specifies that the week starts on a Sunday, not a Monday */
     NSDateRangeOptionWeekStartsOnSunday = 1 << 7
 };
 

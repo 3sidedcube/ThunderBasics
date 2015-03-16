@@ -19,6 +19,9 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
     TSCAlertViewControllerStyleAlert = 1
 };
 
+/**
+ A block that allows customisation of a text field in the alert view
+ */
 typedef void (^TSCAlertTextFieldConfigurationHandler)(UITextField *textField);
 
 /**

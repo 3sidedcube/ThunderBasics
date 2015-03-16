@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, TSCAlertActionStyle) {
  */
 @interface TSCAlertAction : NSObject
 
+/**
+ A block called when an alert action is selected
+ */
 typedef void (^TSCAlertActionHandler)(TSCAlertAction *action);
 
 /**

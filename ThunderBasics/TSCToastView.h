@@ -10,7 +10,14 @@
 
 @class TSCToastView;
 
+/**
+ A block that will be called when a toast view is tapped
+ */
 typedef void (^TSCToastViewActionHandler)(TSCToastView *toastView);
+
+/**
+ The block that will be called when a toast has been displayed
+ */
 typedef void (^TSCToastDisplayCompletion)(void);
 
 /**

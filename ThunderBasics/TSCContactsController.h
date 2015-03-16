@@ -21,6 +21,9 @@
  */
 @interface TSCContactsController : NSObject
 
+/**
+ The block that will be called when a people picker has been used and person has been selected
+ */
 typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerson, NSError *error);
 
 /**
@@ -109,7 +112,7 @@ typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerso
 
 /**
  Extracts an array of Addressbook Ids objects for the provided identifiers
- @param array An array of `TSCPeople` objects
+ @param people An array of `TSCPeople` objects
  @return An array of NSNumbers that identify contacts in the addressbook database
  */
 - (NSArray *)addressbookIdsforPeople:(NSArray *)people;

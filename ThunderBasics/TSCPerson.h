@@ -35,7 +35,7 @@
 
 /**
  Generates a placeholder image using the users initials
- @param intials An NSString of initials to put into the placeholder image
+ @param initials An NSString of initials to put into the placeholder image
  @return An image consisting of a grey circle with overlaying initial text.
  */
 - (UIImage *)contactPlaceholderWithIntitials:(NSString *)initials;

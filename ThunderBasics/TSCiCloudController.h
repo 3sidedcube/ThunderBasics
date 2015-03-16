@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ The block called when iCloud performs it's initial sync
+ */
 typedef void (^TSCiCloudSyncHandler)();
 
 /**
