@@ -173,7 +173,6 @@ static TSCAlertViewController *sharedController = nil;
     
     if (self.textHandlers.count > 2) {
         return UIAlertViewStyleLoginAndPasswordInput;
-        NSLog(@"No more than two text fields are supported in a UIAlertView at any one time.");
     }
     
     return UIAlertViewStyleDefault;
