@@ -11,8 +11,8 @@
 /**
  An ease of use subclass of `UIViewController` for displaying web pages.
  By default the `TSCWebViewController` has:
-    - Back and forward buttons.
-    - Pull to refresh.
+ - Back and forward buttons.
+ - Pull to refresh.
  */
 @interface TSCWebViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate>
 
@@ -56,6 +56,6 @@
  Initializes a `TSCWebViewController` with a certain url.
  @param url The url which the `TSCWebViewController` will display.
  */
-- (id)initWithURL:(NSURL *)url;
+- (instancetype)initWithURL:(NSURL *)url;
 
 @end
