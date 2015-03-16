@@ -29,6 +29,8 @@
 		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
 		49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */; };
 		49CF134C1AB6DEC900AA5971 /* NSString+TSCEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */; };
+		49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */; };
+		49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -100,6 +102,8 @@
 		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
 		49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSCEncoding.h"; sourceTree = "<group>"; };
 		49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSCEncoding.m"; sourceTree = "<group>"; };
+		49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
+		49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
 				49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */,
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
+				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
+				49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
 				C272EFD719C8325D004BD339 /* FMDatabaseAdditions.h in Headers */,
 				49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */,
+				49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */,
 				49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +550,7 @@
 				C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */,
 				C272EFF919C8325D004BD339 /* TSCMapView.m in Sources */,
 				C272EFF719C8325D004BD339 /* TSCLineGraphView.m in Sources */,
+				49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */,
 				C272EFD819C8325D004BD339 /* FMDatabaseAdditions.m in Sources */,
 				49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */,
 				C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */,
