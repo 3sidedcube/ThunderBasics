@@ -12,15 +12,15 @@
 
 @interface TSCPerson : NSObject
 
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *fullName;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSString *fullName;
 @property (nonatomic, strong) NSArray *numbers;
-@property (nonatomic, strong) NSString *email;
+@property (nonatomic, copy) NSString *email;
 @property (nonatomic, strong) UIImage *photo;
 @property (nonatomic, strong) UIImage *largeImage;
 @property (nonatomic, strong) NSNumber *recordNumber;
-@property (nonatomic, strong) NSString *mobileNumber;
+@property (nonatomic, copy) NSString *mobileNumber;
 @property (nonatomic, assign) BOOL hasPlaceholderImage;
 @property (nonatomic, strong) id <NSObject> observer;
 
