@@ -225,6 +225,8 @@
 				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
 				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
 				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
+				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
+				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -264,8 +266,6 @@
 				C272F00619C832F6004BD339 /* Graph */,
 				C272F00719C83311004BD339 /* Language */,
 				C272F00819C83332004BD339 /* FMDB */,
-				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
-				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
 				C272EFBA19C8325D004BD339 /* TSCAlertAction.h */,
 				C272EFBB19C8325D004BD339 /* TSCAlertAction.m */,
 				C272EFBC19C8325D004BD339 /* TSCAlertViewController.h */,
