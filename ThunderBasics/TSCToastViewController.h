@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ This class is created and used automatically by a `TSCToastView` when it is presented.
+ 
+ Toasts are displayed inside this view.
+ 
+ This view is needed because in order to present a toast above everything else a new UIWindow is created and displayed, and a window must have root view controller.
+ 
+ This root view controller allows us to access and use the statusBarStyle
+ */
 @interface TSCToastViewController : UIViewController
 
+/**
+ The current status bar style of the view
+ */
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @end

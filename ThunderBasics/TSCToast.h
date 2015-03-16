@@ -11,13 +11,38 @@
 @import UIKit;
 @class TSCToastView;
 
+/**
+ An instance of a toast operation to be presented to the user
+ */
 @interface TSCToast : NSOperation
 
+/**
+ The view that will be displayed when the toast operation is begun
+ @discussion This must be an instance of `TSCToastView`
+ */
 @property (nonatomic, strong) TSCToastView *toastView;
+
+/**
+ The view that will present the toast
+ */
 @property (nonatomic, strong) UIView *presentingView;
 
+/**
+ Whether or not the operation is currently being executed
+ */
 @property (nonatomic, assign) BOOL isExecuting;
+
+/**
+ Whether or not the operation is finished
+ */
 @property (nonatomic, assign) BOOL isFinished;
+
+/**
+ Whether or not the operation is to be completed asynchronously
+ @discussion This property will always be FALSE
+ @return FALSE
+ @warning Do not override this method
+ */
 @property (nonatomic, assign) BOOL isAsynchronous;
 
 @end

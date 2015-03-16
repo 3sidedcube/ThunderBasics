@@ -15,6 +15,10 @@ typedef void (^TSCiCloudSyncHandler)();
  */
 @interface TSCiCloudController : NSObject
 
+/**
+ Checks if iCloud is enabled on the current device
+ @return YES if iCloud is enabled
+ */
 + (BOOL)iCloudEnabled;
 
 /**
@@ -40,6 +44,10 @@ typedef void (^TSCiCloudSyncHandler)();
  */
 - (void)initialSyncWithCompletionHandler:(TSCiCloudSyncHandler)handler;
 
+/**
+ The identifier of the app group that should be used to save and read user defaults
+ @discussion If this property is nil, standard user defaults will be used
+ */
 @property (nonatomic, copy) NSString *appGroup;
 
 @end
