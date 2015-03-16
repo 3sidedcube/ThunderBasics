@@ -258,6 +258,17 @@
 			name = "Web controller";
 			sourceTree = "<group>";
 		};
+		49CF13521AB6E08C00AA5971 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFBA19C8325D004BD339 /* TSCAlertAction.h */,
+				C272EFBB19C8325D004BD339 /* TSCAlertAction.m */,
+				C272EFBC19C8325D004BD339 /* TSCAlertViewController.h */,
+				C272EFBD19C8325D004BD339 /* TSCAlertViewController.m */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
 		C272EF7A19C831AB004BD339 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +298,7 @@
 				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
 				49CF13401AB6DB6300AA5971 /* Helpers */,
 				49CF13511AB6E01D00AA5971 /* Web controller */,
+				49CF13521AB6E08C00AA5971 /* Alerts */,
 				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				C272F00419C832B6004BD339 /* Objects */,
@@ -294,10 +306,6 @@
 				C272F00619C832F6004BD339 /* Graph */,
 				C272F00719C83311004BD339 /* Language */,
 				C272F00819C83332004BD339 /* FMDB */,
-				C272EFBA19C8325D004BD339 /* TSCAlertAction.h */,
-				C272EFBB19C8325D004BD339 /* TSCAlertAction.m */,
-				C272EFBC19C8325D004BD339 /* TSCAlertViewController.h */,
-				C272EFBD19C8325D004BD339 /* TSCAlertViewController.m */,
 				C272EF8719C831AB004BD339 /* Supporting Files */,
 			);
 			path = ThunderBasics;
