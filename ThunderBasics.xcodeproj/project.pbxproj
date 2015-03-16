@@ -23,6 +23,8 @@
 		49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13331AB6D8FC00AA5971 /* TSCToastView.m */; };
 		49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13341AB6D8FC00AA5971 /* TSCToastViewController.h */; };
 		49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */; };
+		49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */; };
+		49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -88,6 +90,8 @@
 		49CF13331AB6D8FC00AA5971 /* TSCToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastView.m; sourceTree = "<group>"; };
 		49CF13341AB6D8FC00AA5971 /* TSCToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCToastViewController.h; sourceTree = "<group>"; };
 		49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastViewController.m; sourceTree = "<group>"; };
+		49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TSCImage.h"; sourceTree = "<group>"; };
+		49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TSCImage.m"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 			name = Database;
 			sourceTree = "<group>";
 		};
+		49CF13401AB6DB6300AA5971 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */,
+				49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		C272EF7A19C831AB004BD339 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +252,7 @@
 				49CF133E1AB6D92E00AA5971 /* Apps */,
 				49CF133F1AB6D98F00AA5971 /* Database */,
 				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
+				49CF13401AB6DB6300AA5971 /* Helpers */,
 				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				C272F00419C832B6004BD339 /* Objects */,
@@ -359,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */,
+				49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */,
 				C272EFE919C8325D004BD339 /* TSCAlertAction.h in Headers */,
 				C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */,
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
@@ -489,6 +504,7 @@
 			files = (
 				C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */,
 				C272EFFF19C8325D004BD339 /* TSCWebViewController.m in Sources */,
+				49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */,
 				C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */,
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
