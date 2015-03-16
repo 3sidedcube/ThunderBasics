@@ -19,7 +19,12 @@
 /**
  @abstract A string representing the currently set language.
  */
-@property (nonatomic, strong) NSString *currentLanguage;
+@property (nonatomic, copy) NSString *currentLanguage;
+
+/**
+ @abstract A string representing the currently set language short key.
+ */
+@property (nonatomic, copy) NSString *currentLanguageShortKey;
 
 /**
  @abstract The key-value pair dictionary of localised strings.
@@ -38,7 +43,7 @@
 /**
  Initializes an instance of `TSCLanguageController`
  @param dictionary The key-value pair dictionary to be used by the `TSCLanguageController`
-*/
+ */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 ///---------------------------------------------------------------------------------------
