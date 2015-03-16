@@ -23,7 +23,7 @@
         
         if ([object respondsToSelector:@selector(serialisableRepresentation)]) {
             TSCObject *tscObject = [(TSCObject *)object serialisableRepresentation];
-        
+            
             if (tscObject) {
                 [array addObject:tscObject];
             } else {
@@ -48,7 +48,7 @@
     }
     
     NSMutableArray *objects = [NSMutableArray arrayWithCapacity:dictionaries.count];
-
+    
     for (NSDictionary *dictionary in dictionaries) {
         
         id object = [[classType alloc] initWithDictionary:dictionary];
