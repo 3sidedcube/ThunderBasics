@@ -21,13 +21,13 @@
  Initializes a `UITabBarController` with an array of `UIViewControllers`.
  @param viewControllers The `UIViewControllers` to be displayed in the `UITabBarController`.
  */
-- (id)initWithViewControllers:(NSArray *)viewControllers;
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers;
 
 /**
  Initializes a `UITabBarController` with an array of `UIViewControllers`.
  @param viewControllers The `UIViewControllers` to be displayed in the `UITabBarController`.
  @param nest Whether the `UIViewControllers` should be nested in `UINavigationController` instances or not.
  */
-- (id)initWithViewControllers:(NSArray *)viewControllers nestInsideNavigationControllers:(BOOL)nest;
+- (instancetype)initWithViewControllers:(NSArray *)viewControllers nestInsideNavigationControllers:(BOOL)nest;
 
 @end
