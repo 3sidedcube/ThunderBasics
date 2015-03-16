@@ -25,6 +25,8 @@
 		49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */; };
 		49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */; };
 		49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */; };
+		49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */; };
+		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -92,6 +94,8 @@
 		49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastViewController.m; sourceTree = "<group>"; };
 		49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TSCImage.h"; sourceTree = "<group>"; };
 		49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TSCImage.m"; sourceTree = "<group>"; };
+		49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TSCView.h"; sourceTree = "<group>"; };
+		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
 				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
 				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
+				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
+				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 				C272EFE219C8325D004BD339 /* NSDate+TSCDate.h in Headers */,
 				49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */,
 				C272EFE919C8325D004BD339 /* TSCAlertAction.h in Headers */,
+				49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */,
 				C272EFE019C8325D004BD339 /* NSArray+TSCArray.h in Headers */,
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
 				C272EFF019C8325D004BD339 /* TSCDatabase.h in Headers */,
@@ -509,6 +516,7 @@
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
+				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				C272EFE719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
