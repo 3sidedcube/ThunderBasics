@@ -48,8 +48,17 @@
  */
 - (void)didAddAnnotationViews:(NSArray *)views;
 
+/**
+ Zooms the map view to fit the given polygons
+ @param polygons The polygons that the map view should fit to
+ */
 - (void)fitMapToPolygons:(NSArray *)polygons;
 
+/**
+ Zooms the map view to fit the given polygons
+ @param polygons The polygons that the map view should fit to
+ @param animated Whether or not the zoom should be animated
+ */
 - (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated;
 
 @end
