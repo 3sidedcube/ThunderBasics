@@ -22,10 +22,10 @@
         }
         
         if ([object respondsToSelector:@selector(serialisableRepresentation)]) {
-            TSCObject *tscObject = [(TSCObject *)object serialisableRepresentation];
+            NSDictionary *dictionaryObject = [(TSCObject *)object serialisableRepresentation];
             
-            if (tscObject) {
-                [array addObject:tscObject];
+            if (dictionaryObject) {
+                [array addObject:dictionaryObject];
             } else {
                 NSLog(@"failed to serialize object : %@. Some required data may not be being sent to the server.",object);
             }
