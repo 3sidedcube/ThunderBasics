@@ -221,6 +221,8 @@
 			children = (
 				49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */,
 				49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */,
+				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
+				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -268,8 +270,6 @@
 				C272EFBD19C8325D004BD339 /* TSCAlertViewController.m */,
 				C272EFCF19C8325D004BD339 /* TSCWebViewController.h */,
 				C272EFD019C8325D004BD339 /* TSCWebViewController.m */,
-				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
-				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
 				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
 				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
 				C272EF8719C831AB004BD339 /* Supporting Files */,
