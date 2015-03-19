@@ -14,8 +14,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *map;
 
-- (id)initDatabaseManager;
-+ (id)databaseManager;
+- (instancetype)initDatabaseManager;
++ (instancetype)databaseManager;
 
 @end
 
@@ -23,7 +23,7 @@
 
 static TSCDatabase *databaseManager = nil;
 
-- (id)initDatabaseManager
+- (instancetype)initDatabaseManager
 {
     if (self = [super init]) {
         
@@ -33,7 +33,7 @@ static TSCDatabase *databaseManager = nil;
     return self;
 }
 
-+ (id)databaseManager
++ (instancetype)databaseManager
 {
     @synchronized(self) {
         
@@ -45,22 +45,22 @@ static TSCDatabase *databaseManager = nil;
     return databaseManager;
 }
 
-+ (id)databaseWithPath:(NSString *)path
++ (instancetype)databaseWithPath:(NSString *)path
 {
     TSCDatabase *database = [[TSCDatabase alloc] initWithDatabasePath:path];
     
     return database;
 }
 
-- (id)initWithDatabasePath:(NSString *)path
+- (instancetype)initWithDatabasePath:(NSString *)path
 {
     if (self = [super init]) {
         
         self.databasePath = path;
-
+        
         [self TSC_setupWithPath:path];
     }
-
+    
     return self;
 }
 
@@ -96,7 +96,7 @@ static TSCDatabase *databaseManager = nil;
     
     NSDictionary *queryInfo = [self TSC_queryInfoWithObject:object];
     NSString *query = [NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@)", queryInfo[@"table"], queryInfo[@"scheme"], queryInfo[@"values"]];
-
+    
     BOOL result = [db executeUpdate:query withParameterDictionary:object.serialisableRepresentation];
     
     [db close];

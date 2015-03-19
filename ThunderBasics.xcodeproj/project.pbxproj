@@ -9,6 +9,29 @@
 /* Begin PBXBuildFile section */
 		33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */; };
+		49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13201AB6D87900AA5971 /* TSCiCloudController.m */; };
+		49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13241AB6D88A00AA5971 /* TSCContactsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13251AB6D88A00AA5971 /* TSCContactsController.m */; };
+		49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13261AB6D88A00AA5971 /* TSCPerson.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13271AB6D88A00AA5971 /* TSCPerson.m */; };
+		49CF13361AB6D8FC00AA5971 /* TSCToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF132E1AB6D8FC00AA5971 /* TSCToast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF132F1AB6D8FC00AA5971 /* TSCToast.m */; };
+		49CF13381AB6D8FC00AA5971 /* TSCToastNotificationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13301AB6D8FC00AA5971 /* TSCToastNotificationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13311AB6D8FC00AA5971 /* TSCToastNotificationController.m */; };
+		49CF133A1AB6D8FC00AA5971 /* TSCToastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13321AB6D8FC00AA5971 /* TSCToastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13331AB6D8FC00AA5971 /* TSCToastView.m */; };
+		49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13341AB6D8FC00AA5971 /* TSCToastViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */; };
+		49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */; };
+		49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
+		49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF134C1AB6DEC900AA5971 /* NSString+TSCEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */; };
+		49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */; };
+		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -60,6 +83,29 @@
 /* Begin PBXFileReference section */
 		33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCNotificationHelper.h; sourceTree = "<group>"; };
 		33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCNotificationHelper.m; sourceTree = "<group>"; };
+		49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCiCloudController.h; sourceTree = "<group>"; };
+		49CF13201AB6D87900AA5971 /* TSCiCloudController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCiCloudController.m; sourceTree = "<group>"; };
+		49CF13241AB6D88A00AA5971 /* TSCContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCContactsController.h; sourceTree = "<group>"; };
+		49CF13251AB6D88A00AA5971 /* TSCContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCContactsController.m; sourceTree = "<group>"; };
+		49CF13261AB6D88A00AA5971 /* TSCPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCPerson.h; sourceTree = "<group>"; };
+		49CF13271AB6D88A00AA5971 /* TSCPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCPerson.m; sourceTree = "<group>"; };
+		49CF132E1AB6D8FC00AA5971 /* TSCToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCToast.h; sourceTree = "<group>"; };
+		49CF132F1AB6D8FC00AA5971 /* TSCToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToast.m; sourceTree = "<group>"; };
+		49CF13301AB6D8FC00AA5971 /* TSCToastNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCToastNotificationController.h; sourceTree = "<group>"; };
+		49CF13311AB6D8FC00AA5971 /* TSCToastNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastNotificationController.m; sourceTree = "<group>"; };
+		49CF13321AB6D8FC00AA5971 /* TSCToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCToastView.h; sourceTree = "<group>"; };
+		49CF13331AB6D8FC00AA5971 /* TSCToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastView.m; sourceTree = "<group>"; };
+		49CF13341AB6D8FC00AA5971 /* TSCToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCToastViewController.h; sourceTree = "<group>"; };
+		49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCToastViewController.m; sourceTree = "<group>"; };
+		49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TSCImage.h"; sourceTree = "<group>"; };
+		49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TSCImage.m"; sourceTree = "<group>"; };
+		49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TSCView.h"; sourceTree = "<group>"; };
+		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
+		49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TSCEncoding.h"; sourceTree = "<group>"; };
+		49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TSCEncoding.m"; sourceTree = "<group>"; };
+		49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
+		49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
+		49CF13541AB6ED7000AA5971 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +177,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49CF13231AB6D87D00AA5971 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */,
+				49CF13201AB6D87900AA5971 /* TSCiCloudController.m */,
+			);
+			name = iCloud;
+			sourceTree = "<group>";
+		};
+		49CF132C1AB6D88E00AA5971 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				49CF13241AB6D88A00AA5971 /* TSCContactsController.h */,
+				49CF13251AB6D88A00AA5971 /* TSCContactsController.m */,
+				49CF13261AB6D88A00AA5971 /* TSCPerson.h */,
+				49CF13271AB6D88A00AA5971 /* TSCPerson.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		49CF132D1AB6D89E00AA5971 /* Toast Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				49CF132E1AB6D8FC00AA5971 /* TSCToast.h */,
+				49CF132F1AB6D8FC00AA5971 /* TSCToast.m */,
+				49CF13301AB6D8FC00AA5971 /* TSCToastNotificationController.h */,
+				49CF13311AB6D8FC00AA5971 /* TSCToastNotificationController.m */,
+				49CF13321AB6D8FC00AA5971 /* TSCToastView.h */,
+				49CF13331AB6D8FC00AA5971 /* TSCToastView.m */,
+				49CF13341AB6D8FC00AA5971 /* TSCToastViewController.h */,
+				49CF13351AB6D8FC00AA5971 /* TSCToastViewController.m */,
+			);
+			name = "Toast Notifications";
+			sourceTree = "<group>";
+		};
+		49CF133E1AB6D92E00AA5971 /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFBF19C8325D004BD339 /* TSCAppInfoController.h */,
+				C272EFC019C8325D004BD339 /* TSCAppInfoController.m */,
+			);
+			name = Apps;
+			sourceTree = "<group>";
+		};
+		49CF133F1AB6D98F00AA5971 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFC119C8325D004BD339 /* TSCDatabase.h */,
+				C272EFC219C8325D004BD339 /* TSCDatabase.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		49CF13401AB6DB6300AA5971 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */,
+				49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */,
+				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
+				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
+				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
+				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
+				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
+				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
+				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
+				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
+				49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */,
+				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
+				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
+				49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		49CF13511AB6E01D00AA5971 /* Web controller */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFCF19C8325D004BD339 /* TSCWebViewController.h */,
+				C272EFD019C8325D004BD339 /* TSCWebViewController.m */,
+			);
+			name = "Web controller";
+			sourceTree = "<group>";
+		};
+		49CF13521AB6E08C00AA5971 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFBA19C8325D004BD339 /* TSCAlertAction.h */,
+				C272EFBB19C8325D004BD339 /* TSCAlertAction.m */,
+				C272EFBC19C8325D004BD339 /* TSCAlertViewController.h */,
+				C272EFBD19C8325D004BD339 /* TSCAlertViewController.m */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
+		49CF13531AB6E3DA00AA5971 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
+				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
 		C272EF7A19C831AB004BD339 = {
 			isa = PBXGroup;
 			children = (
@@ -152,30 +301,21 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
-				33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */,
-				33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
-				C272F00419C832B6004BD339 /* Objects */,
-				C272F00519C832DD004BD339 /* Maps */,
-				C272F00619C832F6004BD339 /* Graph */,
-				C272F00719C83311004BD339 /* Language */,
+				49CF13231AB6D87D00AA5971 /* iCloud */,
+				49CF132C1AB6D88E00AA5971 /* Contacts */,
+				49CF132D1AB6D89E00AA5971 /* Toast Notifications */,
+				49CF133E1AB6D92E00AA5971 /* Apps */,
+				49CF133F1AB6D98F00AA5971 /* Database */,
+				49CF13401AB6DB6300AA5971 /* Helpers */,
+				49CF13511AB6E01D00AA5971 /* Web controller */,
+				49CF13521AB6E08C00AA5971 /* Alerts */,
 				C272F00819C83332004BD339 /* FMDB */,
-				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
-				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
-				C272EFBA19C8325D004BD339 /* TSCAlertAction.h */,
-				C272EFBB19C8325D004BD339 /* TSCAlertAction.m */,
-				C272EFBC19C8325D004BD339 /* TSCAlertViewController.h */,
-				C272EFBD19C8325D004BD339 /* TSCAlertViewController.m */,
-				C272EFBF19C8325D004BD339 /* TSCAppInfoController.h */,
-				C272EFC019C8325D004BD339 /* TSCAppInfoController.m */,
-				C272EFC119C8325D004BD339 /* TSCDatabase.h */,
-				C272EFC219C8325D004BD339 /* TSCDatabase.m */,
-				C272EFCF19C8325D004BD339 /* TSCWebViewController.h */,
-				C272EFD019C8325D004BD339 /* TSCWebViewController.m */,
-				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
-				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
-				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
-				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
+				C272F00719C83311004BD339 /* Language */,
+				C272F00619C832F6004BD339 /* Graph */,
+				C272F00519C832DD004BD339 /* Maps */,
+				C272F00419C832B6004BD339 /* Objects */,
+				49CF13531AB6E3DA00AA5971 /* Notifications */,
 				C272EF8719C831AB004BD339 /* Supporting Files */,
 			);
 			path = ThunderBasics;
@@ -185,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				C272EFB019C8325D004BD339 /* Info.plist */,
+				49CF13541AB6ED7000AA5971 /* Media.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -291,10 +432,21 @@
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */,
+				49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */,
+				49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */,
+				49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */,
+				49CF13361AB6D8FC00AA5971 /* TSCToast.h in Headers */,
 				C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */,
 				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
 				33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */,
 				C272EFEE19C8325D004BD339 /* TSCAppInfoController.h in Headers */,
+				49CF133A1AB6D8FC00AA5971 /* TSCToastView.h in Headers */,
+				49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */,
+				49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */,
+				49CF13381AB6D8FC00AA5971 /* TSCToastNotificationController.h in Headers */,
+				49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */,
+				49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */,
+				49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */,
 				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
 				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
 				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
@@ -381,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,11 +553,18 @@
 			files = (
 				C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */,
 				C272EFFF19C8325D004BD339 /* TSCWebViewController.m in Sources */,
+				49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */,
 				C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */,
+				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
+				49CF134C1AB6DEC900AA5971 /* NSString+TSCEncoding.m in Sources */,
+				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
+				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
+				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				C272EFE719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
+				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
 				C272EFE319C8325D004BD339 /* NSDate+TSCDate.m in Sources */,
@@ -412,14 +572,18 @@
 				C272EFEC19C8325D004BD339 /* TSCAlertViewController.m in Sources */,
 				C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */,
 				C272EFDA19C8325D004BD339 /* FMDatabasePool.m in Sources */,
+				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
 				C272EFEF19C8325D004BD339 /* TSCAppInfoController.m in Sources */,
 				C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */,
 				C272EFF919C8325D004BD339 /* TSCMapView.m in Sources */,
 				C272EFF719C8325D004BD339 /* TSCLineGraphView.m in Sources */,
+				49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */,
 				C272EFD819C8325D004BD339 /* FMDatabaseAdditions.m in Sources */,
+				49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */,
 				C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */,
 				C272EFF119C8325D004BD339 /* TSCDatabase.m in Sources */,
+				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +696,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

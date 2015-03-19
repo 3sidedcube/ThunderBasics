@@ -60,4 +60,23 @@ static TSCLanguageController *sharedController = nil;
     return nil;
 }
 
+- (NSString *)currentLanguageShortKey
+{
+    // Getting the user locale
+    NSLocale *locale = [NSLocale currentLocale];
+    
+    NSString *localeString = [locale localeIdentifier];
+    
+    // Re-arranging it to match the language pack filename
+    NSArray *localeComponents = [[localeString lowercaseString] componentsSeparatedByString:@"_"];
+    
+    NSString *language;
+    
+    if (localeComponents && localeComponents.count > 1) {
+        language = [localeComponents objectAtIndex:0];
+    }
+    
+    return language;
+}
+
 @end

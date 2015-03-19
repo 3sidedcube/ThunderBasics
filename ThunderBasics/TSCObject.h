@@ -15,7 +15,7 @@
  Serialises the object to an object which can be sent using a web request.
  @discussion As a base class `TSCObject` returns an `NSDictionary` containing all the properties on your subclass. Override this to implement custom serialisation.
  */
-- (id)serialisableRepresentation;
+- (NSDictionary *)serialisableRepresentation;
 
 /**
  Returns a pretty printed JSON representation of the `TSCObject`.
@@ -34,7 +34,7 @@
  @abstract The unique identifier for the `TSCObject`.
  @discussion This should always be non-nil.
  */
-@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, copy) NSString *identifier;
 
 ///---------------------------------------------------------------------------------------
 /// @name Initialization
@@ -45,6 +45,6 @@
  @discussion As a base class `TSCObject` this uses objective-c runtime to set properties on all objects inheriting from `TSCObject`.
  @param dictionary The dictionary to initialise the object with.
  */
-- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

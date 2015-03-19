@@ -20,6 +20,11 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
 };
 
 /**
+ A block that allows customisation of a text field in the alert view
+ */
+typedef void (^TSCAlertTextFieldConfigurationHandler)(UITextField *textField);
+
+/**
  `TSCAlertViewController` Is a wraparound for `UIAlertView` and `UIActionSheet` which allows behaviour identical to that of `UIAlertController` when building for iOS 7.
  */
 @interface TSCAlertViewController : NSObject <UIAlertViewDelegate, UIActionSheetDelegate>
@@ -37,7 +42,7 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
 @property (nonatomic, readonly) NSString *message;
 
 /**
- @abstract The style of the alert controller. 
+ @abstract The style of the alert controller.
  @discussion The value of this property is set to the value you specified in the alertControllerWithTitle:message:preferredStyle: method. This value determines how the alert is displayed onscreen.
  */
 @property (nonatomic, readonly) TSCAlertViewControllerStyle preferredStyle;
@@ -47,6 +52,13 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
  @discussion The actions are in the order in which you added them to the alert controller. This order also corresponds to the order in which they are displayed in the alert or action sheet. The second action in the array is displayed below the first, the third is displayed below the second, and so on.
  */
 @property (nonatomic, readonly) NSArray *actions;
+
+/**
+ @abstract This text fields on the alert.
+ @discussion This is only set once the UIAlertView has been shown to the user.
+ */
+@property (nonatomic, readonly) NSArray *textFields;
+
 
 /**
  @abstract Creates and returns a view controller for displaying an alert to the user.
@@ -61,6 +73,12 @@ typedef NS_ENUM(NSInteger, TSCAlertViewControllerStyle) {
  @param action The action object to display as part of the alert. Actions are displayed as buttons in the alert. The action object provides the button text and the action to be performed when that button is tapped.
  */
 - (void)addAction:(TSCAlertAction *)action;
+
+/**
+ @abstract Attaches a text field to the alert.
+ @param handler The handler for configuring the text field before it is inserted into the UIAlertView. Can be used for example to make it a secure text field.
+ */
+- (void)addTextFieldWithConfigurationHandler:(TSCAlertTextFieldConfigurationHandler)handler;
 
 /**
  @abstract Displays an alert controller that originates from the specified view.

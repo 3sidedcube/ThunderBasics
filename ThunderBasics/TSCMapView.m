@@ -42,6 +42,47 @@
     }
 }
 
+- (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated
+{
+    if (polygons.count > 0) {
+        
+        MKMapRect regionRect = [(MKPolygon *)polygons[0] boundingMapRect];
+        
+        double maxX = 0.0, maxY = 0.0;
+        
+        for (MKPolygon *polygon in polygons) {
+            
+            if (MKMapRectGetMinX(polygon.boundingMapRect) < regionRect.origin.x) {
+                regionRect.origin.x = polygon.boundingMapRect.origin.x;
+            }
+            
+            if (MKMapRectGetMinY(polygon.boundingMapRect) < regionRect.origin.y) {
+                regionRect.origin.y = polygon.boundingMapRect.origin.y;
+            }
+            
+            if (MKMapRectGetMaxX(polygon.boundingMapRect) > maxX) {
+                maxX = MKMapRectGetMaxX(polygon.boundingMapRect);
+            }
+            
+            if (MKMapRectGetMaxY(polygon.boundingMapRect) > maxY) {
+                maxY = MKMapRectGetMaxY(polygon.boundingMapRect);
+            }
+        }
+        
+        regionRect = MKMapRectMake(regionRect.origin.x, regionRect.origin.y, maxX - regionRect.origin.x, maxY - regionRect.origin.y);
+        
+        MKCoordinateRegion region = MKCoordinateRegionForMapRect(regionRect);
+        region.span = MKCoordinateSpanMake(region.span.latitudeDelta * 1.1, region.span.longitudeDelta * 1.1);
+        
+        [self setRegion:region animated:animated];
+    }
+}
+
+- (void)fitMapToPolygons:(NSArray *)polygons
+{
+    [self fitMapToPolygons:polygons animated:false];
+}
+
 - (NSArray *)allAnnotations
 {
     return self.allAnnotationMapView.annotations;
@@ -50,11 +91,11 @@
 - (void)removeAnnotations:(NSArray *)annotations
 {
     if (self.shouldGroupAnnotations) {
-    
+        
         [self.allAnnotationMapView removeAnnotations:annotations];
         [super removeAnnotations:annotations];
         [self updateVisibleAnnotations];
-
+        
     } else {
         [super removeAnnotations:annotations];
     }
@@ -88,7 +129,7 @@
     MKMapRect visibleMapRect = [self visibleMapRect];
     MKMapRect adjustedVisibleMapRect = MKMapRectInset(visibleMapRect, - marginFactor * visibleMapRect.size.width, - marginFactor * visibleMapRect.size.height);
     
-   // Determine how wide each bucket will be
+    // Determine how wide each bucket will be
     static float bucketSize = 60.0;
     CLLocationCoordinate2D leftCoordinate = [self convertPoint:CGPointZero toCoordinateFromView:self];
     CLLocationCoordinate2D rightCoordinate = [self convertPoint:CGPointMake(bucketSize, 0) toCoordinateFromView:self];
@@ -109,7 +150,7 @@
     while (MKMapRectGetMinY(gridMapRect) <= endY) {
         
         gridMapRect.origin.x = startX;
-
+        
         while (MKMapRectGetMinX(gridMapRect) <= endX) {
             
             NSMutableSet *allAnnotationsInBucket = [[self.allAnnotationMapView annotationsInMapRect:gridMapRect] mutableCopy];
@@ -182,7 +223,7 @@
     // If not, sort the annotations based on their distance from the centre of the grid, then choose of the closest to the centre to show
     MKMapPoint centerMapPoint = MKMapPointMake(MKMapRectGetMidX(gridMapRect), MKMapRectGetMidY(gridMapRect));
     NSArray *sortedAnnotations = [[annotations allObjects] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-       
+        
         MKMapPoint mapPoint1 = MKMapPointForCoordinate([((id <MKAnnotation>)obj1) coordinate]);
         MKMapPoint mapPoint2 = MKMapPointForCoordinate([((id <MKAnnotation>)obj2) coordinate]);
         

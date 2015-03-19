@@ -26,11 +26,11 @@
 /**
  @abstract The label to be displayed on the x axis on the graph for this data point.
  */
-@property (nonatomic, strong) NSString *xLabel;
+@property (nonatomic, copy) NSString *xLabel;
 
 /**
  @abstract The label to be displayed on the y axis on the graph for this data point.
  */
-@property (nonatomic, strong) NSString *yLabel;
+@property (nonatomic, copy) NSString *yLabel;
 
 @end

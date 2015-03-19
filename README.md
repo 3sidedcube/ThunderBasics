@@ -45,5 +45,8 @@ Adds easy serialisation of JSON arrays into models.
 ###NSDictionary+TSCDictionary
 Adds easy serialisation of JSON Dictionarys into models.
 
+#Code level documentation
+Documentation is available for the entire library in AppleDoc format. This is available in the framework itself or in the [Hosted Version](http://3sidedcube.github.io/iOS-ThunderBasics/)
+
 #License
 See [LICENSE.md](LICENSE.md)
