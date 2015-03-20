@@ -32,6 +32,8 @@
 		49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */; };
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
+		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -106,6 +108,8 @@
 		49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
 		49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		49CF13541AB6ED7000AA5971 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
+		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
 				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
 				49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */,
+				B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */,
+				B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				49CF13381AB6D8FC00AA5971 /* TSCToastNotificationController.h in Headers */,
 				49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */,
 				49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */,
+				B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */,
 				49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */,
 				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
 				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
@@ -566,6 +573,7 @@
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
+				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
 				C272EFE319C8325D004BD339 /* NSDate+TSCDate.m in Sources */,
 				C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */,
