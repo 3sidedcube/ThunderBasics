@@ -46,6 +46,7 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/NSTimer+Blocks.h>
 #import <ThunderBasics/NSString+TSCEncoding.h>
 #import <ThunderBasics/UIImage+TSCImage.h>
+#import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
 
 //Toasts
 #import <ThunderBasics/TSCToast.h>
