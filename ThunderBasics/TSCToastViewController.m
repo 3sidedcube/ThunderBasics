@@ -40,4 +40,9 @@
     return self.statusBarStyle;
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return [UIApplication sharedApplication].statusBarHidden;
+}
+
 @end

@@ -15,7 +15,7 @@
     CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage));
     const UInt8* data = CFDataGetBytePtr(pixelData);
     
-    int pixelInfo = ((self.size.width  * y) + x ) * 4; // The image is png
+    int pixelInfo = ((self.size.width  * y * self.scale) + x * self.scale) * 4; // The image is png
     
     int red = (int)data[pixelInfo];         // If you need this info, enable it
     int green = (int)data[(pixelInfo + 1)]; // If you need this info, enable it

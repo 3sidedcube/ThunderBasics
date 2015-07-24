@@ -30,6 +30,18 @@
     self.frame = CGRectMake(self.frame.origin.x, y, self.frame.size.width, self.frame.size.height);
 }
 
+- (void)setSize:(CGSize)size
+{
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height);
+}
+
+- (void)setOrigin:(CGPoint)origin
+{
+    CGRect frame = self.frame;
+    frame.origin = origin;
+    self.frame = frame;
+}
+
 - (void)setCenterX:(float)x
 {
     self.center = CGPointMake(x, self.center.y);

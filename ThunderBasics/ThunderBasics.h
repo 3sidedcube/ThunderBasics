@@ -42,6 +42,7 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/NSDate+TSCDate.h>
 #import <ThunderBasics/UIView+TSCView.h>
+#import <ThunderBasics/UILabel+TSCLabel.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/NSTimer+Blocks.h>
 #import <ThunderBasics/NSString+TSCEncoding.h>

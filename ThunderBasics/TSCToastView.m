@@ -111,14 +111,14 @@
     self.transform = CGAffineTransformMakeTranslation(0, -self.frame.size.height);
     
     self.coverWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-    self.coverWindow.windowLevel = UIWindowLevelStatusBar+1;
+    self.coverWindow.hidden = false;
+    self.coverWindow.windowLevel = UIWindowLevelStatusBar + 1;
     
     TSCToastViewController *toastViewController = [TSCToastViewController new];
     toastViewController.statusBarStyle = [self currentStatusBarStyle];
     toastViewController.view.userInteractionEnabled = false; // This must be false, otherwise our tap gesture nevet makes it down to the added UIWindow
     
     self.coverWindow.rootViewController = toastViewController;
-    self.coverWindow.hidden = false;
     self.coverWindow.backgroundColor = [UIColor clearColor];
     [self.coverWindow.rootViewController.view addSubview:containerView];
     [containerView addSubview:self];

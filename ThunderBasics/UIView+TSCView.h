@@ -55,6 +55,19 @@ typedef void (^TSCViewEnumerationHandler)(UIView *view, BOOL *stop);
 - (void)setCenterY:(float)y;
 
 /**
+Sets the view's size to the given size
+@param size The size to give the view
+*/
+- (void)setSize:(CGSize)size;
+
+/**
+Sets the view's origin to the given point
+@param origin The point to set as the view's origin
+*/
+- (void)setOrigin:(CGPoint)origin;
+
+
+/**
  Enumerates the subviews of this view, and every subview of every subview recursively until told to stop.
  @discussion At any point you can set stop to true on the handler and the process will end
  @param handler The handler of which to pass every view to.
