@@ -26,12 +26,12 @@
 
 static TSCAlertViewController *sharedController = nil;
 
-+ (id)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle
++ (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle;
 {
     return [[TSCAlertViewController alloc] initWithTitle:title message:message preferredStyle:preferredStyle];
 }
 
-- (id)initWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle
+- (instancetype)initWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle
 {
     if (self = [super init]) {
         

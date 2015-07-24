@@ -58,6 +58,22 @@
         CFRelease(lastNameRef);
     }
     
+    if(!self.firstName && !self.lastName) {
+        
+        CFTypeRef companyNameFor = ABRecordCopyValue(ref, kABPersonOrganizationProperty);
+        self.firstName = (__bridge NSString *)companyNameFor;
+        if (firstNameRef) {
+            CFRelease(firstNameRef);
+        }
+        
+    }
+    
+    if(!self.firstName) {
+        
+        self.firstName = @"";
+        
+    }
+    
     ABMultiValueRef phoneRef = ABRecordCopyValue(ref, kABPersonPhoneProperty);
     CFArrayRef numbersRef = ABMultiValueCopyArrayOfAllValues(phoneRef);
     NSArray *numbers = (__bridge NSArray *)numbersRef;
@@ -71,6 +87,7 @@
     }
     
     ABMultiValueRef phoneNumbers = ABRecordCopyValue(ref, kABPersonPhoneProperty);
+    
     for (CFIndex i = 0; i < ABMultiValueGetCount(phoneNumbers); i++) {
         
         CFStringRef numberRef = ABMultiValueCopyValueAtIndex(phoneNumbers, i);
@@ -78,8 +95,11 @@
         NSString *phoneNumber = (__bridge NSString *)numberRef;
 
         
-        if (CFStringCompare(locLabel, kABPersonPhoneMobileLabel, 0) == kCFCompareEqualTo || CFStringCompare(locLabel, kABPersonPhoneIPhoneLabel, 0) == kCFCompareEqualTo) {
-            self.mobileNumber = phoneNumber;
+        if (locLabel != NULL) {
+            
+            if (CFStringCompare(locLabel, kABPersonPhoneMobileLabel, 0) == kCFCompareEqualTo || CFStringCompare(locLabel, kABPersonPhoneIPhoneLabel, 0) == kCFCompareEqualTo) {
+                self.mobileNumber = phoneNumber;
+            }
         }
         
         if (numberRef) {
@@ -123,7 +143,7 @@
     
     if (!self.photo) {
         self.hasPlaceholderImage = YES;
-        self.photo = [self contactPlaceholderWithIntitials:self.initials];
+        self.photo = [self contactPlaceholderWithInitials:self.initials];
     }
 }
 
@@ -180,7 +200,7 @@
 
 #pragma mark - Image generation
 
-- (UIImage *)contactPlaceholderWithIntitials:(NSString *)initials
+- (UIImage *)contactPlaceholderWithInitials:(NSString *)initials
 {
     CGRect rect = CGRectMake(0, 0, 126, 126);
     
@@ -214,5 +234,11 @@
     
     return image;
 }
+
+- (UIImage *)contactPlaceholderWithIntitials:(NSString *)initials
+{
+    return [self contactPlaceholderWithInitials:initials];
+}
+
 
 @end

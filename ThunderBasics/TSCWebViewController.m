@@ -30,14 +30,23 @@
         [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
         
         [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"UserAgent": @"Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_3 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B329 Safari/8536.25"}];
+        
+        self.edgesForExtendedLayout = UIRectEdgeBottom;
     }
     
     return self;
 }
 
+- (BOOL)wantsFullScreenLayout
+{
+    return NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
@@ -89,6 +98,8 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self.navigationController setToolbarHidden:YES animated:animated];
     }
+    
+    self.extendedLayoutIncludesOpaqueBars = NO;
 }
 
 - (void)viewWillLayoutSubviews
@@ -96,6 +107,8 @@
     [super viewWillLayoutSubviews];
     
     self.webView.frame = self.view.bounds;
+    
+    self.extendedLayoutIncludesOpaqueBars = NO;
 }
 
 #pragma mark Refresh

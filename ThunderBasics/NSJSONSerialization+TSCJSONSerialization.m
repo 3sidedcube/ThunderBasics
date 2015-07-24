@@ -21,7 +21,11 @@
 {
     NSData *data = [NSData dataWithContentsOfFile:path];
     
-    return [self JSONObjectWithData:data options:opt error:error];
+    if (data.length > 0 ) {
+        return [self JSONObjectWithData:data options:opt error:error];
+    } else {
+        return nil;
+    }
 }
 
 @end

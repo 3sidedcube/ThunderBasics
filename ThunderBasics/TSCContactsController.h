@@ -14,6 +14,7 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *TSCAddressBookErrorDomain = @"com.threesidedcube.addressbook";
 #define TSCAddressBookChangeNotification @"AdressBookEdited"
 
 /**
@@ -25,11 +26,17 @@
  The block that will be called when a people picker has been used and person has been selected
  */
 typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerson, NSError *error);
+typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
 
 /**
  @abstract This property keeps reference to the completion block so that it can be called when a contact has been succesfully selected
  */
 @property (nonatomic, copy) void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerson, NSError *error);
+
+/**
+ @abstract The dispatch queue for accessing the address book on
+ */
+@property (nonatomic, strong, readonly) dispatch_queue_t addressBookQueue;
 
 + (TSCContactsController *)sharedController;
 
@@ -74,6 +81,12 @@ typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerso
  @return An `ABRecordRef` representation of the record ID
  */
 - (ABRecordRef)recordRefForRecordID:(ABRecordID)recordID;
+
+/**
+ Extracts all people from all address book sources
+ @param completion The completion block to be fired once all contacts have been found and returns an `NSArray` of `TSCPersonObjects`
+ */
+- (void)extractAllContactsWithCompletion:(TSCAllContactsCompletion)completion;
 
 /**
  Generates a `ABPersonViewController` for presenting a contact in the address book.

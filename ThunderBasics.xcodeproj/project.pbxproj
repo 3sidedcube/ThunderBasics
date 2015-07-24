@@ -34,6 +34,10 @@
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
+		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; };
+		B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */; };
+		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
 		C272EFD619C8325D004BD339 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFA719C8325D004BD339 /* FMDatabase.m */; };
@@ -110,6 +114,10 @@
 		49CF13541AB6ED7000AA5971 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
+		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
+		B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCSingleRequestLocationManager.m; sourceTree = "<group>"; };
+		B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TSCLabel.h"; sourceTree = "<group>"; };
+		B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TSCLabel.m"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,6 +255,8 @@
 				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
 				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
 				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
+				B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */,
+				B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */,
 				49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */,
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
 				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
@@ -286,6 +296,15 @@
 			name = Notifications;
 			sourceTree = "<group>";
 		};
+		B1E3C5D91B626DCC005CC1C1 /* Location Management */ = {
+			isa = PBXGroup;
+			children = (
+				B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */,
+				B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */,
+			);
+			name = "Location Management";
+			sourceTree = "<group>";
+		};
 		C272EF7A19C831AB004BD339 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +326,7 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				B1E3C5D91B626DCC005CC1C1 /* Location Management */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				49CF13231AB6D87D00AA5971 /* iCloud */,
 				49CF132C1AB6D88E00AA5971 /* Contacts */,
@@ -430,6 +450,8 @@
 				C272EFF019C8325D004BD339 /* TSCDatabase.h in Headers */,
 				C272EFE419C8325D004BD339 /* NSDictionary+TSCDictionary.h in Headers */,
 				C272EFEB19C8325D004BD339 /* TSCAlertViewController.h in Headers */,
+				B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */,
+				B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
@@ -579,8 +601,10 @@
 				C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */,
 				C272EFEC19C8325D004BD339 /* TSCAlertViewController.m in Sources */,
 				C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */,
+				B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */,
 				C272EFDA19C8325D004BD339 /* FMDatabasePool.m in Sources */,
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
+				B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */,
 				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
 				C272EFEF19C8325D004BD339 /* TSCAppInfoController.m in Sources */,
 				C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */,
