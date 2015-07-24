@@ -13,7 +13,11 @@
 
 + (void)setupNotifications
 {
-    [TSCNotificationHelper setupNotificationsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [TSCNotificationHelper setupNotificationsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+    }
 }
 
 + (void)setupNotificationsForTypes:(UIUserNotificationType)types categories:(NSSet *)categories
