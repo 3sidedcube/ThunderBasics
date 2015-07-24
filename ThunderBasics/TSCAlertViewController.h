@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "TSCAlertAction.h"
 
 @class TSCAlertAction;
 
@@ -66,7 +67,7 @@ typedef void (^TSCAlertTextFieldConfigurationHandler)(UITextField *textField);
  @param message Descriptive text that provides additional details about the reason for the alert.
  @param preferredStyle The style to use when presenting the alert controller. Use this parameter to configure the alert controller as an action sheet or as a modal alert.
  */
-+ (id)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle;
++ (instancetype)alertControllerWithTitle:(NSString *)title message:(NSString *)message preferredStyle:(TSCAlertViewControllerStyle)preferredStyle;
 
 /**
  @abstract Attaches an action object to the alert or action sheet.
