@@ -36,7 +36,7 @@
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; };
 		B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */; };
-		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; };
+		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFA619C8325D004BD339 /* FMDatabase.h */; };
