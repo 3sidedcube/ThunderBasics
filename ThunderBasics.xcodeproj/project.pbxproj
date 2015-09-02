@@ -34,7 +34,7 @@
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
-		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; };
+		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */; };
 		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */; };
