@@ -9,7 +9,14 @@
 #import "TSCPerson.h"
 #import "TSCContactsController.h"
 
+typedef NS_ENUM(NSUInteger, TSCPersonSource) {
+    TSCPersonSourceABAddressBook = 0,
+    TSCPersonSourceContactsFramework = 1
+};
+
 @interface TSCPerson ()
+
+@property (nonatomic, assign) TSCPersonSource source;
 
 @end
 
@@ -19,11 +26,15 @@
 {
     if (self = [super init]) {
         
+        self.source = TSCPersonSourceABAddressBook;
         [self updateWithABRecordRef:ref];
         self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
            
             TSCContactsController *contactsController = [TSCContactsController sharedController];
+            #pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [self updateWithABRecordRef:[contactsController recordRefForRecordID:[contactsController recordIDForNumber:self.recordNumber]]];
+#pragma clang diagnostic pop
         }];
     }
     return self;
@@ -32,6 +43,8 @@
 - (instancetype)initWithContact:(CNContact *)contact
 {
     if (self = [super init]) {
+        
+        self.source = TSCPersonSourceContactsFramework;
         [self updateWithCNContact:contact];
     }
     return self;
@@ -51,9 +64,10 @@
     self.email = nil;
     self.photo = nil;
     self.largeImage = nil;
-    self.recordNumber = nil;
+    self.recordIdentifier = nil;
     self.hasPlaceholderImage = false;
     
+    self.recordIdentifier = contact.identifier;
     self.firstName = contact.givenName;
     self.lastName = contact.familyName;
     
@@ -107,7 +121,11 @@
     self.email = nil;
     self.photo = nil;
     self.largeImage = nil;
+    self.recordIdentifier = nil;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.recordNumber = nil;
+#pragma clang diagnostic pop    
     self.hasPlaceholderImage = false;
     
     CFTypeRef firstNameRef = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
@@ -203,7 +221,11 @@
         CFRelease(originalPhotoRef);
     }
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.recordNumber = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
+#pragma clang diagnostic pop
+    self.recordIdentifier = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
     
     if (!self.photo) {
         self.hasPlaceholderImage = YES;

@@ -1,4 +1,4 @@
-//
+ //
 //  RCHContactsController.m
 //  ARC Hazards
 //
@@ -131,10 +131,69 @@ static TSCContactsController *sharedController = nil;
 
 #pragma mark - Converting and extracting users
 
+- (TSCPerson *)personWithRecordIdentifier:(id)identifier
+{
+    if ([identifier isKindOfClass:[NSNumber class]]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        return [self personWithRecordNumber:(NSNumber *)identifier];
+#pragma clang diagnostic pop
+    } else {
+        return [self personWithRecordString:(NSString *)identifier];
+    }
+    
+    return nil;
+}
+
+- (TSCPerson *)personWithRecordString:(NSString *)recordIdentifier
+{
+    if (NSStringFromClass([CNContact class])) {
+        
+        CNContactStore *store = [CNContactStore new];
+        CNContact *contact = [store unifiedContactWithIdentifier:recordIdentifier keysToFetch:[self contactKeysToFetch] error:nil];
+        
+        if (contact) {
+            return [[TSCPerson alloc] initWithContact:contact];
+        } else {
+            return nil;
+        }
+    }
+    
+    return nil;
+}
+
 - (TSCPerson *)personWithRecordNumber:(NSNumber *)number
 {
-    ABRecordID recordIdentifier = [self recordIDForNumber:number];
-    return [self personWithRecordID:recordIdentifier];
+    if (NSStringFromClass([CNContact class])) {
+        
+        CNContactStore *store = [CNContactStore new];
+        __block CNContact *newContact;
+        CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:[self contactKeysToFetch]];
+        
+        [store enumerateContactsWithFetchRequest:fetchRequest error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+           
+            if ([[contact valueForKey:@"_iOSLegacyIdentifier"] isKindOfClass:[NSNumber class]]) {
+                
+                NSNumber *contactID = (NSNumber *)[contact valueForKey:@"_iOSLegacyIdentifier"];
+                if ([contactID isEqualToNumber:number]) {
+                    
+                    newContact = contact;
+                    *stop = true;
+                }
+            }
+        }];
+        
+        if (newContact) {
+            return [[TSCPerson alloc] initWithContact:newContact];
+        } else {
+            return nil;
+        }
+        
+    } else {
+        
+        ABRecordID recordIdentifier = [self recordIDForNumber:number];
+        return [self personWithRecordID:recordIdentifier];
+    }
 }
 
 - (TSCPerson *)personWithRecordID:(ABRecordID)identifier
@@ -295,9 +354,9 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
 {
     NSMutableArray *peopleArray = [NSMutableArray array];
     
-    for (NSNumber *uniqueIdentifier in array) {
+    for (id uniqueIdentifier in array) {
         
-        TSCPerson *person = [self personWithRecordNumber:uniqueIdentifier];
+        TSCPerson *person = [self personWithRecordIdentifier:uniqueIdentifier];
         
         if (person) {
             [peopleArray addObject:person];
@@ -312,9 +371,13 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
     NSMutableArray *addressbookIdsArray = [NSMutableArray new];
     
     for (TSCPerson *person in people) {
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         if(person.recordNumber) {
             [addressbookIdsArray addObject:person.recordNumber];
         }
+#pragma clang diagnostic pop
     }
     
     return [NSArray arrayWithArray:addressbookIdsArray];
@@ -384,6 +447,13 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
 - (BOOL)personViewController:(ABPersonViewController *)personViewController shouldPerformDefaultActionForPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)valueIdentifier
 {
     return YES;
+}
+
+#pragma mark - Helpers
+
+- (NSArray *)contactKeysToFetch
+{
+    return @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactNicknameKey, CNContactPhoneNumbersKey, CNContactEmailAddressesKey, CNContactImageDataKey, CNContactThumbnailImageDataKey];
 }
 
 @end

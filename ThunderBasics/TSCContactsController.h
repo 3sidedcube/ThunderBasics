@@ -1,5 +1,5 @@
 //
-//  RCHContactsController.h
+//  TSCContactsController.h
 //  ARC Hazards
 //
 //  Created by Matt Cheetham on 25/11/2014.
@@ -52,25 +52,32 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
 - (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController;
 
 /**
- Generates a `RCHPerson` object for the given NSNumber
+ Generates a `TSCPerson` object for the given NSNumber
  @param number The number that references a record ID in the users contacts
  @return `RCHPerson` filled with contact information
  */
-- (TSCPerson *)personWithRecordNumber:(NSNumber *)number;
+- (TSCPerson *)personWithRecordNumber:(NSNumber *)number __attribute((deprecated("Please use -personWithRecordIdentifier: instead")));
 
 /**
- Generates a `RCHPerson` object for the given `ABRecordID`
+ Generates a `TSCPerson` object for the given `ABRecordID`
  @param identifier The `ABRecordID` that references a person in the users contacts
- @return `RCHPerson` filled with contact information
+ @return `TSCPerson` filled with contact information
  */
 - (TSCPerson *)personWithRecordID:(ABRecordID)identifier;
 
 /**
- Generated a `RCHPerson` object for the record reference
- @param ref The `ABRecordRef` to convert into an RCHPerson
- @return `RCHPerson` filled with contact information
+ Generated a `TSCPerson` object for the record reference
+ @param ref The `ABRecordRef` to convert into a `TSCPerson`
+ @return `TSCPerson` filled with contact information
  */
 - (TSCPerson *)personWithRecordRef:(ABRecordRef)ref;
+
+/**
+ Generates a `TSCPerson` object for the given identifier
+ @param identifier The `NSString` (Contacts Framework) or `NSNumber` (ABAdressBookRef) to convert into a `TSCPerson`
+ @return `TSCPerson` filled with contact information
+*/
+- (TSCPerson *)personWithRecordIdentifier:(id)identifier;
 
 /**
  Converts a `NSNumber` to a `ABRecordID`
@@ -121,7 +128,7 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
 - (void)presentPersonwithRecordID:(ABRecordID)recordID inViewController:(UIViewController *)viewController;
 
 /**
- Extracts an array of RCHPerson objects for the provided identifiers
+ Extracts an array of TSCPerson objects for the provided identifiers
  @param array An array of NSNumber objects that identify contacts in the addressbook database
  @return An array of `TSCPerson` objects
  */

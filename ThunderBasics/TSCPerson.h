@@ -87,7 +87,13 @@
  The record ID number of the record in relation to the addressbook it was extracted from
  @note This record ID could change and Apple recommends implementing checks to make sure you get the expected person back when using this ID.
  */
-@property (nonatomic, strong) NSNumber *recordNumber;
+@property (nonatomic, strong) NSNumber *recordNumber __attribute((deprecated("Please use recordIdentifier instead")));
+
+/**
+ The record ID of the record in relation to where it was extracted from
+ @note Befors iOS 9 this record ID could change and Apple recommends implementing checks to make sure you get the expected person back when using this ID.
+ */
+@property (nonatomic, strong) id recordIdentifier;
 
 /**
  The persons mobile number, if available.
