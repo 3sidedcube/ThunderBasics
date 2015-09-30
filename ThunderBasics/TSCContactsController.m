@@ -371,6 +371,24 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
     return view;
 }
 
+- (UIViewController *)personViewControllerForRecordIdentifier:(id)identifier
+{
+    if (NSStringFromClass([CNContactViewController class])) {
+        
+        CNContactViewController *contactViewController = [CNContactViewController viewControllerForContact:[self contactForIdentifier:identifier]]; 
+        return contactViewController;
+    }
+    
+    if ([identifier isKindOfClass:[NSNumber class]]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        return [self personViewControllerForRecordNumber:identifier];
+#pragma clang diagnostic pop
+    }
+    
+    return nil;
+}
+
 - (void)presentPersonWithRecordNumber:(NSNumber *)number inViewController:(UIViewController *)viewController
 {
     [self presentPersonwithRecordID:[self recordIDForNumber:number] inViewController:viewController];
@@ -382,7 +400,16 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
     view.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDismissPeopleView:)];
     
     self.presentedPersonViewController = [[UINavigationController alloc] initWithRootViewController:view];
-    [viewController presentViewController:self.presentedPersonViewController animated:YES completion:nil];
+    [viewController presentViewController:self.presentedPersonViewController animated:true completion:nil];
+}
+
+- (void)presentPersonWithRecordIdentifier:(id)identifier inViewController:(UIViewController *)viewController
+{
+    UIViewController *view = [self personViewControllerForRecordIdentifier:identifier];
+    view.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDismissPeopleView:)];
+    
+    self.presentedPersonViewController = [[UINavigationController alloc] initWithRootViewController:view];
+    [viewController presentViewController:self.presentedPersonViewController animated:true completion:nil];
 }
 
 - (void)handleDismissPeopleView:(UIBarButtonItem *)button
@@ -392,7 +419,14 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
         ABPersonViewController *viewController = (ABPersonViewController *)self.presentedPersonViewController.viewControllers[0];
         TSCPerson *editedPerson = [self personWithRecordRef:viewController.displayedPerson];
         [editedPerson updateWithABRecordRef:viewController.displayedPerson];
+        
+    } else if (self.presentedPersonViewController.viewControllers.count > 0 && [self.presentedPersonViewController.viewControllers[0] isKindOfClass:[CNContactViewController class]]) {
+        
+        CNContactViewController *viewController = (CNContactViewController *)self.presentedPersonViewController.viewControllers[0];
+        TSCPerson *editedPerson = [self personWithRecordIdentifier:viewController.contact.identifier];
+        [editedPerson updateWithCNContact:viewController.contact];
     }
+    
     [self.presentedPersonViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -501,7 +535,7 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
 
 - (NSArray *)contactKeysToFetch
 {
-    return @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactNicknameKey, CNContactPhoneNumbersKey, CNContactEmailAddressesKey, CNContactImageDataKey, CNContactThumbnailImageDataKey];
+    return @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactNicknameKey, CNContactPhoneNumbersKey, CNContactEmailAddressesKey, CNContactImageDataKey, CNContactThumbnailImageDataKey, [CNContactViewController descriptorForRequiredKeys]];
 }
 
 @end

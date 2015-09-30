@@ -36,6 +36,12 @@
 - (instancetype)initWithContact:(CNContact *)contact;
 
 /**
+ Updates the current model using a `CNContact`
+ @param contact The contact to update the current person model with
+ */
+- (void)updateWithCNContact:(CNContact *)contact;
+
+/**
  The initials of the person generated from any available first and last names
  */
 - (NSString *)initials;

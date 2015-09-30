@@ -44,6 +44,9 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
  */
 @property (nonatomic, strong, readonly) dispatch_queue_t addressBookQueue;
 
+/**
+ Returns the singleton instance of a `TSCContactsController`
+ */
 + (TSCContactsController *)sharedController;
 
 /**
@@ -112,7 +115,14 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
  @param number The number of the record to display in the view controller
  @return A view controller that can be pushed or presented to show the user in the address book
  */
-- (ABPersonViewController *)personViewControllerForRecordNumber:(NSNumber *)number;
+- (ABPersonViewController *)personViewControllerForRecordNumber:(NSNumber *)number __attribute((deprecated("Please use -personViewControllerForRecordIdentifier: instead")));
+
+/**
+ Generates a `UIViewController` for presenting a contact in the address book.
+ @param number The number of the record to display in the view controller
+ @return A view controller (Either ABPersonViewController or CNContactViewController) that can be pushed or presented to show the user in the address book
+ */
+- (UIViewController *)personViewControllerForRecordIdentifier:(id)identifier;
 
 /**
  Generates a `ABPersonViewController` for presenting a contact in the address book.
@@ -126,7 +136,14 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
  @param number The `NSNumber` for the person that needs to be displayed to the user
  @param viewController The view controller that wishes to present the picker
  **/
-- (void)presentPersonWithRecordNumber:(NSNumber *)number inViewController:(UIViewController *)viewController;
+- (void)presentPersonWithRecordNumber:(NSNumber *)number inViewController:(UIViewController *)viewController __attribute((deprecated("Please use -presentPersonWithRecordIdentifier:inViewController instead")));
+
+/**
+ Presents an address book view for a record id
+ @param identifier The identifier for the person that needs to be displayed to the user
+ @param viewController The view controller that wishes to present the picker
+ **/
+- (void)presentPersonWithRecordIdentifier:(id)identifier inViewController:(UIViewController *)viewController;
 
 /**
  Presents an address book view for a record ID
