@@ -8,8 +8,10 @@
 
 #import "TSCContactsController.h"
 #import "TSCPerson.h"
+@import Contacts;
+@import ContactsUI;
 
-@interface TSCContactsController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
+@interface TSCContactsController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, CNContactPickerDelegate>
 
 @property (nonatomic, strong) UINavigationController *presentedPersonViewController;
 @property (nonatomic, assign) ABAddressBookRef addressBook;
@@ -38,8 +40,11 @@ static TSCContactsController *sharedController = nil;
     self = [super init];
     if (self) {
         
-        self.addressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
-        self.externalAddressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue external for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
+        if (!NSStringFromClass([CNContact class])) {
+            
+            self.addressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
+            self.externalAddressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue external for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
+        }
     }
     return self;
 }
@@ -64,37 +69,52 @@ static TSCContactsController *sharedController = nil;
 {
     self.TSCPeoplePickerPersonSelectedCompletion = completion;
     
-    dispatch_sync(self.addressBookQueue, ^{
+    if (NSStringFromClass([CNContactPickerViewController class])) {
         
-        //Request access
-        ABAddressBookRequestAccessWithCompletion(self.addressBook, ^(bool granted, CFErrorRef error) {
+        CNContactPickerViewController *contactViewController = [CNContactPickerViewController new];
+        contactViewController.delegate = self;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             
-            if (error) {
-                
-                self.TSCPeoplePickerPersonSelectedCompletion(nil, (__bridge NSError *)(error));
-                return;
-            }
+            presentingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+            contactViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        }
+        [presentingViewController presentViewController:contactViewController animated:true completion:nil];
+        
+    } else {
+     
+        dispatch_sync(self.addressBookQueue, ^{
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            //Request access
+            ABAddressBookRequestAccessWithCompletion(self.addressBook, ^(bool granted, CFErrorRef error) {
                 
-                if (granted) {
+                if (error) {
                     
-                    ABPeoplePickerNavigationController *viewController = [self sharedPeoplePicker];
-                    viewController.peoplePickerDelegate = self;
-                    
-                    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-                        
-                        presentingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
-                        viewController.modalPresentationStyle = UIModalPresentationFormSheet;
-                    }
-                    [presentingViewController presentViewController:viewController animated:YES completion:nil];
-                } else {
-                    
-                    self.TSCPeoplePickerPersonSelectedCompletion(nil, [NSError errorWithDomain:TSCAddressBookErrorDomain code:401 userInfo:nil]);
+                    self.TSCPeoplePickerPersonSelectedCompletion(nil, (__bridge NSError *)(error));
+                    return;
                 }
-            }];
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    
+                    if (granted) {
+                        
+                        ABPeoplePickerNavigationController *viewController = [self sharedPeoplePicker];
+                        viewController.peoplePickerDelegate = self;
+                        
+                        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+                            
+                            presentingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+                            viewController.modalPresentationStyle = UIModalPresentationFormSheet;
+                        }
+                        [presentingViewController presentViewController:viewController animated:true completion:nil];
+                    } else {
+                        
+                        self.TSCPeoplePickerPersonSelectedCompletion(nil, [NSError errorWithDomain:TSCAddressBookErrorDomain code:401 userInfo:nil]);
+                    }
+                }];
+            });
         });
-    });
+    }
 }
 
 - (ABPeoplePickerNavigationController *)sharedPeoplePicker {
@@ -331,6 +351,31 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
 - (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person
 {
     TSCPerson *selectedPerson = [self personWithRecordRef:person];
+    self.TSCPeoplePickerPersonSelectedCompletion(selectedPerson, nil);
+}
+
+#pragma mark - Contact View Controller Delegate
+
+- (BOOL)contactViewController:(CNContactViewController *)viewController shouldPerformDefaultActionForContactProperty:(CNContactProperty *)property
+{
+    return false;
+}
+
+- (void)contactViewController:(CNContactViewController *)viewController didCompleteWithContact:(nullable CNContact *)contact
+{
+    
+}
+
+#pragma mark - CNContactPickerDelegate
+
+- (void)contactPickerDidCancel:(CNContactPickerViewController *)picker
+{
+    self.TSCPeoplePickerPersonSelectedCompletion(nil, nil);
+}
+
+- (void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact
+{
+    TSCPerson *selectedPerson = [[TSCPerson alloc] initWithContact:contact];
     self.TSCPeoplePickerPersonSelectedCompletion(selectedPerson, nil);
 }
 

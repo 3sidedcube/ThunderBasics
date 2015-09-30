@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @import AddressBook;
 @import UIKit;
+@import Contacts;
 
 /**
  A TSCPerson is an object representation of a person in a users addressbook.
@@ -27,6 +28,12 @@
  @param ref The record Ref to update the current person model with
  */
 - (void)updateWithABRecordRef:(ABRecordRef)ref;
+
+/**
+ Takes a CNContact from Contacts framework and converts it into a TSCPerson
+ @param contact A CNContact object obtained using the Contacts framework
+ */
+- (instancetype)initWithContact:(CNContact *)contact;
 
 /**
  The initials of the person generated from any available first and last names

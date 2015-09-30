@@ -26,6 +26,10 @@ static NSString *TSCAddressBookErrorDomain = @"com.threesidedcube.addressbook";
  The block that will be called when a people picker has been used and person has been selected
  */
 typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerson, NSError *error);
+
+/**
+ The block that will be called when all people from the contacts framework or address book framework have been pulled
+ */
 typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
 
 /**

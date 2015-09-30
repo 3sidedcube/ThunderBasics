@@ -29,9 +29,73 @@
     return self;
 }
 
+- (instancetype)initWithContact:(CNContact *)contact
+{
+    if (self = [super init]) {
+        [self updateWithCNContact:contact];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
+}
+
+- (void)updateWithCNContact:(CNContact *)contact
+{
+    self.mobileNumber = nil;
+    self.firstName = nil;
+    self.lastName = nil;
+    self.numbers = nil;
+    self.email = nil;
+    self.photo = nil;
+    self.largeImage = nil;
+    self.recordNumber = nil;
+    self.hasPlaceholderImage = false;
+    
+    self.firstName = contact.givenName;
+    self.lastName = contact.familyName;
+    
+    if (!self.firstName && !self.lastName) {
+        self.firstName = contact.nickname;
+    }
+    
+    if (!self.firstName) {
+        self.firstName = @"";
+    }
+    
+    NSMutableArray *phoneNumbers = [NSMutableArray new];
+    for (CNLabeledValue *phoneNumberLabel in contact.phoneNumbers) {
+        
+        CNPhoneNumber *number = phoneNumberLabel.value;
+        [phoneNumbers addObject:number.stringValue];
+        
+        if ([phoneNumberLabel.label isEqualToString:CNLabelPhoneNumberiPhone] || [phoneNumberLabel.label isEqualToString:CNLabelPhoneNumberMobile]) {
+            self.mobileNumber = number.stringValue;
+        }
+    }
+    self.numbers = phoneNumbers;
+    
+    if (contact.emailAddresses.firstObject) {
+        
+        CNLabeledValue *emailAddress = contact.emailAddresses.firstObject;
+        self.email = emailAddress.value;
+    }
+    
+    if (contact.imageData) {
+        self.largeImage = [UIImage imageWithData:contact.imageData];
+    }
+    
+    if (contact.thumbnailImageData) {
+        self.photo = [UIImage imageWithData:contact.thumbnailImageData];
+    }
+    
+    if (!self.photo) {
+        
+        self.hasPlaceholderImage = YES;
+        self.photo = [self contactPlaceholderWithInitials:self.initials];
+    }
 }
 
 - (void)updateWithABRecordRef:(ABRecordRef)ref
