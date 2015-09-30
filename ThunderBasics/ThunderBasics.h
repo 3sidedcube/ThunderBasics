@@ -70,4 +70,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 //People
 #import <ThunderBasics/TSCPerson.h>
 
+#import <ThunderBasics/TSCCoreSpotlightIndexItem.h>
+
 

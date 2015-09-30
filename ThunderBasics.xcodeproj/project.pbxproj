@@ -32,6 +32,7 @@
 		49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */; };
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
+		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -112,6 +113,7 @@
 		49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
 		49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		49CF13541AB6ED7000AA5971 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCCoreSpotlightIndexItem.h; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
@@ -296,6 +298,14 @@
 			name = Notifications;
 			sourceTree = "<group>";
 		};
+		B120905B1BBABE9500AAB2E9 /* Core Spotlighting */ = {
+			isa = PBXGroup;
+			children = (
+				B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */,
+			);
+			name = "Core Spotlighting";
+			sourceTree = "<group>";
+		};
 		B1E3C5D91B626DCC005CC1C1 /* Location Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +336,7 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				B120905B1BBABE9500AAB2E9 /* Core Spotlighting */,
 				B1E3C5D91B626DCC005CC1C1 /* Location Management */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				49CF13231AB6D87D00AA5971 /* iCloud */,
@@ -455,6 +466,7 @@
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
+				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
