@@ -8,6 +8,8 @@
 
 @import AddressBook;
 @import AddressBookUI;
+@import Contacts;
+@import ContactsUI;
 @import UIKit;
 
 @class TSCPerson;
@@ -92,6 +94,12 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
  @return An `ABRecordRef` representation of the record ID
  */
 - (ABRecordRef)recordRefForRecordID:(ABRecordID)recordID;
+
+/**
+ Returns the CNContact object for a certain identifier
+ @param identifier Either an NSString (Contacts Framework) or NSNumber (ABAddressBook Framework) identifying the contact
+ */
+- (CNContact *)contactForIdentifier:(id)identifier;
 
 /**
  Extracts all people from all address book sources

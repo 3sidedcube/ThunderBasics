@@ -28,10 +28,11 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         
         self.source = TSCPersonSourceABAddressBook;
         [self updateWithABRecordRef:ref];
+        
         self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-           
+                
             TSCContactsController *contactsController = [TSCContactsController sharedController];
-            #pragma clang diagnostic push
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [self updateWithABRecordRef:[contactsController recordRefForRecordID:[contactsController recordIDForNumber:self.recordNumber]]];
 #pragma clang diagnostic pop
@@ -46,6 +47,15 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         
         self.source = TSCPersonSourceContactsFramework;
         [self updateWithCNContact:contact];
+        
+        if (NSStringFromClass([CNContactStore class])) {
+            
+            self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+                
+                TSCContactsController *contactsController = [TSCContactsController sharedController];
+                [self updateWithCNContact:[contactsController contactForIdentifier:self.recordIdentifier]];
+            }];
+        }
     }
     return self;
 }

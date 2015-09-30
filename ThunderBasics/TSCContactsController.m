@@ -8,8 +8,6 @@
 
 #import "TSCContactsController.h"
 #import "TSCPerson.h"
-@import Contacts;
-@import ContactsUI;
 
 @interface TSCContactsController () <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate, CNContactPickerDelegate>
 
@@ -17,6 +15,8 @@
 @property (nonatomic, assign) ABAddressBookRef addressBook;
 @property (nonatomic, strong, readwrite) dispatch_queue_t addressBookQueue;
 @property (nonatomic, strong, readwrite) dispatch_queue_t externalAddressBookQueue;
+
+@property (nonatomic, strong) id <NSObject> contactObserver;
 
 @end
 
@@ -44,6 +44,11 @@ static TSCContactsController *sharedController = nil;
             
             self.addressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
             self.externalAddressBookQueue = dispatch_queue_create([@"TSCContactsControllerQueue external for TSCContactsController" UTF8String], DISPATCH_QUEUE_SERIAL);
+        } else {
+            
+            self.contactObserver = [[NSNotificationCenter defaultCenter] addObserverForName:CNContactStoreDidChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TSCAddressBookChangeNotification object:nil];
+            }];
         }
     }
     return self;
@@ -149,11 +154,10 @@ static TSCContactsController *sharedController = nil;
 {
     if (NSStringFromClass([CNContact class])) {
         
-        CNContactStore *store = [CNContactStore new];
-        CNContact *contact = [store unifiedContactWithIdentifier:recordIdentifier keysToFetch:[self contactKeysToFetch] error:nil];
+        CNContact *newContact = [self contactForIdentifier:recordIdentifier];
         
-        if (contact) {
-            return [[TSCPerson alloc] initWithContact:contact];
+        if (newContact) {
+            return [[TSCPerson alloc] initWithContact:newContact];
         } else {
             return nil;
         }
@@ -166,22 +170,7 @@ static TSCContactsController *sharedController = nil;
 {
     if (NSStringFromClass([CNContact class])) {
         
-        CNContactStore *store = [CNContactStore new];
-        __block CNContact *newContact;
-        CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:[self contactKeysToFetch]];
-        
-        [store enumerateContactsWithFetchRequest:fetchRequest error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-           
-            if ([[contact valueForKey:@"_iOSLegacyIdentifier"] isKindOfClass:[NSNumber class]]) {
-                
-                NSNumber *contactID = (NSNumber *)[contact valueForKey:@"_iOSLegacyIdentifier"];
-                if ([contactID isEqualToNumber:number]) {
-                    
-                    newContact = contact;
-                    *stop = true;
-                }
-            }
-        }];
+        CNContact *newContact = [self contactForIdentifier:number];
         
         if (newContact) {
             return [[TSCPerson alloc] initWithContact:newContact];
@@ -224,59 +213,85 @@ static TSCContactsController *sharedController = nil;
 
 - (void)extractAllContactsWithCompletion:(TSCAllContactsCompletion)completion
 {
-    dispatch_sync(self.addressBookQueue, ^{
+    if (NSStringFromClass([CNContact class])) {
         
-        ABAddressBookRequestAccessWithCompletion(self.addressBook, ^(bool granted, CFErrorRef error) {
+        CNContactStore *store = [CNContactStore new];
+        CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:[self contactKeysToFetch]];
+        NSError *error = nil;
+        
+        NSMutableArray *contacts = [NSMutableArray new];
+        [store enumerateContactsWithFetchRequest:fetchRequest error:&error usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+            [contacts addObject:[[TSCPerson alloc] initWithContact:contact]];
+        }];
+        
+        if (error) {
             
-            if (error) {
-                
-                if (completion) {
-                    completion(nil, (__bridge NSError *)(error));
-                }
-                return;
+            if (completion) {
+                completion(nil, error);
             }
+        } else {
             
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            if (completion) {
+                completion(contacts, nil);
+            }
+        }
+        
+    } else {
+        
+        dispatch_sync(self.addressBookQueue, ^{
+            
+            ABAddressBookRequestAccessWithCompletion(self.addressBook, ^(bool granted, CFErrorRef error) {
                 
-                if (granted) {
-                    
-                    __block NSMutableArray *addressBookArray = [NSMutableArray new];
-                    __block NSMutableArray *people = [NSMutableArray new];
-                    
-                    dispatch_async(self.addressBookQueue, ^{
-                        
-                        NSArray *sources = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllSources(self.addressBook);
-                        
-                        for (id addressBookSouce in sources) {
-                            
-                            NSArray *contacts = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering([self addressBook], (__bridge ABRecordRef)(addressBookSouce), kABPersonSortByLastName);
-                            [addressBookArray addObjectsFromArray:contacts];
-                            
-                            // Removes call due to Zombie object crash when call method multiple times, There should be no reason to release this as we don't retain it ourselves so shouldn't be a memory leak. Will leave here incase it causes other issues. Simon :)
-                            //                            CFRelease((__bridge CFTypeRef)(addressBookSouce));
-                        }
-                        
-                        for (id person in addressBookArray) {
-                            [people addObject:[self personWithRecordRef:(__bridge ABRecordRef)person]];
-                        }
-                        
-                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                            
-                            if (completion) {
-                                completion([NSArray arrayWithArray:people], nil);
-                            }
-                        }];
-                    });
-                    
-                } else {
+                if (error) {
                     
                     if (completion) {
-                        completion(nil, [NSError errorWithDomain:TSCAddressBookErrorDomain code:401 userInfo:nil]);
+                        completion(nil, (__bridge NSError *)(error));
                     }
+                    return;
                 }
-            }];
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    
+                    if (granted) {
+                        
+                        __block NSMutableArray *addressBookArray = [NSMutableArray new];
+                        __block NSMutableArray *people = [NSMutableArray new];
+                        
+                        dispatch_async(self.addressBookQueue, ^{
+                            
+                            NSArray *sources = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllSources(self.addressBook);
+                            
+                            for (id addressBookSouce in sources) {
+                                
+                                NSArray *contacts = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering([self addressBook], (__bridge ABRecordRef)(addressBookSouce), kABPersonSortByLastName);
+                                [addressBookArray addObjectsFromArray:contacts];
+                                
+                                // Removes call due to Zombie object crash when call method multiple times, There should be no reason to release this as we don't retain it ourselves so shouldn't be a memory leak. Will leave here incase it causes other issues. Simon :)
+                                //                            CFRelease((__bridge CFTypeRef)(addressBookSouce));
+                            }
+                            
+                            for (id person in addressBookArray) {
+                                [people addObject:[self personWithRecordRef:(__bridge ABRecordRef)person]];
+                            }
+                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                
+                                if (completion) {
+                                    completion([NSArray arrayWithArray:people], nil);
+                                }
+                            }];
+                        });
+                        
+                    } else {
+                        
+                        if (completion) {
+                            completion(nil, [NSError errorWithDomain:TSCAddressBookErrorDomain code:401 userInfo:nil]);
+                        }
+                    }
+                }];
+            });
         });
-    });
+    }
 }
 
 void TSCAddressBookInternalChangeCallback (ABAddressBookRef addressBook, CFDictionaryRef info, void *context)
@@ -304,6 +319,39 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
     if(personRecord != NULL) {
         return personRecord;
     }
+    return nil;
+}
+
+- (CNContact *)contactForIdentifier:(id)identifier
+{
+    if ([identifier isKindOfClass:[NSString class]]) {
+        
+        CNContactStore *store = [CNContactStore new];
+        return [store unifiedContactWithIdentifier:(NSString *)identifier keysToFetch:[self contactKeysToFetch] error:nil];
+    }
+    
+    if ([identifier isKindOfClass:[NSNumber class]]) {
+        
+        CNContactStore *store = [CNContactStore new];
+        __block CNContact *newContact;
+        CNContactFetchRequest *fetchRequest = [[CNContactFetchRequest alloc] initWithKeysToFetch:[self contactKeysToFetch]];
+        
+        [store enumerateContactsWithFetchRequest:fetchRequest error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+            
+            if ([[contact valueForKey:@"_iOSLegacyIdentifier"] isKindOfClass:[NSNumber class]]) {
+                
+                NSNumber *contactID = (NSNumber *)[contact valueForKey:@"_iOSLegacyIdentifier"];
+                if ([contactID isEqualToNumber:(NSNumber *)identifier]) {
+                    
+                    newContact = contact;
+                    *stop = true;
+                }
+            }
+        }];
+        
+        return newContact;
+    }
+
     return nil;
 }
 
