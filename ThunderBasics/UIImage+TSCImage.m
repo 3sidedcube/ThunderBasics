@@ -32,25 +32,18 @@
     
     img = [UIImage imageNamed:name];
     
-    UIGraphicsBeginImageContext(img.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIImage *newImage = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
-    CGContextTranslateCTM(context, 0, img.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
+    UIGraphicsBeginImageContextWithOptions(img.size, NO, img.scale);
+    [color set];
     
-    CGRect rect = CGRectMake(0, 0, img.size.width, img.size.height);
+    [newImage drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
     
-    CGContextSetBlendMode(context, kCGBlendModeNormal);
-    CGContextDrawImage(context, rect, img.CGImage);
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
     
-    CGContextSetBlendMode(context, kCGBlendModeSourceIn);
-    [color setFill];
-    CGContextFillRect(context, rect);
-    
-    UIImage *coloredImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return coloredImage;
+    return newImage;
 }
 
 @end
