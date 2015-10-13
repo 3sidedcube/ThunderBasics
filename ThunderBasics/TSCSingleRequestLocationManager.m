@@ -63,7 +63,7 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     self.PCSingleRequestLocationCompletion = completion;
     
     // Start location manager
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if(authorization == TSCAuthorizationTypeAlways) {
             
@@ -127,7 +127,7 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         }
         
         // If location is older than 10 seconds, it's probably an old location getting re-reported
-        NSInteger locationTimeIntervalSinceNow = abs([newLocation.timestamp timeIntervalSinceNow]);
+        NSInteger locationTimeIntervalSinceNow = fabs([newLocation.timestamp timeIntervalSinceNow]);
         if (locationTimeIntervalSinceNow > 10) {
             if (kPCWebServiceLocationManagerDebug) {
                 NSLog(@"PCWebServiceLocationManager: Location old, aborting...");
