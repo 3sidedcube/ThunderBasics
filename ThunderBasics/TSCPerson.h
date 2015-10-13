@@ -42,6 +42,12 @@
 - (void)updateWithCNContact:(CNContact *)contact;
 
 /**
+ Updates the current model using a `TSCPerson`
+ @param person The person to update the current person model with
+ */
+- (void)updateWithPerson:(TSCPerson *)person;
+
+/**
  The initials of the person generated from any available first and last names
  */
 - (NSString *)initials;
