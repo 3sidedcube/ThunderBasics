@@ -21,4 +21,6 @@
  */
 - (UIColor *)pixelColorForX:(NSInteger)x y:(NSInteger)y;
 
++ (UIImage *)imageNamed:(NSString *)name imageWithColor:(UIColor *)color;
+
 @end
