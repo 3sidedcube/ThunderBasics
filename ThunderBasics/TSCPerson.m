@@ -243,6 +243,19 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     }
 }
 
+- (void)updateWithPerson:(TSCPerson *)person
+{
+    self.firstName = person.firstName;
+    self.lastName = person.lastName;
+    self.mobileNumber = person.mobileNumber;
+    self.fullName = person.fullName;
+    self.numbers = person.numbers;
+    self.email = person.email;
+    self.photo = person.photo;
+    self.largeImage = person.largeImage;
+    self.hasPlaceholderImage = person.hasPlaceholderImage;
+}
+
 - (NSString *)fullName
 {
     if (self.firstName && self.lastName) {
