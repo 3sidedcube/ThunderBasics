@@ -33,35 +33,42 @@
 
 - (void)TSC_setPropertiesWithDictionary:(NSDictionary *)dictionary
 {
-    for (NSString *key in dictionary.allKeys) {
-        
-        NSString *keyName = nil;
-        
-        if ([key isEqualToString:@"class"]) {
-            keyName = @"className";
-        } else if ([key isEqualToString:@"hash"]) {
-            keyName = @"objectHash";
-        } else if ([key isEqualToString:@"debugDescription"]) {
-            keyName = @"objectDebugDescription";
-        } else if ([key isEqualToString:@"description"]) {
-            keyName = @"objectDescription";
-        } else {
-            keyName = key;
-        }
-        
-        if ([self respondsToSelector:NSSelectorFromString(keyName)]) {
-            [self setValue:dictionary[key] forKey:keyName];
-        } else {
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+       
+        if (![obj isKindOfClass:[NSNull class]]) {
             
-            NSString *firstLetter = [[keyName substringToIndex:1] lowercaseString];
-            NSString *lowercaseKey = [keyName substringFromIndex:1];
-            lowercaseKey = [NSString stringWithFormat:@"%@%@",firstLetter,lowercaseKey];
-            
-            if ([self respondsToSelector:NSSelectorFromString(lowercaseKey)]) {
-                [self setValue:dictionary[key] forKey:lowercaseKey];
+            if ([key isKindOfClass:[NSString class]]) {
+                
+                NSString *keyName = nil;
+                
+                if ([key isEqualToString:@"class"]) {
+                    keyName = @"className";
+                } else if ([key isEqualToString:@"hash"]) {
+                    keyName = @"objectHash";
+                } else if ([key isEqualToString:@"debugDescription"]) {
+                    keyName = @"objectDebugDescription";
+                } else if ([key isEqualToString:@"description"]) {
+                    keyName = @"objectDescription";
+                } else {
+                    keyName = key;
+                }
+                
+                if ([self respondsToSelector:NSSelectorFromString(keyName)]) {
+                    [self setValue:dictionary[key] forKey:keyName];
+                } else {
+                    
+                    NSString *firstLetter = [[keyName substringToIndex:1] lowercaseString];
+                    NSString *lowercaseKey = [keyName substringFromIndex:1];
+                    lowercaseKey = [NSString stringWithFormat:@"%@%@",firstLetter,lowercaseKey];
+                    
+                    if ([self respondsToSelector:NSSelectorFromString(lowercaseKey)]) {
+                        [self setValue:dictionary[key] forKey:lowercaseKey];
+                    }
+                }
+                
             }
         }
-    }
+    }];
 }
 
 - (NSDictionary *)serialisableRepresentation
