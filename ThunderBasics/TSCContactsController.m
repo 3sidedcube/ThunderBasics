@@ -454,12 +454,9 @@ void TSCAddressBookExternalChangeCallback (ABAddressBookRef addressBook, CFDicti
     
     for (TSCPerson *person in people) {
         
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        if(person.recordNumber) {
-            [addressbookIdsArray addObject:person.recordNumber];
+        if(person.recordIdentifier) {
+            [addressbookIdsArray addObject:person.recordIdentifier];
         }
-#pragma clang diagnostic pop
     }
     
     return [NSArray arrayWithArray:addressbookIdsArray];
