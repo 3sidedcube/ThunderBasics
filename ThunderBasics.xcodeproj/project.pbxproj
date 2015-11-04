@@ -34,9 +34,9 @@
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */; settings = {ASSET_TAGS = (); }; };
+		B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -555,7 +555,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
 					C272EF8319C831AB004BD339 = {
@@ -680,6 +680,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -758,6 +759,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -776,6 +778,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -794,6 +797,7 @@
 				);
 				INFOPLIST_FILE = ThunderBasicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -807,6 +811,7 @@
 				);
 				INFOPLIST_FILE = ThunderBasicsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
