@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */; };
+		36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 36401E281BF238FC00E06E14 /* TSCDismissSegue.h */; };
+		36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 36401E291BF238FC00E06E14 /* TSCDismissSegue.m */; };
 		49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13201AB6D87900AA5971 /* TSCiCloudController.m */; };
 		49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13241AB6D88A00AA5971 /* TSCContactsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -94,6 +96,8 @@
 /* Begin PBXFileReference section */
 		33C47F971A0A62C3007BD920 /* TSCNotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCNotificationHelper.h; sourceTree = "<group>"; };
 		33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCNotificationHelper.m; sourceTree = "<group>"; };
+		36401E281BF238FC00E06E14 /* TSCDismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDismissSegue.h; sourceTree = "<group>"; };
+		36401E291BF238FC00E06E14 /* TSCDismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDismissSegue.m; sourceTree = "<group>"; };
 		49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCiCloudController.h; sourceTree = "<group>"; };
 		49CF13201AB6D87900AA5971 /* TSCiCloudController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCiCloudController.m; sourceTree = "<group>"; };
 		49CF13241AB6D88A00AA5971 /* TSCContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCContactsController.h; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */,
 				B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */,
 				B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */,
+				36401E281BF238FC00E06E14 /* TSCDismissSegue.h */,
+				36401E291BF238FC00E06E14 /* TSCDismissSegue.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
+				36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
 				B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */,
@@ -621,6 +628,7 @@
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
+				36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */,
 				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
