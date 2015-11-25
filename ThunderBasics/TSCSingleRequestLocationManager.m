@@ -74,6 +74,13 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         }
     } else {
         
+        //Are we running iOS 9? let's use the built in method and forget about all of this junk handling.
+        if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+            
+            [self.locationManager requestLocation];
+            return;
+        }
+        
         [self.locationManager startUpdatingLocation];
         // Start timers - If user hasn't enabled permissions yet we need to wait until they have allowed/disallowed location updates before starting these timers.
         _maxWaitTimeTimer = [NSTimer scheduledTimerWithTimeInterval:kPCWebServiceLocationManagerMaxWaitTime target:self selector:@selector(maxWaitTimeReached) userInfo:nil repeats:NO];
@@ -88,6 +95,12 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if (self.PCSingleRequestLocationCompletion) { // Only start up if a user has actually requested location by now
+            
+            if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+                
+                [self.locationManager requestLocation];
+                return;
+            }
             
             [self.locationManager startUpdatingLocation];
             // Start timers
@@ -108,6 +121,14 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 {
     
     if (locations.count > 0) {
+        
+        if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+            
+            self.PCSingleRequestLocationCompletion(locations.firstObject, nil);
+            [self cleanUp];
+            return;
+            
+        }
         
         CLLocation *newLocation = locations[0];
         
