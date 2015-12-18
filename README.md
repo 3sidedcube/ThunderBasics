@@ -1,5 +1,7 @@
 #Thunder Basics
 
+[![Build Status](https://travis-ci.org/3sidedcube/iOS-ThunderBasics.svg)](https://travis-ci.org/3sidedcube/iOS-ThunderBasics)
+
 Thunder Basics is a set of useful utilities for handling basic iOS development tasks.
 
 #Installation
