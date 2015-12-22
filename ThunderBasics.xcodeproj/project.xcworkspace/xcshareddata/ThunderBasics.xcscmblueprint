@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D682F49FB8B61EFCC558A1669AB91A34B5405C7B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D682F49FB8B61EFCC558A1669AB91A34B5405C7B" : 0,
+    "9BC3F7515F009BF4DD2705F183F283B2B27D1B91" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "68A0EC89-15E1-498F-9314-AD108F31F50E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D682F49FB8B61EFCC558A1669AB91A34B5405C7B" : "Thunder%20Basics\/",
+    "9BC3F7515F009BF4DD2705F183F283B2B27D1B91" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ThunderBasics",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ThunderBasics.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:3sidedcube\/iOS-Storm-Demo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9BC3F7515F009BF4DD2705F183F283B2B27D1B91"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/3sidedcube\/iOS-ThunderBasics.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D682F49FB8B61EFCC558A1669AB91A34B5405C7B"
+    }
+  ]
+}
