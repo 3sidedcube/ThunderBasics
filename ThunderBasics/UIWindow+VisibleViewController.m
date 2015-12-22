@@ -14,7 +14,23 @@ typedef void (^TSCNavigationViewControllerRecursion)(UIViewController *visibleVi
 
 - (UIViewController *)visibleViewController
 {
-    return [self visibleViewControllerForViewController:self.rootViewController];
+    UIViewController *rootViewController = self.rootViewController;
+    
+    if (rootViewController.splitViewController) {
+        
+        // If any of the split view controller's viewControllers are presnting work up their view hierarcy
+        for (UIViewController *splitViewController in rootViewController.splitViewController.viewControllers) {
+            
+            if (splitViewController.presentedViewController) {
+                return [self visibleViewControllerForViewController:splitViewController.presentedViewController];
+            }
+        }
+        
+        // Otherwise navigate through the last view controller on the splitViewController
+        return [self visibleViewControllerForViewController:rootViewController.splitViewController.viewControllers.lastObject];
+    }
+
+    return [self visibleViewControllerForViewController:rootViewController];
 }
 
 - (UIViewController *)visibleViewControllerForViewController:(UIViewController *)viewController
