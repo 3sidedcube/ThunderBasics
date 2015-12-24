@@ -190,7 +190,6 @@
 
 - (void)handleTap:(id)sender
 {
-    
     if (self.action) {
         self.action(self);
     }

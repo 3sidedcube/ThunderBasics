@@ -9,7 +9,14 @@
 #import "TSCPerson.h"
 #import "TSCContactsController.h"
 
+typedef NS_ENUM(NSUInteger, TSCPersonSource) {
+    TSCPersonSourceABAddressBook = 0,
+    TSCPersonSourceContactsFramework = 1
+};
+
 @interface TSCPerson ()
+
+@property (nonatomic, assign) TSCPersonSource source;
 
 @end
 
@@ -19,12 +26,36 @@
 {
     if (self = [super init]) {
         
+        self.source = TSCPersonSourceABAddressBook;
         [self updateWithABRecordRef:ref];
+        
         self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-           
+                
             TSCContactsController *contactsController = [TSCContactsController sharedController];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [self updateWithABRecordRef:[contactsController recordRefForRecordID:[contactsController recordIDForNumber:self.recordNumber]]];
+#pragma clang diagnostic pop
         }];
+    }
+    return self;
+}
+
+- (instancetype)initWithContact:(CNContact *)contact
+{
+    if (self = [super init]) {
+        
+        self.source = TSCPersonSourceContactsFramework;
+        [self updateWithCNContact:contact];
+        
+        if (NSStringFromClass([CNContactStore class])) {
+            
+            self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+                
+                TSCContactsController *contactsController = [TSCContactsController sharedController];
+                [self updateWithCNContact:[contactsController contactForIdentifier:self.recordIdentifier]];
+            }];
+        }
     }
     return self;
 }
@@ -32,6 +63,63 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
+}
+
+- (void)updateWithCNContact:(CNContact *)contact
+{
+    self.mobileNumber = nil;
+    self.firstName = nil;
+    self.lastName = nil;
+    self.numbers = nil;
+    self.email = nil;
+    self.photo = nil;
+    self.largeImage = nil;
+    self.recordIdentifier = nil;
+    self.hasPlaceholderImage = false;
+    
+    self.recordIdentifier = contact.identifier;
+    self.firstName = contact.givenName;
+    self.lastName = contact.familyName;
+    
+    if (!self.firstName && !self.lastName) {
+        self.firstName = contact.nickname;
+    }
+    
+    if (!self.firstName) {
+        self.firstName = @"";
+    }
+    
+    NSMutableArray *phoneNumbers = [NSMutableArray new];
+    for (CNLabeledValue *phoneNumberLabel in contact.phoneNumbers) {
+        
+        CNPhoneNumber *number = phoneNumberLabel.value;
+        [phoneNumbers addObject:number.stringValue];
+        
+        if ([phoneNumberLabel.label isEqualToString:CNLabelPhoneNumberiPhone] || [phoneNumberLabel.label isEqualToString:CNLabelPhoneNumberMobile]) {
+            self.mobileNumber = number.stringValue;
+        }
+    }
+    self.numbers = phoneNumbers;
+    
+    if (contact.emailAddresses.firstObject) {
+        
+        CNLabeledValue *emailAddress = contact.emailAddresses.firstObject;
+        self.email = emailAddress.value;
+    }
+    
+    if (contact.imageData) {
+        self.largeImage = [UIImage imageWithData:contact.imageData];
+    }
+    
+    if (contact.thumbnailImageData) {
+        self.photo = [UIImage imageWithData:contact.thumbnailImageData];
+    }
+    
+    if (!self.photo) {
+        
+        self.hasPlaceholderImage = YES;
+        self.photo = [self contactPlaceholderWithInitials:self.initials];
+    }
 }
 
 - (void)updateWithABRecordRef:(ABRecordRef)ref
@@ -43,7 +131,11 @@
     self.email = nil;
     self.photo = nil;
     self.largeImage = nil;
+    self.recordIdentifier = nil;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.recordNumber = nil;
+#pragma clang diagnostic pop    
     self.hasPlaceholderImage = false;
     
     CFTypeRef firstNameRef = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
@@ -139,12 +231,29 @@
         CFRelease(originalPhotoRef);
     }
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.recordNumber = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
+#pragma clang diagnostic pop
+    self.recordIdentifier = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
     
     if (!self.photo) {
         self.hasPlaceholderImage = YES;
         self.photo = [self contactPlaceholderWithInitials:self.initials];
     }
+}
+
+- (void)updateWithPerson:(TSCPerson *)person
+{
+    self.firstName = person.firstName;
+    self.lastName = person.lastName;
+    self.mobileNumber = person.mobileNumber;
+    self.fullName = person.fullName;
+    self.numbers = person.numbers;
+    self.email = person.email;
+    self.photo = person.photo;
+    self.largeImage = person.largeImage;
+    self.hasPlaceholderImage = person.hasPlaceholderImage;
 }
 
 - (NSString *)fullName

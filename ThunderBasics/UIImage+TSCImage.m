@@ -26,4 +26,24 @@
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha/255.0f];
 }
 
++ (UIImage *)imageNamed:(NSString *)name imageWithColor:(UIColor *)color
+{
+    UIImage *img = nil;
+    
+    img = [UIImage imageNamed:name];
+    
+    UIImage *newImage = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    UIGraphicsBeginImageContextWithOptions(img.size, NO, img.scale);
+    [color set];
+    
+    [newImage drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
+    
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 @end

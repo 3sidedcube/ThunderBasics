@@ -32,4 +32,9 @@
  */
 + (NSArray *)arrayWithArrayOfDictionaries:(NSArray *)dictionaries rootInstanceType:(Class)classType;
 
+/**
+ Returns a reversed version of the array
+ */
+- (NSArray *)reverse;
+
 @end

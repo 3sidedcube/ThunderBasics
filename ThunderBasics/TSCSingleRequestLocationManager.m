@@ -63,7 +63,7 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     self.PCSingleRequestLocationCompletion = completion;
     
     // Start location manager
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if(authorization == TSCAuthorizationTypeAlways) {
             
@@ -73,6 +73,13 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
             [self.locationManager requestWhenInUseAuthorization];
         }
     } else {
+        
+        //Are we running iOS 9? let's use the built in method and forget about all of this junk handling.
+        if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+            
+            [self.locationManager requestLocation];
+            return;
+        }
         
         [self.locationManager startUpdatingLocation];
         // Start timers - If user hasn't enabled permissions yet we need to wait until they have allowed/disallowed location updates before starting these timers.
@@ -88,6 +95,12 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if (self.PCSingleRequestLocationCompletion) { // Only start up if a user has actually requested location by now
+            
+            if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+                
+                [self.locationManager requestLocation];
+                return;
+            }
             
             [self.locationManager startUpdatingLocation];
             // Start timers
@@ -109,6 +122,14 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     
     if (locations.count > 0) {
         
+        if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
+            
+            self.PCSingleRequestLocationCompletion(locations.firstObject, nil);
+            [self cleanUp];
+            return;
+            
+        }
+        
         CLLocation *newLocation = locations[0];
         
         // Debug the reported location
@@ -127,7 +148,7 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         }
         
         // If location is older than 10 seconds, it's probably an old location getting re-reported
-        NSInteger locationTimeIntervalSinceNow = abs([newLocation.timestamp timeIntervalSinceNow]);
+        NSInteger locationTimeIntervalSinceNow = fabs([newLocation.timestamp timeIntervalSinceNow]);
         if (locationTimeIntervalSinceNow > 10) {
             if (kPCWebServiceLocationManagerDebug) {
                 NSLog(@"PCWebServiceLocationManager: Location old, aborting...");

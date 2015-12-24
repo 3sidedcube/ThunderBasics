@@ -43,7 +43,7 @@ typedef void (^TSCToastDisplayCompletion)(void);
 /**
  The action to be called if the user taps the toast
  */
-@property (nonatomic, assign) TSCToastViewActionHandler action;
+@property (nonatomic, strong) TSCToastViewActionHandler action;
 
 /**
  The colour of the text in the notification view

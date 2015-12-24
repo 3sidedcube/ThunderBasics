@@ -49,6 +49,8 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/NSString+TSCEncoding.h>
 #import <ThunderBasics/UIImage+TSCImage.h>
 #import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
+#import <ThunderBasics/UIWindow+VisibleViewController.h>
+#import <ThunderBasics/UIViewController+Dismiss.h>
 
 //Toasts
 #import <ThunderBasics/TSCToast.h>
@@ -69,5 +71,4 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 
 //People
 #import <ThunderBasics/TSCPerson.h>
-
-
+#import <ThunderBasics/TSCCoreSpotlightIndexItem.h>
