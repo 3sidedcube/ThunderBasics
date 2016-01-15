@@ -35,6 +35,7 @@
 		49CF13501AB6DF9400AA5971 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */; };
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
 		B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,6 +123,7 @@
 		49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		49CF13541AB6ED7000AA5971 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCCoreSpotlightIndexItem.h; sourceTree = "<group>"; };
+		B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCLoadingButton.swift; sourceTree = "<group>"; };
 		B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VisibleViewController.h"; sourceTree = "<group>"; };
 		B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VisibleViewController.m"; sourceTree = "<group>"; };
 		B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dismiss.h"; sourceTree = "<group>"; };
@@ -324,6 +326,14 @@
 			name = "Core Spotlighting";
 			sourceTree = "<group>";
 		};
+		B12BD5DE1C48043600D07A58 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		B1E3C5D91B626DCC005CC1C1 /* Location Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +364,7 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				B12BD5DE1C48043600D07A58 /* Views */,
 				B120905B1BBABE9500AAB2E9 /* Core Spotlighting */,
 				B1E3C5D91B626DCC005CC1C1 /* Location Management */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
@@ -561,7 +572,7 @@
 		C272EF7B19C831AB004BD339 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
@@ -643,6 +654,7 @@
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */,
 				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
+				B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */,
 				C272EFEF19C8325D004BD339 /* TSCAppInfoController.m in Sources */,
 				C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */,
 				C272EFF919C8325D004BD339 /* TSCMapView.m in Sources */,
@@ -757,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -770,6 +783,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -777,6 +791,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
