@@ -277,7 +277,7 @@
 
 - (UIImage *)roundCorners:(UIRectCorner)corners withRadius:(float)radius andSize:(CGSize)size
 {
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     
