@@ -58,6 +58,7 @@
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
 		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
+		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -164,6 +165,7 @@
 		B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddedProperties.m"; sourceTree = "<group>"; };
 		B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCUserDefaults.h; sourceTree = "<group>"; };
 		B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCUserDefaults.m; sourceTree = "<group>"; };
+		B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */,
 				B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */,
 				B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */,
+				B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				49CF134C1AB6DEC900AA5971 /* NSString+TSCEncoding.m in Sources */,
 				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
+				B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */,
 				B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */,
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
 				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
