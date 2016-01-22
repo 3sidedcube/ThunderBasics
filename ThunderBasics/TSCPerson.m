@@ -68,25 +68,17 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
 - (void)updateWithCNContact:(CNContact *)contact
 {
     self.mobileNumber = nil;
-    self.firstName = nil;
-    self.lastName = nil;
-    self.numbers = nil;
     self.email = nil;
     self.photo = nil;
     self.largeImage = nil;
-    self.recordIdentifier = nil;
     self.hasPlaceholderImage = false;
     
     self.recordIdentifier = contact.identifier;
-    self.firstName = contact.givenName;
-    self.lastName = contact.familyName;
+    self.firstName = contact.givenName.length > 0 ? contact.givenName : nil;
+    self.lastName = contact.familyName.length > 0 ? contact.familyName : nil;
     
     if (!self.firstName && !self.lastName) {
-        self.firstName = contact.nickname;
-    }
-    
-    if (!self.firstName) {
-        self.firstName = @"";
+        self.firstName = contact.nickname.length > 0 ? contact.nickname : nil;
     }
     
     NSMutableArray *phoneNumbers = [NSMutableArray new];
@@ -256,26 +248,56 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     self.hasPlaceholderImage = person.hasPlaceholderImage;
 }
 
-- (NSString *)fullName
+- (void)setFirstName:(NSString *)firstName
+{
+    _firstName = firstName;
+    [self updateFullName];
+}
+
+- (void)setLastName:(NSString *)lastName
+{
+    _lastName = lastName;
+    [self updateFullName];
+}
+
+- (void)updateFullName
 {
     if (self.firstName && self.lastName) {
-        return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+        self.fullName = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+    } else if (self.firstName) {
+        self.fullName = self.firstName;
+    } else if (self.lastName) {
+        self.fullName = self.lastName;
     }
-    
-    if (self.firstName) {
-        return self.firstName;
-    }
-    
-    if (self.lastName) {
-        return self.lastName;
-    }
-    
-    return nil;
 }
 
 - (NSString *)rowTitle
 {
-    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+    if (self.fullName) {
+        return self.fullName;
+    }
+    
+    if (self.mobileNumber) {
+        return self.mobileNumber;
+    }
+    
+    if (self.numbers.firstObject) {
+        return self.numbers.firstObject;
+    }
+    
+    if (self.mobileNumber) {
+        return self.mobileNumber;
+    }
+    
+    if (self.numbers.firstObject) {
+        return self.numbers.firstObject;
+    }
+    
+    if (self.email) {
+        return self.email;
+    }
+    
+    return nil;
 }
 
 - (NSString *)rowSubtitle
@@ -302,6 +324,10 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     
     if (self.lastName.length > 0) {
         [intialString appendString:[self.lastName substringToIndex:1]];
+    }
+    
+    if (intialString.length == 0) {
+        intialString = [@"?" mutableCopy];
     }
     
     return intialString;

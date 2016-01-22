@@ -23,9 +23,11 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCLanguageController.h>
 #import <ThunderBasics/TSCAppInfoController.h>
 #import <ThunderBasics/TSCSingleRequestLocationManager.h>
+#import <ThunderBasics/TSCUserDefaults.h>
 
 // Views
 #import <ThunderBasics/TSCWebViewController.h>
+#import <ThunderBasics/MDCHUDActivityView.h>
 
 // Maps
 #import <ThunderBasics/TSCAnnotation.h>
@@ -48,9 +50,16 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/NSTimer+Blocks.h>
 #import <ThunderBasics/NSString+TSCEncoding.h>
 #import <ThunderBasics/UIImage+TSCImage.h>
+#import <ThunderBasics/UIImage+Resize.h>
+#import <ThunderBasics/UIImage+ImageEffects.h>
 #import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
 #import <ThunderBasics/UIWindow+VisibleViewController.h>
 #import <ThunderBasics/UIViewController+Dismiss.h>
+#import <ThunderBasics/NSObject+AddedProperties.h>
+#import <ThunderBasics/UIView+Pop.h>
+#import <ThunderBasics/CAGradientLayer+AutoGradient.h>
+#import <ThunderBasics/UIColor-Expanded.h>
+#import <ThunderBasics/ImageColorAnalyzer.h>
 
 //Toasts
 #import <ThunderBasics/TSCToast.h>

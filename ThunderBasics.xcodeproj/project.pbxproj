@@ -40,6 +40,25 @@
 		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */; };
+		B1B6CF731C4E44FC00CDC978 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF6F1C4E44FC00CDC978 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF741C4E44FC00CDC978 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF701C4E44FC00CDC978 /* UIImage+ImageEffects.m */; };
+		B1B6CF751C4E44FC00CDC978 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF711C4E44FC00CDC978 /* UIImage+Resize.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF761C4E44FC00CDC978 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF721C4E44FC00CDC978 /* UIImage+Resize.m */; };
+		B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF801C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */; };
+		B1B6CF811C4E473B00CDC978 /* ImageColorAnalyzer.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF791C4E473B00CDC978 /* ImageColorAnalyzer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF821C4E473B00CDC978 /* ImageColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7A1C4E473B00CDC978 /* ImageColorAnalyzer.m */; };
+		B1B6CF831C4E473B00CDC978 /* UIView+Pop.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */; };
+		B1B6CF851C4E473B00CDC978 /* UIColor-Expanded.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */; };
+		B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF8C1C4E47DB00CDC978 /* MDCHUDActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */; };
+		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
+		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
+		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -128,6 +147,25 @@
 		B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VisibleViewController.m"; sourceTree = "<group>"; };
 		B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dismiss.h"; sourceTree = "<group>"; };
 		B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Dismiss.m"; sourceTree = "<group>"; };
+		B1B6CF6F1C4E44FC00CDC978 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		B1B6CF701C4E44FC00CDC978 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		B1B6CF711C4E44FC00CDC978 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		B1B6CF721C4E44FC00CDC978 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+AutoGradient.h"; sourceTree = "<group>"; };
+		B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+AutoGradient.m"; sourceTree = "<group>"; };
+		B1B6CF791C4E473B00CDC978 /* ImageColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageColorAnalyzer.h; sourceTree = "<group>"; };
+		B1B6CF7A1C4E473B00CDC978 /* ImageColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageColorAnalyzer.m; sourceTree = "<group>"; };
+		B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Pop.h"; sourceTree = "<group>"; };
+		B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Pop.m"; sourceTree = "<group>"; };
+		B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
+		B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
+		B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCHUDActivityView.h; sourceTree = "<group>"; };
+		B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCHUDActivityView.m; sourceTree = "<group>"; };
+		B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddedProperties.h"; sourceTree = "<group>"; };
+		B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddedProperties.m"; sourceTree = "<group>"; };
+		B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCUserDefaults.h; sourceTree = "<group>"; };
+		B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCUserDefaults.m; sourceTree = "<group>"; };
+		B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
@@ -261,28 +299,17 @@
 		49CF13401AB6DB6300AA5971 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */,
-				B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */,
-				49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */,
-				49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */,
-				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
-				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
-				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
-				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
-				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
-				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
-				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
-				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
-				B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */,
-				B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */,
+				B1B6CF951C4E484200CDC978 /* Images */,
+				B1B6CF931C4E482000CDC978 /* Views and Layers */,
+				B1B6CF941C4E483000CDC978 /* Colours */,
+				B1B6CF971C4E488600CDC978 /* View Controllers and Windows */,
+				B1B6CF961C4E487900CDC978 /* Date and Time */,
+				B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */,
+				B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */,
+				B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */,
+				B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */,
 				49CF13491AB6DEC900AA5971 /* NSString+TSCEncoding.h */,
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
-				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
-				49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */,
-				B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */,
-				B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */,
-				B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */,
-				B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */,
 				36401E281BF238FC00E06E14 /* TSCDismissSegue.h */,
 				36401E291BF238FC00E06E14 /* TSCDismissSegue.m */,
 			);
@@ -329,9 +356,79 @@
 		B12BD5DE1C48043600D07A58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */,
+				B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */,
 				B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */,
+				B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B1B6CF931C4E482000CDC978 /* Views and Layers */ = {
+			isa = PBXGroup;
+			children = (
+				B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */,
+				B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */,
+				B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */,
+				B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */,
+				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
+				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
+				B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */,
+				B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */,
+			);
+			name = "Views and Layers";
+			sourceTree = "<group>";
+		};
+		B1B6CF941C4E483000CDC978 /* Colours */ = {
+			isa = PBXGroup;
+			children = (
+				B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */,
+				B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */,
+				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
+				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
+			);
+			name = Colours;
+			sourceTree = "<group>";
+		};
+		B1B6CF951C4E484200CDC978 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B1B6CF791C4E473B00CDC978 /* ImageColorAnalyzer.h */,
+				B1B6CF7A1C4E473B00CDC978 /* ImageColorAnalyzer.m */,
+				B1B6CF6F1C4E44FC00CDC978 /* UIImage+ImageEffects.h */,
+				B1B6CF701C4E44FC00CDC978 /* UIImage+ImageEffects.m */,
+				B1B6CF711C4E44FC00CDC978 /* UIImage+Resize.h */,
+				B1B6CF721C4E44FC00CDC978 /* UIImage+Resize.m */,
+				49CF13411AB6DB8500AA5971 /* UIImage+TSCImage.h */,
+				49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		B1B6CF961C4E487900CDC978 /* Date and Time */ = {
+			isa = PBXGroup;
+			children = (
+				C272EFB319C8325D004BD339 /* NSDate+TSCDate.h */,
+				C272EFB419C8325D004BD339 /* NSDate+TSCDate.m */,
+				49CF134D1AB6DF9400AA5971 /* NSTimer+Blocks.h */,
+				49CF134E1AB6DF9400AA5971 /* NSTimer+Blocks.m */,
+				B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */,
+				B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */,
+			);
+			name = "Date and Time";
+			sourceTree = "<group>";
+		};
+		B1B6CF971C4E488600CDC978 /* View Controllers and Windows */ = {
+			isa = PBXGroup;
+			children = (
+				B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */,
+				B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */,
+				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
+				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
+				B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */,
+				B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */,
+			);
+			name = "View Controllers and Windows";
 			sourceTree = "<group>";
 		};
 		B1E3C5D91B626DCC005CC1C1 /* Location Management */ = {
@@ -364,10 +461,10 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				B12BD5DE1C48043600D07A58 /* Views */,
 				B120905B1BBABE9500AAB2E9 /* Core Spotlighting */,
 				B1E3C5D91B626DCC005CC1C1 /* Location Management */,
-				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				49CF13231AB6D87D00AA5971 /* iCloud */,
 				49CF132C1AB6D88E00AA5971 /* Contacts */,
 				49CF132D1AB6D89E00AA5971 /* Toast Notifications */,
@@ -491,23 +588,30 @@
 				C272EFE419C8325D004BD339 /* NSDictionary+TSCDictionary.h in Headers */,
 				C272EFEB19C8325D004BD339 /* TSCAlertViewController.h in Headers */,
 				B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */,
+				B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */,
 				B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */,
+				B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */,
+				B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
+				B1B6CF811C4E473B00CDC978 /* ImageColorAnalyzer.h in Headers */,
 				B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */,
+				B1B6CF731C4E44FC00CDC978 /* UIImage+ImageEffects.h in Headers */,
 				49CF13431AB6DB8500AA5971 /* UIImage+TSCImage.h in Headers */,
 				49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */,
 				49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */,
+				B1B6CF751C4E44FC00CDC978 /* UIImage+Resize.h in Headers */,
 				49CF13361AB6D8FC00AA5971 /* TSCToast.h in Headers */,
 				C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */,
+				B1B6CF831C4E473B00CDC978 /* UIView+Pop.h in Headers */,
 				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
 				33C47F991A0A62C3007BD920 /* TSCNotificationHelper.h in Headers */,
 				C272EFEE19C8325D004BD339 /* TSCAppInfoController.h in Headers */,
@@ -515,12 +619,14 @@
 				49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */,
 				49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */,
 				B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */,
+				B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */,
 				49CF13381AB6D8FC00AA5971 /* TSCToastNotificationController.h in Headers */,
 				49CF134B1AB6DEC900AA5971 /* NSString+TSCEncoding.h in Headers */,
 				49CF134F1AB6DF9400AA5971 /* NSTimer+Blocks.h in Headers */,
 				B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */,
 				49CF133C1AB6D8FC00AA5971 /* TSCToastViewController.h in Headers */,
 				C272EFD519C8325D004BD339 /* FMDatabase.h in Headers */,
+				B1B6CF851C4E473B00CDC978 /* UIColor-Expanded.h in Headers */,
 				C272EFDB19C8325D004BD339 /* FMDatabaseQueue.h in Headers */,
 				C272EFD919C8325D004BD339 /* FMDatabasePool.h in Headers */,
 				C272EFDD19C8325D004BD339 /* FMResultSet.h in Headers */,
@@ -632,20 +738,25 @@
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				49CF134C1AB6DEC900AA5971 /* NSString+TSCEncoding.m in Sources */,
 				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
+				B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */,
+				B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */,
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
 				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				C272EFE719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
+				B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
 				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */,
+				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
 				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
 				C272EFE319C8325D004BD339 /* NSDate+TSCDate.m in Sources */,
 				C272EFDC19C8325D004BD339 /* FMDatabaseQueue.m in Sources */,
 				C272EFEC19C8325D004BD339 /* TSCAlertViewController.m in Sources */,
+				B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */,
 				C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */,
 				B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */,
 				B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */,
@@ -656,6 +767,7 @@
 				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
 				B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */,
 				C272EFEF19C8325D004BD339 /* TSCAppInfoController.m in Sources */,
+				B1B6CF801C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m in Sources */,
 				C272EFE119C8325D004BD339 /* NSArray+TSCArray.m in Sources */,
 				C272EFF919C8325D004BD339 /* TSCMapView.m in Sources */,
 				C272EFF719C8325D004BD339 /* TSCLineGraphView.m in Sources */,
@@ -663,8 +775,12 @@
 				C272EFD819C8325D004BD339 /* FMDatabaseAdditions.m in Sources */,
 				49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */,
 				C272EFDE19C8325D004BD339 /* FMResultSet.m in Sources */,
+				B1B6CF821C4E473B00CDC978 /* ImageColorAnalyzer.m in Sources */,
 				C272EFF119C8325D004BD339 /* TSCDatabase.m in Sources */,
+				B1B6CF8C1C4E47DB00CDC978 /* MDCHUDActivityView.m in Sources */,
+				B1B6CF741C4E44FC00CDC978 /* UIImage+ImageEffects.m in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
+				B1B6CF761C4E44FC00CDC978 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
