@@ -44,6 +44,10 @@ import UIKit
         self.textInsets = insets
         super.init(frame: CGRectZero)
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,13 +73,21 @@ import UIKit
      The colour to highlight the text and border of the button with
      Uses the shared secondary color by default but may be overridden in it's IBDesignable property
      */
-    @IBInspectable public var primaryColor: UIColor
+    @IBInspectable public var primaryColor: UIColor {
+        didSet {
+            updateButtonColours()
+        }
+    }
     
     /**
      The colour to highlight the text and border of the button with
      Uses blue color by default but may be overridden in it's IBDesignable property
      */
-    @IBInspectable public var secondaryColor: UIColor
+    @IBInspectable public var secondaryColor: UIColor {
+        didSet {
+            updateButtonColours()
+        }
+    }
     
     /**
      Switches the button to be of solid fill with rounded edges
