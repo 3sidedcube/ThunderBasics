@@ -76,6 +76,12 @@
 @property (nonatomic, copy) NSString * _Nullable fullName;
 
 /**
+ The persons company name
+ @discussion The company name associated with the person/contact
+ */
+@property (nonatomic, copy) NSString * _Nullable companyName;
+
+/**
  An array of numbers extracted from the addressbook for the person
  */
 @property (nonatomic, strong) NSArray <NSString *> * _Nullable numbers;
