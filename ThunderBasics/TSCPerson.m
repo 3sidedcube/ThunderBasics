@@ -76,6 +76,7 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     self.recordIdentifier = contact.identifier;
     self.firstName = contact.givenName.length > 0 ? contact.givenName : nil;
     self.lastName = contact.familyName.length > 0 ? contact.familyName : nil;
+    self.companyName = contact.organizationName.length > 0 ? contact.organizationName : nil;
     
     if (!self.firstName && !self.lastName) {
         self.firstName = contact.nickname.length > 0 ? contact.nickname : nil;
@@ -142,20 +143,14 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         CFRelease(lastNameRef);
     }
     
-    if(!self.firstName && !self.lastName) {
-        
-        CFTypeRef companyNameFor = ABRecordCopyValue(ref, kABPersonOrganizationProperty);
-        self.firstName = (__bridge NSString *)companyNameFor;
-        if (firstNameRef) {
-            CFRelease(firstNameRef);
-        }
-        
+    CFTypeRef companyNameFor = ABRecordCopyValue(ref, kABPersonOrganizationProperty);
+    self.companyName = (__bridge NSString *)companyNameFor;
+    if (companyNameFor) {
+        CFRelease(companyNameFor);
     }
     
-    if(!self.firstName) {
-        
-        self.firstName = @"";
-        
+    if (!self.firstName && !self.lastName) {
+        self.firstName = self.companyName;
     }
     
     ABMultiValueRef phoneRef = ABRecordCopyValue(ref, kABPersonPhoneProperty);
@@ -324,6 +319,10 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     
     if (self.lastName.length > 0) {
         [intialString appendString:[self.lastName substringToIndex:1]];
+    }
+    
+    if (self.companyName.length > 0) {
+        [intialString appendString:[self.companyName substringToIndex:1]];
     }
     
     if (intialString.length == 0) {
