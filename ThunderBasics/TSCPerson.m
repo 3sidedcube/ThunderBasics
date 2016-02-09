@@ -321,7 +321,7 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         [intialString appendString:[self.lastName substringToIndex:1]];
     }
     
-    if (self.companyName.length > 0) {
+    if (self.companyName.length > 0 && intialString.length == 0) {
         [intialString appendString:[self.companyName substringToIndex:1]];
     }
     
