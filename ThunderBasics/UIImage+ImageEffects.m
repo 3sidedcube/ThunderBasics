@@ -268,8 +268,6 @@
     return croppedImage;
 }
 
-#endif
-
 - (UIImage *)roundCorners:(UIRectCorner)corners withRadius:(float)radius
 {
     return [self roundCorners:corners withRadius:radius andSize:self.size];
@@ -293,3 +291,5 @@
 }
 
 @end
+#endif
+
