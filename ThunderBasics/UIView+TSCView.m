@@ -10,22 +10,22 @@
 
 @implementation UIView (TSCResize)
 
-- (void)setHeight:(float)height
+- (void)setHeight:(CGFloat)height
 {
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
 }
 
-- (void)setWidth:(float)width
+- (void)setWidth:(CGFloat)width
 {
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height);
 }
 
-- (void)setX:(float)x
+- (void)setX:(CGFloat)x
 {
     self.frame = CGRectMake(x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
 
-- (void)setY:(float)y
+- (void)setY:(CGFloat)y
 {
     self.frame = CGRectMake(self.frame.origin.x, y, self.frame.size.width, self.frame.size.height);
 }
@@ -42,12 +42,12 @@
     self.frame = frame;
 }
 
-- (void)setCenterX:(float)x
+- (void)setCenterX:(CGFloat)x
 {
     self.center = CGPointMake(x, self.center.y);
 }
 
-- (void)setCenterY:(float)y
+- (void)setCenterY:(CGFloat)y
 {
     self.center = CGPointMake(self.center.x, y);
 }

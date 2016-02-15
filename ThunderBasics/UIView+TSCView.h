@@ -22,37 +22,37 @@ typedef void (^TSCViewEnumerationHandler)(UIView *view, BOOL *stop);
  Adjusts the height of the current view's frame to the given value
  @param height The height to adjust the view to
  */
-- (void)setHeight:(float)height;
+- (void)setHeight:(CGFloat)height;
 
 /**
  Adjusts the width of the current view's frame to the given value
  @param width The width to adjust the view to
  */
-- (void)setWidth:(float)width;
+- (void)setWidth:(CGFloat)width;
 
 /**
  Moves the view to the given position on the X axis
  @param x The x value to set the frames origin to
  */
-- (void)setX:(float)x;
+- (void)setX:(CGFloat)x;
 
 /**
  Moves the view to the given position on the Y axis
  @param y The y value to set the frames origin to
  */
-- (void)setY:(float)y;
+- (void)setY:(CGFloat)y;
 
 /**
  Moves the view's centre x coordinate to the given position
  @param x The x value to set the frames centre point to
  */
-- (void)setCenterX:(float)x;
+- (void)setCenterX:(CGFloat)x;
 
 /**
  Moves the view's centre y coordinate to the given position
  @param y The x value to set the frames centre point to
  */
-- (void)setCenterY:(float)y;
+- (void)setCenterY:(CGFloat)y;
 
 /**
 Sets the view's size to the given size
