@@ -78,6 +78,7 @@
 		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B1C1A64D1C9A0AB200E7D450 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -829,6 +830,7 @@
 				B16234CB1C91F6A6001669BA /* NSArray+TSCArray.m in Sources */,
 				B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */,
 				B16234CC1C91F6AF001669BA /* NSDictionary+TSCDictionary.m in Sources */,
+				B1C1A64D1C9A0AB200E7D450 /* TSCDesignableView.swift in Sources */,
 				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
 				B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */,
 				B16234CA1C91F699001669BA /* NSString+TSCEncoding.m in Sources */,
