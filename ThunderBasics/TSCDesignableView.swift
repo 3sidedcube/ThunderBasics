@@ -166,9 +166,117 @@ public extension TSCTextField {
 #elseif os(OSX)
     
 /**
- A designable subclass of UIButton that allows customisation of border color and width, as well as other properties
+ A designable subclass of NSButton that allows customisation of border color and width, as well as other properties
  */
 @IBDesignable public class TSCButton: NSButton {
+    
+    /**
+     The colour to highlight the text and border of the button with
+     Uses the shared secondary color by default but may be overridden in it's IBDesignable property
+     */
+    @IBInspectable public var primaryColor: NSColor {
+        didSet {
+            updateButtonColours()
+        }
+    }
+    
+    /**
+     The colour to highlight the text and border of the button with
+     Uses blue color by default but may be overridden in it's IBDesignable property
+     */
+    @IBInspectable public var secondaryColor: NSColor {
+        didSet {
+            updateButtonColours()
+        }
+    }
+    
+    /**
+     The border width of the button
+     */
+    @IBInspectable override public var borderWidth: CGFloat {
+        get {
+            guard let _layer = layer else { return 0.0 }
+            return _layer.borderWidth
+        }
+        set {
+            wantsLayer = true
+            layer?.borderWidth = newValue
+        }
+    }
+    
+    /**
+     The corner radius of the button
+     */
+    @IBInspectable override public var cornerRadius: CGFloat {
+        get {
+            guard let _layer = layer else { return 0.0 }
+            return _layer.cornerRadius
+        }
+        set {
+            wantsLayer = true
+            layer?.cornerRadius = newValue
+            layer?.masksToBounds = newValue > 0
+        }
+    }
+    
+    /**
+     Switches the button to be of solid fill with rounded edges
+     */
+    @IBInspectable public var solidMode: Bool = false
+    
+    required public init?(coder aDecoder: NSCoder) {
+        
+        primaryColor = NSColor.blueColor()
+        secondaryColor = NSColor.whiteColor()
+        super.init(coder: aDecoder)
+    }
+    
+    override public func awakeFromNib() {
+        
+        super.awakeFromNib()
+        updateButtonColours()
+    }
+    
+    /**
+     Handles complete setup of the button. This is it's own method so we can call the same setup in prepareforinterfacebuilder as well
+     */
+    private func updateButtonColours() {
+        
+        layer?.borderWidth = borderWidth
+        layer?.cornerRadius = cornerRadius
+        layer?.masksToBounds = false
+        layer?.masksToBounds = true
+        
+        //Default state
+        layer?.borderColor = primaryColor.CGColor
+        
+        if solidMode == true {
+            
+            layer?.backgroundColor = primaryColor.CGColor
+        } else {
+            
+            layer?.backgroundColor = secondaryColor.CGColor
+        }
+        
+        attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+    }
+    
+    public override func prepareForInterfaceBuilder() {
+        
+        super.prepareForInterfaceBuilder()
+        wantsLayer = true
+        layer?.cornerRadius = cornerRadius
+        if let _borderColor = borderColor {
+            layer?.borderColor = _borderColor.CGColor
+        }
+        updateButtonColours()
+    }
+}
+    
+/**
+ A designable subclass of NSPopUpButton that allows customisation of border color and width, as well as other properties
+ */
+@IBDesignable public class TSCPopUpButton: NSPopUpButton {
     
     /**
      The colour to highlight the text and border of the button with
