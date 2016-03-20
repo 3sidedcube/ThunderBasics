@@ -278,6 +278,15 @@ public extension TSCTextField {
  */
 @IBDesignable public class TSCPopUpButton: NSPopUpButton {
     
+    override public var title: String {
+        set {
+            attributedTitle = NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(15)])
+        }
+        get {
+            return attributedTitle.string
+        }
+    }
+    
     /**
      The colour to highlight the text and border of the button with
      Uses the shared secondary color by default but may be overridden in it's IBDesignable property
