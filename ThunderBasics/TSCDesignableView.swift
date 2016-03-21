@@ -292,7 +292,6 @@ public extension TSCTextField {
             super.title = newValue
             let attributedString =  NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(12)])
             attributedTitle = attributedString
-            selectedItem?.attributedTitle = attributedString
         }
         get {
             return attributedTitle.string
