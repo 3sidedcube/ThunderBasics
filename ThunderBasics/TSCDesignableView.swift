@@ -170,6 +170,15 @@ public extension TSCTextField {
  */
 @IBDesignable public class TSCButton: NSButton {
     
+    override public var title: String {
+        set {
+            attributedTitle = NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(12)])
+        }
+        get {
+            return attributedTitle.string
+        }
+    }
+    
     /**
      The colour to highlight the text and border of the button with
      Uses the shared secondary color by default but may be overridden in it's IBDesignable property
@@ -280,7 +289,10 @@ public extension TSCTextField {
     
     override public var title: String {
         set {
-            attributedTitle = NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(15)])
+            super.title = newValue
+            let attributedString =  NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(12)])
+            attributedTitle = attributedString
+            selectedItem?.attributedTitle = attributedString
         }
         get {
             return attributedTitle.string
