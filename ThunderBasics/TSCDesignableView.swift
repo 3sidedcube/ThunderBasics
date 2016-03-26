@@ -39,6 +39,42 @@ import AppKit
      */
     @IBInspectable public var textInsets: CGSize = CGSizeZero
 }
+    
+public extension TSCTextField {
+    
+    public override func prepareForInterfaceBuilder() {
+        
+        super.prepareForInterfaceBuilder()
+
+        layer.cornerRadius = cornerRadius
+        layer.borderColor = borderColor.CGColor
+        layer.borderWidth = borderWidth
+    }
+    
+    init(insets: CGSize) {
+        self.textInsets = insets
+        super.init(frame: CGRectZero)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    // placeholder position
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    }
+    
+    // text position
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    }
+
+}
 #elseif os(OSX)
 @IBDesignable public class TSCTextField: NSTextField {
     /**
@@ -46,8 +82,7 @@ import AppKit
      */
     @IBInspectable public var textInsets: CGSize = CGSizeZero
 }
-#endif
-
+    
 public extension TSCTextField {
     
     public override func prepareForInterfaceBuilder() {
@@ -62,6 +97,7 @@ public extension TSCTextField {
         layer?.borderWidth = borderWidth
     }
 }
+#endif
 
 #if os(iOS)
 /**
@@ -165,10 +201,38 @@ public extension TSCTextField {
     
 #elseif os(OSX)
     
+public class TSCButtonCell: NSButtonCell {
+    
+    /**
+     The edge insets of the button
+     */
+    public var edgeInsets: NSSize = NSMakeSize(0, 0)
+    
+    public override func drawingRectForBounds(theRect: NSRect) -> NSRect {
+        
+        let newRect = NSInsetRect(theRect, edgeInsets.width/2, edgeInsets.height/2)
+        return super.drawingRectForBounds(newRect)
+    }
+}
+    
 /**
  A designable subclass of NSButton that allows customisation of border color and width, as well as other properties
  */
 @IBDesignable public class TSCButton: NSButton {
+    
+    /**
+     The edge insets of the button
+     */
+    @IBInspectable public var edgeInsets: NSSize = NSMakeSize(0, 0) {
+        didSet {
+            
+            if let _tscCell = cell as? TSCButtonCell {
+                _tscCell.edgeInsets = edgeInsets
+            }
+            
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     override public var title: String {
         set {
@@ -280,12 +344,64 @@ public extension TSCTextField {
         }
         updateButtonColours()
     }
+    
+    public override var intrinsicContentSize: NSSize {
+        get {
+            
+            if let _ = cell as? TSCButtonCell {
+                return super.intrinsicContentSize
+            } else {
+                let size = super.intrinsicContentSize
+                return NSMakeSize(size.width + edgeInsets.width, size.height + edgeInsets.height)
+            }
+        }
+    }
+}
+    
+public class TSCPopUpButtonCell: NSPopUpButtonCell {
+    
+    /**
+     The edge insets of the button
+     */
+    public var edgeInsets: NSSize = NSMakeSize(0, 0)
+    
+    public override func drawingRectForBounds(theRect: NSRect) -> NSRect {
+        
+        let newRect = NSInsetRect(theRect, edgeInsets.width/2, edgeInsets.height/2)
+        return super.drawingRectForBounds(newRect)
+    }
+    
+    public override func titleRectForBounds(cellFrame: NSRect) -> NSRect {
+        
+        let newRect = NSInsetRect(cellFrame, edgeInsets.width/2, edgeInsets.height/2)
+        return super.titleRectForBounds(newRect)
+    }
+    
+    public override func imageRectForBounds(theRect: NSRect) -> NSRect {
+        
+        let newRect = NSInsetRect(theRect, edgeInsets.width/2, edgeInsets.height/2)
+        return super.imageRectForBounds(newRect)
+    }
 }
     
 /**
  A designable subclass of NSPopUpButton that allows customisation of border color and width, as well as other properties
  */
 @IBDesignable public class TSCPopUpButton: NSPopUpButton {
+    
+    /**
+     The edge insets of the button
+     */
+    @IBInspectable public var edgeInsets: NSSize = NSMakeSize(0, 0) {
+        didSet {
+            
+            if let _tscCell = cell as? TSCPopUpButtonCell {
+                _tscCell.edgeInsets = edgeInsets
+            }
+            
+            invalidateIntrinsicContentSize()
+        }
+    }
     
     override public var title: String {
         set {
@@ -398,6 +514,17 @@ public extension TSCTextField {
             layer?.borderColor = _borderColor.CGColor
         }
         updateButtonColours()
+    }
+    
+    public override var intrinsicContentSize: NSSize {
+        get {
+            if let _ = cell as? TSCButtonCell {
+                return super.intrinsicContentSize
+            } else {
+                let size = super.intrinsicContentSize
+                return NSMakeSize(size.width + edgeInsets.width, size.height + edgeInsets.height)
+            }
+        }
     }
 }
 #endif
