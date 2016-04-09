@@ -234,13 +234,37 @@ public class TSCButtonCell: NSButtonCell {
         }
     }
     
+    override public var alignment: NSTextAlignment {
+        didSet {
+            updateTitle(title)
+        }
+    }
+    
+    override public var font: NSFont? {
+        didSet {
+            updateTitle(title)
+        }
+    }
+    
     override public var title: String {
         set {
-            attributedTitle = NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFontOfSize(12)])
+            super.title = newValue
+            updateTitle(newValue)
         }
         get {
             return attributedTitle.string
         }
+    }
+    
+    private func updateTitle(newTitle: String) {
+        
+        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
+        paragraphStyle.alignment = alignment
+
+        let _font = font != nil ? font! : NSFont.systemFontOfSize(NSFont.systemFontSize())
+        
+        let attributes = [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: _font, NSParagraphStyleAttributeName: paragraphStyle]
+        attributedTitle = NSAttributedString(string: newTitle, attributes: attributes)
     }
     
     /**
@@ -308,6 +332,7 @@ public class TSCButtonCell: NSButtonCell {
         
         super.awakeFromNib()
         updateButtonColours()
+        updateTitle(title)
     }
     
     /**
