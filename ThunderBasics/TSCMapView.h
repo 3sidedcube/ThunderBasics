@@ -23,12 +23,12 @@
  @abstract An array of all the annotations present on the `TSCMapView`.
  @discussion This is an array of the separate annotations pulled out of their groups.
  */
-@property (nonatomic, strong) NSArray *allAnnotations;
+@property (nonatomic, strong) NSArray<NSObject <MKAnnotation> *> *allAnnotations;
 
 /**
  @abstract An array of grouped annotations present on the `TSCMapView`
  */
-@property (nonatomic, strong) NSMutableArray *groupedAnnotations;
+@property (nonatomic, strong) NSMutableArray <NSObject <MKAnnotation> *> *groupedAnnotations;
 
 /**
  This method re-organizes the annotations into the correct groups.
@@ -46,19 +46,19 @@
  This method Should be implemented in your respective MKMapViewDelegate.
  @param views The annotation views which were added to the `TSCMapView`.
  */
-- (void)didAddAnnotationViews:(NSArray *)views;
+- (void)didAddAnnotationViews:(NSArray <NSObject <MKAnnotation> *> *)views;
 
 /**
  Zooms the map view to fit the given polygons
  @param polygons The polygons that the map view should fit to
  */
-- (void)fitMapToPolygons:(NSArray *)polygons;
+- (void)fitMapToPolygons:(NSArray <MKPolygon *> *)polygons;
 
 /**
  Zooms the map view to fit the given polygons
  @param polygons The polygons that the map view should fit to
  @param animated Whether or not the zoom should be animated
  */
-- (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated;
+- (void)fitMapToPolygons:(NSArray <MKPolygon *> *)polygons animated:(BOOL)animated;
 
 @end

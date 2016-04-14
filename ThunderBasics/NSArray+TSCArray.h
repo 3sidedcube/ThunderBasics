@@ -30,7 +30,7 @@
  @param dictionaries The array of dictionaries to be initialised into objects of the defined `Class`
  @param classType The class type to initialize each object in the array as
  */
-+ (NSArray *)arrayWithArrayOfDictionaries:(NSArray *)dictionaries rootInstanceType:(Class)classType;
++ (NSArray *)arrayWithArrayOfDictionaries:(NSArray <NSDictionary *> *)dictionaries rootInstanceType:(Class)classType;
 
 /**
  Returns a reversed version of the array

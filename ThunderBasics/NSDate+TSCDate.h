@@ -83,7 +83,7 @@ typedef NS_OPTIONS(NSInteger, NSDateRangeOptions) {
  @param calendarUnit The calendar unit for which a date range should be returned for.
  @param options The options to be used when calculating the date range.
  */
-- (NSDictionary *)dateRangeForCalendarUnit:(NSCalendarUnit)calendarUnit withOptions:(NSDateRangeOptions)options;
+- (NSDictionary <NSString *, NSDate *> *)dateRangeForCalendarUnit:(NSCalendarUnit)calendarUnit withOptions:(NSDateRangeOptions)options;
 
 ///---------------------------------------------------------------------------------------
 /// @name Getting information about a date

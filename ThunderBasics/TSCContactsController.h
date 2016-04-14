@@ -32,7 +32,7 @@ typedef void (^TSCPeoplePickerPersonSelectedCompletion)(TSCPerson *selectedPerso
 /**
  The block that will be called when all people from the contacts framework or address book framework have been pulled
  */
-typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
+typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError *error);
 
 /**
  @abstract This property keeps reference to the completion block so that it can be called when a contact has been succesfully selected
@@ -157,13 +157,13 @@ typedef void (^TSCAllContactsCompletion)(NSArray *people, NSError *error);
  @param array An array of NSNumber objects that identify contacts in the addressbook database
  @return An array of `TSCPerson` objects
  */
-- (NSArray *)peopleForArrayOfIdentifiers:(NSArray *)array;
+- (NSArray <TSCPerson *> *)peopleForArrayOfIdentifiers:(NSArray <NSNumber *> *)array;
 
 /**
  Extracts an array of Addressbook Ids objects for the provided identifiers
  @param people An array of `TSCPeople` objects
  @return An array of NSNumbers that identify contacts in the addressbook database
  */
-- (NSArray *)addressbookIdsforPeople:(NSArray *)people;
+- (NSArray <NSNumber *> *)addressbookIdsforPeople:(NSArray <TSCPerson *> *)people;
 
 @end

@@ -25,7 +25,7 @@
  @param types The `UIUserNotificationType`s to register for that your app supports
  @param categories A set of `UIUserNotificationCategory` objects that define the groups of actions a notification may include.
  */
-+ (void)setupNotificationsForTypes:(UIUserNotificationType)types categories:(NSSet *)categories;
++ (void)setupNotificationsForTypes:(UIUserNotificationType)types categories:(NSSet <UIUserNotificationCategory *> *)categories;
 
 /**
  @abstract Call this method in the `application:didRegisterUserNotificationSettings:` delegate method if your app successfully registers for notification types after calling `setupNotifications` or `setupNotificationsForTypes:categories:` to register for notifications with APNS.
