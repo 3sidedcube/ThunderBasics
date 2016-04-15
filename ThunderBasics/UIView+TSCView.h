@@ -93,14 +93,14 @@ Sets the view's origin to the given point
  @param excludedViews Any views that you do not want to center. These will be ignored.
  @param offset The value to offset the views by.
  */
-- (void)centerSubviewsVerticallyExcludingViews:(NSArray *)excludedViews withOffset:(CGFloat)offset;
+- (void)centerSubviewsVerticallyExcludingViews:(NSArray <UIView *> *)excludedViews withOffset:(CGFloat)offset;
 
 /**
  Centers all of the subviews in the view vertically, maintaining their current spacing and ignoring any number of views.
  @discussion Please configure the vertical spacing of your views before calling this method as that spacing will be maintained
  @param excludedViews Any views that you do not want to center. These will be ignored.
  */
-- (void)centerSubviewsVerticallyExcludingViews:(NSArray *)excludedViews;
+- (void)centerSubviewsVerticallyExcludingViews:(NSArray <UIView *> *)excludedViews;
 
 /**
  Gets the height of the subviews by checking the position and height of the highest view

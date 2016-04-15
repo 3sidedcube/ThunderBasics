@@ -21,7 +21,7 @@
 @property (nonatomic, readonly) UInt32 rgbHex;
 
 - (NSString *)colorSpaceString;
-- (NSArray *)arrayFromRGBAComponents;
+- (NSArray <NSNumber *> *)arrayFromRGBAComponents;
 
 // Bulk access to RGB and HSB components of the color
 // HSB components are converted from the RGB components
@@ -50,8 +50,8 @@
 // Related colors
 - (UIColor *)contrastingColor;			// A good contrasting color: will be either black or white
 - (UIColor *)complementaryColor;		// A complementary color that should look good with this color
-- (NSArray*)triadicColors;				// Two colors that should look good with this color
-- (NSArray*)analogousColorsWithStepAngle:(CGFloat)stepAngle pairCount:(int)pairs;	// Multiple pairs of colors
+- (NSArray <UIColor *> *)triadicColors;				// Two colors that should look good with this color
+- (NSArray <UIColor *> *)analogousColorsWithStepAngle:(CGFloat)stepAngle pairCount:(int)pairs;	// Multiple pairs of colors
 
 // String representations of the color
 - (NSString *)stringFromColor;
@@ -68,7 +68,7 @@
 
 // Return a dictionary mapping color names to colors.
 // The named are from the css3 color specification.
-+ (NSDictionary *)namedColors;
++ (NSDictionary <NSString*, UIColor*> *)namedColors;
 
 // Build a color with the given HSB values
 + (UIColor *)colorWithHue:(CGFloat)hue saturation:(CGFloat)saturation brightness:(CGFloat)brightness alpha:(CGFloat)alpha;
