@@ -23,12 +23,12 @@
  @abstract An array of all the annotations present on the `TSCMapView`.
  @discussion This is an array of the separate annotations pulled out of their groups.
  */
-@property (nonatomic, strong) NSArray<NSObject <MKAnnotation> *> *allAnnotations;
+@property (nonatomic, strong) NSArray< __kindof NSObject <MKAnnotation> *> *allAnnotations;
 
 /**
  @abstract An array of grouped annotations present on the `TSCMapView`
  */
-@property (nonatomic, strong) NSMutableArray <NSObject <MKAnnotation> *> *groupedAnnotations;
+@property (nonatomic, strong) NSMutableArray <__kindof NSObject <MKAnnotation> *> *groupedAnnotations;
 
 /**
  This method re-organizes the annotations into the correct groups.
@@ -46,7 +46,7 @@
  This method Should be implemented in your respective MKMapViewDelegate.
  @param views The annotation views which were added to the `TSCMapView`.
  */
-- (void)didAddAnnotationViews:(NSArray <NSObject <MKAnnotation> *> *)views;
+- (void)didAddAnnotationViews:(NSArray <__kindof NSObject <MKAnnotation> *> *)views;
 
 /**
  Zooms the map view to fit the given polygons
