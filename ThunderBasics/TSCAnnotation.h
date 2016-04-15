@@ -26,11 +26,11 @@
 
 /** Returns an array of the child annotations of the annotation.
  */
-- (NSArray <NSObject <TSCAnnotation> *> *)childAnnotations;
+- (NSArray <__kindof NSObject <TSCAnnotation> *> *)childAnnotations;
 
 /** Sets the child annotations of the annotation.
  @param childAnnotations an array of annotations to be grouped into this annotation.
  */
-- (void)setChildAnnotations:(NSArray <NSObject <TSCAnnotation> *> *)childAnnotations;
+- (void)setChildAnnotations:(NSArray <__kindof NSObject <TSCAnnotation> *> *)childAnnotations;
 
 @end
