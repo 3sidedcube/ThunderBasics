@@ -51,17 +51,9 @@ public extension TSCTextField {
         layer.borderWidth = borderWidth
     }
     
-    init(insets: CGSize) {
+    public convenience init(insets: CGSize) {
+        self.init(frame: CGRectZero)
         self.textInsets = insets
-        super.init(frame: CGRectZero)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     // placeholder position
