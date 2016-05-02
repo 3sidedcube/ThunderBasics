@@ -36,7 +36,6 @@
 		49CF13551AB6ED7000AA5971 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CF13541AB6ED7000AA5971 /* Media.xcassets */; };
 		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
-		B16234C51C91F625001669BA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16234C41C91F625001669BA /* Info.plist */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234C71C91F66D001669BA /* NSView+TSCView.m */; };
 		B16234CA1C91F699001669BA /* NSString+TSCEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */; };
@@ -763,7 +762,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = threesidedcube;
 				TargetAttributes = {
 					B16234AA1C91F5E3001669BA = {
@@ -801,7 +800,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B16234C51C91F625001669BA /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
