@@ -92,7 +92,11 @@ import UIKit
     /**
      Switches the button to be of solid fill with rounded edges
      */
-    @IBInspectable public var solidMode: Bool = false
+    @IBInspectable public var solidMode: Bool = false {
+        didSet {
+            updateButtonColours()
+        }
+    }
     
     required public init?(coder aDecoder: NSCoder) {
         
