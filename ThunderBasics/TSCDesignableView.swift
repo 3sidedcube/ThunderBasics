@@ -101,6 +101,13 @@ import UIKit
         super.init(coder: aDecoder)
     }
     
+    override init(frame: CGRect) {
+        
+        primaryColor = UIColor.blueColor()
+        secondaryColor = UIColor.whiteColor()
+        super.init(frame: frame)
+    }
+    
     override public func awakeFromNib() {
         
         super.awakeFromNib()
