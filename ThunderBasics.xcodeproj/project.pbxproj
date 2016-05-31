@@ -60,6 +60,8 @@
 		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
+		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -168,6 +170,8 @@
 		B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCUserDefaults.h; sourceTree = "<group>"; };
 		B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCUserDefaults.m; sourceTree = "<group>"; };
 		B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
+		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
+		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
 				36401E281BF238FC00E06E14 /* TSCDismissSegue.h */,
 				36401E291BF238FC00E06E14 /* TSCDismissSegue.m */,
+				B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */,
+				B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -601,6 +607,7 @@
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */,
+				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
 				B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
@@ -747,6 +754,7 @@
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
 				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				C272EFE719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
+				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
