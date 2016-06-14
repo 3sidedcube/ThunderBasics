@@ -695,6 +695,9 @@
 				TargetAttributes = {
 					C272EF8319C831AB004BD339 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = P645CBFH93;
+						DevelopmentTeamName = "3 Sided Cube Design Ltd";
+						LastSwiftMigration = 0800;
 					};
 					C272EF8E19C831AC004BD339 = {
 						CreatedOnToolsVersion = 6.0;
@@ -912,6 +915,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -932,6 +936,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -17,7 +17,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
     }
 }
@@ -30,19 +30,19 @@ import UIKit
     /**
      The edge insets of the text field
     */
-    @IBInspectable public var textInsets: CGSize = CGSizeZero
+    @IBInspectable public var textInsets: CGSize = CGSize.zero
     
     public override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
     }
     
     init(insets: CGSize) {
         self.textInsets = insets
-        super.init(frame: CGRectZero)
+        super.init(frame: CGRect.zero)
     }
     
     override init(frame: CGRect) {
@@ -54,13 +54,13 @@ import UIKit
     }
     
     // placeholder position
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
     }
     
     // text position
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
     }
 }
 
@@ -100,15 +100,15 @@ import UIKit
     
     required public init?(coder aDecoder: NSCoder) {
         
-        primaryColor = UIColor.blueColor()
-        secondaryColor = UIColor.whiteColor()
+        primaryColor = UIColor.blue()
+        secondaryColor = UIColor.white()
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
         
-        primaryColor = UIColor.blueColor()
-        secondaryColor = UIColor.whiteColor()
+        primaryColor = UIColor.blue()
+        secondaryColor = UIColor.white()
         super.init(frame: frame)
     }
     
@@ -129,23 +129,23 @@ import UIKit
         self.clipsToBounds = true
         
         //Default state
-        self.layer.borderColor = primaryColor.CGColor
+        self.layer.borderColor = primaryColor.cgColor
         
         if solidMode == true {
             
-            self.setBackgroundImage(image(primaryColor), forState: .Normal)
-            self.setBackgroundImage(image(secondaryColor), forState: .Highlighted)
-            self.setTitleColor(secondaryColor, forState: .Normal)
-            self.setTitleColor(primaryColor, forState: .Highlighted)
+            self.setBackgroundImage(image(color: primaryColor), for: [])
+            self.setBackgroundImage(image(color: secondaryColor), for: .highlighted)
+            self.setTitleColor(secondaryColor, for: [])
+            self.setTitleColor(primaryColor, for: .highlighted)
             
         } else {
             
-            self.setTitleColor(primaryColor, forState: .Normal)
-            self.setBackgroundImage(image(secondaryColor), forState: .Normal)
+            self.setTitleColor(primaryColor, for: [])
+            self.setBackgroundImage(image(color: secondaryColor), for: [])
             
             //Touch down state
-            self.setTitleColor(secondaryColor, forState: .Highlighted)
-            self.setBackgroundImage(image(primaryColor), forState: .Highlighted)
+            self.setTitleColor(secondaryColor, for: .highlighted)
+            self.setBackgroundImage(image(color: primaryColor), for: .highlighted)
         }
     }
     
@@ -153,7 +153,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
         updateButtonColours()
     }
@@ -161,15 +161,21 @@ import UIKit
     /**
      Generates a 1px by 1px image of a given colour. Useful as UIButton only let's you set a background image for different states
      */
-    func image(color: UIColor) -> UIImage {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))
-        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    func image(color: UIColor) -> UIImage? {
         
-        return colorImage
+        if let ctx = UIGraphicsGetCurrentContext() {
+            
+            
+            UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+            ctx.setFillColor(color.cgColor)
+            ctx.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return colorImage
+        }
         
+        return nil
     }
 }
 
@@ -183,7 +189,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
     }
 }
@@ -197,7 +203,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
     }
 }
@@ -211,7 +217,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor.cgColor
         layer.borderWidth = borderWidth
     }
 }
@@ -227,12 +233,12 @@ public extension UIView {
     @IBInspectable public var borderColor: UIColor {
         get {
             if let color = layer.borderColor {
-                return UIColor(CGColor: color)
+                return UIColor(cgColor: color)
             }
-            return UIColor.clearColor()
+            return UIColor.clear()
         }
         set {
-            layer.borderColor = newValue.CGColor
+            layer.borderColor = newValue.cgColor
         }
     }
     
