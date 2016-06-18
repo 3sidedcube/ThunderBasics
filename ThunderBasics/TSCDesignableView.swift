@@ -19,6 +19,17 @@ import AppKit
 
 @IBDesignable public class TSCLabel: UILabel {
     
+    /**
+     The edge insets of the label
+     */
+    @IBInspectable public var textInsets: CGSize = CGSizeZero
+    
+    private var edgeInsets: UIEdgeInsets {
+        get {
+            return UIEdgeInsets(top: textInsets.height, left: textInsets.width, bottom: textInsets.height, right: textInsets.width)
+        }
+    }
+    
     public override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
@@ -26,13 +37,32 @@ import AppKit
         layer.borderColor = borderColor.CGColor
         layer.borderWidth = borderWidth
     }
+    
+    override public func drawTextInRect(rect: CGRect) {
+        super.drawTextInRect(UIEdgeInsetsInsetRect(rect, edgeInsets))
+    }
+    
+    override public func sizeThatFits(size: CGSize) -> CGSize {
+        
+        var adjSize = super.sizeThatFits(size)
+        adjSize.width += textInsets.width * 2
+        adjSize.height += textInsets.height * 2
+        
+        return adjSize
+    }
+    
+    override public func intrinsicContentSize() -> CGSize {
+        
+        var contentSize = super.intrinsicContentSize()
+        contentSize.width += textInsets.width * 2
+        contentSize.height += textInsets.height * 2
+        
+        return contentSize
+    }
 }
-#endif
-
 /**
  A designable subclass of UITextField that allows customisation of border color and width, as well as other properties
  */
-#if os(iOS)
 @IBDesignable public class TSCTextField: UITextField {
     /**
      The edge insets of the text field
