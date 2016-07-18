@@ -17,7 +17,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.CGColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowColor = shadowColor?.CGColor
@@ -39,7 +39,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.CGColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
@@ -130,38 +130,35 @@ import UIKit
      */
     private func updateButtonColours() {
         
-        self.layer.borderWidth = 2.0
-        self.layer.cornerRadius = 5.0
-        self.layer.masksToBounds = false
-        self.clipsToBounds = true
+        layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
+        layer.cornerRadius = cornerRadius != 0 ? cornerRadius : 5.0
+        layer.masksToBounds = false
+        clipsToBounds = true
         
         //Default state
-        self.layer.borderColor = primaryColor.CGColor
+        layer.borderColor = borderColor != nil ? borderColor?.CGColor : primaryColor.CGColor
         
         if solidMode == true {
             
-            self.setBackgroundImage(image(primaryColor), forState: .Normal)
-            self.setBackgroundImage(image(secondaryColor), forState: .Highlighted)
-            self.setTitleColor(secondaryColor, forState: .Normal)
-            self.setTitleColor(primaryColor, forState: .Highlighted)
+            setBackgroundImage(image(primaryColor), forState: .Normal)
+            setBackgroundImage(image(secondaryColor), forState: .Highlighted)
+            setTitleColor(secondaryColor, forState: .Normal)
+            setTitleColor(primaryColor, forState: .Highlighted)
             
         } else {
             
-            self.setTitleColor(primaryColor, forState: .Normal)
-            self.setBackgroundImage(image(secondaryColor), forState: .Normal)
+            setTitleColor(primaryColor, forState: .Normal)
+            setBackgroundImage(image(secondaryColor), forState: .Normal)
             
             //Touch down state
-            self.setTitleColor(secondaryColor, forState: .Highlighted)
-            self.setBackgroundImage(image(primaryColor), forState: .Highlighted)
+            setTitleColor(secondaryColor, forState: .Highlighted)
+            setBackgroundImage(image(primaryColor), forState: .Highlighted)
         }
     }
     
     public override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
-        layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
         layer.shadowColor = shadowColor?.CGColor
@@ -194,7 +191,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.CGColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
@@ -212,7 +209,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.CGColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
@@ -230,7 +227,7 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.CGColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
@@ -247,7 +244,7 @@ public extension UIView {
     /**
      The border color of the view
      */
-    @IBInspectable public var borderColor: UIColor {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
                 return UIColor(CGColor: color)
@@ -255,7 +252,7 @@ public extension UIView {
             return UIColor.clearColor()
         }
         set {
-            layer.borderColor = newValue.CGColor
+            layer.borderColor = newValue?.CGColor
         }
     }
     
