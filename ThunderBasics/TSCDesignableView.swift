@@ -77,6 +77,15 @@ import UIKit
 @IBDesignable public class TSCButton: UIButton {
     
     /**
+     Whether the primary/secondary color should be overriden by borderColor property
+    */
+    @IBInspectable public var useBorderColor: Bool = false {
+        didSet {
+            updateButtonColours()
+        }
+    }
+    
+    /**
      The colour to highlight the text and border of the button with
      Uses the shared secondary color by default but may be overridden in it's IBDesignable property
      */
@@ -136,7 +145,7 @@ import UIKit
         clipsToBounds = true
         
         //Default state
-        layer.borderColor = borderColor != nil ? borderColor?.CGColor : primaryColor.CGColor
+        layer.borderColor = useBorderColor ? borderColor?.CGColor : primaryColor.CGColor
         
         if solidMode == true {
             
@@ -240,11 +249,6 @@ import UIKit
  An inspectable extension of UIView that allows customisation of border color and width, as well as other properties
  */
 public extension UIView {
-    
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.borderColor = nil
-    }
     
     /**
      The border color of the view
