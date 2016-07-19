@@ -241,6 +241,11 @@ import UIKit
  */
 public extension UIView {
     
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = nil
+    }
+    
     /**
      The border color of the view
      */
@@ -249,7 +254,7 @@ public extension UIView {
             if let color = layer.borderColor {
                 return UIColor(CGColor: color)
             }
-            return UIColor.clearColor()
+            return nil
         }
         set {
             layer.borderColor = newValue?.CGColor
