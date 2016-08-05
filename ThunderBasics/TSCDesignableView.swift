@@ -156,12 +156,8 @@ import UIKit
             
         } else {
             
-            setTitleColor(primaryColor, forState: .Normal)
-            setBackgroundImage(image(secondaryColor), forState: .Normal)
-            
-            //Touch down state
-            setTitleColor(secondaryColor, forState: .Highlighted)
-            setBackgroundImage(image(primaryColor), forState: .Highlighted)
+            self.setTitleColor(primaryColor, forState: .Normal)
+            self.setBackgroundImage(image(secondaryColor), forState: .Normal)
         }
     }
     
