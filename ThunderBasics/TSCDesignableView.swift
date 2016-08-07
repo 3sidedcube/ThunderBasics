@@ -17,8 +17,11 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -36,8 +39,12 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowOpacity = shadowOpacity
     }
     
     init(insets: CGSize) {
@@ -68,6 +75,15 @@ import UIKit
  A designable subclass of UIButton that allows customisation of border color and width, as well as other properties
  */
 @IBDesignable public class TSCButton: UIButton {
+    
+    /**
+     Whether the primary/secondary color should be overriden by borderColor property
+    */
+    @IBInspectable public var useBorderColor: Bool = false {
+        didSet {
+            updateButtonColours()
+        }
+    }
     
     /**
      The colour to highlight the text and border of the button with
@@ -123,38 +139,35 @@ import UIKit
      */
     private func updateButtonColours() {
         
-        self.layer.borderWidth = 2.0
-        self.layer.cornerRadius = 5.0
-        self.layer.masksToBounds = false
-        self.clipsToBounds = true
+        layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
+        layer.cornerRadius = cornerRadius != 0 ? cornerRadius : 5.0
+        layer.masksToBounds = false
+        clipsToBounds = true
         
         //Default state
-        self.layer.borderColor = primaryColor.cgColor
+        layer.borderColor = useBorderColor ? borderColor?.cgColor : primaryColor.cgColor
         
         if solidMode == true {
             
-            self.setBackgroundImage(image(color: primaryColor), for: [])
-            self.setBackgroundImage(image(color: secondaryColor), for: .highlighted)
-            self.setTitleColor(secondaryColor, for: [])
-            self.setTitleColor(primaryColor, for: .highlighted)
+            setBackgroundImage(image(color: primaryColor), for: [])
+            setBackgroundImage(image(color: secondaryColor), for: .highlighted)
+            setTitleColor(secondaryColor, for: [])
+            setTitleColor(primaryColor, for: .highlighted)
             
         } else {
             
             self.setTitleColor(primaryColor, for: [])
             self.setBackgroundImage(image(color: secondaryColor), for: [])
-            
-            //Touch down state
-            self.setTitleColor(secondaryColor, for: .highlighted)
-            self.setBackgroundImage(image(color: primaryColor), for: .highlighted)
         }
     }
     
     public override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
-        layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
         updateButtonColours()
     }
     
@@ -189,8 +202,12 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -203,8 +220,12 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -217,8 +238,12 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = borderColor?.cCgolor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -230,15 +255,15 @@ public extension UIView {
     /**
      The border color of the view
      */
-    @IBInspectable public var borderColor: UIColor {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
                 return UIColor(cgColor: color)
             }
-            return UIColor.clear()
+            return nil
         }
         set {
-            layer.borderColor = newValue.cgColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -264,6 +289,53 @@ public extension UIView {
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    /* The color of the shadow. Defaults to opaque black. Colors created
+     * from patterns are currently NOT supported. Animatable. */
+    @IBInspectable var shadowColor: UIColor? {
+        set {
+            layer.shadowColor = newValue!.CGColor
+        }
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(CGColor:color)
+            }
+            else {
+                return nil
+            }
+        }
+    }
+    
+    /* The opacity of the shadow. Defaults to 0. Specifying a value outside the
+     * [0,1] range will give undefined results. Animatable. */
+    @IBInspectable var shadowOpacity: Float {
+        set {
+            layer.shadowOpacity = newValue
+        }
+        get {
+            return layer.shadowOpacity
+        }
+    }
+    
+    /* The shadow offset. Defaults to (0, -3). Animatable. */
+    @IBInspectable var shadowOffset: CGPoint {
+        set {
+            layer.shadowOffset = CGSize(width: newValue.x, height: newValue.y)
+        }
+        get {
+            return CGPoint(x: layer.shadowOffset.width, y:layer.shadowOffset.height)
+        }
+    }
+    
+    /* The blur radius used to create the shadow. Defaults to 3. Animatable. */
+    @IBInspectable var shadowRadius: CGFloat {
+        set {
+            layer.shadowRadius = newValue
+        }
+        get {
+            return layer.shadowRadius
         }
     }
 }
