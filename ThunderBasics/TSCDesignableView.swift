@@ -20,7 +20,7 @@ import UIKit
         layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
-        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
 }
@@ -43,7 +43,7 @@ import UIKit
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
     
@@ -116,15 +116,15 @@ import UIKit
     
     required public init?(coder aDecoder: NSCoder) {
         
-        primaryColor = UIColor.blue()
-        secondaryColor = UIColor.white()
+        primaryColor = UIColor.blue
+        secondaryColor = UIColor.white
         super.init(coder: aDecoder)
     }
     
     override init(frame: CGRect) {
         
-        primaryColor = UIColor.blue()
-        secondaryColor = UIColor.white()
+        primaryColor = UIColor.blue
+        secondaryColor = UIColor.white
         super.init(frame: frame)
     }
     
@@ -206,7 +206,7 @@ import UIKit
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
 }
@@ -224,7 +224,7 @@ import UIKit
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
 }
@@ -238,11 +238,11 @@ import UIKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cCgolor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.CGColor
+        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
 }
@@ -296,11 +296,11 @@ public extension UIView {
      * from patterns are currently NOT supported. Animatable. */
     @IBInspectable var shadowColor: UIColor? {
         set {
-            layer.shadowColor = newValue!.CGColor
+            layer.shadowColor = newValue!.cgColor
         }
         get {
             if let color = layer.shadowColor {
-                return UIColor(CGColor:color)
+                return UIColor(cgColor:color)
             }
             else {
                 return nil
