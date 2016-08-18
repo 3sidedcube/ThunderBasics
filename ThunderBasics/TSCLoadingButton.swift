@@ -13,7 +13,7 @@ import Foundation
  */
 public extension UIButton {
     
-    override var frame: CGRect {
+    override open var frame: CGRect {
         
         didSet {
             
