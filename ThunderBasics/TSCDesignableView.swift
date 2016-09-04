@@ -34,8 +34,11 @@ import AppKit
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
     }
     
     override public func drawTextInRect(rect: CGRect) {
@@ -66,9 +69,8 @@ import AppKit
 @IBDesignable public class TSCTextField: UITextField {
     /**
      The edge insets of the text field
-     */
-    @IBInspectable public var textInsets: CGSize = CGSizeZero
-}
+    */
+    @IBInspectable public var textInsets: CGSize = CGSize.zero
     
 public extension TSCTextField {
     
@@ -77,23 +79,28 @@ public extension TSCTextField {
         super.prepareForInterfaceBuilder()
 
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
     }
     
     public convenience init(insets: CGSize) {
         self.init(frame: CGRectZero)
         self.textInsets = insets
+        super.init(frame: CGRect.zero)
     }
     
     // placeholder position
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        return super.textRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
     }
     
     // text position
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return super.editingRectForBounds(UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
     }
 
 }
@@ -128,6 +135,15 @@ public extension TSCTextField {
 @IBDesignable public class TSCButton: UIButton {
     
     /**
+     Whether the primary/secondary color should be overriden by borderColor property
+    */
+    @IBInspectable public var useBorderColor: Bool = false {
+        didSet {
+            updateButtonColours()
+        }
+    }
+    
+    /**
      The colour to highlight the text and border of the button with
      Uses the shared secondary color by default but may be overridden in it's IBDesignable property
      */
@@ -150,13 +166,24 @@ public extension TSCTextField {
     /**
      Switches the button to be of solid fill with rounded edges
      */
-    @IBInspectable public var solidMode: Bool = false
+    @IBInspectable public var solidMode: Bool = false {
+        didSet {
+            updateButtonColours()
+        }
+    }
     
     required public init?(coder aDecoder: NSCoder) {
         
-        primaryColor = UIColor.blueColor()
-        secondaryColor = UIColor.whiteColor()
+        primaryColor = UIColor.blue
+        secondaryColor = UIColor.white
         super.init(coder: aDecoder)
+    }
+    
+    override init(frame: CGRect) {
+        
+        primaryColor = UIColor.blue
+        secondaryColor = UIColor.white
+        super.init(frame: frame)
     }
     
     override public func awakeFromNib() {
@@ -170,53 +197,56 @@ public extension TSCTextField {
      */
     private func updateButtonColours() {
         
-        layer.borderWidth = 2.0
-        layer.cornerRadius = 5.0
+        layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
+        layer.cornerRadius = cornerRadius != 0 ? cornerRadius : 5.0
         layer.masksToBounds = false
         clipsToBounds = true
         
         //Default state
-        layer.borderColor = primaryColor.CGColor
+        layer.borderColor = useBorderColor ? borderColor?.cgColor : primaryColor.cgColor
         
         if solidMode == true {
             
-            setBackgroundImage(image(primaryColor), forState: .Normal)
-            setBackgroundImage(image(secondaryColor), forState: .Highlighted)
-            setTitleColor(secondaryColor, forState: .Normal)
-            setTitleColor(primaryColor, forState: .Highlighted)
+            setBackgroundImage(image(color: primaryColor), for: [])
+            setBackgroundImage(image(color: secondaryColor), for: .highlighted)
+            setTitleColor(secondaryColor, for: [])
+            setTitleColor(primaryColor, for: .highlighted)
             
         } else {
             
-            setTitleColor(primaryColor, forState: .Normal)
-            setBackgroundImage(image(secondaryColor), forState: .Normal)
-            
-            //Touch down state
-            setTitleColor(secondaryColor, forState: .Highlighted)
-            setBackgroundImage(image(primaryColor), forState: .Highlighted)
+            self.setTitleColor(primaryColor, for: [])
+            self.setBackgroundImage(image(color: secondaryColor), for: [])
         }
     }
     
     public override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
-        layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
         updateButtonColours()
     }
     
     /**
      Generates a 1px by 1px image of a given colour. Useful as UIButton only let's you set a background image for different states
      */
-    func image(color: UIColor) -> UIImage {
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), color.CGColor)
-        CGContextFillRect(UIGraphicsGetCurrentContext(), CGRect(x: 0, y: 0, width: 1, height: 1))
-        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    func image(color: UIColor) -> UIImage? {
         
-        return colorImage
+        if let ctx = UIGraphicsGetCurrentContext() {
+            
+            
+            UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+            ctx.setFillColor(color.cgColor)
+            ctx.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return colorImage
+        }
         
+        return nil
     }
 
 }
@@ -586,8 +616,12 @@ public class TSCPopUpButtonCell: NSPopUpButtonCell {
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 #elseif os(OSX)
@@ -627,8 +661,12 @@ public class TSCPopUpButtonCell: NSPopUpButtonCell {
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -641,8 +679,12 @@ public class TSCPopUpButtonCell: NSPopUpButtonCell {
         
         super.prepareForInterfaceBuilder()
         layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor.CGColor
+        layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
+        layer.shadowRadius = shadowRadius
+        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOpacity = shadowOpacity
     }
 }
 
@@ -654,15 +696,15 @@ public extension UIView {
     /**
      The border color of the view
      */
-    @IBInspectable public var borderColor: UIColor {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
-                return UIColor(CGColor: color)
+                return UIColor(cgColor: color)
             }
-            return UIColor.clearColor()
+            return nil
         }
         set {
-            layer.borderColor = newValue.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
@@ -688,6 +730,53 @@ public extension UIView {
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    /* The color of the shadow. Defaults to opaque black. Colors created
+     * from patterns are currently NOT supported. Animatable. */
+    @IBInspectable var shadowColor: UIColor? {
+        set {
+            layer.shadowColor = newValue!.cgColor
+        }
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(cgColor:color)
+            }
+            else {
+                return nil
+            }
+        }
+    }
+    
+    /* The opacity of the shadow. Defaults to 0. Specifying a value outside the
+     * [0,1] range will give undefined results. Animatable. */
+    @IBInspectable var shadowOpacity: Float {
+        set {
+            layer.shadowOpacity = newValue
+        }
+        get {
+            return layer.shadowOpacity
+        }
+    }
+    
+    /* The shadow offset. Defaults to (0, -3). Animatable. */
+    @IBInspectable var shadowOffset: CGPoint {
+        set {
+            layer.shadowOffset = CGSize(width: newValue.x, height: newValue.y)
+        }
+        get {
+            return CGPoint(x: layer.shadowOffset.width, y:layer.shadowOffset.height)
+        }
+    }
+    
+    /* The blur radius used to create the shadow. Defaults to 3. Animatable. */
+    @IBInspectable var shadowRadius: CGFloat {
+        set {
+            layer.shadowRadius = newValue
+        }
+        get {
+            return layer.shadowRadius
         }
     }
 }

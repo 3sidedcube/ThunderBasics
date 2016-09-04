@@ -11,6 +11,7 @@
 		33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */; };
 		36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 36401E281BF238FC00E06E14 /* TSCDismissSegue.h */; };
 		36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 36401E291BF238FC00E06E14 /* TSCDismissSegue.m */; };
+		49B262C51CBB8E80000A6669 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 49B262C41CBB8E80000A6669 /* FMDB.h */; };
 		49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13201AB6D87900AA5971 /* TSCiCloudController.m */; };
 		49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13241AB6D88A00AA5971 /* TSCContactsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -77,7 +78,8 @@
 		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
-		B1C1A64D1C9A0AB200E7D450 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
+		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -137,6 +139,7 @@
 		33C47F981A0A62C3007BD920 /* TSCNotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCNotificationHelper.m; sourceTree = "<group>"; };
 		36401E281BF238FC00E06E14 /* TSCDismissSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDismissSegue.h; sourceTree = "<group>"; };
 		36401E291BF238FC00E06E14 /* TSCDismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDismissSegue.m; sourceTree = "<group>"; };
+		49B262C41CBB8E80000A6669 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		49CF131F1AB6D87900AA5971 /* TSCiCloudController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCiCloudController.h; sourceTree = "<group>"; };
 		49CF13201AB6D87900AA5971 /* TSCiCloudController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCiCloudController.m; sourceTree = "<group>"; };
 		49CF13241AB6D88A00AA5971 /* TSCContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCContactsController.h; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 		B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCUserDefaults.h; sourceTree = "<group>"; };
 		B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCUserDefaults.m; sourceTree = "<group>"; };
 		B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
+		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
+		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCSingleRequestLocationManager.h; sourceTree = "<group>"; };
@@ -345,6 +350,8 @@
 				49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */,
 				36401E281BF238FC00E06E14 /* TSCDismissSegue.h */,
 				36401E291BF238FC00E06E14 /* TSCDismissSegue.m */,
+				B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */,
+				B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -607,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				C2E5087619C8341500350F00 /* libsqlite3.dylib */,
+				49B262C41CBB8E80000A6669 /* FMDB.h */,
 				C272EFA619C8325D004BD339 /* FMDatabase.h */,
 				C272EFA719C8325D004BD339 /* FMDatabase.m */,
 				C272EFA819C8325D004BD339 /* FMDatabaseAdditions.h */,
@@ -658,10 +666,12 @@
 				B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
+				49B262C51CBB8E80000A6669 /* FMDB.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */,
 				36401E2A1BF238FC00E06E14 /* TSCDismissSegue.h in Headers */,
+				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
 				B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */,
 				C272EFE619C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h in Headers */,
 				C272EFFE19C8325D004BD339 /* TSCWebViewController.h in Headers */,
@@ -770,6 +780,9 @@
 					};
 					C272EF8319C831AB004BD339 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = P645CBFH93;
+						DevelopmentTeamName = "3 Sided Cube Design Ltd";
+						LastSwiftMigration = 0800;
 					};
 					C272EF8E19C831AC004BD339 = {
 						CreatedOnToolsVersion = 6.0;
@@ -853,6 +866,7 @@
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
 				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				C272EFE719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
+				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */,
 				C272EFEA19C8325D004BD339 /* TSCAlertAction.m in Sources */,
@@ -1057,6 +1071,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1077,6 +1092,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
