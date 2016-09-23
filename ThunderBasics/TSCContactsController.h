@@ -57,52 +57,24 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
 - (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController;
 
 /**
- Generates a `TSCPerson` object for the given NSNumber
- @param number The number that references a record ID in the users contacts
- @return `RCHPerson` filled with contact information
- */
-- (TSCPerson *)personWithRecordNumber:(NSNumber *)number __attribute((deprecated("Please use -personWithRecordIdentifier: instead")));
-
-/**
- Generates a `TSCPerson` object for the given `ABRecordID`
- @param identifier The `ABRecordID` that references a person in the users contacts
- @return `TSCPerson` filled with contact information
- */
-- (TSCPerson *)personWithRecordID:(ABRecordID)identifier;
-
-/**
- Generated a `TSCPerson` object for the record reference
- @param ref The `ABRecordRef` to convert into a `TSCPerson`
- @return `TSCPerson` filled with contact information
- */
-- (TSCPerson *)personWithRecordRef:(ABRecordRef)ref;
-
-/**
  Generates a `TSCPerson` object for the given identifier
- @param identifier The `NSString` (Contacts Framework) or `NSNumber` (ABAdressBookRef) to convert into a `TSCPerson`
+ @param identifier The `NSString` identifier of the `CNContact` to convert into a `TSCPerson`
  @return `TSCPerson` filled with contact information
 */
-- (TSCPerson *)personWithRecordIdentifier:(id)identifier;
+- (TSCPerson *)personWithRecordIdentifier:(NSString *)identifier;
 
-/**
- Converts a `NSNumber` to a `ABRecordID`
- @param number The number to convert
- @return `ABRecordID` from the NSNumber
-*/
-- (ABRecordID)recordIDForNumber:(NSNumber *)number;
-
-/**
- Converts a `ABRecordID` into a `ABRecordRef`
- @param recordID The `ABRecordID` to look up in the address book and extract a contact for
- @return An `ABRecordRef` representation of the record ID
- */
-- (ABRecordRef)recordRefForRecordID:(ABRecordID)recordID;
 
 /**
  Returns the CNContact object for a certain identifier
- @param identifier Either an NSString (Contacts Framework) or NSNumber (ABAddressBook Framework) identifying the contact
+ @param identifier The `NSString` identifier of the `CNContact` to convert into a `TSCPerson`
  */
-- (CNContact *)contactForIdentifier:(id)identifier;
+- (CNContact *)contactForIdentifier:(NSString *)identifier;
+
+/**
+ If you have a legacy contact from ABAddressBook you can use this to retrieve your contact
+ @param identifier Either an `NSString` identifier (CNContacts) or `NSNumber` identifier for the contact (ABAddressBook)
+ */
+- (CNContact *)contactForLegacyIdentifier:(id)identifier;
 
 /**
  Extracts all people from all address book sources
@@ -110,47 +82,22 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
  */
 - (void)extractAllContactsWithCompletion:(TSCAllContactsCompletion)completion;
 
+
 /**
- Generates a `ABPersonViewController` for presenting a contact in the address book.
+ Generates a `CNContactViewController` for presenting a contact in the address book.
  @param number The number of the record to display in the view controller
  @return A view controller that can be pushed or presented to show the user in the address book
  */
-- (ABPersonViewController *)personViewControllerForRecordNumber:(NSNumber *)number __attribute((deprecated("Please use -personViewControllerForRecordIdentifier: instead")));
+- (CNContactViewController *)personViewControllerForRecordIdentifier:(NSString *)identifier;
 
-/**
- Generates a `UIViewController` for presenting a contact in the address book.
- @param number The number of the record to display in the view controller
- @return A view controller (Either ABPersonViewController or CNContactViewController) that can be pushed or presented to show the user in the address book
- */
-- (UIViewController *)personViewControllerForRecordIdentifier:(id)identifier;
-
-/**
- Generates a `ABPersonViewController` for presenting a contact in the address book.
- @param recordID The recordID of the record to display in the view controller
- @return A view controller that can be pushed or presented to show the user in the address book
- */
-- (ABPersonViewController *)personViewControllerForRecordID:(ABRecordID)recordID;
-
-/**
- Presents an address book view for a record number
- @param number The `NSNumber` for the person that needs to be displayed to the user
- @param viewController The view controller that wishes to present the picker
- **/
-- (void)presentPersonWithRecordNumber:(NSNumber *)number inViewController:(UIViewController *)viewController __attribute((deprecated("Please use -presentPersonWithRecordIdentifier:inViewController instead")));
 
 /**
  Presents an address book view for a record id
  @param identifier The identifier for the person that needs to be displayed to the user
  @param viewController The view controller that wishes to present the picker
  **/
-- (void)presentPersonWithRecordIdentifier:(id)identifier inViewController:(UIViewController *)viewController;
+- (void)presentPersonWithRecordIdentifier:(NSString *)identifier inViewController:(UIViewController *)viewController;
 
-/**
- Presents an address book view for a record ID
- @param recordID The ABRecordID for the person that needs to be displayed to the user
- @param viewController The view controller that wishes to present the picker
- **/
-- (void)presentPersonwithRecordID:(ABRecordID)recordID inViewController:(UIViewController *)viewController;
 
 /**
  Extracts an array of TSCPerson objects for the provided identifiers
@@ -164,6 +111,6 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
  @param people An array of `TSCPeople` objects
  @return An array of NSNumbers that identify contacts in the addressbook database
  */
-- (NSArray <NSNumber *> *)addressbookIdsforPeople:(NSArray <TSCPerson *> *)people;
+- (NSArray <NSString *> *)addressbookIdsforPeople:(NSArray <TSCPerson *> *)people;
 
 @end
