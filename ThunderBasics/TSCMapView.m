@@ -170,9 +170,9 @@
             // Remove annotations that now have a parent
             for (id <TSCAnnotation> annotation in allAnnotationsInBucket) {
                 
-                if ([annotation respondsToSelector:@selector(setParentAnnotation:)] && [annotation respondsToSelector:@selector(setChildAnnotations:)]) {
+                if ([annotation respondsToSelector:@selector(setSuperAnnotation:)] && [annotation respondsToSelector:@selector(setChildAnnotations:)]) {
                     
-                    [annotation setParentAnnotation:annotationForGrid];
+                    [annotation setSuperAnnotation:annotationForGrid];
                     [annotation setChildAnnotations:nil];
                     
                     if ([visibleAnnotationsInBucket containsObject:annotation]) {
@@ -182,7 +182,7 @@
                         if (!self.supressAnimations) {
                             
                             [UIView animateWithDuration:0.3 animations:^{
-                                [annotation setCoordinate:[[annotation parentAnnotation] coordinate]];
+                                [annotation setCoordinate:[[annotation superAnnotation] coordinate]];
                             } completion:^(BOOL finished) {
                                 [annotation setCoordinate:actualCoordinate];
                                 [self removeAnnotation:annotation];
@@ -259,14 +259,14 @@
             
             id annotation = annotationView.annotation;
             
-            if (![annotation respondsToSelector:@selector(parentAnnotation)]) {
+            if (![annotation respondsToSelector:@selector(superAnnotation)]) {
                 break;
             }
             
             CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
-            CLLocationCoordinate2D containerCoordinate = [[annotation parentAnnotation] coordinate];
+            CLLocationCoordinate2D containerCoordinate = [[annotation superAnnotation] coordinate];
             
-            [annotation setParentAnnotation:nil];
+            [annotation setSuperAnnotation:nil];
             [annotation setCoordinate:containerCoordinate];
             
             if (containerCoordinate.latitude == 0.0 && containerCoordinate.longitude == 0.0) { // this will only not work if we have a pin at (0,0) which is unlikely as it's in the middle of the ocean :) fix for groups off-screen being animated in as we pan.
