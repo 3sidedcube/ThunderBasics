@@ -81,6 +81,8 @@
 		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
+		B1D85E831DA0050900469588 /* TSCMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC919C8325D004BD339 /* TSCMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1D85E841DA0058600469588 /* TSCAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFBE19C8325D004BD339 /* TSCAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -637,7 +639,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D85E831DA0050900469588 /* TSCMapView.h in Headers */,
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
+				B1D85E841DA0058600469588 /* TSCAnnotation.h in Headers */,
 				B16234E71C91F9E0001669BA /* NSArray+TSCArray.h in Headers */,
 				B16234EB1C91FA2A001669BA /* TSCLanguageController.h in Headers */,
 				B16234E81C91F9EB001669BA /* NSDictionary+TSCDictionary.h in Headers */,

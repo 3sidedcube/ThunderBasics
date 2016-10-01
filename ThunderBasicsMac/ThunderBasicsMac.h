@@ -25,4 +25,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsMacVersionString[];
 #import <ThunderBasicsMac/NSObject+AddedProperties.h>
 #import <ThunderBasicsMac/NSColor+TSCColor.h>
 #import <ThunderBasicsMac/NSView+TSCView.h>
+#import <ThunderBasicsMac/TSCMapView.h>
+#import <ThunderBasicsMac/TSCAnnotation.h>
 
