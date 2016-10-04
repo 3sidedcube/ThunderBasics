@@ -83,6 +83,8 @@
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85E831DA0050900469588 /* TSCMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC919C8325D004BD339 /* TSCMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D85E841DA0058600469588 /* TSCAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFBE19C8325D004BD339 /* TSCAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1D85EAB1DA15C3C00469588 /* TSCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCA19C8325D004BD339 /* TSCMapView.m */; };
+		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5DA1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -844,6 +846,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */,
+				B1D85EAB1DA15C3C00469588 /* TSCMapView.m in Sources */,
 				B16234CB1C91F6A6001669BA /* NSArray+TSCArray.m in Sources */,
 				B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */,
 				B16234CC1C91F6AF001669BA /* NSDictionary+TSCDictionary.m in Sources */,
