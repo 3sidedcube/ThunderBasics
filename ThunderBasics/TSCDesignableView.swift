@@ -600,6 +600,7 @@
          */
         private func updateButtonColours() {
             
+            wantsLayer = true
             layer?.borderWidth = borderWidth
             layer?.cornerRadius = cornerRadius
             layer?.masksToBounds = false
