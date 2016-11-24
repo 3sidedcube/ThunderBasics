@@ -35,13 +35,28 @@
     @IBDesignable public class TSCLabel: UILabel {
         
         /**
-         The edge insets of the label
+         The left edge insets of the label
          */
-        @IBInspectable public var textInsets: CGSize = CGSize.zero
+        @IBInspectable public var leftInset: CGFloat = 0
+        
+        /**
+         The right edge insets of the label
+         */
+        @IBInspectable public var rightInset: CGFloat = 0
+        
+        /**
+         The top edge insets of the label
+         */
+        @IBInspectable public var topInset: CGFloat = 0
+        
+        /**
+         The bottom edge insets of the label
+         */
+        @IBInspectable public var bottomInset: CGFloat = 0
         
         private var edgeInsets: UIEdgeInsets {
             get {
-                return UIEdgeInsets(top: textInsets.height, left: textInsets.width, bottom: textInsets.height, right: textInsets.width)
+                return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
             }
         }
         
@@ -63,8 +78,8 @@
         override public func sizeThatFits(_ size: CGSize) -> CGSize {
             
             var adjSize = super.sizeThatFits(size)
-            adjSize.width += textInsets.width * 2
-            adjSize.height += textInsets.height * 2
+            adjSize.width += rightInset + leftInset
+            adjSize.height += topInset + bottomInset
             
             return adjSize
         }
@@ -72,8 +87,8 @@
         public override var intrinsicContentSize: CGSize {
             
             var contentSize = super.intrinsicContentSize
-            contentSize.width += textInsets.width * 2
-            contentSize.height += textInsets.height * 2
+            contentSize.width += leftInset + rightInset
+            contentSize.height += topInset + bottomInset
             
             return contentSize
         }
@@ -82,10 +97,35 @@
      A designable subclass of UITextField that allows customisation of border color and width, as well as other properties
      */
     @IBDesignable public class TSCTextField: UITextField {
+        
         /**
          The edge insets of the text field
          */
-        @IBInspectable public var textInsets: CGSize = CGSize.zero
+        /**
+         The left edge insets of the label
+         */
+        @IBInspectable public var leftInset: CGFloat = 0
+        
+        /**
+         The right edge insets of the label
+         */
+        @IBInspectable public var rightInset: CGFloat = 0
+        
+        /**
+         The top edge insets of the label
+         */
+        @IBInspectable public var topInset: CGFloat = 0
+        
+        /**
+         The bottom edge insets of the label
+         */
+        @IBInspectable public var bottomInset: CGFloat = 0
+        
+        private var edgeInsets: UIEdgeInsets {
+            get {
+                return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+            }
+        }
         
         public override func prepareForInterfaceBuilder() {
             
@@ -100,19 +140,22 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        public convenience init(insets: CGSize) {
+        public convenience init(insets: UIEdgeInsets) {
             self.init(frame: CGRect.zero)
-            self.textInsets = insets
+            leftInset = insets.left
+            rightInset = insets.right
+            topInset = insets.top
+            bottomInset = insets.bottom
         }
         
         // placeholder position
         override public func textRect(forBounds bounds: CGRect) -> CGRect {
-            return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+            return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
         
         // text position
         override public func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+            return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
         
     }
