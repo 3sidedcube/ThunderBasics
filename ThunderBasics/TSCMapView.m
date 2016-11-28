@@ -22,7 +22,6 @@
 {
     if (self = [super init]) {
         
-        self.allAnnotationMapView = [MKMapView new];
         self.groupedAnnotations = [NSMutableArray new];
     }
     
@@ -44,11 +43,37 @@
 
 - (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated
 {
-    if (polygons.count > 0) {
+    [self fitMapToPolygons:polygons andAnnotations:nil animated:animated];
+}
+
+- (void)fitMapToPolygons:(NSArray *)polygons
+{
+    [self fitMapToPolygons:polygons animated:false];
+}
+
+- (void)fitMapToPolygons:(NSArray<MKPolygon *> *)polygons andAnnotations:(NSArray<id<MKAnnotation>> *)annotations animated:(BOOL)animated
+{
+    __block MKMapRect regionRect = MKMapRectNull;
+    
+    if (annotations && annotations.count > 0) {
         
-        MKMapRect regionRect = [(MKPolygon *)polygons[0] boundingMapRect];
+        regionRect = MKMapRectNull;
         
-        double maxX = 0.0, maxY = 0.0;
+        [annotations enumerateObjectsUsingBlock:^(id<MKAnnotation>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           
+            MKMapPoint annotationPoint = MKMapPointForCoordinate([obj coordinate]);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+            regionRect = MKMapRectUnion(regionRect, pointRect);
+        }];
+    }
+    
+    if (polygons && polygons.count > 0) {
+        
+        if (MKMapRectIsNull(regionRect)) {
+            regionRect = [(MKPolygon *)polygons[0] boundingMapRect];
+        }
+        
+        double maxX = regionRect.origin.x + regionRect.size.width, maxY = regionRect.origin.y + regionRect.size.height;
         
         for (MKPolygon *polygon in polygons) {
             
@@ -70,17 +95,13 @@
         }
         
         regionRect = MKMapRectMake(regionRect.origin.x, regionRect.origin.y, maxX - regionRect.origin.x, maxY - regionRect.origin.y);
-        
-        MKCoordinateRegion region = MKCoordinateRegionForMapRect(regionRect);
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta * 1.1, region.span.longitudeDelta * 1.1);
-        
-        [self setRegion:region animated:animated];
     }
-}
-
-- (void)fitMapToPolygons:(NSArray *)polygons
-{
-    [self fitMapToPolygons:polygons animated:false];
+    
+    if (!MKMapRectIsNull(regionRect)) {
+        
+        UIEdgeInsets pinEdgeInsets = UIEdgeInsetsMake(38, 10, 10, 10);
+        [self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+    }
 }
 
 - (NSArray *)allAnnotations
@@ -106,11 +127,19 @@
     [self willChangeValueForKey:@"shouldGroupAnnotations"];
     _shouldGroupAnnotations = shouldGroupAnnotations;
     
+    if (shouldGroupAnnotations && !self.allAnnotationMapView) {
+        self.allAnnotationMapView = [MKMapView new];
+    }
+    
     if (shouldGroupAnnotations) {
         [self addAnnotations:self.annotations];
     } else {
         [self removeAnnotations:self.annotations];
         [super addAnnotations:self.allAnnotationMapView.annotations];
+    }
+    
+    if (!shouldGroupAnnotations && self.allAnnotationMapView) {
+        self.allAnnotationMapView = nil;
     }
     
     [self didChangeValueForKey:@"shouldGroupAnnotations"];
