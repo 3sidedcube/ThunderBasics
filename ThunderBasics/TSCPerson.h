@@ -113,4 +113,9 @@
  */
 @property (nonatomic, strong) id <NSObject> _Nullable observer;
 
+/**
+ The original `CNContact` object that was used to populate this `TSCPerson`
+ */
+@property (nonatomic, strong) CNContact * _Nullable contact;
+
 @end

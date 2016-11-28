@@ -34,6 +34,8 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
             TSCContactsController *contactsController = [TSCContactsController sharedController];
             [self updateWithCNContact:[contactsController contactForIdentifier:self.recordIdentifier]];
         }];
+        
+        self.contact = contact;
     }
     return self;
 }
@@ -50,6 +52,7 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     self.photo = nil;
     self.largeImage = nil;
     self.hasPlaceholderImage = false;
+    self.contact = contact;
     
     self.recordIdentifier = contact.identifier;
     self.firstName = contact.givenName.length > 0 ? contact.givenName : nil;
