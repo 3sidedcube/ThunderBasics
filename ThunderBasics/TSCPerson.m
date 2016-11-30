@@ -32,7 +32,7 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
             
             TSCContactsController *contactsController = [TSCContactsController sharedController];
-            [self updateWithCNContact:[contactsController contactForIdentifier:self.recordIdentifier]];
+            [self updateWithCNContact:[contactsController contactForLegacyIdentifier:self.recordIdentifier]];
         }];
         
         self.contact = contact;

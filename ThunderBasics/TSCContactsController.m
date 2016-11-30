@@ -64,7 +64,7 @@ static TSCContactsController *sharedController = nil;
 - (TSCPerson *)personWithRecordIdentifier:(NSString *)identifier
 {
     
-    CNContact *newContact = [self contactForIdentifier:identifier];
+    CNContact *newContact = [self contactForLegacyIdentifier:identifier];
     
     if (newContact) {
         return [[TSCPerson alloc] initWithContact:newContact];
@@ -143,7 +143,7 @@ static TSCContactsController *sharedController = nil;
 
 - (CNContactViewController *)personViewControllerForRecordIdentifier:(NSString *)identifier
 {
-    CNContactViewController *contactViewController = [CNContactViewController viewControllerForContact:[self contactForIdentifier:identifier]];
+    CNContactViewController *contactViewController = [CNContactViewController viewControllerForContact:[self contactForLegacyIdentifier:identifier]];
     return contactViewController;
 }
 
