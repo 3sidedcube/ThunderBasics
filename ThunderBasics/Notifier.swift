@@ -10,7 +10,7 @@ public protocol Notifier {
 public extension Notifier where Notification.RawValue == String {
     
     // MARK: - Static Computed Variables
-    private static func nameFor(notification: Notification) -> String {
+    private static func name(for notification: Notification) -> String {
         return "\(self).\(notification.rawValue)"
     }
     
@@ -22,8 +22,8 @@ public extension Notifier where Notification.RawValue == String {
     /// - Parameters:
     ///   - notification: The notification to post
     ///   - object: The object posting the notification
-    func postNotification(notification: Notification, object: AnyObject? = nil) {
-        Self.postNotification(notification, object: object)
+    func postNotification(notification: Notification, object: Any? = nil) {
+        Self.postNotification(notification: notification, object: object)
     }
     
     /// Posts a notification to NSNotificationCenter with a set sender and userInfo object
@@ -32,8 +32,9 @@ public extension Notifier where Notification.RawValue == String {
     ///   - notification: The notification to post
     ///   - object: The object posting the notification.
     ///   - userInfo: Information about the the notification. May be nil.
-    func postNotification(notification: Notification, object: AnyObject? = nil, userInfo: [String : AnyObject]? = nil) {
-        Self.postNotification(notification, object: object, userInfo: userInfo)
+    func postNotification(notification: Notification, object: Any? = nil, userInfo: [AnyHashable : Any]? = nil) {
+        
+        Self.postNotification(notification: notification, object: object, userInfo: userInfo)
     }
     
     
@@ -45,11 +46,10 @@ public extension Notifier where Notification.RawValue == String {
     ///   - notification: The notification to post
     ///   - object: The object posting the notification.
     ///   - userInfo: Information about the the notification. May be nil.
-    static func postNotification(notification: Notification, object: AnyObject? = nil, userInfo: [String : AnyObject]? = nil) {
-        let name = nameFor(notification)
+    static func postNotification(notification: Notification, object: Any? = nil, userInfo: [AnyHashable : Any]? = nil) {
+        let notificationName = name(for: notification)
         
-        NSNotificationCenter.defaultCenter()
-            .postNotificationName(name, object: object, userInfo: userInfo)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notificationName), object: object, userInfo: userInfo)
     }
     
     
@@ -60,10 +60,9 @@ public extension Notifier where Notification.RawValue == String {
     ///   - selector: A selector which will be called when the notification is triggered
     ///   - notification: The notification for which to register the observer
     static func addObserver(observer: AnyObject, selector: Selector, notification: Notification) {
-        let name = nameFor(notification)
+        let notificationName = name(for: notification)
         
-        NSNotificationCenter.defaultCenter()
-            .addObserver(observer, selector: selector, name: name, object: nil)
+        NotificationCenter.default.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: notificationName), object: nil)
     }
     
    
@@ -74,9 +73,8 @@ public extension Notifier where Notification.RawValue == String {
     ///   - notification: The notification type to stop receiving notifications for
     ///   - object: Sender to remove from the dispatch table. Specify a notification sender to remove only entries that specify this sender.
     static func removeObserver(observer: AnyObject, notification: Notification, object: AnyObject? = nil) {
-        let name = nameFor(notification)
+        let notificationName = name(for: notification)
         
-        NSNotificationCenter.defaultCenter()
-            .removeObserver(observer, name: name, object: object)
+        NotificationCenter.default.removeObserver(observer, name: NSNotification.Name(rawValue: notificationName), object: object)
     }
 }
