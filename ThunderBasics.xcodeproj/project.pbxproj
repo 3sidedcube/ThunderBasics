@@ -697,7 +697,7 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = P645CBFH93;
 						DevelopmentTeamName = "3 Sided Cube Design Ltd";
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					C272EF8E19C831AC004BD339 = {
 						CreatedOnToolsVersion = 6.0;
