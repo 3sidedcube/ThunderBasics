@@ -81,3 +81,10 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 //People
 #import <ThunderBasics/TSCPerson.h>
 #import <ThunderBasics/TSCCoreSpotlightIndexItem.h>
+
+//FMDB
+#import <ThunderBasics/FMDatabase.h>
+#import <ThunderBasics/FMDatabaseAdditions.h>
+#import <ThunderBasics/FMDatabasePool.h>
+#import <ThunderBasics/FMDatabaseQueue.h>
+#import <ThunderBasics/FMResultSet.h>

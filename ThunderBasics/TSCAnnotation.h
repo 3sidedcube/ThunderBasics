@@ -17,12 +17,12 @@
 /** Returns the parent annotation of the annotation.
  @discussion This will only be set if the annotation is within an annotation cluster.
  */
-- (id <TSCAnnotation>)parentAnnotation;
+- (id <TSCAnnotation>)superAnnotation;
 
 /** Sets the parent annotation of the annotation.
  @param annotation The annotation to group the annotation into.
  */
-- (void)setParentAnnotation:(id <TSCAnnotation>)annotation;
+- (void)setSuperAnnotation:(id <TSCAnnotation>)annotation;
 
 /** Returns an array of the child annotations of the annotation.
  */

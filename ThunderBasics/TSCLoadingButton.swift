@@ -13,12 +13,12 @@ import Foundation
  */
 public extension UIButton {
     
-    override var frame: CGRect {
+    override open var frame: CGRect {
         
         didSet {
             
             if let activityView = viewWithTag(456766999) as? UIActivityIndicatorView {
-                activityView.center = CGPointMake(frame.size.width/2, frame.size.height/2)
+                activityView.center = CGPoint(x: frame.size.width/2,y: frame.size.height/2)
             }
         }
     }
@@ -36,7 +36,7 @@ public extension UIButton {
             return
         }
     
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
         
         activityIndicator.tag = 456766999
         if let activityColour = colour {
@@ -45,16 +45,16 @@ public extension UIButton {
         
         activityIndicator.alpha = 0.0
         
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animate(withDuration: 0.3) { () -> Void in
             
             activityIndicator.alpha = 1.0
             
-            self.enabled = false
+            self.isEnabled = false
             self.titleLabel?.alpha = 0.2
             self.imageView?.alpha = 0.2
         }
         
-        activityIndicator.center = CGPointMake(bounds.size.width/2, bounds.size.height/2)
+        activityIndicator.center = CGPoint(x: bounds.size.width/2,y: bounds.size.height/2)
         activityIndicator.startAnimating()
         
         addSubview(activityIndicator)
@@ -70,9 +70,9 @@ public extension UIButton {
             activityView.stopAnimating()
             activityView.removeFromSuperview()
             
-            enabled = true
+            isEnabled = true
             
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 
                     activityView.alpha = 0.0
                     self.titleLabel?.alpha = 1.0

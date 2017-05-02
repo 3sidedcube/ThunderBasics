@@ -40,4 +40,9 @@ typedef void (^TSCSingleRequestLocationCompletion)(CLLocation *location, NSError
  **/
 - (void)requestCurrentLocationWithCompletion:(TSCSingleRequestLocationCompletion)completion;
 
+/**
+ A boolean which determines whether the location manager should keep running once a location has been found for the user. If set to yes, this will result in speedier future location updates
+ */
+@property (nonatomic, assign) BOOL keepRunning;
+
 @end

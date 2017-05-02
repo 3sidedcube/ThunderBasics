@@ -55,8 +55,12 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 
 - (void)requestCurrentLocationWithAuthorizationType:(TSCAuthorizationType)authorization completion:(TSCSingleRequestLocationCompletion)completion
 {
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    if (!self.locationManager) {
+        
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    }
+    
     self.locationManager.delegate = self;
     
     //Copy completion block for firing later
@@ -124,7 +128,9 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         
         if ([self.locationManager respondsToSelector:@selector(requestLocation)]) {
             
-            self.PCSingleRequestLocationCompletion(locations.firstObject, nil);
+            if (self.PCSingleRequestLocationCompletion) {
+                self.PCSingleRequestLocationCompletion(locations.firstObject, nil);
+            }
             [self cleanUp];
             return;
             
@@ -225,10 +231,11 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         
-        [self.locationManager stopUpdatingLocation];
+        if (self.keepRunning) {
+            [self.locationManager stopUpdatingLocation];
+        }
         
         self.locationManager.delegate = nil;
-        self.locationManager = nil;
         [_maxWaitTimeTimer invalidate];
         _maxWaitTimeTimer = nil;
         [_minWaitTimeTimer invalidate];
