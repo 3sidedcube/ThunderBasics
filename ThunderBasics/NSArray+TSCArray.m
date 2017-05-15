@@ -22,7 +22,7 @@
         }
         
         if ([object respondsToSelector:@selector(serialisableRepresentation)]) {
-            TSCObject *tscObject = [(TSCObject *)object serialisableRepresentation];
+            id tscObject = [(TSCObject *)object serialisableRepresentation];
             
             if (tscObject) {
                 [array addObject:tscObject];

@@ -204,16 +204,14 @@
 
 - (void)presentLeavingWarning
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Continue" message:@"You now are leaving." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Open in Safari", nil];
-    [alertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
+    UIAlertController *leavingAlert = [UIAlertController alertControllerWithTitle:@"Continue" message:@"You now are leaving." preferredStyle:UIAlertControllerStyleAlert];
+    [leavingAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [leavingAlert addAction:[UIAlertAction actionWithTitle:@"Open in Safari" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
         [[UIApplication sharedApplication] openURL:self.pendingURL];
-    }
+    }]];
+    
+    [self presentViewController:leavingAlert animated:true completion:nil];
 }
 
 @end

@@ -11,7 +11,7 @@ import Foundation
 /**
  An extension on UIButton which allows replacing the title of the button with a loading indicator
  */
-public extension UIButton {
+extension UIButton {
     
     override open var frame: CGRect {
         
