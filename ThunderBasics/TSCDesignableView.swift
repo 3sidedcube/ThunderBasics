@@ -210,7 +210,7 @@
             super.init(coder: aDecoder)
         }
         
-        override init(frame: CGRect) {
+        override public init(frame: CGRect) {
             
             primaryColor = UIColor.blue
             secondaryColor = UIColor.white
