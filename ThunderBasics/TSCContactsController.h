@@ -104,7 +104,7 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
  @param array An array of NSNumber objects that identify contacts in the addressbook database
  @return An array of `TSCPerson` objects
  */
-- (NSArray <TSCPerson *> *)peopleForArrayOfIdentifiers:(NSArray <NSNumber *> *)array;
+- (NSArray <TSCPerson *> *)peopleForArrayOfIdentifiers:(NSArray *)array;
 
 /**
  Extracts an array of Addressbook Ids objects for the provided identifiers
