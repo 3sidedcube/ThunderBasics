@@ -250,7 +250,7 @@ public extension Date {
 	///   - ISO8601String: The string to convert to a date
 	///   - considerLocale: Whether or not to consider the locale when constructing the date
 	/// - Returns: A `Date` object if one can be initialised from the string
-	func dateWith(ISO8601String: String, considerLocale: Bool = true) -> Date? {
+	init?(ISO8601String: String, considerLocale: Bool = true) {
 		
 		let dateFormatString = considerLocale ? "yyyy-MM-dd'T'HH:mm:ssZZZ" : "yyyy-MM-dd"
 		
@@ -258,11 +258,13 @@ public extension Date {
 		dateFormatter.dateFormat = dateFormatString
 		
 		if let date = dateFormatter.date(from: ISO8601String) {
-			return date
-		}
-		
-		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-		return dateFormatter.date(from: ISO8601String)
+			self = date
+		} else {
+			
+			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+			guard let date = dateFormatter.date(from: ISO8601String) else { return nil }
+			self = date
+		}		
 	}
 	
 	/// Returns an ISO8601 formatted string from the Date struct
