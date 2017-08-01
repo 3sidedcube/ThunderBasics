@@ -239,4 +239,40 @@ public extension Date {
 		guard let _startDate = startDate, let _endDate = endDate else { return nil }
 		return DateRange(start: _startDate, end: _endDate)
 	}
+	
+	//MARK: -
+	//MARK: ISO8601 Dates
+	//MARK: -
+	
+	/// Initialises and returns a `Date` struct from an ISO8601 string date
+	///
+	/// - Parameters:
+	///   - ISO8601String: The string to convert to a date
+	///   - considerLocale: Whether or not to consider the locale when constructing the date
+	/// - Returns: A `Date` object if one can be initialised from the string
+	func dateWith(ISO8601String: String, considerLocale: Bool = true) -> Date? {
+		
+		let dateFormatString = considerLocale ? "yyyy-MM-dd'T'HH:mm:ssZZZ" : "yyyy-MM-dd"
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = dateFormatString
+		
+		if let date = dateFormatter.date(from: ISO8601String) {
+			return date
+		}
+		
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		return dateFormatter.date(from: ISO8601String)
+	}
+	
+	/// Returns an ISO8601 formatted string from the Date struct
+	///
+	/// - Parameter withLocale: Whether to include the locale in the formatted string
+	/// - Returns: A string representation of the date
+	func ISO8601String(withLocale: Bool) -> String {
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = withLocale ? "yyyy-MM-dd'T'HH:mm:ssZ" : "yyyy-MM-dd'T'HH:mm:ss"
+		return dateFormatter.string(from: self)
+	}
 }
