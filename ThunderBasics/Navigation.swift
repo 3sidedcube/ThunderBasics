@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
 	
 	/// Pops to the most recent view controller in the stack which is of a particular class
 	///
@@ -16,7 +16,7 @@ extension UIViewController {
 	///   - viewControllerClass: The class of view controller to pop to
 	///   - animated: Whether to animate the transition
 	/// - Returns: A boolean as to whether a view controller of this class was popped to or not
-	func popToLastViewController(of viewControllerClass: AnyClass, animated: Bool = true) -> Bool {
+	public func popToLastViewController(of viewControllerClass: AnyClass, animated: Bool = true) -> Bool {
 		
 		guard let previousViewController = navigationController?.viewControllers.filter({ (viewController) -> Bool in
 			return viewController.isMember(of: viewControllerClass)  && viewController != self
@@ -32,7 +32,7 @@ extension UIViewController {
 	///   - classes: Classes of view controller to avoid popping to
 	///   - animated: Whether to animate the transition
 	/// - Returns: A boolean as to whether a valid view controller was found and popped to or not
-	func popToLastViewController(excluding classes: [AnyClass], animated: Bool = true) -> Bool {
+	public func popToLastViewController(excluding classes: [AnyClass], animated: Bool = true) -> Bool {
 		
 		guard let previousViewController = navigationController?.viewControllers.filter({ (viewController) -> Bool in
 			// If there is a class which this view controller is a member of, then don't allow popping to it
