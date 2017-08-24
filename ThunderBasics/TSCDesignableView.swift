@@ -405,8 +405,8 @@
             super.awakeFromNib()
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
             layer?.borderWidth = borderWidth
         }
@@ -417,7 +417,7 @@
             
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
+            if let borderColor = borderColor {
                 layer?.borderColor = _borderColor.cgColor
             }
             layer?.borderWidth = borderWidth
@@ -442,7 +442,7 @@
          */
         @IBInspectable public var backgroundColor: NSColor? {
             get {
-                guard let _layer = layer, let color = _layer.backgroundColor else {
+                guard let layer = layer, let color = layer.backgroundColor else {
                     return objc_getAssociatedObject(self, &backgroundColorKey) as? NSColor
                 }
                 return NSColor(cgColor: color)
@@ -450,8 +450,8 @@
             set {
                 wantsLayer = true
                 objc_setAssociatedObject(self, &backgroundColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let _newValue = newValue {
-                    layer?.backgroundColor = _newValue.cgColor
+                if let newValue = newValue {
+                    layer?.backgroundColor = newValue.cgColor
                 }
             }
         }
@@ -466,8 +466,8 @@
             set {
                 wantsLayer = true
                 objc_setAssociatedObject(self, &borderColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let _newValue = newValue {
-                    layer?.borderColor = _newValue.cgColor
+                if let newValue = newValue {
+                    layer?.borderColor = newValue.cgColor
                 }
             }
         }
@@ -531,8 +531,8 @@
         @IBInspectable open var edgeInsets: NSSize = NSMakeSize(0, 0) {
             didSet {
                 
-                if let _tscCell = cell as? TSCButtonCell {
-                    _tscCell.edgeInsets = edgeInsets
+                if let tscCell = cell as? TSCButtonCell {
+                    tscCell.edgeInsets = edgeInsets
                 }
                 
                 invalidateIntrinsicContentSize()
@@ -566,7 +566,7 @@
             let paragraphStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
             paragraphStyle.alignment = alignment
             
-            let _font = font != nil ? font! : NSFont.systemFont(ofSize: NSFont.systemFontSize())
+            let _font = font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize())
             
             let attributes = [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: _font, NSParagraphStyleAttributeName: paragraphStyle]
             attributedTitle = NSAttributedString(string: newTitle, attributes: attributes)
@@ -662,8 +662,8 @@
             super.prepareForInterfaceBuilder()
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
             updateButtonColours()
         }
@@ -671,7 +671,7 @@
         public override var intrinsicContentSize: NSSize {
             get {
                 
-                if let _ = cell as? TSCButtonCell {
+                if cell is TSCButtonCell {
                     return super.intrinsicContentSize
                 } else {
                     let size = super.intrinsicContentSize
@@ -719,8 +719,8 @@
         @IBInspectable public var edgeInsets: NSSize = NSMakeSize(0, 0) {
             didSet {
                 
-                if let _tscCell = cell as? TSCPopUpButtonCell {
-                    _tscCell.edgeInsets = edgeInsets
+                if let tscCell = cell as? TSCPopUpButtonCell {
+                    tscCell.edgeInsets = edgeInsets
                 }
                 
                 invalidateIntrinsicContentSize()
@@ -797,8 +797,8 @@
             updateButtonColours()
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
         }
         
@@ -831,15 +831,15 @@
             super.prepareForInterfaceBuilder()
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
             updateButtonColours()
         }
         
         public override var intrinsicContentSize: NSSize {
             get {
-                if let _ = cell as? TSCButtonCell {
+                if cell is TSCButtonCell {
                     return super.intrinsicContentSize
                 } else {
                     let size = super.intrinsicContentSize
@@ -876,12 +876,12 @@
             
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
             layer?.borderWidth = borderWidth
-            if let _backgroundColor = backgroundColor {
-                layer?.backgroundColor = _backgroundColor.cgColor
+            if let backgroundColor = backgroundColor {
+                layer?.backgroundColor = backgroundColor.cgColor
             }
         }
     }
