@@ -15,7 +15,7 @@
      */
     @IBDesignable open class TSCView: UIView {
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -60,7 +60,7 @@
             }
         }
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -71,7 +71,7 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        open override func drawText(in rect: CGRect) {
+        override open func drawText(in rect: CGRect) {
             super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
         }
         
@@ -84,7 +84,7 @@
             return adjSize
         }
         
-        open override var intrinsicContentSize: CGSize {
+        override open var intrinsicContentSize: CGSize {
             
             var contentSize = super.intrinsicContentSize
             contentSize.width += leftInset + rightInset
@@ -127,7 +127,7 @@
             }
         }
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             
@@ -248,7 +248,7 @@
             }
         }
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.shadowRadius = shadowRadius
@@ -264,7 +264,7 @@
      */
     @IBDesignable open class TSCImageView: UIImageView {
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -282,7 +282,7 @@
      */
     @IBDesignable open class TSCTextView: UITextView {
         
-        open override func prepareForInterfaceBuilder() {
+        override open func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -400,7 +400,7 @@
     
     public extension TSCTextField {
         
-        public override func awakeFromNib() {
+        override public func awakeFromNib() {
             
             super.awakeFromNib()
             wantsLayer = true
@@ -411,7 +411,7 @@
             layer?.borderWidth = borderWidth
         }
         
-        public override func prepareForInterfaceBuilder() {
+        override public func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             
@@ -512,7 +512,7 @@
         public var edgeInsets: NSSize = NSMakeSize(0, 0)
         
         
-        public override func drawingRect(forBounds: NSRect) -> NSRect {
+        override public func drawingRect(forBounds: NSRect) -> NSRect {
             
             let newRect = NSInsetRect(forBounds, edgeInsets.width/2, edgeInsets.height/2)
             return super.drawingRect(forBounds: newRect)
@@ -657,7 +657,7 @@
             attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
         }
         
-        public override func prepareForInterfaceBuilder() {
+        override public func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             wantsLayer = true
@@ -668,7 +668,7 @@
             updateButtonColours()
         }
         
-        public override var intrinsicContentSize: NSSize {
+        override public var intrinsicContentSize: NSSize {
             get {
                 
                 if cell is TSCButtonCell {
@@ -689,19 +689,19 @@
         public var edgeInsets: NSSize = NSMakeSize(0, 0)
         
         
-        public override func drawingRect(forBounds : NSRect) -> NSRect {
+        override public func drawingRect(forBounds : NSRect) -> NSRect {
             
             let newRect = NSInsetRect(forBounds, edgeInsets.width/2, edgeInsets.height/2)
             return super.drawingRect(forBounds: newRect)
         }
         
-        public override func titleRect(forBounds: NSRect) -> NSRect {
+        override public func titleRect(forBounds: NSRect) -> NSRect {
             
             let newRect = NSInsetRect(forBounds, edgeInsets.width/2, edgeInsets.height/2)
             return super.titleRect(forBounds: newRect)
         }
         
-        public override func imageRect(forBounds: NSRect) -> NSRect {
+        override public func imageRect(forBounds: NSRect) -> NSRect {
             
             let newRect = NSInsetRect(forBounds, edgeInsets.width/2, edgeInsets.height/2)
             return super.imageRect(forBounds: newRect)
@@ -826,7 +826,7 @@
             attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
         }
         
-        public override func prepareForInterfaceBuilder() {
+        override public func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             wantsLayer = true
@@ -837,7 +837,7 @@
             updateButtonColours()
         }
         
-        public override var intrinsicContentSize: NSSize {
+        override public var intrinsicContentSize: NSSize {
             get {
                 if cell is TSCButtonCell {
                     return super.intrinsicContentSize
@@ -859,14 +859,14 @@
             wantsLayer = true
         }
         
-        public override func awakeFromNib() {
+        override public func awakeFromNib() {
             
             super.awakeFromNib()
             wantsLayer = true
             setupView()
         }
         
-        public override func prepareForInterfaceBuilder() {
+        override public func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             setupView()
