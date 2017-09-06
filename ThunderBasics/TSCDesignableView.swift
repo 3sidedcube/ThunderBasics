@@ -155,6 +155,13 @@
             topInset = insets.top
             bottomInset = insets.bottom
         }
+		
+		// left view position
+		open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superLeftRect = super.leftViewRect(forBounds: bounds)
+			superLeftRect.origin.x = superLeftRect.origin.x - edgeInsets.right
+			return superLeftRect
+		}
         
         // placeholder position
         override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -165,7 +172,13 @@
         override open func editingRect(forBounds bounds: CGRect) -> CGRect {
             return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
-        
+		
+		// right view position
+		open override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superRightRect = super.rightViewRect(forBounds: bounds)
+			superRightRect.origin.x = superRightRect.origin.x - edgeInsets.right
+			return superRightRect
+		}
     }
     
     /**
