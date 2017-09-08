@@ -45,6 +45,13 @@ static TSCLanguageController *sharedController = nil;
     NSString *languageString = self.languageDictionary[key];
     
     if (languageString && languageString.length > 0) {
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\t" withString:@"\t"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\b" withString:@"\b"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\f" withString:@"\b"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\r" withString:@"\b"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
+		languageString = [languageString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
         return languageString;
     } else {
         return fallbackString;
