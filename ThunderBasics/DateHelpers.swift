@@ -141,7 +141,8 @@ public extension Date {
 							startDateComponentsToSubtract = DateComponents()
 						}
 						
-						startDateComponentsToSubtract?.day = (startDateComponentsToSubtract?.day ?? 0) - daysInWeek
+						let currentStartDateComponentsToSubtract = startDateComponentsToSubtract
+						startDateComponentsToSubtract?.day = (currentStartDateComponentsToSubtract?.day ?? 0) - daysInWeek
 					}
 				}
 			}
