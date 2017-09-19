@@ -11,7 +11,7 @@
 /**
  The block called when iCloud performs it's initial sync
  */
-typedef void (^TSCiCloudSyncHandler)();
+typedef void (^TSCiCloudSyncHandler)(void);
 
 /**
  The iCloud controller is responsible for synchronising data across the users iCloud account, between devices. It both repsonsible for updating values as well as listening out for changes to values on other devices and updating them in the app
