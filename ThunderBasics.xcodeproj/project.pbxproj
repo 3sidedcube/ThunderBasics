@@ -96,8 +96,6 @@
 		C272EFF119C8325D004BD339 /* TSCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFC219C8325D004BD339 /* TSCDatabase.m */; };
 		C272EFF219C8325D004BD339 /* TSCGraphPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC319C8325D004BD339 /* TSCGraphPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFC419C8325D004BD339 /* TSCGraphPoint.m */; };
-		C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC519C8325D004BD339 /* TSCLanguageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFC619C8325D004BD339 /* TSCLanguageController.m */; };
 		C272EFF619C8325D004BD339 /* TSCLineGraphView.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC719C8325D004BD339 /* TSCLineGraphView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFF719C8325D004BD339 /* TSCLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFC819C8325D004BD339 /* TSCLineGraphView.m */; };
 		C272EFF819C8325D004BD339 /* TSCMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC919C8325D004BD339 /* TSCMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -207,8 +205,6 @@
 		C272EFC219C8325D004BD339 /* TSCDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDatabase.m; sourceTree = "<group>"; };
 		C272EFC319C8325D004BD339 /* TSCGraphPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCGraphPoint.h; sourceTree = "<group>"; };
 		C272EFC419C8325D004BD339 /* TSCGraphPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCGraphPoint.m; sourceTree = "<group>"; };
-		C272EFC519C8325D004BD339 /* TSCLanguageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCLanguageController.h; sourceTree = "<group>"; };
-		C272EFC619C8325D004BD339 /* TSCLanguageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLanguageController.m; sourceTree = "<group>"; };
 		C272EFC719C8325D004BD339 /* TSCLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCLineGraphView.h; sourceTree = "<group>"; };
 		C272EFC819C8325D004BD339 /* TSCLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCLineGraphView.m; sourceTree = "<group>"; };
 		C272EFC919C8325D004BD339 /* TSCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCMapView.h; sourceTree = "<group>"; };
@@ -540,8 +536,6 @@
 		C272F00719C83311004BD339 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				C272EFC519C8325D004BD339 /* TSCLanguageController.h */,
-				C272EFC619C8325D004BD339 /* TSCLanguageController.m */,
 			);
 			name = Language;
 			sourceTree = "<group>";
@@ -582,7 +576,6 @@
 				B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */,
 				B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
-				C272EFF419C8325D004BD339 /* TSCLanguageController.h in Headers */,
 				49B262C51CBB8E80000A6669 /* FMDB.h in Headers */,
 				C272EFED19C8325D004BD339 /* TSCAnnotation.h in Headers */,
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
@@ -740,7 +733,6 @@
 				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				C272EFE519C8325D004BD339 /* NSDictionary+TSCDictionary.m in Sources */,
 				B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */,
-				C272EFF519C8325D004BD339 /* TSCLanguageController.m in Sources */,
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */,
 				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
