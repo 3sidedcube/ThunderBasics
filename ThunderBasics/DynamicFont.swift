@@ -18,7 +18,7 @@ extension UIFont {
 	///   - symbolicTraits: Symbolic constraints to apply to the default font
 	///   - traitCollection: The trait collection the font should be for
 	/// - Returns: A font converted given the above parameters
-	open class func preferredFont(forTextStyle style: UIFontTextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptorSymbolicTraits? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
+	open class func preferredFont(forTextStyle style: UIFontTextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptorSymbolicTraits? = nil, attributes: [String: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
 		
 		var descriptor: UIFontDescriptor
 		
@@ -26,6 +26,10 @@ extension UIFont {
 			descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style, compatibleWith: traitCollection)
 		} else {
 			descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
+		}
+		
+		if let attributes = attributes {
+			descriptor = descriptor.addingAttributes(attributes)
 		}
 		
 		if let symbolicTraits = symbolicTraits {
@@ -51,6 +55,25 @@ extension UIFont {
 		if let face = face {
 			descriptor = descriptor.withFace(face)
 		}
+		
+		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
+	}
+	
+	/// Adapts the font with the font weight provided
+	///
+	/// This is useful if you're using dynamic font sizing with a custom weight
+	///
+	/// - Parameters:
+	///   - weight: The font weight to convert this font to
+	open func withWeight(_ weight: UIFontWeight) -> UIFont {
+		
+		let descriptor = fontDescriptor.addingAttributes(
+			[
+				UIFontDescriptorTraitsAttribute: [
+					UIFontWeightTrait: weight
+				]
+			]
+		)
 		
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
