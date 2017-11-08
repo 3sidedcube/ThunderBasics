@@ -40,6 +40,7 @@
 		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
+		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -149,6 +150,7 @@
 		B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCLoadingButton.swift; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
+		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
 		B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VisibleViewController.h"; sourceTree = "<group>"; };
 		B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VisibleViewController.m"; sourceTree = "<group>"; };
 		B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dismiss.h"; sourceTree = "<group>"; };
@@ -360,6 +362,14 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		B163D2FC1FB33F5100BF4CEC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		B1B6CF931C4E482000CDC978 /* Views and Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +469,7 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				B163D2FC1FB33F5100BF4CEC /* Fonts */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				B12BD5DE1C48043600D07A58 /* Views */,
 				B120905B1BBABE9500AAB2E9 /* Core Spotlighting */,
@@ -751,6 +762,7 @@
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				36401E2B1BF238FC00E06E14 /* TSCDismissSegue.m in Sources */,
 				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
+				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
 				33C47F9A1A0A62C3007BD920 /* TSCNotificationHelper.m in Sources */,
 				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				C272EFF319C8325D004BD339 /* TSCGraphPoint.m in Sources */,
