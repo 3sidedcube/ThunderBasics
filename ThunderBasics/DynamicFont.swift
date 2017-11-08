@@ -46,7 +46,7 @@ extension UIFont {
 	///   - face: The font face to convert this font to
 	open func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
-		let descriptor = fontDescriptor.withFamily(family)
+		var descriptor = fontDescriptor.withFamily(family)
 		
 		if let face = face {
 			descriptor = descriptor.withFace(face)
