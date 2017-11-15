@@ -46,30 +46,32 @@ static NSInteger activityCount = 0;
 #pragma mark - Method Swizzling
 
 - (void)tsc_setNetworkActivityIndicatorVisible:(BOOL)visible {
-    
-    if ([self isStatusBarHidden]) return;
-    
-    // Synchronise self to avoid threading issues
-    @synchronized (self) {
-    
-        // If trying to make visible
-        if (visible) {
-            
-            if (activityCount == 0) {
-                [self tsc_setNetworkActivityIndicatorVisible:YES];
-            }
-            activityCount++;
-            
-        } else { // Otherwise trying to hide it
-            
-            activityCount--;
-            if (activityCount <= 0) {
-                [self tsc_setNetworkActivityIndicatorVisible:NO];
-                activityCount=0;
-            }
-        }
-    }
-    
+	
+	[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+		
+		if ([self isStatusBarHidden]) return;
+		
+		// Synchronise self to avoid threading issues
+		@synchronized (self) {
+			
+			// If trying to make visible
+			if (visible) {
+				
+				if (activityCount == 0) {
+					[self tsc_setNetworkActivityIndicatorVisible:YES];
+				}
+				activityCount++;
+				
+			} else { // Otherwise trying to hide it
+				
+				activityCount--;
+				if (activityCount <= 0) {
+					[self tsc_setNetworkActivityIndicatorVisible:NO];
+					activityCount=0;
+				}
+			}
+		}
+	}];
 }
 
 @end
