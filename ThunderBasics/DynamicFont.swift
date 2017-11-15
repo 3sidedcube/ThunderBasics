@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIFont {
+public extension UIFont {
 	
 	/// Creates a font for a defined text style with the font size scaled by a proportion and with given symbolic traits applied
 	///
@@ -18,7 +18,7 @@ extension UIFont {
 	///   - symbolicTraits: Symbolic constraints to apply to the default font
 	///   - traitCollection: The trait collection the font should be for
 	/// - Returns: A font converted given the above parameters
-	open class func preferredFont(forTextStyle style: UIFontTextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptorSymbolicTraits? = nil, attributes: [String: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
+	public class func preferredFont(forTextStyle style: UIFontTextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptorSymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
 		
 		var descriptor: UIFontDescriptor
 		
@@ -48,7 +48,7 @@ extension UIFont {
 	/// - Parameters:
 	///   - family: The font family to convert this font to
 	///   - face: The font face to convert this font to
-	open func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
+	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
 		var descriptor = fontDescriptor.withFamily(family)
 		
@@ -65,16 +65,15 @@ extension UIFont {
 	///
 	/// - Parameters:
 	///   - weight: The font weight to convert this font to
-	open func withWeight(_ weight: UIFontWeight) -> UIFont {
+	public func withWeight(_ weight: UIFont.Weight) -> UIFont {
 		
-		let descriptor = fontDescriptor.addingAttributes(
-			[
-				UIFontDescriptorTraitsAttribute: [
-					UIFontWeightTrait: weight
-				]
+		let attributes: [UIFontDescriptor.AttributeName: Any] = [
+			.traits: [
+				UIFontDescriptor.TraitKey.weight: weight
 			]
-		)
+		]
 		
+		let descriptor = fontDescriptor.addingAttributes(attributes)
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
 }
