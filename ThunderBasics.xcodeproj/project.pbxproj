@@ -79,6 +79,7 @@
 		B1B6CF911C4E480600CDC978 /* TSCUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF8F1C4E480600CDC978 /* TSCUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF921C4E480600CDC978 /* TSCUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF901C4E480600CDC978 /* TSCUserDefaults.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B1CF6CF31F5848B900E92538 /* TSCPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13261AB6D88A00AA5971 /* TSCPerson.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85E831DA0050900469588 /* TSCMapView.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC919C8325D004BD339 /* TSCMapView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -646,6 +647,7 @@
 				B1D85E841DA0058600469588 /* TSCAnnotation.h in Headers */,
 				B16234E71C91F9E0001669BA /* NSArray+TSCArray.h in Headers */,
 				B16234EB1C91FA2A001669BA /* TSCLanguageController.h in Headers */,
+				B1CF6CF31F5848B900E92538 /* TSCPerson.h in Headers */,
 				B16234E81C91F9EB001669BA /* NSDictionary+TSCDictionary.h in Headers */,
 				B16234EA1C91FA1E001669BA /* TSCObject.h in Headers */,
 				B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */,
