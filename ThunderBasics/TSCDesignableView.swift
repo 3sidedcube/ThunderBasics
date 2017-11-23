@@ -7,9 +7,17 @@
 //
 
 #if os(iOS)
-    
-    import UIKit
-    
+	
+	import UIKit
+	
+	/// A constraint which can be used in place of NSLayoutConstraint and takes the devices scale into account with it's constant value. Dividing it by the screen scale in awakeFromNib
+	public class ScaleBasedConstraint: NSLayoutConstraint {
+		override public func awakeFromNib() {
+			super.awakeFromNib()
+			self.constant = self.constant / UIScreen.main.scale
+		}
+	}
+
     /**
      A designable subclass of UIView that allows customisation of border color and width, as well as other properties
      */
@@ -758,9 +766,7 @@
                 wantsLayer = true
                 layer?.cornerRadius = newValue
                 layer?.masksToBounds = newValue > 0
-            }
-            
-            attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+            }            
         }
         
         /**
