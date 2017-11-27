@@ -38,7 +38,6 @@
 		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
-		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234C71C91F66D001669BA /* NSView+TSCView.m */; };
 		B16234CA1C91F699001669BA /* NSString+TSCEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF134A1AB6DEC900AA5971 /* NSString+TSCEncoding.m */; };
@@ -46,7 +45,7 @@
 		B16234CC1C91F6AF001669BA /* NSDictionary+TSCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFB619C8325D004BD339 /* NSDictionary+TSCDictionary.m */; };
 		B16234CD1C91F6BB001669BA /* NSJSONSerialization+TSCJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFB819C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.m */; };
 		B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCC19C8325D004BD339 /* TSCObject.m */; };
-		B16234CF1C91F6CB001669BA /* TSCLanguageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFC619C8325D004BD339 /* TSCLanguageController.m */; };
+		B16234CF1C91F6CB001669BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234891C91F5A0001669BA /* NSColor+TSCColor.m */; };
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234881C91F5A0001669BA /* NSColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,8 +54,9 @@
 		B16234E81C91F9EB001669BA /* NSDictionary+TSCDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB519C8325D004BD339 /* NSDictionary+TSCDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234E91C91F9F7001669BA /* NSJSONSerialization+TSCJSONSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB719C8325D004BD339 /* NSJSONSerialization+TSCJSONSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EA1C91FA1E001669BA /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234EB1C91FA2A001669BA /* TSCLanguageController.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFC519C8325D004BD339 /* TSCLanguageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B16234EB1C91FA2A001669BA /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -168,7 +168,6 @@
 		B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCLoadingButton.swift; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
-		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
 		B16234881C91F5A0001669BA /* NSColor+TSCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TSCColor.h"; sourceTree = "<group>"; };
 		B16234891C91F5A0001669BA /* NSColor+TSCColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+TSCColor.m"; sourceTree = "<group>"; };
 		B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasicsMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +175,7 @@
 		B16234C61C91F66D001669BA /* NSView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+TSCView.h"; sourceTree = "<group>"; };
 		B16234C71C91F66D001669BA /* NSView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+TSCView.m"; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
+		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
 		B18AEB321BCFB81E00BEB225 /* UIWindow+VisibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VisibleViewController.h"; sourceTree = "<group>"; };
 		B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VisibleViewController.m"; sourceTree = "<group>"; };
 		B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dismiss.h"; sourceTree = "<group>"; };
@@ -390,14 +390,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		B163D2FC1FB33F5100BF4CEC /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */,
-			);
-			name = Fonts;
-			sourceTree = "<group>";
-		};
 		B16234AC1C91F5E3001669BA /* ThunderBasicsMac */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +397,14 @@
 				B16234C41C91F625001669BA /* Info.plist */,
 			);
 			path = ThunderBasicsMac;
+			sourceTree = "<group>";
+		};
+		B163D2FC1FB33F5100BF4CEC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		B1B6CF931C4E482000CDC978 /* Views and Layers */ = {
@@ -634,7 +634,7 @@
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
 				B1D85E841DA0058600469588 /* TSCAnnotation.h in Headers */,
 				B16234E71C91F9E0001669BA /* NSArray+TSCArray.h in Headers */,
-				B16234EB1C91FA2A001669BA /* TSCLanguageController.h in Headers */,
+				B16234EB1C91FA2A001669BA /* (null) in Headers */,
 				B1CF6CF31F5848B900E92538 /* TSCPerson.h in Headers */,
 				B16234E81C91F9EB001669BA /* NSDictionary+TSCDictionary.h in Headers */,
 				B16234EA1C91FA1E001669BA /* TSCObject.h in Headers */,
@@ -770,7 +770,7 @@
 				TargetAttributes = {
 					B16234AA1C91F5E3001669BA = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0910;
 					};
 					C272EF8319C831AB004BD339 = {
 						CreatedOnToolsVersion = 6.0;
@@ -841,7 +841,7 @@
 				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
 				B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */,
 				B16234CA1C91F699001669BA /* NSString+TSCEncoding.m in Sources */,
-				B16234CF1C91F6CB001669BA /* TSCLanguageController.m in Sources */,
+				B16234CF1C91F6CB001669BA /* (null) in Sources */,
 				B16234CD1C91F6BB001669BA /* NSJSONSerialization+TSCJSONSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,7 +935,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -960,7 +961,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

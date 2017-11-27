@@ -537,12 +537,12 @@
         
         private func updateTitle(_ newTitle: String) {
             
-            let paragraphStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+            let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
             paragraphStyle.alignment = alignment
 
-            let _font = font != nil ? font! : NSFont.systemFont(ofSize: NSFont.systemFontSize())
+            let _font = font != nil ? font! : NSFont.systemFont(ofSize: NSFont.systemFontSize)
             
-            let attributes = [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: _font, NSParagraphStyleAttributeName: paragraphStyle]
+            let attributes = [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor, NSAttributedStringKey.font: _font, NSAttributedStringKey.paragraphStyle: paragraphStyle]
             attributedTitle = NSAttributedString(string: newTitle, attributes: attributes)
         }
         
@@ -636,7 +636,7 @@
                 layer?.backgroundColor = secondaryColor.cgColor
             }
             
-            attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+            attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor])
         }
         
         public override func prepareForInterfaceBuilder() {
@@ -712,7 +712,7 @@
         override public var title: String {
             set {
                 super.title = newValue
-                let attributedString =  NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFont(ofSize: 12)])
+                let attributedString =  NSAttributedString(string: newValue, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 12)])
                 attributedTitle = attributedString
             }
             get {
@@ -808,7 +808,7 @@
                 layer?.backgroundColor = secondaryColor.cgColor
             }
             
-            attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+            attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor])
         }
         
         public override func prepareForInterfaceBuilder() {
