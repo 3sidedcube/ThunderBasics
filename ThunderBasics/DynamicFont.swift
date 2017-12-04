@@ -50,7 +50,17 @@ public extension UIFont {
 	///   - face: The font face to convert this font to
 	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
-		var descriptor = fontDescriptor.withFamily(family)
+		let weight: UIFont.Weight = (fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits)
+			as? [UIFontDescriptor.TraitKey : Any])?[UIFontDescriptor.TraitKey.weight] as? UIFont.Weight ?? .regular
+		
+		// Create a new font traits dictionary
+		let attributes: [UIFontDescriptor.AttributeName: Any] = [
+			.traits: [
+				UIFontDescriptor.TraitKey.weight: weight
+			]
+		]
+		
+		var descriptor = UIFontDescriptor(name: fontName, size: pointSize).withFamily(family).addingAttributes(attributes)
 		
 		if let face = face {
 			descriptor = descriptor.withFace(face)
