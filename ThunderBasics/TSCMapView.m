@@ -99,13 +99,11 @@
     
     if (!MKMapRectIsNull(regionRect)) {
 		
-#if TARGET_OS_MAC
-		
-		NSEdgeInsets pinEdgeInsets = NSEdgeInsetsMake(10, 10, 10, 10);
-		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
-		
-#elif TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 		UIEdgeInsets pinEdgeInsets = UIEdgeInsetsMake(38, 10, 10, 10);
+		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+#else
+		NSEdgeInsets pinEdgeInsets = NSEdgeInsetsMake(10, 10, 10, 10);
 		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
 #endif
     }

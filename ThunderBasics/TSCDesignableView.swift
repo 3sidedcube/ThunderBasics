@@ -21,9 +21,9 @@
     /**
      A designable subclass of UIView that allows customisation of border color and width, as well as other properties
      */
-    @IBDesignable public class TSCView: UIView {
+    @IBDesignable open class TSCView: UIView {
         
-        public override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -40,20 +40,36 @@
      A designable subclass of UILabel that allows customisation of border color and width, as well as other properties
      */
     
-    @IBDesignable public class TSCLabel: UILabel {
+    @IBDesignable open class TSCLabel: UILabel {
+		
+		/**
+		The left edge insets of the label
+		*/
+		@IBInspectable open var leftInset: CGFloat = 0
+		
+		/**
+		The right edge insets of the label
+		*/
+		@IBInspectable open var rightInset: CGFloat = 0
+		
+		/**
+		The top edge insets of the label
+		*/
+		@IBInspectable open var topInset: CGFloat = 0
+		
+		/**
+		The bottom edge insets of the label
+		*/
+		@IBInspectable open var bottomInset: CGFloat = 0
         
-        /**
-         The edge insets of the label
-         */
-        @IBInspectable public var textInsets: CGSize = CGSizeZero
+		private var edgeInsets: UIEdgeInsets {
+			get {
+				return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+			}
+		}
+
         
-        private var edgeInsets: UIEdgeInsets {
-            get {
-                return UIEdgeInsets(top: textInsets.height, left: textInsets.width, bottom: textInsets.height, right: textInsets.width)
-            }
-        }
-        
-        public override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -64,36 +80,57 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        override public func drawTextInRect(rect: CGRect) {
-            super.drawTextInRect(UIEdgeInsetsInsetRect(rect, edgeInsets))
+		override open func drawText(in rect: CGRect) {
+			super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
         }
         
-        override public func sizeThatFits(size: CGSize) -> CGSize {
+		override open func sizeThatFits(_ size: CGSize) -> CGSize {
             
             var adjSize = super.sizeThatFits(size)
-            adjSize.width += textInsets.width * 2
-            adjSize.height += textInsets.height * 2
+			adjSize.width += leftInset + rightInset
+			adjSize.height += topInset + bottomInset
             
             return adjSize
         }
-        
-        override public func intrinsicContentSize() -> CGSize {
-            
-            var contentSize = super.intrinsicContentSize()
-            contentSize.width += textInsets.width * 2
-            contentSize.height += textInsets.height * 2
-            
-            return contentSize
-        }
+		
+		open override var intrinsicContentSize: CGSize {
+			var superSize = super.intrinsicContentSize
+			superSize.width += leftInset + rightInset
+			superSize.height += topInset + bottomInset
+			return superSize
+		}
     }
     /**
      A designable subclass of UITextField that allows customisation of border color and width, as well as other properties
      */
     @IBDesignable public class TSCTextField: UITextField {
-        /**
-         The edge insets of the text field
-         */
-        @IBInspectable public var textInsets: CGSize = CGSize.zero
+		
+		/**
+		The left edge insets of the label
+		*/
+		@IBInspectable open var leftInset: CGFloat = 0
+		
+		/**
+		The right edge insets of the label
+		*/
+		@IBInspectable open var rightInset: CGFloat = 0
+		
+		/**
+		The top edge insets of the label
+		*/
+		@IBInspectable open var topInset: CGFloat = 0
+		
+		/**
+		The bottom edge insets of the label
+		*/
+		@IBInspectable open var bottomInset: CGFloat = 0
+		
+		private var edgeInsets: UIEdgeInsets {
+			get {
+				return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+			}
+		}
+
         
         public override func prepareForInterfaceBuilder() {
             
@@ -108,33 +145,49 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        public convenience init(insets: CGSize) {
-            self.init(frame: CGRectZero)
-            self.textInsets = insets
-            super.init(frame: CGRect.zero)
+		public convenience init(insets: UIEdgeInsets) {
+			self.init(frame: CGRect.zero)
+			leftInset = insets.left
+			rightInset = insets.right
+			topInset = insets.top
+			bottomInset = insets.bottom
         }
+		
+		// left view position
+		open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superLeftRect = super.leftViewRect(forBounds: bounds)
+			superLeftRect.origin.x = superLeftRect.origin.x - edgeInsets.right
+			return superLeftRect
+		}
+
         
         // placeholder position
         override public func textRect(forBounds bounds: CGRect) -> CGRect {
-            return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
+            return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
         
         // text position
-        override public func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(textInsets.height, textInsets.width, textInsets.height, textInsets.width)))
-        }
-            
+		override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+			return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
+		}
+		
+		// right view position
+		open override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superRightRect = super.rightViewRect(forBounds: bounds)
+			superRightRect.origin.x = superRightRect.origin.x - edgeInsets.right
+			return superRightRect
+		}
     }
     
     /**
      A designable subclass of UIButton that allows customisation of border color and width, as well as other properties
      */
-    @IBDesignable public class TSCButton: UIButton {
+    @IBDesignable open class TSCButton: UIButton {
         
         /**
          Whether the primary/secondary color should be overriden by borderColor property
          */
-        @IBInspectable public var useBorderColor: Bool = false {
+        @IBInspectable open var useBorderColor: Bool = false {
             didSet {
                 updateButtonColours()
             }
@@ -144,7 +197,7 @@
          The colour to highlight the text and border of the button with
          Uses the shared secondary color by default but may be overridden in it's IBDesignable property
          */
-        @IBInspectable public var primaryColor: UIColor {
+        @IBInspectable open var primaryColor: UIColor {
             didSet {
                 updateButtonColours()
             }
@@ -154,7 +207,7 @@
          The colour to highlight the text and border of the button with
          Uses blue color by default but may be overridden in it's IBDesignable property
          */
-        @IBInspectable public var secondaryColor: UIColor {
+        @IBInspectable open var secondaryColor: UIColor {
             didSet {
                 updateButtonColours()
             }
@@ -163,7 +216,7 @@
         /**
          Switches the button to be of solid fill with rounded edges
          */
-        @IBInspectable public var solidMode: Bool = false {
+        @IBInspectable open var solidMode: Bool = false {
             didSet {
                 updateButtonColours()
             }
@@ -176,14 +229,14 @@
             super.init(coder: aDecoder)
         }
         
-        override init(frame: CGRect) {
+        override public init(frame: CGRect) {
             
             primaryColor = UIColor.blue
             secondaryColor = UIColor.white
             super.init(frame: frame)
         }
         
-        override public func awakeFromNib() {
+		override open func awakeFromNib() {
             
             super.awakeFromNib()
             updateButtonColours()
@@ -203,20 +256,18 @@
             layer.borderColor = useBorderColor ? borderColor?.cgColor : primaryColor.cgColor
             
             if solidMode == true {
-                
-                setBackgroundImage(image(color: primaryColor), for: [])
-                setBackgroundImage(image(color: secondaryColor), for: .highlighted)
+				
+				layer.backgroundColor = primaryColor.cgColor
                 setTitleColor(secondaryColor, for: [])
-                setTitleColor(primaryColor, for: .highlighted)
-                
+				
             } else {
                 
-                self.setTitleColor(primaryColor, for: [])
-                self.setBackgroundImage(image(color: secondaryColor), for: [])
+				layer.backgroundColor = UIColor.clear.cgColor
+				setTitleColor(secondaryColor, for: [])
             }
         }
         
-        public override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.shadowRadius = shadowRadius
@@ -225,35 +276,14 @@
             layer.shadowOpacity = shadowOpacity
             updateButtonColours()
         }
-        
-        /**
-         Generates a 1px by 1px image of a given colour. Useful as UIButton only let's you set a background image for different states
-         */
-        func image(color: UIColor) -> UIImage? {
-            
-            if let ctx = UIGraphicsGetCurrentContext() {
-                
-                
-                UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-                ctx.setFillColor(color.cgColor)
-                ctx.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-                let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                
-                return colorImage
-            }
-            
-            return nil
-        }
-            
     }
     
     /**
      A designable subclass of UIImageView that allows customisation of border color and width, as well as other properties
      */
-    @IBDesignable public class TSCImageView: UIImageView {
+    @IBDesignable open class TSCImageView: UIImageView {
         
-        public override func prepareForInterfaceBuilder() {
+        open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -269,9 +299,9 @@
     /**
      A designable subclass of UITextView that allows customisation of border color and width, as well as other properties
      */
-    @IBDesignable public class TSCTextView: UITextView {
+    @IBDesignable open class TSCTextView: UITextView {
         
-        public override func prepareForInterfaceBuilder() {
+        open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
