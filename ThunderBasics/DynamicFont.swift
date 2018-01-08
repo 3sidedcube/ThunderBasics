@@ -89,10 +89,12 @@ public extension UIFont {
 		
 		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
 		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
-			traits[UIFontDescriptor.TraitKey.weight] = weight ?? existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
 			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
 			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
 		}
+		
+		traits[UIFontDescriptor.TraitKey.weight] = weight
 		
 		var attributes = fontDescriptor.fontAttributes
 		// Have to remove text style otherwise can't change weight
