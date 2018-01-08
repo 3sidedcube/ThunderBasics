@@ -50,9 +50,14 @@ public extension UIFont {
 	///   - face: The font face to convert this font to
 	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
-		let traits: [UIFontDescriptor.TraitKey : Any] = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits)
-		as? [UIFontDescriptor.TraitKey : Any] ?? [:]
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
 		
 		var attributes = fontDescriptor.fontAttributes
 		// Have to remove text style otherwise can't change weight
@@ -77,8 +82,14 @@ public extension UIFont {
 	///   - weight: The font weight to convert this font to
 	public func withWeight(_ weight: UIFont.Weight) -> UIFont {
 		
-		var traits: [UIFontDescriptor.TraitKey : Any] = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits)
-			as? [UIFontDescriptor.TraitKey : Any] ?? [:]
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
+		
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
 		
 		// Set the weight
 		traits[UIFontDescriptor.TraitKey.weight] = weight
