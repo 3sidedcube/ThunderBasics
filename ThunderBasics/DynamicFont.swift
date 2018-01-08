@@ -83,7 +83,7 @@ public extension UIFont {
 	///   - family: The font family to convert this font to
 	///   - weight: The font weight to convert this font to
 	///
-	public func withFontFamily(_ family: String, weight: UIFont.Weight? = nil) -> UIFont {
+	public func withFontFamily(_ family: String, weight: UIFont.Weight) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
