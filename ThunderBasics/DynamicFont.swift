@@ -74,6 +74,36 @@ public extension UIFont {
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
 	
+	/// Adapts the font with the font family and weight provided
+	///
+	/// This is useful if you're using dynamic font sizing with a custom font, and should be used in place of
+	/// calling `withFontFamily:face` and then `withWeight` because that combination of calls breaks your font
+	///
+	/// - Parameters:
+	///   - family: The font family to convert this font to
+	///   - weight: The font weight to convert this font to
+	///
+	public func withFontFamily(_ family: String, weight: UIFont.Weight? = nil) -> UIFont {
+		
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
+		
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = weight ?? existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
+		
+		var attributes = fontDescriptor.fontAttributes
+		// Have to remove text style otherwise can't change weight
+		attributes[UIFontDescriptor.AttributeName.textStyle] = nil
+		// Create a new font traits dictionary
+		attributes[UIFontDescriptor.AttributeName.traits] = traits
+		
+		let descriptor = UIFontDescriptor(name: fontName, size: pointSize).withFamily(family).addingAttributes(attributes)
+		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
+	}
+	
 	/// Adapts the font with the font weight provided
 	///
 	/// This is useful if you're using dynamic font sizing with a custom weight
@@ -100,8 +130,8 @@ public extension UIFont {
 		// Create a new font traits dictionary
 		attributes[UIFontDescriptor.AttributeName.traits] = traits
 		
-		var descriptor = UIFontDescriptor(name: fontName, size: pointSize)
-		descriptor = fontDescriptor.addingAttributes(attributes)
+		var descriptor = fontDescriptor
+		descriptor = descriptor.addingAttributes(attributes)
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
 }
