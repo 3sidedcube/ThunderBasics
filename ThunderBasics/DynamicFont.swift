@@ -50,15 +50,20 @@ public extension UIFont {
 	///   - face: The font face to convert this font to
 	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
-		let weight: UIFont.Weight = (fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits)
-			as? [UIFontDescriptor.TraitKey : Any])?[UIFontDescriptor.TraitKey.weight] as? UIFont.Weight ?? .regular
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
+		
+		var attributes = fontDescriptor.fontAttributes
+		// Have to remove text style otherwise can't change weight
+		attributes[UIFontDescriptor.AttributeName.textStyle] = nil
 		// Create a new font traits dictionary
-		let attributes: [UIFontDescriptor.AttributeName: Any] = [
-			.traits: [
-				UIFontDescriptor.TraitKey.weight: weight
-			]
-		]
+		attributes[UIFontDescriptor.AttributeName.traits] = traits
 		
 		var descriptor = UIFontDescriptor(name: fontName, size: pointSize).withFamily(family).addingAttributes(attributes)
 		
@@ -66,6 +71,38 @@ public extension UIFont {
 			descriptor = descriptor.withFace(face)
 		}
 		
+		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
+	}
+	
+	/// Adapts the font with the font family and weight provided
+	///
+	/// This is useful if you're using dynamic font sizing with a custom font, and should be used in place of
+	/// calling `withFontFamily:face` and then `withWeight` because that combination of calls breaks your font
+	///
+	/// - Parameters:
+	///   - family: The font family to convert this font to
+	///   - weight: The font weight to convert this font to
+	///
+	public func withFontFamily(_ family: String, weight: UIFont.Weight) -> UIFont {
+		
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
+		
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
+		
+		traits[UIFontDescriptor.TraitKey.weight] = weight
+		
+		var attributes = fontDescriptor.fontAttributes
+		// Have to remove text style otherwise can't change weight
+		attributes[UIFontDescriptor.AttributeName.textStyle] = nil
+		// Create a new font traits dictionary
+		attributes[UIFontDescriptor.AttributeName.traits] = traits
+		
+		let descriptor = UIFontDescriptor(name: fontName, size: pointSize).withFamily(family).addingAttributes(attributes)
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
 	
@@ -77,13 +114,26 @@ public extension UIFont {
 	///   - weight: The font weight to convert this font to
 	public func withWeight(_ weight: UIFont.Weight) -> UIFont {
 		
-		let attributes: [UIFontDescriptor.AttributeName: Any] = [
-			.traits: [
-				UIFontDescriptor.TraitKey.weight: weight
-			]
-		]
+		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
-		let descriptor = fontDescriptor.addingAttributes(attributes)
+		// Make sure we only take known keys otherwise changes to family and face will be overwritten by preferredStyle
+		if let existingTraits = fontDescriptor.object(forKey: UIFontDescriptor.AttributeName.traits) as? [UIFontDescriptor.TraitKey : Any] {
+			traits[UIFontDescriptor.TraitKey.weight] = existingTraits[UIFontDescriptor.TraitKey.weight]
+			traits[UIFontDescriptor.TraitKey.slant] = existingTraits[UIFontDescriptor.TraitKey.slant]
+			traits[UIFontDescriptor.TraitKey.width] = existingTraits[UIFontDescriptor.TraitKey.width]
+		}
+		
+		// Set the weight
+		traits[UIFontDescriptor.TraitKey.weight] = weight
+
+		var attributes = fontDescriptor.fontAttributes
+		// Have to remove text style otherwise can't change weight
+		attributes[UIFontDescriptor.AttributeName.textStyle] = nil
+		// Create a new font traits dictionary
+		attributes[UIFontDescriptor.AttributeName.traits] = traits
+		
+		var descriptor = fontDescriptor
+		descriptor = descriptor.addingAttributes(attributes)
 		return UIFont(descriptor: descriptor, size: descriptor.pointSize)
 	}
 }
