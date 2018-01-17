@@ -7,9 +7,17 @@
 //
 
 #import "TSCObject.h"
+@import os.log;
 #import <objc/runtime.h>
 
+static os_log_t ui_log;
+
 @implementation TSCObject
+
+// Set up the logging component before it's used.
++ (void)initialize {
+    ui_log = os_log_create("com.threesidedcube.ThunderCloud", "TSCObject");
+}
 
 - (instancetype)init
 {
@@ -142,7 +150,7 @@
         [super removeObserver:observer forKeyPath:keyPath context:context];
     }
     @catch (NSException *exception) {
-        NSLog(@"Failed to remove observer with exception : %@",exception);
+        os_log_debug(ui_log, "Failed to remove observer with exception : %@",exception);
     }
 }
 
@@ -152,7 +160,8 @@
         [super removeObserver:observer forKeyPath:keyPath];
     }
     @catch (NSException *exception) {
-        NSLog(@"Failed to remove observer with exception : %@",exception);
+        os_log_debug(ui_log,
+                     "Failed to remove observer with exception : %@",exception);
     }
 }
 

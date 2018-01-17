@@ -11,9 +11,19 @@
 #import <float.h>
 #import <Accelerate/Accelerate.h>
 
+@import os.log;
+
 #import "UIImage+ImageEffects.h"
 
+static os_log_t ui_log;
+
 @implementation UIImage (ImageEffects)
+
+
+// Set up the logging component before it's used.
++ (void)initialize {
+    ui_log = os_log_create("com.threesidedcube.ThunderCloud", "UIImage+ImageEffects");
+}
 
 - (UIImage *)applyLightEffect
 {
@@ -72,15 +82,15 @@
 {
     // check pre-conditions
     if (self.size.width < 1 || self.size.height < 1) {
-        NSLog (@"*** error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
+        os_log_error(ui_log, "*** error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
         return nil;
     }
     if (!self.CGImage) {
-        NSLog (@"*** error: image must be backed by a CGImage: %@", self);
+        os_log_error(ui_log, "*** error: image must be backed by a CGImage: %@", self);
         return nil;
     }
     if (maskImage && !maskImage.CGImage) {
-        NSLog (@"*** error: maskImage must be backed by a CGImage: %@", maskImage);
+        os_log_error(ui_log, "*** error: maskImage must be backed by a CGImage: %@", maskImage);
         return nil;
     }
     

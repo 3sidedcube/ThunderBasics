@@ -7,6 +7,9 @@
 //
 
 #import "TSCiCloudController.h"
+@import os.log;
+
+static os_log_t ui_log;
 
 @interface TSCiCloudController ()
 
@@ -18,9 +21,15 @@
 
 static TSCiCloudController *sharedController = nil;
 
+// Set up the logging component before it's used.
++ (void)initialize {
+    ui_log = os_log_create("com.threesidedcube.ThunderCloud", "TSCiCloudController");
+}
+
+
 + (BOOL)iCloudEnabled
 {
-    NSLog(@"ICLOUD TOKEN : %@",[[NSFileManager defaultManager] ubiquityIdentityToken]);
+    os_log_debug(ui_log, "ICLOUD TOKEN : %@",[[NSFileManager defaultManager] ubiquityIdentityToken]);
     return [[NSFileManager defaultManager] ubiquityIdentityToken] != nil;
 }
 
@@ -53,7 +62,7 @@ static TSCiCloudController *sharedController = nil;
 
 - (void)storeDidChange:(NSNotification *)notification
 {
-    NSLog(@"Detected change in iCloud");
+    os_log_debug(ui_log, "Detected change in iCloud");
     
     // Get the list of keys that changed.
     NSDictionary *userInfo = [notification userInfo];
