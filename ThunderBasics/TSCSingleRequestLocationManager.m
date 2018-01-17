@@ -65,9 +65,16 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     
     //Copy completion block for firing later
     self.PCSingleRequestLocationCompletion = completion;
-    
-    // Start location manager
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
+	
+	// If we've already asked for location permissions and user has denied then immediately return an error
+	if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
+		
+		NSError *error = [NSError errorWithDomain:@"org.threesidedcube.requestmanager" code:1001 userInfo:@{NSLocalizedDescriptionKey: @"_LOCATIONREQUEST_ALERT_LOCATIONDISABLED_MESSAGE"}];
+		self.PCSingleRequestLocationCompletion(nil, error);
+		[self cleanUp];
+		
+		// Start location manager
+	} else if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if(authorization == TSCAuthorizationTypeAlways) {
             
@@ -180,7 +187,7 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         NSLog(@"PCWebServiceLocationManager: Did fail with error: %@", error);
     }
     
-    if(error.code != kCLErrorDenied){
+    if (error.code != kCLErrorDenied){
         self.PCSingleRequestLocationCompletion(nil, error);
     }
     
