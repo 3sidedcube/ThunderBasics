@@ -222,6 +222,13 @@
             }
         }
         
+        /// Whether the buttons corners should be rounded by default
+        @IBInspectable open var roundCorners: Bool = true {
+            didSet {
+                updateButtonColours()
+            }
+        }
+        
         required public init?(coder aDecoder: NSCoder) {
             
             primaryColor = UIColor.blue
@@ -248,7 +255,7 @@
         private func updateButtonColours() {
             
             layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
-            layer.cornerRadius = cornerRadius != 0 ? cornerRadius : 5.0
+            layer.cornerRadius = roundCorners ? (cornerRadius != 0 ? cornerRadius : 5.0) : 0
             layer.masksToBounds = false
             clipsToBounds = true
             
