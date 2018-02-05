@@ -103,7 +103,7 @@
     /**
      A designable subclass of UITextField that allows customisation of border color and width, as well as other properties
      */
-    @IBDesignable public class TSCTextField: UITextField {
+    @IBDesignable open class TSCTextField: UITextField {
 		
 		/**
 		The left edge insets of the label
@@ -132,7 +132,7 @@
 		}
 
         
-        public override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             
@@ -154,7 +154,7 @@
         }
 		
 		// left view position
-		open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+		override open func leftViewRect(forBounds bounds: CGRect) -> CGRect {
 			var superLeftRect = super.leftViewRect(forBounds: bounds)
 			superLeftRect.origin.x = superLeftRect.origin.x - edgeInsets.right
 			return superLeftRect
@@ -162,7 +162,7 @@
 
         
         // placeholder position
-        override public func textRect(forBounds bounds: CGRect) -> CGRect {
+		override open func textRect(forBounds bounds: CGRect) -> CGRect {
             return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
         
