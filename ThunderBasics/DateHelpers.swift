@@ -10,6 +10,27 @@ import Foundation
 
 public struct DateRange {
 	
+	/// Options available when calculating a date range
+	public struct Options: OptionSet {
+		
+		public let rawValue: Int
+		
+		public init(rawValue: Int) {
+			self.rawValue = rawValue
+		}
+		
+		/// Include the beginning day in the date calculation
+		public static let includeOriginalDay = Options(rawValue: 1 << 1)
+		/// Include the beginning week in the date calculation
+		public static let includeOriginalWeek = Options(rawValue: 1 << 2)
+		/// Include the beginning month in the date calculation
+		public static let includeOriginalMonth = Options(rawValue: 1 << 3)
+		/// Unknown
+		public static let directionFuture = Options(rawValue: 1 << 6)
+		/// Specifies that the week starts on a Sunday, not a Monday
+		public static let weekStartsOnSunday = Options(rawValue: 1 << 7)
+	}
+	
 	public let start: Date
 	
 	public let end: Date
@@ -61,7 +82,7 @@ public extension Date {
 		return Calendar.current.compare(self, to: Date(), toGranularity: .year) == .orderedSame
 	}
 	
-	public func dateRange(for dateComponent: Calendar.Component, with options: NSDateRangeOptions = []) -> DateRange? {
+	public func dateRange(for dateComponent: Calendar.Component, with options: DateRange.Options = []) -> DateRange? {
 		
 		let calendar = Calendar.current
 		var dateComponents = calendar.dateComponents([.day, .weekday, .month, .weekOfYear, .year], from: self)
