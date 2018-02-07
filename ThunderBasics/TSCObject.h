@@ -15,7 +15,7 @@
  Serialises the object to an object which can be sent using a web request.
  @discussion As a base class `TSCObject` returns an `NSDictionary` containing all the properties on your subclass. Override this to implement custom serialisation.
  */
-- (id)serialisableRepresentation;
+- (NSDictionary *)serialisableRepresentation;
 
 /**
  Returns a pretty printed JSON representation of the `TSCObject`.

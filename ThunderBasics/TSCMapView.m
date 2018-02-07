@@ -22,7 +22,6 @@
 {
     if (self = [super init]) {
         
-        self.allAnnotationMapView = [MKMapView new];
         self.groupedAnnotations = [NSMutableArray new];
     }
     
@@ -44,11 +43,37 @@
 
 - (void)fitMapToPolygons:(NSArray *)polygons animated:(BOOL)animated
 {
-    if (polygons.count > 0) {
+    [self fitMapToPolygons:polygons andAnnotations:nil animated:animated];
+}
+
+- (void)fitMapToPolygons:(NSArray *)polygons
+{
+    [self fitMapToPolygons:polygons animated:false];
+}
+
+- (void)fitMapToPolygons:(NSArray<MKPolygon *> *)polygons andAnnotations:(NSArray<id<MKAnnotation>> *)annotations animated:(BOOL)animated
+{
+    __block MKMapRect regionRect = MKMapRectNull;
+    
+    if (annotations && annotations.count > 0) {
         
-        MKMapRect regionRect = [(MKPolygon *)polygons[0] boundingMapRect];
+        regionRect = MKMapRectNull;
         
-        double maxX = 0.0, maxY = 0.0;
+        [annotations enumerateObjectsUsingBlock:^(id<MKAnnotation>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           
+            MKMapPoint annotationPoint = MKMapPointForCoordinate([obj coordinate]);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+            regionRect = MKMapRectUnion(regionRect, pointRect);
+        }];
+    }
+    
+    if (polygons && polygons.count > 0) {
+        
+        if (MKMapRectIsNull(regionRect)) {
+            regionRect = [(MKPolygon *)polygons[0] boundingMapRect];
+        }
+        
+        double maxX = regionRect.origin.x + regionRect.size.width, maxY = regionRect.origin.y + regionRect.size.height;
         
         for (MKPolygon *polygon in polygons) {
             
@@ -70,17 +95,18 @@
         }
         
         regionRect = MKMapRectMake(regionRect.origin.x, regionRect.origin.y, maxX - regionRect.origin.x, maxY - regionRect.origin.y);
-        
-        MKCoordinateRegion region = MKCoordinateRegionForMapRect(regionRect);
-        region.span = MKCoordinateSpanMake(region.span.latitudeDelta * 1.1, region.span.longitudeDelta * 1.1);
-        
-        [self setRegion:region animated:animated];
     }
-}
-
-- (void)fitMapToPolygons:(NSArray *)polygons
-{
-    [self fitMapToPolygons:polygons animated:false];
+    
+    if (!MKMapRectIsNull(regionRect)) {
+		
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+		UIEdgeInsets pinEdgeInsets = UIEdgeInsetsMake(38, 10, 10, 10);
+		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+#else
+		NSEdgeInsets pinEdgeInsets = NSEdgeInsetsMake(10, 10, 10, 10);
+		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+#endif
+    }
 }
 
 - (NSArray *)allAnnotations
@@ -106,11 +132,19 @@
     [self willChangeValueForKey:@"shouldGroupAnnotations"];
     _shouldGroupAnnotations = shouldGroupAnnotations;
     
+    if (shouldGroupAnnotations && !self.allAnnotationMapView) {
+        self.allAnnotationMapView = [MKMapView new];
+    }
+    
     if (shouldGroupAnnotations) {
         [self addAnnotations:self.annotations];
     } else {
         [self removeAnnotations:self.annotations];
         [super addAnnotations:self.allAnnotationMapView.annotations];
+    }
+    
+    if (!shouldGroupAnnotations && self.allAnnotationMapView) {
+        self.allAnnotationMapView = nil;
     }
     
     [self didChangeValueForKey:@"shouldGroupAnnotations"];
@@ -170,9 +204,9 @@
             // Remove annotations that now have a parent
             for (id <TSCAnnotation> annotation in allAnnotationsInBucket) {
                 
-                if ([annotation respondsToSelector:@selector(setParentAnnotation:)] && [annotation respondsToSelector:@selector(setChildAnnotations:)]) {
+                if ([annotation respondsToSelector:@selector(setSuperAnnotation:)] && [annotation respondsToSelector:@selector(setChildAnnotations:)]) {
                     
-                    [annotation setParentAnnotation:annotationForGrid];
+                    [annotation setSuperAnnotation:annotationForGrid];
                     [annotation setChildAnnotations:nil];
                     
                     if ([visibleAnnotationsInBucket containsObject:annotation]) {
@@ -181,12 +215,21 @@
                         
                         if (!self.supressAnimations) {
                             
+                            #if TARGET_OS_MAC
+                            
+                            // Do nothing!
+                            
+                            #elif TARGET_OS_IPHONE
+                            
                             [UIView animateWithDuration:0.3 animations:^{
-                                [annotation setCoordinate:[[annotation parentAnnotation] coordinate]];
+                                [annotation setCoordinate:[[annotation superAnnotation] coordinate]];
                             } completion:^(BOOL finished) {
                                 [annotation setCoordinate:actualCoordinate];
                                 [self removeAnnotation:annotation];
                             }];
+                            
+                            #endif
+
                         }
                     }
                 }
@@ -259,14 +302,14 @@
             
             id annotation = annotationView.annotation;
             
-            if (![annotation respondsToSelector:@selector(parentAnnotation)]) {
+            if (![annotation respondsToSelector:@selector(superAnnotation)]) {
                 break;
             }
             
             CLLocationCoordinate2D actualCoordinate = [annotation coordinate];
-            CLLocationCoordinate2D containerCoordinate = [[annotation parentAnnotation] coordinate];
+            CLLocationCoordinate2D containerCoordinate = [[annotation superAnnotation] coordinate];
             
-            [annotation setParentAnnotation:nil];
+            [annotation setSuperAnnotation:nil];
             [annotation setCoordinate:containerCoordinate];
             
             if (containerCoordinate.latitude == 0.0 && containerCoordinate.longitude == 0.0) { // this will only not work if we have a pin at (0,0) which is unlikely as it's in the middle of the ocean :) fix for groups off-screen being animated in as we pan.
@@ -275,9 +318,18 @@
             
             if (!self.supressAnimations) {
                 
+                #if TARGET_OS_MAC
+                
+                [annotation setCoordinate:actualCoordinate];
+                // Do nothing!
+                
+                #elif TARGET_OS_IPHONE
+                
                 [UIView animateWithDuration:0.3 animations:^{
                     [annotation setCoordinate:actualCoordinate];
                 } completion:nil];
+                
+                #endif
                 
             } else {
                 [annotation setCoordinate:actualCoordinate];

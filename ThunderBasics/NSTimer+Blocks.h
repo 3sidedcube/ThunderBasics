@@ -19,7 +19,7 @@
  @param inBlock The block to call once the timer has reached it's designated interval
  @param inRepeats Whether or not the timer should repeat once fired
  */
-+ (instancetype)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)())inBlock repeats:(BOOL)inRepeats;
++ (instancetype)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
 
 /**
  Creates a timer that fires a block when the timer reaches it's designated interval
@@ -27,6 +27,6 @@
  @param inBlock The block to call once the timer has reached it's designated interval
  @param inRepeats Whether or not the timer should repeat once fired
  */
-+ (instancetype)timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)())inBlock repeats:(BOOL)inRepeats;
++ (instancetype)timerWithTimeInterval:(NSTimeInterval)inTimeInterval block:(void (^)(void))inBlock repeats:(BOOL)inRepeats;
 
 @end

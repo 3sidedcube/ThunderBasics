@@ -128,13 +128,13 @@
     
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:containerView];
     
-    CGVector gravityDirection = {0.0, 1.4};
+    CGVector gravityDirection = {0.0, 1.0};
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[self]];
     self.gravity.gravityDirection = gravityDirection;
     [self.animator addBehavior:self.gravity];
     
     UIDynamicItemBehavior *behaviour = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
-    behaviour.elasticity = 0.5;
+    behaviour.elasticity = 0.3;
     [self.animator addBehavior:behaviour];
     
     UICollisionBehavior *collision = [[UICollisionBehavior alloc] initWithItems:@[self]];

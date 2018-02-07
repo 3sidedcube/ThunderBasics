@@ -78,12 +78,12 @@
 /**
  @abstract An array of `TSCGraphPoints` to be plotted - or which are currently plotted - on the `TSCLineGraphView`.
  */
-@property (nonatomic, strong) NSArray *points;
+@property (nonatomic, strong) NSArray <TSCGraphPoint *> *points;
 
 /**
  @abstract An array of `UILabel` objects which are displayed along the x axis of the graph.
  */
-@property (nonatomic, strong) NSArray *xLabels;
+@property (nonatomic, strong) NSArray <UILabel *> *xLabels;
 
 /**
  Reloads and redraws the `TSCLineGraphView`.
@@ -125,6 +125,6 @@
  Sets the colours of the gradient layer which represents the line graph's line.
  @param colors The colours to be used in the gradient.
  */
-- (void)setLineColors:(NSArray *)colors;
+- (void)setLineColors:(NSArray <UIColor *> *)colors;
 
 @end
