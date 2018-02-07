@@ -11,11 +11,10 @@
 
 @import os.log;
 
-#define kPCWebServiceLocationManagerDebug NO
 #define kPCWebServiceLocationManagerMaxWaitTime 14.0
 #define kPCWebServiceLocationManagerMinWaitTime 2.0
 
-static os_log_t ui_log;
+static os_log_t location_manager_log;
 
 @interface TSCSingleRequestLocationManager() <CLLocationManagerDelegate>
 {
@@ -35,7 +34,7 @@ static os_log_t ui_log;
 
 // Set up the logging component before it's used.
 + (void)initialize {
-    ui_log = os_log_create("com.threesidedcube.ThunderCloud", "TSCSingleRequestLocationManager");
+    location_manager_log = os_log_create("com.threesidedcube.ThunderCloud", "TSCSingleRequestLocationManager");
 }
 
 static TSCSingleRequestLocationManager *sharedLocationManager = nil;
@@ -155,36 +154,26 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         CLLocation *newLocation = locations[0];
         
         // Debug the reported location
-        if (kPCWebServiceLocationManagerDebug) {
-            os_log_debug(ui_log, "PCWebServiceLocationManager: New location: %@", newLocation);
-            
-            os_log_debug(ui_log, "PCWebServiceLocationManager: Horizontal accuracy: %f", newLocation.horizontalAccuracy);
-            
-            os_log_debug(ui_log, "PCWebServiceLocationManager: Vertical accuracy: %f", newLocation.verticalAccuracy);
-        }
-        
+		os_log_debug(location_manager_log, "New location: %@", newLocation);
+		os_log_debug(location_manager_log, "Horizontal accuracy: %f", newLocation.horizontalAccuracy);
+		os_log_debug(location_manager_log, "Vertical accuracy: %f", newLocation.verticalAccuracy);
+		
         // If accuracy greater than 100 meters, it's too inaccurate
         if(newLocation.horizontalAccuracy > 100 && newLocation.verticalAccuracy > 100){
-            if (kPCWebServiceLocationManagerDebug) {
-                os_log_debug(ui_log, "PCWebServiceLocationManager: Accuracy poor, aborting...");
-            }
+			os_log_debug(location_manager_log, "Accuracy poor, aborting...");
             return;
         }
         
         // If location is older than 10 seconds, it's probably an old location getting re-reported
         NSInteger locationTimeIntervalSinceNow = fabs([newLocation.timestamp timeIntervalSinceNow]);
         if (locationTimeIntervalSinceNow > 10) {
-            if (kPCWebServiceLocationManagerDebug) {
-                os_log_debug(ui_log, "PCWebServiceLocationManager: Location old, aborting...");
-            }
+			os_log_debug(location_manager_log, "Location old, aborting...");
             return;
         }
         
         // If we haven't exceeded our min wait time, it's probably still too inaccurate
         if (!_minWaitTimeReached) {
-            if (kPCWebServiceLocationManagerDebug) {
-                os_log_debug(ui_log, "PCWebServiceLocationManager: Min wait time not yet reached, aborting...");
-            }
+			os_log_debug(location_manager_log, "Min wait time not yet reached, aborting...");
             return;
         }
         
@@ -194,10 +183,8 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    if (kPCWebServiceLocationManagerDebug) {
-        os_log_debug(ui_log, "PCWebServiceLocationManager: Did fail with error: %@", error);
-    }
-    
+	os_log_error(location_manager_log, "Did fail with error: %@", error);
+	
     if (error.code != kCLErrorDenied){
         self.PCSingleRequestLocationCompletion(nil, error);
     }
@@ -230,10 +217,8 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         return;
     }
     
-    if (kPCWebServiceLocationManagerDebug) {
-        os_log_debug(ui_log, "PCWebServiceLocationManager: Settling on location: %@", self.locationManager.location);
-    }
-    
+	os_log_debug(location_manager_log, "Settling on location: %@", self.locationManager.location);
+	
     // Location settled upon!
     _locationSettledUpon = YES;
     
