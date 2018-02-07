@@ -190,7 +190,7 @@
     
     if ([[[request URL] scheme] isEqualToString:@"itms-apps"] || [[[request URL] scheme] isEqualToString:@"itms-appss"]) {
         [webView stopLoading];
-        [[UIApplication sharedApplication] openURL:[request URL]];
+        [[UIApplication sharedApplication] openURL:[request URL] options:[NSDictionary new] completionHandler:nil];
         [self.navigationController popViewControllerAnimated:YES];
         return NO;
     }
@@ -208,7 +208,7 @@
     [leavingAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [leavingAlert addAction:[UIAlertAction actionWithTitle:@"Open in Safari" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
-        [[UIApplication sharedApplication] openURL:self.pendingURL];
+        [[UIApplication sharedApplication] openURL:self.pendingURL options:[NSDictionary new] completionHandler:nil];
     }]];
     
     [self presentViewController:leavingAlert animated:true completion:nil];

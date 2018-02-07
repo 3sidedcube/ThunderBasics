@@ -98,9 +98,14 @@
     }
     
     if (!MKMapRectIsNull(regionRect)) {
-        
-        UIEdgeInsets pinEdgeInsets = UIEdgeInsetsMake(38, 10, 10, 10);
-        [self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+		
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
+		UIEdgeInsets pinEdgeInsets = UIEdgeInsetsMake(38, 10, 10, 10);
+		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+#else
+		NSEdgeInsets pinEdgeInsets = NSEdgeInsetsMake(10, 10, 10, 10);
+		[self setVisibleMapRect:regionRect edgePadding:pinEdgeInsets animated:animated];
+#endif
     }
 }
 
@@ -210,12 +215,21 @@
                         
                         if (!self.supressAnimations) {
                             
+                            #if TARGET_OS_MAC
+                            
+                            // Do nothing!
+                            
+                            #elif TARGET_OS_IPHONE
+                            
                             [UIView animateWithDuration:0.3 animations:^{
                                 [annotation setCoordinate:[[annotation superAnnotation] coordinate]];
                             } completion:^(BOOL finished) {
                                 [annotation setCoordinate:actualCoordinate];
                                 [self removeAnnotation:annotation];
                             }];
+                            
+                            #endif
+
                         }
                     }
                 }
@@ -304,9 +318,18 @@
             
             if (!self.supressAnimations) {
                 
+                #if TARGET_OS_MAC
+                
+                [annotation setCoordinate:actualCoordinate];
+                // Do nothing!
+                
+                #elif TARGET_OS_IPHONE
+                
                 [UIView animateWithDuration:0.3 animations:^{
                     [annotation setCoordinate:actualCoordinate];
                 } completion:nil];
+                
+                #endif
                 
             } else {
                 [annotation setCoordinate:actualCoordinate];

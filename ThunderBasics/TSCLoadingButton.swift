@@ -28,7 +28,7 @@ extension UIButton {
      - Parameters:
         - colour: The colour to tint the loading indicator
      */
-    public func startLoading(colour: UIColor?) {
+	public func startLoading(colour: UIColor?, style: UIActivityIndicatorViewStyle = UIActivityIndicatorViewStyle.white) {
         
         if let activityView = viewWithTag(456766999) as? UIActivityIndicatorView {
             
@@ -36,7 +36,7 @@ extension UIButton {
             return
         }
     
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: style)
         
         activityIndicator.tag = 456766999
         if let activityColour = colour {

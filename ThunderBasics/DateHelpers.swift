@@ -75,7 +75,7 @@ public extension Date {
 			return nil
 		}
 		
-		guard let _daysInWeek = daysInWeek, let _daysInMonth = daysInMonth, let _monthsInYear = monthsInYear else { return nil }
+		guard let daysInWeek = daysInWeek, let daysInMonth = daysInMonth, let monthsInYear = monthsInYear else { return nil }
 		
 		// If week day doesn't start on sunday, move all days back one
 		if let weekDay = dateComponents.weekday, !options.contains(.weekStartsOnSunday) {
@@ -108,7 +108,7 @@ public extension Date {
 				
 				// Calculate the difference in days between the current day and the end of the week
 				endDateComponentsToSubtract = DateComponents()
-				endDateComponentsToSubtract?.day = _daysInWeek - weekday
+				endDateComponentsToSubtract?.day = daysInWeek - weekday
 				
 			} else {
 				
@@ -123,7 +123,7 @@ public extension Date {
 				if options.contains(.directionFuture) {
 					
 					// As long as we're not already the last day in the week, then set start date to the day after self
-					if weekday != _daysInWeek {
+					if weekday != daysInWeek {
 						
 						startDateComponentsToSubtract = DateComponents()
 						startDateComponentsToSubtract?.day = 1
@@ -141,7 +141,8 @@ public extension Date {
 							startDateComponentsToSubtract = DateComponents()
 						}
 						
-						startDateComponentsToSubtract?.day = (startDateComponentsToSubtract?.day ?? 0) - _daysInWeek
+						let currentStartDateComponentsToSubtract = startDateComponentsToSubtract
+						startDateComponentsToSubtract?.day = (currentStartDateComponentsToSubtract?.day ?? 0) - daysInWeek
 					}
 				}
 			}
@@ -157,17 +158,17 @@ public extension Date {
 					
 				} else if options.contains(.includeOriginalWeek) {
 					
-					let daysFromNowUntilEndOfWeek = _daysInWeek - weekday
+					let daysFromNowUntilEndOfWeek = daysInWeek - weekday
 					// Make sure we don't go beyond the end of the month (This would result in a start date later than bein date)
-					if day + daysFromNowUntilEndOfWeek < _daysInMonth {
+					if day + daysFromNowUntilEndOfWeek < daysInMonth {
 						
 						endDateComponentsToSubtract = DateComponents()
-						endDateComponentsToSubtract?.day = _daysInWeek - weekday
+						endDateComponentsToSubtract?.day = daysInWeek - weekday
 					}
 				} else {
 					
 					// Make sure we don't go beyond the end of the month (This would result in a start date later than begin date.)
-					if day < _daysInMonth {
+					if day < daysInMonth {
 						
 						startDateComponentsToSubtract = DateComponents()
 						startDateComponentsToSubtract?.day = 1
@@ -208,7 +209,7 @@ public extension Date {
 					
 					if month == 1 {
 						startComponents.year = year - 1
-						endComponents.month = _monthsInYear
+						endComponents.month = monthsInYear
 						endComponents.year = year - 1
 					} else {
 						endComponents.month = month - 1

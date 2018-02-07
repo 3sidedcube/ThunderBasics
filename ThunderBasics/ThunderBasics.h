@@ -20,7 +20,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCObject.h>
 #import <ThunderBasics/TSCDatabase.h>
 #import <ThunderBasics/TSCLineGraphView.h>
-#import <ThunderBasics/TSCLanguageController.h>
 #import <ThunderBasics/TSCAppInfoController.h>
 #import <ThunderBasics/TSCSingleRequestLocationManager.h>
 #import <ThunderBasics/TSCUserDefaults.h>
@@ -66,9 +65,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCToastView.h>
 #import <ThunderBasics/TSCToastNotificationController.h>
 #import <ThunderBasics/TSCToastViewController.h>
-
-// Notifications
-#import <ThunderBasics/TSCNotificationHelper.h>
 
 //Controllers
 #import <ThunderBasics/TSCContactsController.h>
