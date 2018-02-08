@@ -11,9 +11,19 @@ import MapKit
 
 public extension MKMapView {
 	
+	/// Sets the visible region so the map displays the specified polygons and annotations
+	///
+	/// Calling this method updates the value in the region property and potentially other properties to reflect the new map region.
+	///
+	/// - Parameters:
+	///   - polygons: The polygons to show
+	///   - annotations: The annotations to show
+	///   - animated: Whether the region change should be animated or instantaneous
 	public func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
 		
 		var regionRect = MKMapRectNull
+		
+		showAnnotations(<#T##annotations: [MKAnnotation]##[MKAnnotation]#>, animated: <#T##Bool#>)
 		
 	#if os(iOS)
 		var insets: UIEdgeInsets = UIEdgeInsets()
