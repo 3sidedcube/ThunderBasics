@@ -9,7 +9,16 @@
 #import "NSArray+TSCArray.h"
 #import "TSCObject.h"
 
+@import os.log;
+
+static os_log_t ui_log;
+
 @implementation NSArray (TSCArray)
+
+// Set up the logging component before it's used.
++ (void)initialize {
+    ui_log = os_log_create("com.threesidedcube.ThunderCloud", "NSArray+TSCArray");
+}
 
 - (NSArray *)serialisableRepresentation
 {
@@ -27,7 +36,7 @@
             if (tscObject) {
                 [array addObject:tscObject];
             } else {
-                NSLog(@"failed to serialize object : %@. Some required data may not be being sent to the server.",object);
+                os_log_debug(ui_log, "failed to serialize object : %@. Some required data may not be being sent to the server.",object);
             }
         }
     }
