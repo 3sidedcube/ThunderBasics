@@ -22,9 +22,7 @@ public extension MKMapView {
 	public func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
 		
 		var regionRect = MKMapRectNull
-		
-		showAnnotations(<#T##annotations: [MKAnnotation]##[MKAnnotation]#>, animated: <#T##Bool#>)
-		
+				
 	#if os(iOS)
 		var insets: UIEdgeInsets = UIEdgeInsets()
 	#elseif os(OSX) || os(macOS)
