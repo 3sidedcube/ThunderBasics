@@ -7,15 +7,23 @@
 //
 
 #if os(iOS)
-    
-    import UIKit
-    
+	
+	import UIKit
+	
+	/// A constraint which can be used in place of NSLayoutConstraint and takes the devices scale into account with it's constant value. Dividing it by the screen scale in awakeFromNib
+	public class ScaleBasedConstraint: NSLayoutConstraint {
+		override public func awakeFromNib() {
+			super.awakeFromNib()
+			self.constant = self.constant / UIScreen.main.scale
+		}
+	}
+
     /**
      A designable subclass of UIView that allows customisation of border color and width, as well as other properties
      */
     @IBDesignable open class TSCView: UIView {
         
-        open override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -27,40 +35,41 @@
             layer.shadowOpacity = shadowOpacity
         }
     }
-    
+
     /**
      A designable subclass of UILabel that allows customisation of border color and width, as well as other properties
      */
     
     @IBDesignable open class TSCLabel: UILabel {
+		
+		/**
+		The left edge insets of the label
+		*/
+		@IBInspectable open var leftInset: CGFloat = 0
+		
+		/**
+		The right edge insets of the label
+		*/
+		@IBInspectable open var rightInset: CGFloat = 0
+		
+		/**
+		The top edge insets of the label
+		*/
+		@IBInspectable open var topInset: CGFloat = 0
+		
+		/**
+		The bottom edge insets of the label
+		*/
+		@IBInspectable open var bottomInset: CGFloat = 0
         
-        /**
-         The left edge insets of the label
-         */
-        @IBInspectable open var leftInset: CGFloat = 0
+		private var edgeInsets: UIEdgeInsets {
+			get {
+				return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+			}
+		}
+
         
-        /**
-         The right edge insets of the label
-         */
-        @IBInspectable open var rightInset: CGFloat = 0
-        
-        /**
-         The top edge insets of the label
-         */
-        @IBInspectable open var topInset: CGFloat = 0
-        
-        /**
-         The bottom edge insets of the label
-         */
-        @IBInspectable open var bottomInset: CGFloat = 0
-        
-        private var edgeInsets: UIEdgeInsets {
-            get {
-                return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-            }
-        }
-        
-        open override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.cornerRadius = cornerRadius
@@ -71,63 +80,59 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        open override func drawText(in rect: CGRect) {
-            super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
+		override open func drawText(in rect: CGRect) {
+			super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
         }
         
-        override open func sizeThatFits(_ size: CGSize) -> CGSize {
+		override open func sizeThatFits(_ size: CGSize) -> CGSize {
             
             var adjSize = super.sizeThatFits(size)
-            adjSize.width += rightInset + leftInset
-            adjSize.height += topInset + bottomInset
+			adjSize.width += leftInset + rightInset
+			adjSize.height += topInset + bottomInset
             
             return adjSize
         }
-        
-        open override var intrinsicContentSize: CGSize {
-            
-            var contentSize = super.intrinsicContentSize
-            contentSize.width += leftInset + rightInset
-            contentSize.height += topInset + bottomInset
-            
-            return contentSize
-        }
+		
+		open override var intrinsicContentSize: CGSize {
+			var superSize = super.intrinsicContentSize
+			superSize.width += leftInset + rightInset
+			superSize.height += topInset + bottomInset
+			return superSize
+		}
     }
     /**
      A designable subclass of UITextField that allows customisation of border color and width, as well as other properties
      */
     @IBDesignable open class TSCTextField: UITextField {
+		
+		/**
+		The left edge insets of the label
+		*/
+		@IBInspectable open var leftInset: CGFloat = 0
+		
+		/**
+		The right edge insets of the label
+		*/
+		@IBInspectable open var rightInset: CGFloat = 0
+		
+		/**
+		The top edge insets of the label
+		*/
+		@IBInspectable open var topInset: CGFloat = 0
+		
+		/**
+		The bottom edge insets of the label
+		*/
+		@IBInspectable open var bottomInset: CGFloat = 0
+		
+		private var edgeInsets: UIEdgeInsets {
+			get {
+				return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+			}
+		}
+
         
-        /**
-         The edge insets of the text field
-         */
-        /**
-         The left edge insets of the label
-         */
-        @IBInspectable open var leftInset: CGFloat = 0
-        
-        /**
-         The right edge insets of the label
-         */
-        @IBInspectable open var rightInset: CGFloat = 0
-        
-        /**
-         The top edge insets of the label
-         */
-        @IBInspectable open var topInset: CGFloat = 0
-        
-        /**
-         The bottom edge insets of the label
-         */
-        @IBInspectable open var bottomInset: CGFloat = 0
-        
-        private var edgeInsets: UIEdgeInsets {
-            get {
-                return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-            }
-        }
-        
-        open override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             
@@ -140,24 +145,38 @@
             layer.shadowOpacity = shadowOpacity
         }
         
-        public convenience init(insets: UIEdgeInsets) {
-            self.init(frame: CGRect.zero)
-            leftInset = insets.left
-            rightInset = insets.right
-            topInset = insets.top
-            bottomInset = insets.bottom
+		public convenience init(insets: UIEdgeInsets) {
+			self.init(frame: CGRect.zero)
+			leftInset = insets.left
+			rightInset = insets.right
+			topInset = insets.top
+			bottomInset = insets.bottom
         }
+		
+		// left view position
+		override open func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superLeftRect = super.leftViewRect(forBounds: bounds)
+			superLeftRect.origin.x = superLeftRect.origin.x - edgeInsets.right
+			return superLeftRect
+		}
+
         
         // placeholder position
-        override open func textRect(forBounds bounds: CGRect) -> CGRect {
+		override open func textRect(forBounds bounds: CGRect) -> CGRect {
             return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
         }
         
         // text position
-        override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
-        }
-        
+		override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+			return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
+		}
+		
+		// right view position
+		open override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+			var superRightRect = super.rightViewRect(forBounds: bounds)
+			superRightRect.origin.x = superRightRect.origin.x - edgeInsets.right
+			return superRightRect
+		}
     }
     
     /**
@@ -203,6 +222,13 @@
             }
         }
         
+        /// Whether the buttons corners should be rounded by default
+        @IBInspectable open var roundCorners: Bool = true {
+            didSet {
+                updateButtonColours()
+            }
+        }
+        
         required public init?(coder aDecoder: NSCoder) {
             
             primaryColor = UIColor.blue
@@ -217,7 +243,7 @@
             super.init(frame: frame)
         }
         
-        override open func awakeFromNib() {
+		override open func awakeFromNib() {
             
             super.awakeFromNib()
             updateButtonColours()
@@ -229,7 +255,7 @@
         private func updateButtonColours() {
             
             layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
-            layer.cornerRadius = cornerRadius != 0 ? cornerRadius : 5.0
+            layer.cornerRadius = roundCorners ? (cornerRadius != 0 ? cornerRadius : 5.0) : 0
             layer.masksToBounds = false
             clipsToBounds = true
             
@@ -237,18 +263,18 @@
             layer.borderColor = useBorderColor ? borderColor?.cgColor : primaryColor.cgColor
             
             if solidMode == true {
-                
-                layer.backgroundColor = primaryColor.cgColor
+				
+				layer.backgroundColor = primaryColor.cgColor
                 setTitleColor(secondaryColor, for: [])
-                
+				
             } else {
                 
-                layer.backgroundColor = UIColor.clear.cgColor
-                setTitleColor(secondaryColor, for: [])
+				layer.backgroundColor = UIColor.clear.cgColor
+				setTitleColor(secondaryColor, for: [])
             }
         }
         
-        open override func prepareForInterfaceBuilder() {
+		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             layer.shadowRadius = shadowRadius
@@ -294,7 +320,7 @@
             layer.shadowOpacity = shadowOpacity
         }
     }
-    
+        
     /**
      An inspectable extension of UIView that allows customisation of border color and width, as well as other properties
      */
@@ -387,26 +413,26 @@
             }
         }
     }
-    
+
 #elseif os(OSX) || os(macOS)
     import AppKit
-    
+
     @IBDesignable public class TSCTextField: NSTextField {
         /**
          The edge insets of the text field
          */
         @IBInspectable public var textInsets: CGSize = CGSize.zero
     }
-    
+        
     public extension TSCTextField {
         
-        public override func awakeFromNib() {
+        override public func awakeFromNib() {
             
             super.awakeFromNib()
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
+            if let borderColor = borderColor {
+                layer?.borderColor = borderColor.cgColor
             }
             layer?.borderWidth = borderWidth
         }
@@ -427,14 +453,6 @@
     /**
      An inspectable extension of NSView that allows customisation of border color and width, as well as other properties
      */
-    
-    import ObjectiveC
-    
-    private var backgroundColorKey: UInt8 = 0
-    private var borderColorKey: UInt8 = 1
-    private var borderWidthKey: UInt8 = 2
-    private var cornerRadiusKey: UInt8 = 3
-    
     public extension NSView {
         
         /**
@@ -442,17 +460,13 @@
          */
         @IBInspectable public var backgroundColor: NSColor? {
             get {
-                guard let _layer = layer, let color = _layer.backgroundColor else {
-                    return objc_getAssociatedObject(self, &backgroundColorKey) as? NSColor
-                }
+                guard let _layer = layer, let color = _layer.backgroundColor else { return nil }
                 return NSColor(cgColor: color)
             }
             set {
                 wantsLayer = true
-                objc_setAssociatedObject(self, &backgroundColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let _newValue = newValue {
-                    layer?.backgroundColor = _newValue.cgColor
-                }
+                guard let _layer = layer, let _newValue = newValue else { return }
+                _layer.backgroundColor = _newValue.cgColor
             }
         }
         
@@ -461,14 +475,13 @@
          */
         @IBInspectable public var borderColor: NSColor? {
             get {
-                return objc_getAssociatedObject(self, &borderColorKey) as? NSColor
+                guard let _layer = layer, let color = _layer.borderColor else { return nil }
+                return NSColor(cgColor: color)
             }
             set {
                 wantsLayer = true
-                objc_setAssociatedObject(self, &borderColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let _newValue = newValue {
-                    layer?.borderColor = _newValue.cgColor
-                }
+                guard let _layer = layer, let _newValue = newValue else { return }
+                _layer.borderColor = _newValue.cgColor
             }
         }
         
@@ -477,12 +490,11 @@
          */
         @IBInspectable public var borderWidth: CGFloat {
             get {
-                guard let width = (objc_getAssociatedObject(self, &borderWidthKey) as? NSNumber)?.floatValue else { return 0.0 }
-                return CGFloat(width)
+                guard let _layer = layer else { return 0.0 }
+                return _layer.borderWidth
             }
             set {
                 wantsLayer = true
-                objc_setAssociatedObject(self, &borderWidthKey, NSNumber(value: Float(newValue)), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 layer?.borderWidth = newValue
             }
         }
@@ -492,18 +504,17 @@
          */
         @IBInspectable public var cornerRadius: CGFloat {
             get {
-                guard let width = (objc_getAssociatedObject(self, &cornerRadiusKey) as? NSNumber)?.floatValue else { return 0.0 }
-                return CGFloat(width)
+                guard let _layer = layer else { return 0.0 }
+                return _layer.cornerRadius
             }
             set {
                 wantsLayer = true
-                objc_setAssociatedObject(self, &cornerRadiusKey, NSNumber(value: Float(newValue)), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 layer?.cornerRadius = newValue
                 layer?.masksToBounds = newValue > 0
             }
         }
     }
-    
+
     public class TSCButtonCell: NSButtonCell {
         
         /**
@@ -518,7 +529,7 @@
             return super.drawingRect(forBounds: newRect)
         }
     }
-    
+        
     /**
      A designable subclass of NSButton that allows customisation of border color and width, as well as other properties
      */
@@ -563,12 +574,12 @@
         
         private func updateTitle(_ newTitle: String) {
             
-            let paragraphStyle = NSParagraphStyle.default().mutableCopy() as! NSMutableParagraphStyle
+            let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
             paragraphStyle.alignment = alignment
+
+            let _font = font != nil ? font! : NSFont.systemFont(ofSize: NSFont.systemFontSize)
             
-            let _font = font != nil ? font! : NSFont.systemFont(ofSize: NSFont.systemFontSize())
-            
-            let attributes = [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: _font, NSParagraphStyleAttributeName: paragraphStyle]
+            let attributes = [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor, NSAttributedStringKey.font: _font, NSAttributedStringKey.paragraphStyle: paragraphStyle]
             attributedTitle = NSAttributedString(string: newTitle, attributes: attributes)
         }
         
@@ -596,9 +607,13 @@
          The border width of the button
          */
         @IBInspectable override open var borderWidth: CGFloat {
-            didSet {
+            get {
+                guard let _layer = layer else { return 0.0 }
+                return _layer.borderWidth
+            }
+            set {
                 wantsLayer = true
-                layer?.borderWidth = borderWidth
+                layer?.borderWidth = newValue
             }
         }
         
@@ -606,10 +621,14 @@
          The corner radius of the button
          */
         @IBInspectable override open var cornerRadius: CGFloat {
-            didSet {
+            get {
+                guard let _layer = layer else { return 0.0 }
+                return _layer.cornerRadius
+            }
+            set {
                 wantsLayer = true
-                layer?.cornerRadius = cornerRadius
-                layer?.masksToBounds = cornerRadius > 0
+                layer?.cornerRadius = newValue
+                layer?.masksToBounds = newValue > 0
             }
         }
         
@@ -654,7 +673,7 @@
                 layer?.backgroundColor = secondaryColor.cgColor
             }
             
-            attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+            attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor])
         }
         
         public override func prepareForInterfaceBuilder() {
@@ -680,7 +699,7 @@
             }
         }
     }
-    
+        
     public class TSCPopUpButtonCell: NSPopUpButtonCell {
         
         /**
@@ -707,7 +726,7 @@
             return super.imageRect(forBounds: newRect)
         }
     }
-    
+        
     /**
      A designable subclass of NSPopUpButton that allows customisation of border color and width, as well as other properties
      */
@@ -730,7 +749,7 @@
         override public var title: String {
             set {
                 super.title = newValue
-                let attributedString =  NSAttributedString(string: newValue, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor, NSFontAttributeName: NSFont.systemFont(ofSize: 12)])
+                let attributedString =  NSAttributedString(string: newValue, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 12)])
                 attributedTitle = attributedString
             }
             get {
@@ -762,9 +781,13 @@
          The border width of the button
          */
         @IBInspectable override public var borderWidth: CGFloat {
-            didSet {
+            get {
+                guard let _layer = layer else { return 0.0 }
+                return _layer.borderWidth
+            }
+            set {
                 wantsLayer = true
-                layer?.borderWidth = borderWidth
+                layer?.borderWidth = newValue
             }
         }
         
@@ -772,11 +795,15 @@
          The corner radius of the button
          */
         @IBInspectable override public var cornerRadius: CGFloat {
-            didSet {
-                wantsLayer = true
-                layer?.cornerRadius = cornerRadius
-                layer?.masksToBounds = cornerRadius > 0
+            get {
+                guard let _layer = layer else { return 0.0 }
+                return _layer.cornerRadius
             }
+            set {
+                wantsLayer = true
+                layer?.cornerRadius = newValue
+                layer?.masksToBounds = newValue > 0
+            }            
         }
         
         /**
@@ -795,11 +822,6 @@
             
             super.awakeFromNib()
             updateButtonColours()
-            wantsLayer = true
-            layer?.cornerRadius = cornerRadius
-            if let _borderColor = borderColor {
-                layer?.borderColor = _borderColor.cgColor
-            }
         }
         
         /**
@@ -823,7 +845,7 @@
                 layer?.backgroundColor = secondaryColor.cgColor
             }
             
-            attributedTitle = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: solidMode ? secondaryColor : primaryColor])
+            attributedTitle = NSAttributedString(string: title, attributes: [NSAttributedStringKey.foregroundColor: solidMode ? secondaryColor : primaryColor])
         }
         
         public override func prepareForInterfaceBuilder() {
@@ -848,7 +870,7 @@
             }
         }
     }
-    
+
     /**
      A designable subclass of NSView that allows customisation of border color and width, as well as other properties
      */
@@ -859,21 +881,9 @@
             wantsLayer = true
         }
         
-        public override func awakeFromNib() {
-            
-            super.awakeFromNib()
-            wantsLayer = true
-            setupView()
-        }
-        
         public override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
-            setupView()
-        }
-        
-        private func setupView() {
-            
             wantsLayer = true
             layer?.cornerRadius = cornerRadius
             if let _borderColor = borderColor {

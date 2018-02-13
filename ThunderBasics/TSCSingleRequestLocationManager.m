@@ -9,9 +9,12 @@
 #import "TSCSingleRequestLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
 
-#define kPCWebServiceLocationManagerDebug NO
+@import os.log;
+
 #define kPCWebServiceLocationManagerMaxWaitTime 14.0
 #define kPCWebServiceLocationManagerMinWaitTime 2.0
+
+static os_log_t location_manager_log;
 
 @interface TSCSingleRequestLocationManager() <CLLocationManagerDelegate>
 {
@@ -28,6 +31,11 @@
 @end;
 
 @implementation TSCSingleRequestLocationManager
+
+// Set up the logging component before it's used.
++ (void)initialize {
+    location_manager_log = os_log_create("com.threesidedcube.ThunderCloud", "TSCSingleRequestLocationManager");
+}
 
 static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 
@@ -65,9 +73,16 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
     
     //Copy completion block for firing later
     self.PCSingleRequestLocationCompletion = completion;
-    
-    // Start location manager
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
+	
+	// If we've already asked for location permissions and user has denied then immediately return an error
+	if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted) {
+		
+		NSError *error = [NSError errorWithDomain:@"org.threesidedcube.requestmanager" code:1001 userInfo:@{NSLocalizedDescriptionKey: @"_LOCATIONREQUEST_ALERT_LOCATIONDISABLED_MESSAGE"}];
+		self.PCSingleRequestLocationCompletion(nil, error);
+		[self cleanUp];
+		
+		// Start location manager
+	} else if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
         
         if(authorization == TSCAuthorizationTypeAlways) {
             
@@ -139,34 +154,26 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         CLLocation *newLocation = locations[0];
         
         // Debug the reported location
-        if (kPCWebServiceLocationManagerDebug) {
-            NSLog(@"PCWebServiceLocationManager: New location: %@", newLocation);
-            NSLog(@"PCWebServiceLocationManager: Horizontal accuracy: %f", newLocation.horizontalAccuracy);
-            NSLog(@"PCWebServiceLocationManager: Vertical accuracy: %f", newLocation.verticalAccuracy);
-        }
-        
+		os_log_debug(location_manager_log, "New location: %@", newLocation);
+		os_log_debug(location_manager_log, "Horizontal accuracy: %f", newLocation.horizontalAccuracy);
+		os_log_debug(location_manager_log, "Vertical accuracy: %f", newLocation.verticalAccuracy);
+		
         // If accuracy greater than 100 meters, it's too inaccurate
         if(newLocation.horizontalAccuracy > 100 && newLocation.verticalAccuracy > 100){
-            if (kPCWebServiceLocationManagerDebug) {
-                NSLog(@"PCWebServiceLocationManager: Accuracy poor, aborting...");
-            }
+			os_log_debug(location_manager_log, "Accuracy poor, aborting...");
             return;
         }
         
         // If location is older than 10 seconds, it's probably an old location getting re-reported
         NSInteger locationTimeIntervalSinceNow = fabs([newLocation.timestamp timeIntervalSinceNow]);
         if (locationTimeIntervalSinceNow > 10) {
-            if (kPCWebServiceLocationManagerDebug) {
-                NSLog(@"PCWebServiceLocationManager: Location old, aborting...");
-            }
+			os_log_debug(location_manager_log, "Location old, aborting...");
             return;
         }
         
         // If we haven't exceeded our min wait time, it's probably still too inaccurate
         if (!_minWaitTimeReached) {
-            if (kPCWebServiceLocationManagerDebug) {
-                NSLog(@"PCWebServiceLocationManager: Min wait time not yet reached, aborting...");
-            }
+			os_log_debug(location_manager_log, "Min wait time not yet reached, aborting...");
             return;
         }
         
@@ -176,11 +183,9 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    if (kPCWebServiceLocationManagerDebug) {
-        NSLog(@"PCWebServiceLocationManager: Did fail with error: %@", error);
-    }
-    
-    if(error.code != kCLErrorDenied){
+	os_log_error(location_manager_log, "Did fail with error: %@", error);
+	
+    if (error.code != kCLErrorDenied){
         self.PCSingleRequestLocationCompletion(nil, error);
     }
     
@@ -212,10 +217,8 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         return;
     }
     
-    if (kPCWebServiceLocationManagerDebug) {
-        NSLog(@"PCWebServiceLocationManager: Settling on location: %@", self.locationManager.location);
-    }
-    
+	os_log_debug(location_manager_log, "Settling on location: %@", self.locationManager.location);
+	
     // Location settled upon!
     _locationSettledUpon = YES;
     
