@@ -19,8 +19,22 @@
  @param y The pixel to select on the vertical axis
  @return The color of the selected pixel
  */
-- (UIColor *)pixelColorForX:(NSInteger)x y:(NSInteger)y;
+- (UIColor * _Nonnull)pixelColorForX:(NSInteger)x y:(NSInteger)y;
 
-+ (UIImage *)imageNamed:(NSString *)name imageWithColor:(UIColor *)color;
+/**
+ Gets an image with a certain name and tints it with the required color
+ @param name The name of the image to pull from the app
+ @param color The color to tint the returned image
+ */
++ (UIImage * _Nullable)imageNamed:(NSString * _Nonnull)name withColor:(UIColor * _Nonnull)color;
+
+/**
+ Gets an image with a certain name and tints it with the required color
+ @param name The name of the image to pull from the app
+ @param bundle The bundle to look for the image in
+ @param traitCollection The trait collection to pull the image for
+ @param color The color to tint the returned image
+ */
++ (UIImage * _Nullable)imageNamed:(NSString * _Nonnull)name inBundle:(NSBundle * _Nullable)bundle compatibleWithTraitCollection:(UITraitCollection * _Nullable)traitCollection withColor:(UIColor * _Nonnull)color;
 
 @end

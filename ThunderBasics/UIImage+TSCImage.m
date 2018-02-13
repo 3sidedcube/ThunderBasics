@@ -26,11 +26,16 @@
     return [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha/255.0f];
 }
 
-+ (UIImage *)imageNamed:(NSString *)name imageWithColor:(UIColor *)color
++ (UIImage *)imageNamed:(NSString *)name withColor:(UIColor *)color
+{
+    return [self imageNamed:name inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil withColor:color];
+}
+
++ (UIImage *)imageNamed:(NSString *)name inBundle:(NSBundle *)bundle compatibleWithTraitCollection:(UITraitCollection *)traitCollection withColor:(UIColor *)color
 {
     UIImage *img = nil;
     
-    img = [UIImage imageNamed:name];
+    img = [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
     
     UIImage *newImage = [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     

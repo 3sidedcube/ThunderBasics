@@ -22,25 +22,6 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
 
 @implementation TSCPerson
 
-- (instancetype)initWithABRecordRef:(ABRecordRef)ref
-{
-    if (self = [super init]) {
-        
-        self.source = TSCPersonSourceABAddressBook;
-        [self updateWithABRecordRef:ref];
-        
-        self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-                
-            TSCContactsController *contactsController = [TSCContactsController sharedController];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            [self updateWithABRecordRef:[contactsController recordRefForRecordID:[contactsController recordIDForNumber:self.recordNumber]]];
-#pragma clang diagnostic pop
-        }];
-    }
-    return self;
-}
-
 - (instancetype)initWithContact:(CNContact *)contact
 {
     if (self = [super init]) {
@@ -48,14 +29,13 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
         self.source = TSCPersonSourceContactsFramework;
         [self updateWithCNContact:contact];
         
-        if (NSStringFromClass([CNContactStore class])) {
+        self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
             
-            self.observer = [[NSNotificationCenter defaultCenter] addObserverForName:TSCAddressBookChangeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-                
-                TSCContactsController *contactsController = [TSCContactsController sharedController];
-                [self updateWithCNContact:[contactsController contactForIdentifier:self.recordIdentifier]];
-            }];
-        }
+            TSCContactsController *contactsController = [TSCContactsController sharedController];
+            [self updateWithCNContact:[contactsController contactForLegacyIdentifier:self.recordIdentifier]];
+        }];
+        
+        self.contact = contact;
     }
     return self;
 }
@@ -68,25 +48,19 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
 - (void)updateWithCNContact:(CNContact *)contact
 {
     self.mobileNumber = nil;
-    self.firstName = nil;
-    self.lastName = nil;
-    self.numbers = nil;
     self.email = nil;
     self.photo = nil;
     self.largeImage = nil;
-    self.recordIdentifier = nil;
     self.hasPlaceholderImage = false;
+    self.contact = contact;
     
     self.recordIdentifier = contact.identifier;
-    self.firstName = contact.givenName;
-    self.lastName = contact.familyName;
+    self.firstName = contact.givenName.length > 0 ? contact.givenName : nil;
+    self.lastName = contact.familyName.length > 0 ? contact.familyName : nil;
+    self.companyName = contact.organizationName.length > 0 ? contact.organizationName : nil;
     
     if (!self.firstName && !self.lastName) {
-        self.firstName = contact.nickname;
-    }
-    
-    if (!self.firstName) {
-        self.firstName = @"";
+        self.firstName = contact.nickname.length > 0 ? contact.nickname : nil;
     }
     
     NSMutableArray *phoneNumbers = [NSMutableArray new];
@@ -122,127 +96,6 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     }
 }
 
-- (void)updateWithABRecordRef:(ABRecordRef)ref
-{
-    self.mobileNumber = nil;
-    self.firstName = nil;
-    self.lastName = nil;
-    self.numbers = nil;
-    self.email = nil;
-    self.photo = nil;
-    self.largeImage = nil;
-    self.recordIdentifier = nil;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    self.recordNumber = nil;
-#pragma clang diagnostic pop    
-    self.hasPlaceholderImage = false;
-    
-    CFTypeRef firstNameRef = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
-    self.firstName = (__bridge NSString *)firstNameRef;
-    if (firstNameRef) {
-        CFRelease(firstNameRef);
-    }
-    
-    CFTypeRef lastNameRef = ABRecordCopyValue(ref, kABPersonLastNameProperty);
-    self.lastName = (__bridge NSString *)lastNameRef;
-    if (lastNameRef) {
-        CFRelease(lastNameRef);
-    }
-    
-    if(!self.firstName && !self.lastName) {
-        
-        CFTypeRef companyNameFor = ABRecordCopyValue(ref, kABPersonOrganizationProperty);
-        self.firstName = (__bridge NSString *)companyNameFor;
-        if (firstNameRef) {
-            CFRelease(firstNameRef);
-        }
-        
-    }
-    
-    if(!self.firstName) {
-        
-        self.firstName = @"";
-        
-    }
-    
-    ABMultiValueRef phoneRef = ABRecordCopyValue(ref, kABPersonPhoneProperty);
-    CFArrayRef numbersRef = ABMultiValueCopyArrayOfAllValues(phoneRef);
-    NSArray *numbers = (__bridge NSArray *)numbersRef;
-    self.numbers = numbers;
-    
-    if (phoneRef) {
-        CFRelease(phoneRef);
-    }
-    if (numbersRef) {
-        CFRelease(numbersRef);
-    }
-    
-    ABMultiValueRef phoneNumbers = ABRecordCopyValue(ref, kABPersonPhoneProperty);
-    
-    for (CFIndex i = 0; i < ABMultiValueGetCount(phoneNumbers); i++) {
-        
-        CFStringRef numberRef = ABMultiValueCopyValueAtIndex(phoneNumbers, i);
-        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phoneNumbers, i);
-        NSString *phoneNumber = (__bridge NSString *)numberRef;
-
-        
-        if (locLabel != NULL) {
-            
-            if (CFStringCompare(locLabel, kABPersonPhoneMobileLabel, 0) == kCFCompareEqualTo || CFStringCompare(locLabel, kABPersonPhoneIPhoneLabel, 0) == kCFCompareEqualTo) {
-                self.mobileNumber = phoneNumber;
-            }
-        }
-        
-        if (numberRef) {
-            CFRelease(numberRef);
-        }
-        if (locLabel) {
-            CFRelease(locLabel);
-        }
-    }
-    if (phoneNumbers) {
-        CFRelease(phoneNumbers);
-    }
-    
-    ABMultiValueRef emailsPropertyRef = ABRecordCopyValue(ref, kABPersonEmailProperty);
-    CFArrayRef emailsRef = ABMultiValueCopyArrayOfAllValues(emailsPropertyRef);
-    NSArray *emails = (__bridge NSArray *)emailsRef;
-    self.email = [emails firstObject];
-    if (emailsPropertyRef) {
-        CFRelease(emailsPropertyRef);
-    }
-    if (emailsRef) {
-        CFRelease(emailsRef);
-    }
-    
-    CFDataRef photoRef = ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatThumbnail);
-    NSData *photoData = (__bridge NSData *)photoRef;
-    self.photo = [UIImage imageWithData:photoData];
-    if (photoRef) {
-        CFRelease(photoRef);
-    }
-    
-    
-    CFDataRef originalPhotoRef = ABPersonCopyImageDataWithFormat(ref, kABPersonImageFormatOriginalSize);
-    NSData *originalPhotoData = (__bridge NSData *)originalPhotoRef;
-    self.largeImage = [UIImage imageWithData:originalPhotoData];
-    if (originalPhotoRef) {
-        CFRelease(originalPhotoRef);
-    }
-    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    self.recordNumber = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
-#pragma clang diagnostic pop
-    self.recordIdentifier = [NSNumber numberWithInt:(int)ABRecordGetRecordID(ref)];
-    
-    if (!self.photo) {
-        self.hasPlaceholderImage = YES;
-        self.photo = [self contactPlaceholderWithInitials:self.initials];
-    }
-}
-
 - (void)updateWithPerson:(TSCPerson *)person
 {
     self.firstName = person.firstName;
@@ -256,26 +109,56 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     self.hasPlaceholderImage = person.hasPlaceholderImage;
 }
 
-- (NSString *)fullName
+- (void)setFirstName:(NSString *)firstName
+{
+    _firstName = firstName;
+    [self updateFullName];
+}
+
+- (void)setLastName:(NSString *)lastName
+{
+    _lastName = lastName;
+    [self updateFullName];
+}
+
+- (void)updateFullName
 {
     if (self.firstName && self.lastName) {
-        return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+        self.fullName = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+    } else if (self.firstName) {
+        self.fullName = self.firstName;
+    } else if (self.lastName) {
+        self.fullName = self.lastName;
     }
-    
-    if (self.firstName) {
-        return self.firstName;
-    }
-    
-    if (self.lastName) {
-        return self.lastName;
-    }
-    
-    return nil;
 }
 
 - (NSString *)rowTitle
 {
-    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+    if (self.fullName) {
+        return self.fullName;
+    }
+    
+    if (self.mobileNumber) {
+        return self.mobileNumber;
+    }
+    
+    if (self.numbers.firstObject) {
+        return self.numbers.firstObject;
+    }
+    
+    if (self.mobileNumber) {
+        return self.mobileNumber;
+    }
+    
+    if (self.numbers.firstObject) {
+        return self.numbers.firstObject;
+    }
+    
+    if (self.email) {
+        return self.email;
+    }
+    
+    return nil;
 }
 
 - (NSString *)rowSubtitle
@@ -302,6 +185,14 @@ typedef NS_ENUM(NSUInteger, TSCPersonSource) {
     
     if (self.lastName.length > 0) {
         [intialString appendString:[self.lastName substringToIndex:1]];
+    }
+    
+    if (self.companyName.length > 0 && intialString.length == 0) {
+        [intialString appendString:[self.companyName substringToIndex:1]];
+    }
+    
+    if (intialString.length == 0) {
+        intialString = [@"?" mutableCopy];
     }
     
     return intialString;

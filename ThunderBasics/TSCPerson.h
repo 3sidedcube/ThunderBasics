@@ -16,18 +16,6 @@
  */
 @interface TSCPerson : NSObject
 
-/**
- Takes a ABRecordRef from the addressbook and converts it into a TSCPerson
- @param ref A `ABRecordRef` extracted from an `ABAddressBook`
- @return A populated TSCObject
- */
-- (instancetype _Nonnull)initWithABRecordRef:(ABRecordRef _Nonnull)ref;
-
-/**
- Updates the current model using an `ABRecordRef`
- @param ref The record Ref to update the current person model with
- */
-- (void)updateWithABRecordRef:(ABRecordRef _Nonnull)ref;
 
 /**
  Takes a CNContact from Contacts framework and converts it into a TSCPerson
@@ -76,6 +64,12 @@
 @property (nonatomic, copy) NSString * _Nullable fullName;
 
 /**
+ The persons company name
+ @discussion The company name associated with the person/contact
+ */
+@property (nonatomic, copy) NSString * _Nullable companyName;
+
+/**
  An array of numbers extracted from the addressbook for the person
  */
 @property (nonatomic, strong) NSArray <NSString *> * _Nullable numbers;
@@ -95,17 +89,12 @@
  */
 @property (nonatomic, strong) UIImage * _Nullable largeImage;
 
-/**
- The record ID number of the record in relation to the addressbook it was extracted from
- @note This record ID could change and Apple recommends implementing checks to make sure you get the expected person back when using this ID.
- */
-@property (nonatomic, strong) NSNumber * _Nullable recordNumber __attribute((deprecated("Please use recordIdentifier instead")));
 
 /**
  The record ID of the record in relation to where it was extracted from
- @note Befors iOS 9 this record ID could change and Apple recommends implementing checks to make sure you get the expected person back when using this ID.
+ @note Before iOS 9 this record ID could change and Apple recommends implementing checks to make sure you get the expected person back when using this ID.
  */
-@property (nonatomic, strong) id _Nonnull recordIdentifier;
+@property (nonatomic, strong) NSString * _Nullable recordIdentifier;
 
 /**
  The persons mobile number, if available.
@@ -123,5 +112,10 @@
  The observer object that listens for changes in the address book
  */
 @property (nonatomic, strong) id <NSObject> _Nullable observer;
+
+/**
+ The original `CNContact` object that was used to populate this `TSCPerson`
+ */
+@property (nonatomic, strong) CNContact * _Nullable contact;
 
 @end
