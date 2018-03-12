@@ -28,6 +28,13 @@
 
 @implementation TSCToastView
 
++ (void)initialize {
+    [super initialize];
+    // Set default appearance properties
+    [TSCToastView appearance].backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+    [TSCToastView appearance].textColour = [UIColor blackColor];
+}
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -61,10 +68,7 @@
     toastView.titleLabel.text = title;
     toastView.messageLabel.text = message;
     toastView.imageView.image = image;
-    
-    toastView.titleLabel.text = title;
-    toastView.messageLabel.text = message;
-    
+
     return toastView;
 }
 
@@ -169,7 +173,15 @@
 
 - (void)layout
 {
-    CGRect labelContainer = CGRectMake(kToastEdgeInsets.left, kToastEdgeInsets.top, self.frame.size.width - kToastEdgeInsets.left - kToastEdgeInsets.right, MAXFLOAT);
+    
+    UIEdgeInsets inset = UIEdgeInsetsZero;
+    
+    if (@available(iOS 11.0, *)) {
+        // Get safe insets so the toast isn't covered up by the notch on iPhone X (We can't use self.window because it's safeAreaInsets are zero)
+        inset = [UIApplication sharedApplication].keyWindow.rootViewController.view ? [UIApplication sharedApplication].keyWindow.rootViewController.view.safeAreaInsets : UIEdgeInsetsZero;
+    }
+    
+    CGRect labelContainer = CGRectMake(kToastEdgeInsets.left, kToastEdgeInsets.top + inset.top, self.frame.size.width - kToastEdgeInsets.left - kToastEdgeInsets.right, MAXFLOAT);
     
     if (self.imageView.image) { // If we have an image adjust how much room we have for the labels.
         
