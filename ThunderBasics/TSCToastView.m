@@ -173,14 +173,15 @@
 
 - (void)layout
 {
-    CGRect labelContainer;
-    // Get safe insets so the toast isn't covered up by the notch on iPhone X (We can't use self.window because it's safeAreaInsets are zero)
+    
+    UIEdgeInsets inset = UIEdgeInsetsZero;
+    
     if (@available(iOS 11.0, *)) {
-        UIEdgeInsets safeInsets = [UIApplication sharedApplication].keyWindow.rootViewController.view ? [UIApplication sharedApplication].keyWindow.rootViewController.view.safeAreaInsets : UIEdgeInsetsZero;
-        labelContainer = CGRectMake(kToastEdgeInsets.left, kToastEdgeInsets.top + safeInsets.top, self.frame.size.width - kToastEdgeInsets.left - kToastEdgeInsets.right, MAXFLOAT);
-    } else {
-        labelContainer = CGRectMake(kToastEdgeInsets.left, kToastEdgeInsets.top, self.frame.size.width - kToastEdgeInsets.left - kToastEdgeInsets.right, MAXFLOAT);
+        // Get safe insets so the toast isn't covered up by the notch on iPhone X (We can't use self.window because it's safeAreaInsets are zero)
+        inset = [UIApplication sharedApplication].keyWindow.rootViewController.view ? [UIApplication sharedApplication].keyWindow.rootViewController.view.safeAreaInsets : UIEdgeInsetsZero;
     }
+    
+    CGRect labelContainer = CGRectMake(kToastEdgeInsets.left, kToastEdgeInsets.top + inset.top, self.frame.size.width - kToastEdgeInsets.left - kToastEdgeInsets.right, MAXFLOAT);
     
     if (self.imageView.image) { // If we have an image adjust how much room we have for the labels.
         
