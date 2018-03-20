@@ -38,6 +38,50 @@ public struct DateRange {
 	public func contains(date: Date) -> Bool {
 		return date >= start && date <= end
 	}
+    
+    /// Initialises a date range from the beginning of a given day until the end of a day x days afterwards.
+    ///
+    /// - Parameters:
+    ///   - days: The number of days after the given date the date range should end.
+    ///   - date: The date to start the date range at.
+    /// - Returns: A date range if one could be created.
+    public static func rangeByAdding(days: Int, to date: Date) -> DateRange? {
+        
+        let calendar = Calendar.current
+        var startDate: Date? = date
+        var endDate: Date? = date
+        
+        var startComponents = DateComponents()
+        var endComponents = DateComponents()
+        
+        let units: Set<Calendar.Component> = [
+            .year,
+            .month,
+            .day
+        ]
+        
+        if days > 0 {
+            
+            startComponents = calendar.dateComponents(units, from: calendar.date(byAdding: startComponents, to: date) ?? date)
+            startComponents.hour = 0
+            startComponents.minute = 0
+            startComponents.second = 0
+            startDate = calendar.date(from: startComponents)
+        }
+        
+        endComponents.day = days
+        endComponents = calendar.dateComponents(units, from: calendar.date(byAdding: endComponents, to: date) ?? date)
+        endComponents.hour = 23
+        endComponents.minute = 59
+        endComponents.second = 59
+        endDate = calendar.date(from: endComponents)
+        
+        guard let _startDate = startDate, let _endDate = endDate else {
+            return nil
+        }
+        
+        return DateRange(start: _startDate, end: _endDate)
+    }
 }
 
 public extension Date {
@@ -81,7 +125,7 @@ public extension Date {
 	public var isInThisYear: Bool {
 		return Calendar.current.compare(self, to: Date(), toGranularity: .year) == .orderedSame
 	}
-	
+    
 	public func dateRange(for dateComponent: Calendar.Component, with options: DateRange.Options = []) -> DateRange? {
 		
 		let calendar = Calendar.current
