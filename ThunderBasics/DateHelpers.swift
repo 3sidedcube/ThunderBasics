@@ -48,10 +48,9 @@ public struct DateRange {
     public static func rangeByAdding(days: Int, to date: Date) -> DateRange? {
         
         let calendar = Calendar.current
-        var startDate: Date? = date
+        let startDate: Date = days > 0 ? date.startOfDay : date
         var endDate: Date? = date
         
-        var startComponents = DateComponents()
         var endComponents = DateComponents()
         
         let units: Set<Calendar.Component> = [
@@ -60,31 +59,34 @@ public struct DateRange {
             .day
         ]
         
-        if days > 0 {
-            
-            startComponents = calendar.dateComponents(units, from: calendar.date(byAdding: startComponents, to: date) ?? date)
-            startComponents.hour = 0
-            startComponents.minute = 0
-            startComponents.second = 0
-            startDate = calendar.date(from: startComponents)
-        }
-        
         endComponents.day = days
         endComponents = calendar.dateComponents(units, from: calendar.date(byAdding: endComponents, to: date) ?? date)
-        endComponents.hour = 23
-        endComponents.minute = 59
-        endComponents.second = 59
-        endDate = calendar.date(from: endComponents)
+        endDate = calendar.date(from: endComponents)?.endOfDay
         
-        guard let _startDate = startDate, let _endDate = endDate else {
+        guard let _endDate = endDate else {
             return nil
         }
         
-        return DateRange(start: _startDate, end: _endDate)
+        return DateRange(start: startDate, end: _endDate)
     }
 }
 
+public func ==(lhs: DateRange, rhs: DateRange) -> Bool {
+    return lhs.start == rhs.start && lhs.end == rhs.end
+}
+
 public extension Date {
+    
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+    
+    var endOfDay: Date {
+        var components = DateComponents()
+        components.day = 1
+        let date = Calendar.current.date(byAdding: components, to: startOfDay)
+        return (date!.addingTimeInterval(-1))
+    }
 	
 	public var daysInWeek: Int? {
 		return Calendar.current.maximumRange(of: .weekday)?.count
