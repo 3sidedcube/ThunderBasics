@@ -81,11 +81,11 @@ public extension Date {
         return Calendar.current.startOfDay(for: self)
     }
     
-    var endOfDay: Date {
+    var endOfDay: Date? {
         var components = DateComponents()
         components.day = 1
         let date = Calendar.current.date(byAdding: components, to: startOfDay)
-        return (date!.addingTimeInterval(-1))
+        return date?.addingTimeInterval(-1)
     }
 	
 	public var daysInWeek: Int? {
