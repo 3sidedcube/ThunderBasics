@@ -31,13 +31,29 @@ public struct DateRange {
 		public static let weekStartsOnSunday = Options(rawValue: 1 << 7)
 	}
 	
+    /// The beginning of the date range.
 	public let start: Date
 	
+    /// The end of the date range.
 	public let end: Date
 	
+    /// Whether a certain date falls within the date range.
+    ///
+    /// - Parameter date: The date to check if it falls in the date range.
+    /// - Returns: A boolean as to wether the date falls within the range.
 	public func contains(date: Date) -> Bool {
 		return date >= start && date <= end
 	}
+    
+    /// Creates a date range for a start and end date
+    ///
+    /// - Parameters:
+    ///   - start: The beginning of the date range
+    ///   - end: The end of the date range
+    public init(start: Date, end: Date) {
+        self.start = start
+        self.end = end
+    }
     
     /// Initialises a date range from the beginning of a given day until the end of a day x days afterwards.
     ///
