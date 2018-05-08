@@ -239,13 +239,13 @@ static TSCSingleRequestLocationManager *sharedLocationManager = nil;
         }
         
         self.locationManager.delegate = nil;
-        [_maxWaitTimeTimer invalidate];
-        _maxWaitTimeTimer = nil;
-        [_minWaitTimeTimer invalidate];
-        _minWaitTimeTimer = nil;
-        _maxWaitTimeReached = NO;
-        _minWaitTimeReached = NO;
-        _locationSettledUpon = NO;
+        [self->_maxWaitTimeTimer invalidate];
+        self->_maxWaitTimeTimer = nil;
+        [self->_minWaitTimeTimer invalidate];
+        self->_minWaitTimeTimer = nil;
+        self->_maxWaitTimeReached = NO;
+        self->_minWaitTimeReached = NO;
+        self->_locationSettledUpon = NO;
         self.PCSingleRequestLocationCompletion = nil;
     }];
     
