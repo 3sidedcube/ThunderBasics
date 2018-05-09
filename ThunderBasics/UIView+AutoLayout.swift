@@ -17,20 +17,25 @@ extension UIView {
 			return nil
 		}
 		addSubview(view)
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.attachEdges(to: self)
 		return view
 	}
 	
-	public func attachEdges(_ edges: [NSLayoutAttribute] = [.left, .right, .top, .bottom], to childView:UIView)
+    /// Attached the view's edges to the view passed in using layout constraints.
+    ///
+    /// - Parameters:
+    ///   - edges: The edges to add constraints for.
+    ///   - parentView: The view to attach the edges to.
+    ///
+    /// - Warning: the `UIView` this is called on, must be a subclass of parentView
+	public func attachEdges(_ edges: [NSLayoutAttribute] = [.left, .right, .top, .bottom], to parentView:UIView)
 	{
-		
-		childView.translatesAutoresizingMaskIntoConstraints = false
+		translatesAutoresizingMaskIntoConstraints = false
 		
 		let constraints: [NSLayoutConstraint] = edges.map({
-			return NSLayoutConstraint(item: childView, attribute: $0, relatedBy: .equal, toItem: self, attribute: $0, multiplier: 1.0, constant: 0)
+			return NSLayoutConstraint(item: parentView, attribute: $0, relatedBy: .equal, toItem: self, attribute: $0, multiplier: 1.0, constant: 0)
 		})
 		
-		childView.addConstraints(constraints)
+		parentView.addConstraints(constraints)
 	}
 }
