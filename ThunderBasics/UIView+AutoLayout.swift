@@ -28,7 +28,7 @@ extension UIView {
     ///   - parentView: The view to attach the edges to.
     ///
     /// - Warning: the `UIView` this is called on, must be a subclass of parentView
-	public func attachEdges(_ edges: [NSLayoutAttribute] = [.left, .right, .top, .bottom], to parentView:UIView)
+	public func attachEdges(_ edges: [NSLayoutConstraint.Attribute] = [.left, .right, .top, .bottom], to parentView:UIView)
 	{
 		translatesAutoresizingMaskIntoConstraints = false
 		

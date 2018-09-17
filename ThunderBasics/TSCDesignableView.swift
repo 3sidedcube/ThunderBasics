@@ -81,7 +81,7 @@
         }
         
 		override open func drawText(in rect: CGRect) {
-			super.drawText(in: UIEdgeInsetsInsetRect(rect, edgeInsets))
+			super.drawText(in: rect.inset(by: edgeInsets))
         }
         
 		override open func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -163,12 +163,12 @@
         
         // placeholder position
 		override open func textRect(forBounds bounds: CGRect) -> CGRect {
-            return super.textRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
+            return super.textRect(forBounds: bounds.inset(by: edgeInsets))
         }
         
         // text position
 		override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-			return super.editingRect(forBounds: UIEdgeInsetsInsetRect(bounds, edgeInsets))
+			return super.editingRect(forBounds: bounds.inset(by: edgeInsets))
 		}
 		
 		// right view position

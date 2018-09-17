@@ -18,7 +18,7 @@ public extension UIFont {
 	///   - symbolicTraits: Symbolic constraints to apply to the default font
 	///   - traitCollection: The trait collection the font should be for
 	/// - Returns: A font converted given the above parameters
-	public class func preferredFont(forTextStyle style: UIFontTextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptorSymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
+	public class func preferredFont(forTextStyle style: UIFont.TextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptor.SymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
 		
 		var descriptor: UIFontDescriptor
 		
