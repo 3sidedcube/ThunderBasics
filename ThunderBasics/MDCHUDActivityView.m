@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) UIImageView *logoView;
 
+@property (nonatomic, assign, getter=isDismissing) BOOL dismissing;
+
 @end
 
 @implementation MDCHUDActivityView
@@ -122,9 +124,14 @@
 
 + (MDCHUDActivityView *)activityInView:(UIView *)view
 {
-    for (MDCHUDActivityView *activityView in view.subviews) {
-        if ([activityView isKindOfClass:[MDCHUDActivityView class]]) {
-            return activityView;
+    for (MDCHUDActivityView *subview in view.subviews) {
+        
+        if ([subview isKindOfClass:[MDCHUDActivityView class]]) {
+            
+            MDCHUDActivityView *activityView = (MDCHUDActivityView *)subview;
+            if (!activityView.isDismissing) {
+                return activityView;
+            }
         }
     }
     
@@ -178,6 +185,8 @@
 
 - (void)finish
 {
+    self.dismissing = true;
+    
     [UIView animateWithDuration:0.35 animations:^{
         
         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
