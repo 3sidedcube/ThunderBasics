@@ -15,14 +15,17 @@
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) UIImageView *logoView;
 
-@property (nonatomic, assign, getter=isDismissing) BOOL dismissing;
+/**
+ Defines the activity view's identifier, so it can be removed while leaving any others intact.
+ */
+@property (nonatomic, strong) NSString *identifier;
 
 @end
 
 @implementation MDCHUDActivityView
 
 #pragma mark - Setup
-- (instancetype)initWithStyle:(MDCHUDActivityViewStyle)style
+- (instancetype)initWithStyle:(MDCHUDActivityViewStyle)style identifier:(NSString*)identifier
 {
     if (self = [super initWithFrame:CGRectMake(0, 0, 100, 100)]) {
         
@@ -41,6 +44,8 @@
             [self addSubview:self.activityIndicatorView];
             [self.activityIndicatorView startAnimating];
         }
+        
+        self.identifier = identifier;
         
         self.textLabel = [UILabel new];
         self.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -68,19 +73,19 @@
 
 #pragma mark - Adding
 
-+ (void)startInView:(UIView *)view
++ (void)startInView:(UIView *)view identifier:(NSString*)identifier
 {
-    [MDCHUDActivityView startInView:view text:nil];
+    [MDCHUDActivityView startInView:view text:nil identifier:identifier];
 }
 
-+ (void)startInView:(UIView *)view text:(NSString *)text
++ (void)startInView:(UIView *)view text:(NSString *)text identifier:(NSString*)identifier
 {
-    [MDCHUDActivityView startInView:view text:text style:MDCHUDActivityViewStyleDefault];
+    [MDCHUDActivityView startInView:view text:text style:MDCHUDActivityViewStyleDefault identifier:identifier];
 }
 
-+ (void)startInView:(UIView *)view text:(NSString *)text style:(MDCHUDActivityViewStyle)style
++ (void)startInView:(UIView *)view text:(NSString *)text style:(MDCHUDActivityViewStyle)style identifier:(NSString*)identifier
 {
-    MDCHUDActivityView *activityView = [[MDCHUDActivityView alloc] initWithStyle:style];
+    MDCHUDActivityView *activityView = [[MDCHUDActivityView alloc] initWithStyle:style identifier:identifier];
     activityView.textLabel.text = text;
     
     [activityView showInView:view];
@@ -122,14 +127,14 @@
 
 #pragma mark - Modifying existing
 
-+ (MDCHUDActivityView *)activityInView:(UIView *)view
++ (MDCHUDActivityView *)activityInView:(UIView *)view withIdentifier:(NSString*)identifier
 {
     for (MDCHUDActivityView *subview in view.subviews) {
         
         if ([subview isKindOfClass:[MDCHUDActivityView class]]) {
             
             MDCHUDActivityView *activityView = (MDCHUDActivityView *)subview;
-            if (!activityView.isDismissing) {
+            if ([activityView.identifier isEqualToString:identifier]) {
                 return activityView;
             }
         }
@@ -138,9 +143,9 @@
     return nil;
 }
 
-+ (void)updateActivityInView:(UIView *)view withText:(NSString *)text
++ (void)updateActivityInView:(UIView *)view withText:(NSString *)text andIdentifier:(NSString*)identifier
 {
-    MDCHUDActivityView *activityView = [MDCHUDActivityView activityInView:view];
+    MDCHUDActivityView *activityView = [MDCHUDActivityView activityInView:view withIdentifier:identifier];
     
     if (!activityView.textLabel.text) {
         
@@ -169,24 +174,22 @@
     }
 }
 
-+ (void)removeTextOnActivityViewInView:(UIView *)view
++ (void)removeTextOnActivityViewInView:(UIView *)view identifier:(NSString*)identifier
 {
-    [MDCHUDActivityView updateActivityInView:view withText:nil];
+    [MDCHUDActivityView updateActivityInView:view withText:nil andIdentifier:identifier];
 }
 
 #pragma mark - Removing
 
-+ (void)finishInView:(UIView *)view
++ (void)finishInView:(UIView *)view withIdentifier:(NSString*)identifier
 {
-    MDCHUDActivityView *activityView = [MDCHUDActivityView activityInView:view];
+    MDCHUDActivityView *activityView = [MDCHUDActivityView activityInView:view withIdentifier:identifier];
     
     [activityView finish];
 }
 
 - (void)finish
 {
-    self.dismissing = true;
-    
     [UIView animateWithDuration:0.35 animations:^{
         
         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
