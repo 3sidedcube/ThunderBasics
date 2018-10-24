@@ -63,11 +63,11 @@ typedef NS_ENUM(NSInteger, MDCHUDActivityViewStyle) {
 /**
  *  Updates the text label beneath an already running loading indicator
  *
- *  @param view The view which already contains a loading HUD
- *  @param text The text to replace the existing text with in the view
+ *  @param view The view which already contains a loading HUD.
  *  @param identifier The identifier of the activity view we want to update.
+ *  @param text The text to replace the existing text with in the view.
  */
-+ (void)updateActivityInView:(UIView *)view withText:(NSString *)text andIdentifier:(NSString*)identifier;
++ (void)updateActivityInView:(UIView *)view withIdentifier:(NSString*)identifier toText:(NSString *)text;
 
 /**
  *  Removes text from the given activity view

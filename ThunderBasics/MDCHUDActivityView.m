@@ -143,7 +143,7 @@
     return nil;
 }
 
-+ (void)updateActivityInView:(UIView *)view withText:(NSString *)text andIdentifier:(NSString*)identifier
++ (void)updateActivityInView:(UIView *)view withIdentifier:(NSString*)identifier toText:(NSString *)text
 {
     MDCHUDActivityView *activityView = [MDCHUDActivityView activityInView:view withIdentifier:identifier];
     
@@ -176,7 +176,7 @@
 
 + (void)removeTextOnActivityViewInView:(UIView *)view identifier:(NSString*)identifier
 {
-    [MDCHUDActivityView updateActivityInView:view withText:nil andIdentifier:identifier];
+    [MDCHUDActivityView updateActivityInView:view withIdentifier:identifier toText:nil];
 }
 
 #pragma mark - Removing
