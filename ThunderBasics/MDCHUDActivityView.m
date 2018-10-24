@@ -174,7 +174,7 @@
     }
 }
 
-+ (void)removeTextOnActivityViewInView:(UIView *)view identifier:(NSString*)identifier
++ (void)removeTextOnActivityViewInView:(UIView *)view withIdentifier:(NSString*)identifier
 {
     [MDCHUDActivityView updateActivityInView:view withIdentifier:identifier toText:nil];
 }

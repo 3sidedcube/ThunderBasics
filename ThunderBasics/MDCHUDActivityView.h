@@ -75,6 +75,6 @@ typedef NS_ENUM(NSInteger, MDCHUDActivityViewStyle) {
  *  @param view The view which already contains a loading HUD
 *  @param identifier The identifier of the activity view we want to remove the text from.
  */
-+ (void)removeTextOnActivityViewInView:(UIView *)view identifier:(NSString*)identifier;
++ (void)removeTextOnActivityViewInView:(UIView *)view withIdentifier:(NSString*)identifier;
 
 @end
