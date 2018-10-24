@@ -29,16 +29,18 @@ typedef NS_ENUM(NSInteger, MDCHUDActivityViewStyle) {
  *  Adds an animated HUD to the centre of the view to indicate loading
  *
  *  @param view The view that should present the loading HUD
+ *  @param identifier The identifier that'll be used to reference the activity view at a future point.
  */
-+ (void)startInView:(UIView *)view;
++ (void)startInView:(UIView *)view identifier:(NSString*)identifier;
 
 /**
  *  Adds an animated HUD to the centre of the view to indicate loading with a message displayed underneath the activity indicator
  *
  *  @param view The view that should present the loading HUD
  *  @param text The text to display beneath the indicator
+ *  @param identifier The identifier that'll be used to reference the activity view at a future point.
  */
-+ (void)startInView:(UIView *)view text:(NSString *)text;
++ (void)startInView:(UIView *)view text:(NSString *)text identifier:(NSString*)identifier;
 
 /**
  *  Adds an animated HUD to the centre of the view to indicate loading with a message displayed underneath the activity indicator. Choose from a range of styles.
@@ -46,29 +48,33 @@ typedef NS_ENUM(NSInteger, MDCHUDActivityViewStyle) {
  *  @param view  The view that should present the loading HUD
  *  @param text  The text to display beneath the indicator
  *  @param style The MDCHUDActivityViewStyle that should be used to layout the view
+ *  @param identifier The identifier that'll be used to reference the activity view at a future point.
  */
-+ (void)startInView:(UIView *)view text:(NSString *)text style:(MDCHUDActivityViewStyle)style;
++ (void)startInView:(UIView *)view text:(NSString *)text style:(MDCHUDActivityViewStyle)style identifier:(NSString*)identifier;
 
 /**
  *  Removes any loading HUD views from the specified view
  *
  *  @param view The view which already contains a loading HUD
+ *  @param identifier The identifier of the activity view we want to finish.
  */
-+ (void)finishInView:(UIView *)view;
++ (void)finishInView:(UIView *)view withIdentifier:(NSString*)identifier;
 
 /**
  *  Updates the text label beneath an already running loading indicator
  *
- *  @param view The view which already contains a loading HUD
- *  @param text The text to replace the existing text with in the view
+ *  @param view The view which already contains a loading HUD.
+ *  @param identifier The identifier of the activity view we want to update.
+ *  @param text The text to replace the existing text with in the view.
  */
-+ (void)updateActivityInView:(UIView *)view withText:(NSString *)text;
++ (void)updateActivityInView:(UIView *)view withIdentifier:(NSString*)identifier toText:(NSString *)text;
 
 /**
  *  Removes text from the given activity view
  *
  *  @param view The view which already contains a loading HUD
+*  @param identifier The identifier of the activity view we want to remove the text from.
  */
-+ (void)removeTextOnActivityViewInView:(UIView *)view;
++ (void)removeTextOnActivityViewInView:(UIView *)view withIdentifier:(NSString*)identifier;
 
 @end
