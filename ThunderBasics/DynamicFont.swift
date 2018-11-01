@@ -44,15 +44,10 @@ public extension UIFont {
 	///   - symbolicTraits: Symbolic constraints to apply to the default font
 	///   - traitCollection: The trait collection the font should be for
 	/// - Returns: A font converted given the above parameters
+    @available (iOS, introduced: 10.0, deprecated: 11.0, obsoleted: 13.0, message: "This will be removed when iOS 13 is released; please use dynamicSystemFont(size:textStyle:weight) instead")
 	public class func preferredFont(forTextStyle style: UIFont.TextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptor.SymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
 		
-		var descriptor: UIFontDescriptor
-		
-		if #available(iOS 10, *) {
-			descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style, compatibleWith: traitCollection)
-		} else {
-			descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
-		}
+		var descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style, compatibleWith: traitCollection)
 		
 		if let attributes = attributes {
 			descriptor = descriptor.addingAttributes(attributes)
@@ -74,6 +69,7 @@ public extension UIFont {
 	/// - Parameters:
 	///   - family: The font family to convert this font to
 	///   - face: The font face to convert this font to
+    @available (iOS, introduced: 10.0, deprecated: 11.0, obsoleted: 13.0, message: "This will be removed when iOS 13 is released; please use dynamic(with textStyle:) instead")
 	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
@@ -109,6 +105,7 @@ public extension UIFont {
 	///   - family: The font family to convert this font to
 	///   - weight: The font weight to convert this font to
 	///
+    @available (iOS, introduced: 10.0, deprecated: 11.0, obsoleted: 13.0, message: "This will be removed when iOS 13 is released; please use dynamic(with textStyle:) instead")
 	public func withFontFamily(_ family: String, weight: UIFont.Weight) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
