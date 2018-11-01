@@ -9,6 +9,32 @@
 import Foundation
 
 public extension UIFont {
+    
+    /// Returns the system font for a particular size scaled according to text style provided at a certain font weight
+    ///
+    /// - Parameters:
+    ///   - size: The size of the font before scaling
+    ///   - textStyle: The text style of the font (Used to determine how it scales)
+    ///   - weight: The weight of the required font
+    /// - Returns: A system font matching the above criteria
+    @available(iOS 11.0, *)
+    static func dynamicSystemFont(ofSize size: CGFloat, withTextStyle textStyle: UIFont.TextStyle, weight: UIFont.Weight = .regular) -> UIFont {
+        
+        let baseFont = UIFont.systemFont(ofSize: size, weight: weight)
+        let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+        return fontMetrics.scaledFont(for: baseFont)
+    }
+    
+    /// Returns a dynamically scaled version of the font using the scaling of a particular font style
+    ///
+    /// This allows for scaling non-system fonts and customising the base font size for text styles
+    ///
+    /// - Parameter textStyle: The text style to use to scale the returned font
+    @available(iOS 11.0, *)
+    func dynamic(with textStyle: UIFont.TextStyle) -> UIFont {
+        let fontMetrics = UIFontMetrics(forTextStyle: textStyle)
+        return fontMetrics.scaledFont(for: self)
+    }
 	
 	/// Creates a font for a defined text style with the font size scaled by a proportion and with given symbolic traits applied
 	///
