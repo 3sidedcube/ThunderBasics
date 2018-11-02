@@ -39,7 +39,7 @@ class ToastOperation: Operation {
             return
         }
             
-        let finishSemaphore = DispatchSemaphore(value: 1)
+        let finishSemaphore = DispatchSemaphore(value: 0)
         
         OperationQueue.main.addOperation { [weak self] in
             guard let self = self else { return }
