@@ -16,7 +16,7 @@ import UIKit
 public final class ToastNotificationController {
 
     /// A shared instance of `ToastNotificationController` responsible for displaying toasts
-    public static let shared = SingleRequestLocationManager()
+    public static let shared = ToastNotificationController()
     
     private init() {
         
