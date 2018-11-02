@@ -27,7 +27,7 @@
 		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
+		B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* LoadingButton.swift */; };
 		B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */; };
 		B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */; };
 		B13779302029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */; };
@@ -50,7 +50,7 @@
 		B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */; };
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */; };
-		B19C53371D8B458B00B30A35 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
 		B1B6CF731C4E44FC00CDC978 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF6F1C4E44FC00CDC978 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF741C4E44FC00CDC978 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF701C4E44FC00CDC978 /* UIImage+ImageEffects.m */; };
 		B1B6CF751C4E44FC00CDC978 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF711C4E44FC00CDC978 /* UIImage+Resize.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,11 +63,9 @@
 		B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */; };
 		B1B6CF851C4E473B00CDC978 /* UIColor-Expanded.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */; };
-		B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1B6CF8C1C4E47DB00CDC978 /* MDCHUDActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */; };
 		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
-		B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */; };
+		B1B6CFA81C4E5BC300CDC978 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
@@ -77,6 +75,7 @@
 		B1E3C5DD1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */; };
 		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */; };
+		B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -108,7 +107,7 @@
 		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCCoreSpotlightIndexItem.h; sourceTree = "<group>"; };
-		B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCLoadingButton.swift; sourceTree = "<group>"; };
+		B12BD5DF1C48052000D07A58 /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Fitting.swift"; sourceTree = "<group>"; };
 		B13779312029F7EF006FE6D5 /* JSONSerialization+FromFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONSerialization+FromFile.swift"; sourceTree = "<group>"; };
@@ -138,11 +137,9 @@
 		B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Pop.m"; sourceTree = "<group>"; };
 		B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
-		B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCHUDActivityView.h; sourceTree = "<group>"; };
-		B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCHUDActivityView.m; sourceTree = "<group>"; };
 		B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddedProperties.h"; sourceTree = "<group>"; };
 		B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddedProperties.m"; sourceTree = "<group>"; };
-		B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
+		B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
 		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
@@ -151,6 +148,7 @@
 		B1E3C5DB1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCSingleRequestLocationManager.m; sourceTree = "<group>"; };
 		B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TSCLabel.h"; sourceTree = "<group>"; };
 		B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TSCLabel.m"; sourceTree = "<group>"; };
+		B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDActivityView.swift; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,10 +259,9 @@
 		B12BD5DE1C48043600D07A58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B1B6CF871C4E47DB00CDC978 /* MDCHUDActivityView.h */,
-				B1B6CF881C4E47DB00CDC978 /* MDCHUDActivityView.m */,
-				B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */,
-				B1B6CFA71C4E5BC300CDC978 /* TSCDesignableView.swift */,
+				B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */,
+				B12BD5DF1C48052000D07A58 /* LoadingButton.swift */,
+				B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
 				B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */,
 				B1E3C5DC1B626DE5005CC1C1 /* TSCSingleRequestLocationManager.h in Headers */,
-				B1B6CF8B1C4E47DB00CDC978 /* MDCHUDActivityView.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */,
 				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
@@ -631,7 +627,7 @@
 				B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */,
 				B13779302029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */,
-				B19C53371D8B458B00B30A35 /* TSCDesignableView.swift in Sources */,
+				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
 				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
 				B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */,
@@ -648,10 +644,11 @@
 				49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */,
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				49CF13371AB6D8FC00AA5971 /* TSCToast.m in Sources */,
-				B1B6CFA81C4E5BC300CDC978 /* TSCDesignableView.swift in Sources */,
+				B1B6CFA81C4E5BC300CDC978 /* DesignableView.swift in Sources */,
 				B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */,
 				49CF133B1AB6D8FC00AA5971 /* TSCToastView.m in Sources */,
 				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
+				B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */,
 				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
@@ -668,13 +665,12 @@
 				B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */,
 				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
-				B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */,
+				B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */,
 				B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */,
 				B1B6CF801C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m in Sources */,
 				B152AC501F20BF020079372B /* DateHelpers.swift in Sources */,
 				49CF133D1AB6D8FC00AA5971 /* TSCToastViewController.m in Sources */,
 				B1B6CF821C4E473B00CDC978 /* ImageColorAnalyzer.m in Sources */,
-				B1B6CF8C1C4E47DB00CDC978 /* MDCHUDActivityView.m in Sources */,
 				B1B6CF741C4E44FC00CDC978 /* UIImage+ImageEffects.m in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
 				B1B6CF761C4E44FC00CDC978 /* UIImage+Resize.m in Sources */,
