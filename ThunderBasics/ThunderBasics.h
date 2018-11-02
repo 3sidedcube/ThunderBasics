@@ -18,7 +18,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 
 // Main
 #import <ThunderBasics/TSCObject.h>
-#import <ThunderBasics/TSCSingleRequestLocationManager.h>
 
 // Categories
 #import <ThunderBasics/UIColor+TSCColor.h>
