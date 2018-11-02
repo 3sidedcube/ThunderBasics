@@ -30,9 +30,7 @@ public final class SingleRequestLocationManager: NSObject {
     public static let shared = SingleRequestLocationManager()
     
     fileprivate(set) lazy var locationManager: CLLocationManager = {
-        let _locationManager = CLLocationManager()
-        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        return _locationManager
+        return CLLocationManager()
     }()
     
     fileprivate(set) lazy var log: OSLog = {
@@ -51,12 +49,9 @@ public final class SingleRequestLocationManager: NSObject {
     ///   - authorization: The authorization method for the request. Defines whether the app can use location services in the background or not
     ///   - accuracy: The accuracy of the location request
     ///   - completion: A closure to be called when the manager has found or failed to find the current location
-    public func requestCurrentLocation(with authorization: Authorization = .whenInUse, accuracy: CLLocationAccuracy?, _ completion: @escaping LocationRequestCompletion) {
+    public func requestCurrentLocationWith(authorization: Authorization = .whenInUse, accuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters, _ completion: @escaping LocationRequestCompletion) {
         
-        if let accuracy = accuracy {
-            locationManager.desiredAccuracy = accuracy
-        }
-        
+        locationManager.desiredAccuracy = accuracy
         locationManager.delegate = self
         completionHandlers.append(completion)
         
