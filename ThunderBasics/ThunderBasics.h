@@ -37,12 +37,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/UIColor-Expanded.h>
 #import <ThunderBasics/ImageColorAnalyzer.h>
 
-//Toasts
-#import <ThunderBasics/TSCToast.h>
-#import <ThunderBasics/TSCToastView.h>
-#import <ThunderBasics/TSCToastNotificationController.h>
-#import <ThunderBasics/TSCToastViewController.h>
-
 //Controllers
 #import <ThunderBasics/TSCContactsController.h>
 #import <ThunderBasics/TSCiCloudController.h>
