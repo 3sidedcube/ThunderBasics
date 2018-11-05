@@ -25,9 +25,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/UIView+TSCView.h>
 #import <ThunderBasics/UILabel+TSCLabel.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
-#import <ThunderBasics/UIImage+TSCImage.h>
-#import <ThunderBasics/UIImage+Resize.h>
-#import <ThunderBasics/UIImage+ImageEffects.h>
 #import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
 #import <ThunderBasics/UIWindow+VisibleViewController.h>
 #import <ThunderBasics/UIViewController+Dismiss.h>
@@ -35,7 +32,6 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/UIView+Pop.h>
 #import <ThunderBasics/CAGradientLayer+AutoGradient.h>
 #import <ThunderBasics/UIColor-Expanded.h>
-#import <ThunderBasics/ImageColorAnalyzer.h>
 
 //Controllers
 #import <ThunderBasics/TSCContactsController.h>
