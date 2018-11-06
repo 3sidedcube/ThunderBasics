@@ -33,6 +33,8 @@
 		B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */; };
 		B146C3E22191CB2400A1DBCD /* UIWindow+VisibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3E12191CB2400A1DBCD /* UIWindow+VisibleViewController.swift */; };
 		B146C3E42191D36A00A1DBCD /* UIViewController+DismissAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3E32191D36A00A1DBCD /* UIViewController+DismissAnimated.swift */; };
+		B146C3F12191E15A00A1DBCD /* UITabBarController+EasyInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3F02191E15A00A1DBCD /* UITabBarController+EasyInit.swift */; };
+		B146C3F32191E47600A1DBCD /* NSDateFormatter+Strftime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,8 +55,6 @@
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
-		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
 		B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */; };
 		B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */; };
 		B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */; };
@@ -71,8 +71,6 @@
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCC19C8325D004BD339 /* TSCObject.m */; };
-		C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +97,8 @@
 		B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		B146C3E12191CB2400A1DBCD /* UIWindow+VisibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+VisibleViewController.swift"; sourceTree = "<group>"; };
 		B146C3E32191D36A00A1DBCD /* UIViewController+DismissAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissAnimated.swift"; sourceTree = "<group>"; };
+		B146C3F02191E15A00A1DBCD /* UITabBarController+EasyInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+EasyInit.swift"; sourceTree = "<group>"; };
+		B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Strftime.swift"; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		B16234881C91F5A0001669BA /* NSColor+TSCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TSCColor.h"; sourceTree = "<group>"; };
@@ -114,8 +114,6 @@
 		B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
 		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
-		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
-		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
 		B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDActivityView.swift; sourceTree = "<group>"; };
 		B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlightIndexable.swift; sourceTree = "<group>"; };
 		B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRequestLocationManager.swift; sourceTree = "<group>"; };
@@ -135,8 +133,6 @@
 		C272EFB919C8325D004BD339 /* ThunderBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasics.h; sourceTree = "<group>"; };
 		C272EFCB19C8325D004BD339 /* TSCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCObject.h; sourceTree = "<group>"; };
 		C272EFCC19C8325D004BD339 /* TSCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObject.m; sourceTree = "<group>"; };
-		C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+TSCTabBarController.h"; sourceTree = "<group>"; };
-		C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+TSCTabBarController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,8 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				B152AC4F1F20BF020079372B /* DateHelpers.swift */,
-				B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */,
-				B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */,
+				B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */,
 			);
 			name = "Date and Time";
 			sourceTree = "<group>";
@@ -310,8 +305,7 @@
 				B11063B31F41ABC6003E5814 /* Navigation.swift */,
 				B146C3E12191CB2400A1DBCD /* UIWindow+VisibleViewController.swift */,
 				B146C3E32191D36A00A1DBCD /* UIViewController+DismissAnimated.swift */,
-				C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */,
-				C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */,
+				B146C3F02191E15A00A1DBCD /* UITabBarController+EasyInit.swift */,
 			);
 			name = "View Controllers and Windows";
 			sourceTree = "<group>";
@@ -428,14 +422,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
-				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */,
 				49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */,
 				49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */,
 				B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */,
-				B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +580,6 @@
 				B1E6FC30218C5D3600971DC3 /* Toast.swift in Sources */,
 				B13779322029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
 				B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */,
-				C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */,
 				B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */,
 				B1E6FC34218C65B300971DC3 /* ToastViewController.swift in Sources */,
 				B146C3BC219071F700A1DBCD /* UIView+Pop.swift in Sources */,
@@ -602,8 +593,8 @@
 				B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */,
 				B146C3C021908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift in Sources */,
 				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
+				B146C3F12191E15A00A1DBCD /* UITabBarController+EasyInit.swift in Sources */,
 				B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
-				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */,
 				B146C3B4219055BB00A1DBCD /* UIImage+RoundedCorners.swift in Sources */,
 				B146C3BE21908A6700A1DBCD /* UILabel+SizeToFit.swift in Sources */,
@@ -616,6 +607,7 @@
 				B146C3B62190570C00A1DBCD /* UIImage+Resize.swift in Sources */,
 				B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */,
 				B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */,
+				B146C3F32191E47600A1DBCD /* NSDateFormatter+Strftime.swift in Sources */,
 				B146C3E42191D36A00A1DBCD /* UIViewController+DismissAnimated.swift in Sources */,
 				B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */,
 				B146C3BA21906B8A00A1DBCD /* UIView+Frame.swift in Sources */,
