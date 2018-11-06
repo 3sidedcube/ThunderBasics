@@ -13,8 +13,6 @@
 		49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13251AB6D88A00AA5971 /* TSCContactsController.m */; };
 		49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13261AB6D88A00AA5971 /* TSCPerson.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13271AB6D88A00AA5971 /* TSCPerson.m */; };
-		49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* LoadingButton.swift */; };
 		B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */; };
@@ -25,6 +23,14 @@
 		B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B121904B4E00A1DBCD /* UIImage+Conversion.swift */; };
 		B146C3B4219055BB00A1DBCD /* UIImage+RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B3219055BB00A1DBCD /* UIImage+RoundedCorners.swift */; };
 		B146C3B62190570C00A1DBCD /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B52190570C00A1DBCD /* UIImage+Resize.swift */; };
+		B146C3BA21906B8A00A1DBCD /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */; };
+		B146C3BC219071F700A1DBCD /* UIView+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3BB219071F700A1DBCD /* UIView+Pop.swift */; };
+		B146C3BE21908A6700A1DBCD /* UILabel+SizeToFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */; };
+		B146C3C021908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */; };
+		B146C3C221908FB900A1DBCD /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
+		B146C3CE2190978900A1DBCD /* UIColorHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */; };
+		B146C3CF2190978F00A1DBCD /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
+		B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,12 +49,6 @@
 		B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */ = {isa = PBXBuildFile; fileRef = B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
-		B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1B6CF801C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */; };
-		B1B6CF831C4E473B00CDC978 /* UIView+Pop.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */; };
-		B1B6CF851C4E473B00CDC978 /* UIColor-Expanded.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */; };
 		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
@@ -57,8 +57,6 @@
 		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
 		B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */; };
-		B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */; };
 		B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */; };
 		B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */; };
 		B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */; };
@@ -75,8 +73,6 @@
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCC19C8325D004BD339 /* TSCObject.m */; };
-		C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */; };
 		C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */; };
 /* End PBXBuildFile section */
@@ -88,8 +84,6 @@
 		49CF13251AB6D88A00AA5971 /* TSCContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCContactsController.m; sourceTree = "<group>"; };
 		49CF13261AB6D88A00AA5971 /* TSCPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCPerson.h; sourceTree = "<group>"; };
 		49CF13271AB6D88A00AA5971 /* TSCPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCPerson.m; sourceTree = "<group>"; };
-		49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TSCView.h"; sourceTree = "<group>"; };
-		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		B12BD5DF1C48052000D07A58 /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
@@ -98,6 +92,13 @@
 		B146C3B121904B4E00A1DBCD /* UIImage+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Conversion.swift"; sourceTree = "<group>"; };
 		B146C3B3219055BB00A1DBCD /* UIImage+RoundedCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+RoundedCorners.swift"; sourceTree = "<group>"; };
 		B146C3B52190570C00A1DBCD /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		B146C3BB219071F700A1DBCD /* UIView+Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pop.swift"; sourceTree = "<group>"; };
+		B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+SizeToFit.swift"; sourceTree = "<group>"; };
+		B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+AutoGradient.swift"; sourceTree = "<group>"; };
+		B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexString.swift"; sourceTree = "<group>"; };
+		B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexStringTests.swift; sourceTree = "<group>"; };
+		B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		B16234881C91F5A0001669BA /* NSColor+TSCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TSCColor.h"; sourceTree = "<group>"; };
@@ -112,12 +113,6 @@
 		B18AEB331BCFB81E00BEB225 /* UIWindow+VisibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VisibleViewController.m"; sourceTree = "<group>"; };
 		B18AEB361BCFC56A00BEB225 /* UIViewController+Dismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Dismiss.h"; sourceTree = "<group>"; };
 		B18AEB371BCFC56A00BEB225 /* UIViewController+Dismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Dismiss.m"; sourceTree = "<group>"; };
-		B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+AutoGradient.h"; sourceTree = "<group>"; };
-		B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+AutoGradient.m"; sourceTree = "<group>"; };
-		B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Pop.h"; sourceTree = "<group>"; };
-		B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Pop.m"; sourceTree = "<group>"; };
-		B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
-		B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddedProperties.h"; sourceTree = "<group>"; };
 		B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddedProperties.m"; sourceTree = "<group>"; };
 		B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -125,8 +120,6 @@
 		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B1DEA8DB1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+TSCDateFormatter.h"; sourceTree = "<group>"; };
 		B1DEA8DC1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TSCDateFormatter.m"; sourceTree = "<group>"; };
-		B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TSCLabel.h"; sourceTree = "<group>"; };
-		B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TSCLabel.m"; sourceTree = "<group>"; };
 		B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDActivityView.swift; sourceTree = "<group>"; };
 		B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlightIndexable.swift; sourceTree = "<group>"; };
 		B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRequestLocationManager.swift; sourceTree = "<group>"; };
@@ -146,8 +139,6 @@
 		C272EFB919C8325D004BD339 /* ThunderBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasics.h; sourceTree = "<group>"; };
 		C272EFCB19C8325D004BD339 /* TSCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCObject.h; sourceTree = "<group>"; };
 		C272EFCC19C8325D004BD339 /* TSCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObject.m; sourceTree = "<group>"; };
-		C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TSCColor.h"; sourceTree = "<group>"; };
-		C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TSCColor.m"; sourceTree = "<group>"; };
 		C272EFD319C8325D004BD339 /* UITabBarController+TSCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+TSCTabBarController.h"; sourceTree = "<group>"; };
 		C272EFD419C8325D004BD339 /* UITabBarController+TSCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+TSCTabBarController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,17 +262,13 @@
 		B1B6CF931C4E482000CDC978 /* Views and Layers */ = {
 			isa = PBXGroup;
 			children = (
+				B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */,
+				B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */,
+				B146C3BB219071F700A1DBCD /* UIView+Pop.swift */,
+				B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */,
+				B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */,
 				B16234C61C91F66D001669BA /* NSView+TSCView.h */,
 				B16234C71C91F66D001669BA /* NSView+TSCView.m */,
-				B1B6CF771C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h */,
-				B1B6CF781C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m */,
-				B1B6CF7B1C4E473B00CDC978 /* UIView+Pop.h */,
-				B1B6CF7C1C4E473B00CDC978 /* UIView+Pop.m */,
-				49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */,
-				49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */,
-				B1E3C5E21B6287B9005CC1C1 /* UILabel+TSCLabel.h */,
-				B1E3C5E31B6287B9005CC1C1 /* UILabel+TSCLabel.m */,
-				B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */,
 			);
 			name = "Views and Layers";
 			sourceTree = "<group>";
@@ -291,10 +278,8 @@
 			children = (
 				B16234881C91F5A0001669BA /* NSColor+TSCColor.h */,
 				B16234891C91F5A0001669BA /* NSColor+TSCColor.m */,
-				B1B6CF7D1C4E473B00CDC978 /* UIColor-Expanded.h */,
-				B1B6CF7E1C4E473B00CDC978 /* UIColor-Expanded.m */,
-				C272EFD119C8325D004BD339 /* UIColor+TSCColor.h */,
-				C272EFD219C8325D004BD339 /* UIColor+TSCColor.m */,
+				B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */,
+				B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */,
 				B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */,
 			);
 			name = Colours;
@@ -398,6 +383,7 @@
 			children = (
 				C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */,
 				C272EF9119C831AC004BD339 /* Supporting Files */,
+				B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */,
 			);
 			path = ThunderBasicsTests;
 			sourceTree = "<group>";
@@ -448,22 +434,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
-				B1E3C5E41B6287B9005CC1C1 /* UILabel+TSCLabel.h in Headers */,
 				C272F00219C8325D004BD339 /* UITabBarController+TSCTabBarController.h in Headers */,
 				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
-				B1B6CF7F1C4E473B00CDC978 /* CAGradientLayer+AutoGradient.h in Headers */,
 				B18AEB341BCFB81E00BEB225 /* UIWindow+VisibleViewController.h in Headers */,
 				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
-				49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */,
 				49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */,
-				B1B6CF831C4E473B00CDC978 /* UIView+Pop.h in Headers */,
-				C272F00019C8325D004BD339 /* UIColor+TSCColor.h in Headers */,
 				49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */,
 				49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */,
 				B18AEB381BCFC56A00BEB225 /* UIViewController+Dismiss.h in Headers */,
 				B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */,
 				B1DEA8DD1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.h in Headers */,
-				B1B6CF851C4E473B00CDC978 /* UIColor-Expanded.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,38 +599,38 @@
 				C272F00319C8325D004BD339 /* UITabBarController+TSCTabBarController.m in Sources */,
 				B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */,
 				B1E6FC34218C65B300971DC3 /* ToastViewController.swift in Sources */,
+				B146C3BC219071F700A1DBCD /* UIView+Pop.swift in Sources */,
 				49CF13221AB6D87900AA5971 /* TSCiCloudController.m in Sources */,
 				B1E6FC47218C70FE00971DC3 /* UIImage+ColorAnalysis.swift in Sources */,
 				B1B6CFA81C4E5BC300CDC978 /* DesignableView.swift in Sources */,
 				B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */,
-				49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */,
 				B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */,
 				B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */,
 				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
-				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
+				B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */,
+				B146C3C021908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift in Sources */,
 				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
 				B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
 				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */,
 				B146C3B4219055BB00A1DBCD /* UIImage+RoundedCorners.swift in Sources */,
-				B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */,
+				B146C3BE21908A6700A1DBCD /* UILabel+SizeToFit.swift in Sources */,
 				C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */,
 				B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				B18AEB351BCFB81E00BEB225 /* UIWindow+VisibleViewController.m in Sources */,
 				B18AEB391BCFC56A00BEB225 /* UIViewController+Dismiss.m in Sources */,
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */,
-				B1E3C5E51B6287B9005CC1C1 /* UILabel+TSCLabel.m in Sources */,
-				C272F00119C8325D004BD339 /* UIColor+TSCColor.m in Sources */,
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
 				B1E6FC32218C5D9A00971DC3 /* ToastView.swift in Sources */,
 				B146C3B62190570C00A1DBCD /* UIImage+Resize.swift in Sources */,
 				B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */,
 				B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */,
-				B1B6CF801C4E473B00CDC978 /* CAGradientLayer+AutoGradient.m in Sources */,
 				B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */,
+				B146C3BA21906B8A00A1DBCD /* UIView+Frame.swift in Sources */,
 				B152AC501F20BF020079372B /* DateHelpers.swift in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
+				B146C3C221908FB900A1DBCD /* UIColor+HexString.swift in Sources */,
 				B1E6FC36218C6BC000971DC3 /* ToastNotificationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -659,6 +639,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B146C3CF2190978F00A1DBCD /* UIColor+HexString.swift in Sources */,
+				B146C3CE2190978900A1DBCD /* UIColorHexStringTests.swift in Sources */,
 				C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
