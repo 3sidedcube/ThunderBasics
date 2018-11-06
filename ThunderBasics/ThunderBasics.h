@@ -20,14 +20,9 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 #import <ThunderBasics/TSCObject.h>
 
 // Categories
-#import <ThunderBasics/UIColor+TSCColor.h>
-#import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/UITabBarController+TSCTabBarController.h>
 #import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
-#import <ThunderBasics/UIWindow+VisibleViewController.h>
-#import <ThunderBasics/UIViewController+Dismiss.h>
 #import <ThunderBasics/NSObject+AddedProperties.h>
-#import <ThunderBasics/UIColor-Expanded.h>
 
 //Controllers
 #import <ThunderBasics/TSCContactsController.h>

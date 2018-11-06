@@ -103,7 +103,7 @@ public class ToastView: UIView {
         coverWindow?.windowLevel = UIWindow.Level.statusBar + 1
         
         let toastViewController = ToastViewController()
-        toastViewController.statusBarStyle = window?.visibleViewController.preferredStatusBarStyle ?? .default
+        toastViewController.statusBarStyle = window?.visibleViewController?.preferredStatusBarStyle ?? .default
         
         coverWindow?.rootViewController = toastViewController
         coverWindow?.backgroundColor = .clear

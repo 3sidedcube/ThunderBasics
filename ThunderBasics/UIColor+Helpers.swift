@@ -106,7 +106,7 @@ extension UIColor {
         let green = CGFloat((hex >> 8) & 0xFF)
         let blue = CGFloat((hex) & 0xFF)
         
-        self.init(red: red, green: green, blue: blue, alpha: alpha)        
+        self.init(red: red, green: green, blue: blue, alpha: 1.0)        
     }
     
     /// The RGB Hex int of the colour
@@ -333,18 +333,6 @@ extension UIColor {
     var hexString: String? {
         guard let rgbHex = rgbHex else { return nil }
         return String(format: "#%06x", rgbHex)
-    }
-    
-    /// Returns the closest color name to the color
-    var closestColorName: String? {
-        
-        guard let rgbHex = rgbHex else { return nil }
-        let rInt = (rgbHex >> 16) & 0x0ff
-        let gInt = (rgbHex >> 8) & 0x0ff
-        let bInt = (rgbHex >> 0) & 0x0ff
-        
-        var bestScore: CGFloat = .greatestFiniteMagnitude
-        
     }
 }
 

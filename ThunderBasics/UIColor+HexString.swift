@@ -29,7 +29,7 @@ extension UIColor {
     /// Allocates a UIColor from a given hex string.
     ///
     /// - Parameter hexString: The hex string to return a `UIColor` for
-    public convenience init?(hexString: String) {
+    @objc public convenience init?(hexString: String) {
 
         let trimmedString = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "#"))
         

@@ -6,7 +6,7 @@
 //  Copyright © 2018 threesidedcube. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - A set of helpful extensions to UIColor for comparison
 extension UIColor {
