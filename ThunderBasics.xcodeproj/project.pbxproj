@@ -39,12 +39,10 @@
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234C71C91F66D001669BA /* NSView+TSCView.m */; };
-		B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCC19C8325D004BD339 /* TSCObject.m */; };
 		B16234CF1C91F6CB001669BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234891C91F5A0001669BA /* NSColor+TSCColor.m */; };
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234881C91F5A0001669BA /* NSColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234EA1C91FA1E001669BA /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EB1C91FA2A001669BA /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
@@ -69,8 +67,6 @@
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
 		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFCB19C8325D004BD339 /* TSCObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C272EFCC19C8325D004BD339 /* TSCObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,8 +127,6 @@
 		C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThunderBasicsTests.swift; sourceTree = "<group>"; };
 		C272EFB019C8325D004BD339 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C272EFB919C8325D004BD339 /* ThunderBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasics.h; sourceTree = "<group>"; };
-		C272EFCB19C8325D004BD339 /* TSCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCObject.h; sourceTree = "<group>"; };
-		C272EFCC19C8325D004BD339 /* TSCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,7 +345,6 @@
 				49CF132D1AB6D89E00AA5971 /* Toast Notifications */,
 				49CF13401AB6DB6300AA5971 /* Helpers */,
 				C272F00519C832DD004BD339 /* Maps */,
-				C272F00419C832B6004BD339 /* Objects */,
 				49CF13531AB6E3DA00AA5971 /* Notifications */,
 				C272EF8719C831AB004BD339 /* Supporting Files */,
 			);
@@ -384,15 +377,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C272F00419C832B6004BD339 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				C272EFCB19C8325D004BD339 /* TSCObject.h */,
-				C272EFCC19C8325D004BD339 /* TSCObject.m */,
-			);
-			name = Objects;
-			sourceTree = "<group>";
-		};
 		C272F00519C832DD004BD339 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,7 +394,6 @@
 			files = (
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
 				B16234EB1C91FA2A001669BA /* (null) in Headers */,
-				B16234EA1C91FA1E001669BA /* TSCObject.h in Headers */,
 				B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */,
 				B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */,
 				B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */,
@@ -423,7 +406,6 @@
 			files = (
 				C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */,
 				B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */,
-				C272EFFA19C8325D004BD339 /* TSCObject.h in Headers */,
 				49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */,
 				49CF13211AB6D87900AA5971 /* TSCiCloudController.h in Headers */,
 				49CF13281AB6D88A00AA5971 /* TSCContactsController.h in Headers */,
@@ -567,7 +549,6 @@
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
 				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
-				B16234CE1C91F6C3001669BA /* TSCObject.m in Sources */,
 				B16234CF1C91F6CB001669BA /* (null) in Sources */,
 				B1E6FC2E218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
 			);
@@ -598,7 +579,6 @@
 				B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */,
 				B146C3B4219055BB00A1DBCD /* UIImage+RoundedCorners.swift in Sources */,
 				B146C3BE21908A6700A1DBCD /* UILabel+SizeToFit.swift in Sources */,
-				C272EFFB19C8325D004BD339 /* TSCObject.m in Sources */,
 				B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */,
