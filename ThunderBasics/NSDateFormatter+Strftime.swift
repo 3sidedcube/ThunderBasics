@@ -17,7 +17,7 @@ extension DateFormatter {
     ///   - strfttimeFormat: The strftime format to return the string in
     ///   - bufferSize: The buffer is used to create a char array for the string returned from the strftime method (Defaults to 256)
     /// - Returns: The formatted string
-    class func string(from date: Date, strfttimeFormat: String, bufferSize: Int = 256) -> String? {
+    public class func string(from date: Date, strfttimeFormat: String, bufferSize: Int = 256) -> String? {
         
         var t_time = time_t(CFAbsoluteTimeGetCurrent() + NSTimeIntervalSince1970)
         var timeStruct = tm()
