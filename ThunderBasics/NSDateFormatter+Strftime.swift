@@ -19,7 +19,7 @@ extension DateFormatter {
     /// - Returns: The formatted string
     public class func string(from date: Date, strfttimeFormat: String, bufferSize: Int = 256) -> String? {
         
-        var t_time = time_t(CFAbsoluteTimeGetCurrent() + NSTimeIntervalSince1970)
+        var t_time = time_t(date.timeIntervalSince1970)
         var timeStruct = tm()
         localtime_r(&t_time, &timeStruct)
         var buffer = [Int8](repeating: 0, count: bufferSize)
