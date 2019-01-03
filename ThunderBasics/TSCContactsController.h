@@ -57,6 +57,13 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
 - (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController;
 
 /**
+ Presents a picker to select a contact with a completion
+ @param completion The completion block to be fired once a user has selected a contact or cancelled
+ @param presentingViewController The view controller that wishes to present the picker
+ */
+- (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController statusBarStyle:(UIStatusBarStyle)statusBarStyle;
+
+/**
  Generates a `TSCPerson` object for the given identifier
  @param identifier The `NSString` identifier of the `CNContact` to convert into a `TSCPerson`
  @return `TSCPerson` filled with contact information
@@ -97,6 +104,14 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
  @param viewController The view controller that wishes to present the picker
  **/
 - (void)presentPersonWithRecordIdentifier:(NSString *)identifier inViewController:(UIViewController *)viewController;
+
+/**
+ Presents an address book view for a record id
+ @param identifier The identifier for the person that needs to be displayed to the user
+ @param viewController The view controller that wishes to present the picker
+ @param statusBarStyle The status bar style to apply to the person view controller
+ **/
+- (void)presentPersonWithRecordIdentifier:(NSString *)identifier inViewController:(UIViewController *)viewController statusBarStyle:(UIStatusBarStyle)statusBarStyle;
 
 
 /**
