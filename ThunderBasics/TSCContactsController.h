@@ -60,6 +60,7 @@ typedef void (^TSCAllContactsCompletion)(NSArray <TSCPerson *> *people, NSError 
  Presents a picker to select a contact with a completion
  @param completion The completion block to be fired once a user has selected a contact or cancelled
  @param presentingViewController The view controller that wishes to present the picker
+ @param statusBarStyle The status bar style to use for the presented view controller
  */
 - (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController statusBarStyle:(UIStatusBarStyle)statusBarStyle;
 
