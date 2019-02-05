@@ -25,6 +25,8 @@
 		49CF13441AB6DB8500AA5971 /* UIImage+TSCImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */; };
 		49CF13471AB6DE9900AA5971 /* UIView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF13481AB6DE9900AA5971 /* UIView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */; };
+		980AE1D42208968800540E8E /* Locale+ISO639_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE1D32208968800540E8E /* Locale+ISO639_2.swift */; };
+		980AE1D6220896A700540E8E /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980AE1D5220896A700540E8E /* iso639_2.bundle */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B120905D1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B12BD5E01C48052000D07A58 /* TSCLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */; };
@@ -106,6 +108,8 @@
 		49CF13421AB6DB8500AA5971 /* UIImage+TSCImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TSCImage.m"; sourceTree = "<group>"; };
 		49CF13451AB6DE9900AA5971 /* UIView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TSCView.h"; sourceTree = "<group>"; };
 		49CF13461AB6DE9900AA5971 /* UIView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TSCView.m"; sourceTree = "<group>"; };
+		980AE1D32208968800540E8E /* Locale+ISO639_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2.swift"; sourceTree = "<group>"; };
+		980AE1D5220896A700540E8E /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		B120905C1BBABEAF00AAB2E9 /* TSCCoreSpotlightIndexItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCCoreSpotlightIndexItem.h; sourceTree = "<group>"; };
 		B12BD5DF1C48052000D07A58 /* TSCLoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCLoadingButton.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */,
 				B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */,
 				B13779312029F7EF006FE6D5 /* JSONSerialization+FromFile.swift */,
+				980AE1D22208965A00540E8E /* Locale Language Codes */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -248,6 +253,15 @@
 				B15C0E231D3628DC00F2C6E1 /* Notifier.swift */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		980AE1D22208965A00540E8E /* Locale Language Codes */ = {
+			isa = PBXGroup;
+			children = (
+				980AE1D32208968800540E8E /* Locale+ISO639_2.swift */,
+				980AE1D5220896A700540E8E /* iso639_2.bundle */,
+			);
+			path = "Locale Language Codes";
 			sourceTree = "<group>";
 		};
 		B120905B1BBABE9500AAB2E9 /* Core Spotlighting */ = {
@@ -611,6 +625,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				980AE1D6220896A700540E8E /* iso639_2.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +671,7 @@
 				49CF13391AB6D8FC00AA5971 /* TSCToastNotificationController.m in Sources */,
 				B1B6CF841C4E473B00CDC978 /* UIView+Pop.m in Sources */,
 				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
+				980AE1D42208968800540E8E /* Locale+ISO639_2.swift in Sources */,
 				B1DEA8DE1ABC579C008FBF59 /* NSDateFormatter+TSCDateFormatter.m in Sources */,
 				B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */,
 				B1B6CF861C4E473B00CDC978 /* UIColor-Expanded.m in Sources */,
