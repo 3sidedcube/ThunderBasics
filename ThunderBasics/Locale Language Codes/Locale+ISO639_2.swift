@@ -20,7 +20,7 @@ enum ISO639_2_Error: LocalizedError {
 extension Locale {
     
     /// Provides the mapping from ISO639-1 to ISO639-2 language codes, so Locale language codes can be converted.
-    private static var iso639_2Dictionary: [String: String]? = {
+    public static var iso639_2Dictionary: [String: String]? = {
         guard let bundleURL = Bundle(identifier: "com.threesidedcube.ThunderBasics")?.url(forResource: "iso639_2", withExtension: "bundle") else {
             return nil
         }
@@ -38,14 +38,15 @@ extension Locale {
     
     /// Determines the ISO639-2 language code for the locale.
     ///
+    /// - Parameter mapping: The mapping dictionary that should be used. This should only be overriden from the default while in testing.
     /// - Returns: The ISO639-2 language code, if one is available.
     /// - Throws: An ISO639_2_Error, if the language code is unavailable.
-    public func iso639_2_languageCode() throws -> String {
+    public func iso639_2_languageCode(from mapping: [String: String]? = Locale.iso639_2Dictionary) throws -> String {
         guard let iso639_1_languageCode = self.languageCode else {
             throw ISO639_2_Error.NoBaseLanguageCode
         }
         
-        guard let iso639_2_languageCode = Locale.iso639_2Dictionary?[iso639_1_languageCode] else {
+        guard let iso639_2_languageCode = mapping?[iso639_1_languageCode] else {
             throw ISO639_2_Error.NoMatchingLanguageCode
         }
         
