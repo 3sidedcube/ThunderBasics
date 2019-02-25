@@ -52,7 +52,7 @@ extension UIImage {
         // Get the cropped image
         let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
         
-        // Ket's gorget about that we were drawing
+        // Let's forget that we were drawing
         UIGraphicsEndImageContext()
         
         return croppedImage
