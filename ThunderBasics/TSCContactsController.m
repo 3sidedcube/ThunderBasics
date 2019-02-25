@@ -9,6 +9,34 @@
 #import "TSCContactsController.h"
 #import "TSCPerson.h"
 
+@interface TSCContactPickerViewController : CNContactPickerViewController
+
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
+
+@end
+
+@implementation TSCContactPickerViewController
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return _statusBarStyle;
+}
+
+@end
+
+@interface TSCContactViewController : CNContactViewController
+
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
+
+@end
+
+@implementation TSCContactViewController
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return _statusBarStyle;
+}
+
+@end
+
 @interface TSCContactsController () <CNContactPickerDelegate>
 
 @property (nonatomic, strong) UINavigationController *presentedPersonViewController;
@@ -46,10 +74,16 @@ static TSCContactsController *sharedController = nil;
 
 - (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController
 {
+    [self presentPeoplePickerWithCompletion:completion inViewController:presentingViewController statusBarStyle:UIStatusBarStyleDefault];
+}
+
+- (void)presentPeoplePickerWithCompletion:(TSCPeoplePickerPersonSelectedCompletion)completion inViewController:(UIViewController *)presentingViewController statusBarStyle: (UIStatusBarStyle)statusBarStyle
+{
     self.TSCPeoplePickerPersonSelectedCompletion = completion;
     
-    CNContactPickerViewController *contactViewController = [CNContactPickerViewController new];
+    TSCContactPickerViewController *contactViewController = [TSCContactPickerViewController new];
     contactViewController.delegate = self;
+    contactViewController.statusBarStyle = statusBarStyle;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         
@@ -143,13 +177,19 @@ static TSCContactsController *sharedController = nil;
 
 - (CNContactViewController *)personViewControllerForRecordIdentifier:(NSString *)identifier
 {
-    CNContactViewController *contactViewController = [CNContactViewController viewControllerForContact:[self contactForLegacyIdentifier:identifier]];
+    TSCContactViewController *contactViewController = [TSCContactViewController viewControllerForContact:[self contactForLegacyIdentifier:identifier]];
     return contactViewController;
 }
 
 - (void)presentPersonWithRecordIdentifier:(NSString *)identifier inViewController:(UIViewController *)viewController
 {
-    UIViewController *view = [self personViewControllerForRecordIdentifier:identifier];
+    [self presentPersonWithRecordIdentifier:identifier inViewController:viewController statusBarStyle:UIStatusBarStyleDefault];
+}
+
+- (void)presentPersonWithRecordIdentifier:(NSString *)identifier inViewController:(UIViewController *)viewController statusBarStyle:(UIStatusBarStyle)statusBarStyle
+{
+    TSCContactViewController *view = (TSCContactViewController *)[self personViewControllerForRecordIdentifier:identifier];
+    view.statusBarStyle = statusBarStyle;
     view.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(handleDismissPeopleView:)];
     
     self.presentedPersonViewController = [[UINavigationController alloc] initWithRootViewController:view];
