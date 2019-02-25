@@ -67,15 +67,23 @@ public final class SingleRequestLocationManager: NSObject {
              (.authorizedWhenInUse, .whenInUse),
              (.authorizedAlways, .whenInUse):
             os_log("Location permissions valid, fetching location", log: log, type: .debug)
-            locationManager.requestLocation()
+            if #available(OSX 10.14, *) {
+                locationManager.requestLocation()
+            } else {
+                locationManager.startUpdatingLocation()
+            }
             // If we have when in use or not determined, but want always!
         case (.authorizedWhenInUse, .always),
              (.notDetermined, .always):
             os_log("Location permissions don't match, requesting always permissions", log: log, type: .debug)
+            #if os(iOS) || os(tvOS) || os(watchOS)
             locationManager.requestAlwaysAuthorization()
+            #endif
         case (.notDetermined, .whenInUse):
             os_log("Location permissions don't match, requesting when in use permissions", log: log, type: .debug)
+            #if os(iOS) || os(tvOS) || os(watchOS)
             locationManager.requestWhenInUseAuthorization()
+            #endif
         }
     }
     
@@ -122,7 +130,11 @@ extension SingleRequestLocationManager: CLLocationManagerDelegate {
                 return
             }
             os_log("Received change in location permissions, requesting location", log: log, type: .debug)
-            locationManager.requestLocation()
+            if #available(OSX 10.14, *) {
+                locationManager.requestLocation()
+            } else {
+                locationManager.startUpdatingLocation()
+            }
         case .denied, .restricted:
             os_log("User denied location permissions", log: log, type: .debug)
             callAllCompletionHandlersWith(
