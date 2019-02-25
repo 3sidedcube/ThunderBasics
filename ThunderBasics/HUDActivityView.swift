@@ -154,7 +154,9 @@ public class HUDActivityView: UIView {
     /// Shows the activity HUD in the centre of the provided view
     ///
     /// - Parameter view: The view to show the HUD in
-    private func show(in view: UIView) {
+    private func show(in view: UIView?) {
+        
+        guard let view = view else { return }
         
         view.addSubview(self)
         
@@ -186,7 +188,7 @@ public class HUDActivityView: UIView {
     ///   - view: The view that should present the loading HUD
     ///   - text: The text to display beneath the indicator
     ///   - style: The style of the HUD
-    public class func addHUDWith(identifier: String, to view: UIView, withText text: String? = nil, style: Style = .default) {
+    public class func addHUDWith(identifier: String, to view: UIView?, withText text: String? = nil, style: Style = .default) {
         
         let activityView = HUDActivityView(style: style, identifier: identifier, text: text)
         activityView.show(in: view)
@@ -208,8 +210,8 @@ public class HUDActivityView: UIView {
     /// - Parameters:
     ///   - identifier: The identifier of the activity view we want to finish.
     ///   - view: The view which the HUD is shown in.
-    public class func removeHUDWith(identifier: String, in view: UIView) {
-        view.HUDActivityViewWith(identifier: identifier)?.animateOut()
+    public class func removeHUDWith(identifier: String, in view: UIView?) {
+        view?.HUDActivityViewWith(identifier: identifier)?.animateOut()
     }
     
     private func animateOut() {
@@ -230,9 +232,9 @@ public class HUDActivityView: UIView {
     ///   - text: The text to replace the existing text with.
     ///   - identifier: The identifier of the activity view we want to update
     ///   - view: The view which contains the loading HUD
-    public class func updateText(_ text: String?, forHUDWithId identifier: String, in view: UIView) {
+    public class func updateText(_ text: String?, forHUDWithId identifier: String, in view: UIView?) {
     
-        guard let activityView = view.HUDActivityViewWith(identifier: identifier) else {
+        guard let activityView = view?.HUDActivityViewWith(identifier: identifier) else {
             return
         }
         
@@ -278,7 +280,7 @@ public class HUDActivityView: UIView {
     /// - Parameters:
     ///   - identifier: The identifier of the activity view that we want to remove the text from.
     ///   - view: The view which already contains a loading HUD.
-    public class func removeTextFromHUDWith(identifier: String, in view: UIView) {
+    public class func removeTextFromHUDWith(identifier: String, in view: UIView?) {
         updateText(nil, forHUDWithId: identifier, in: view)
     }
 }
