@@ -38,7 +38,7 @@ extension UIColor {
         return (red, green, blue, alpha)
     }
     
-    /// Returns the RGBA components of the colour
+    /// Returns the HSBA components of the colour
     public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)? {
         
         var hue: CGFloat = 0.0
