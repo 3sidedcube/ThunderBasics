@@ -1,6 +1,6 @@
 # Thunder Basics
 
-[![Build Status](https://travis-ci.org/3sidedcube/iOS-ThunderBasics.svg)](https://travis-ci.org/3sidedcube/iOS-ThunderBasics)
+[![Build Status](https://travis-ci.org/3sidedcube/iOS-ThunderBasics.svg)](https://travis-ci.org/3sidedcube/iOS-ThunderBasics) [![Swift 4.2](http://img.shields.io/badge/swift-4.2-brightgreen.svg)](https://swift.org/blog/swift-4-2-released/) [![Apache 2](https://img.shields.io/badge/license-Apache%202-brightgreen.svg)](LICENSE.md)
 
 Thunder Basics is a set of useful utilities for handling basic iOS development tasks.
 
