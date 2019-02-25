@@ -10,10 +10,12 @@ Setting up your app to use Thunder Basics is a simple and quick process. For now
 
 + Import ThunderBasics.xcproject into your project
 + Add ThunderBasics.framework to your Embedded Binaries.
-+ Wherever you want to use ThunderBasics use `@import ThunderBasics` or `import ThunderBasics` if you're using swift.
++ Wherever you want to use ThunderBasics use `import ThunderBasics` if you're using swift.
 
 #Code level documentation
+
 Documentation is available for the entire library in AppleDoc format. This is available in the framework itself or in the [Hosted Version](http://3sidedcube.github.io/iOS-ThunderBasics/)
 
 #License
+
 See [LICENSE.md](LICENSE.md)
