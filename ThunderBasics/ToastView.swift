@@ -115,9 +115,10 @@ public class ToastView: UIView {
         
         animator = UIDynamicAnimator(referenceView: containerView)
         
-        gravity = UIGravityBehavior(items: [self])
-        gravity?.gravityDirection = CGVector(dx: 0.0, dy: 1.0)
-        animator?.addBehavior(gravity!)
+        let _gravity = UIGravityBehavior(items: [self])
+        gravity = _gravity
+        _gravity.gravityDirection = CGVector(dx: 0.0, dy: 1.0)
+        animator?.addBehavior(_gravity)
         
         let elasticBehaviour = UIDynamicItemBehavior(items: [self])
         elasticBehaviour.elasticity = 0.3
@@ -140,6 +141,12 @@ public class ToastView: UIView {
         action?(self)
     }
     
+    /// The size that the image provided to the toast view will be rendered at. Defaults to 38x38pts.
+    public var imageSize: CGSize = CGSize(width: 38, height: 38)
+    
+    /// The amount of padding to add to the right of the image view when provided. Defaults to 12pts.
+    public var imageViewRightMargin: CGFloat = 12.0
+    
     private func layout() {
         
         var safeAreaInsets: UIEdgeInsets = .zero
@@ -156,9 +163,9 @@ public class ToastView: UIView {
         
         // If we have an image adjust how much room we have for the labels.
         if imageView.image != nil {
-            imageView.frame = CGRect(x: insets.left + safeAreaInsets.left, y: 0, width: 38, height: 38)
-            labelContainerFrame.origin.x += 12 + 38
-            labelContainerFrame.size.width -= 12 + 38
+            imageView.frame = CGRect(x: insets.left + safeAreaInsets.left, y: 0, width: imageSize.width, height: imageSize.height)
+            labelContainerFrame.origin.x += imageViewRightMargin + imageSize.width
+            labelContainerFrame.size.width -= imageViewRightMargin + imageSize.width
         }
         
         let titleSize = titleLabel.sizeThatFits(labelContainerFrame.size)
@@ -167,7 +174,9 @@ public class ToastView: UIView {
         let messageSize = messageLabel.sizeThatFits(labelContainerFrame.size)
         messageLabel.frame = CGRect(origin: labelContainerFrame.offsetBy(dx: 0, dy: titleLabel.frame.height).origin, size: messageSize)
         
-        frame = CGRect(x: 0, y: -40, width: frame.width, height: max(messageLabel.frame.maxY + insets.bottom, 44))
+        // Minimum height of 44pts
+        let height = max(messageLabel.frame.maxY + insets.bottom, 44)
+        frame = CGRect(x: 0, y: -height, width: frame.width, height: height)
         imageView.center.y = frame.height/2
     }
     
