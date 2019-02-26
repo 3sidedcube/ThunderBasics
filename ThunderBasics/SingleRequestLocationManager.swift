@@ -49,7 +49,7 @@ public final class SingleRequestLocationManager: NSObject {
     ///   - authorization: The authorization method for the request. Defines whether the app can use location services in the background or not
     ///   - accuracy: The accuracy of the location request
     ///   - completion: A closure to be called when the manager has found or failed to find the current location
-    public func requestCurrentLocationWith(authorization: Authorization = .whenInUse, accuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters, _ completion: @escaping LocationRequestCompletion) {
+    public func requestCurrentLocation(authorization: Authorization = .whenInUse, accuracy: CLLocationAccuracy = kCLLocationAccuracyNearestTenMeters, _ completion: @escaping LocationRequestCompletion) {
         
         locationManager.desiredAccuracy = accuracy
         locationManager.delegate = self
