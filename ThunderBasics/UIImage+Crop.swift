@@ -11,7 +11,7 @@ import UIKit
 public extension UIImage {
     
     /// A square crop (centered) of the current image
-    public var croppedToSquare: UIImage? {
+    var croppedToSquare: UIImage? {
         
         let smallestSide = min(size.width, size.height)
         let remainingWidth = size.width - smallestSide
@@ -28,7 +28,7 @@ public extension UIImage {
     ///
     /// - Parameter frame: The frame
     /// - Returns: The cropped part of the image
-    public func cropped(to frame: CGRect) -> UIImage? {
+    func cropped(to frame: CGRect) -> UIImage? {
         
         var cropRect = frame
         if scale > 1.0 {
@@ -50,7 +50,7 @@ public extension UIImage {
     ///   - image: The image to overlay
     ///   - point: The point at which to overlay the image
     /// - Returns: The combined image
-    public func adding(image: UIImage, at point: CGPoint) -> UIImage? {
+    func adding(image: UIImage, at point: CGPoint) -> UIImage? {
         
         UIGraphicsBeginImageContext(size)
         draw(at: .zero)

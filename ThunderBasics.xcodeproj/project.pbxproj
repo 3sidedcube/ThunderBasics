@@ -69,7 +69,7 @@
 		B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */; };
 		B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */; };
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
-		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
+		C272EF9419C831AC004BD339 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -512,7 +512,7 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = P645CBFH93;
 						DevelopmentTeamName = "3 Sided Cube Design Ltd";
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					C272EF8E19C831AC004BD339 = {
 						CreatedOnToolsVersion = 6.0;
@@ -525,6 +525,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = C272EF7A19C831AB004BD339;
@@ -632,7 +633,7 @@
 			files = (
 				B146C3CF2190978F00A1DBCD /* UIColor+HexString.swift in Sources */,
 				B146C3CE2190978900A1DBCD /* UIColorHexStringTests.swift in Sources */,
-				C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */,
+				C272EF9419C831AC004BD339 /* (null) in Sources */,
 				980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,9 +827,8 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -852,9 +852,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -329,7 +329,7 @@
         /**
          The border color of the view
          */
-        @IBInspectable public var borderColor: UIColor? {
+        @IBInspectable var borderColor: UIColor? {
             get {
                 if let color = layer.borderColor {
                     return UIColor(cgColor: color)
@@ -344,7 +344,7 @@
         /**
          The border width of the label
          */
-        @IBInspectable public var borderWidth: CGFloat {
+        @IBInspectable var borderWidth: CGFloat {
             get {
                 return layer.borderWidth
             }
@@ -356,7 +356,7 @@
         /**
          The corner radius of the view
          */
-        @IBInspectable public var cornerRadius: CGFloat {
+        @IBInspectable var cornerRadius: CGFloat {
             get {
                 return layer.cornerRadius
             }

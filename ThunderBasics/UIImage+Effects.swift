@@ -21,7 +21,7 @@ public extension UIImage {
     /// - Parameter style: The style of the blur to apply
     /// - Parameter inFrame: The frame over which to apply the blur
     /// - Returns: The blurred image if sucessful
-    public func applyingBlur(style: UIBlurEffect.Style, in frame: CGRect? = nil) -> UIImage? {
+    func applyingBlur(style: UIBlurEffect.Style, in frame: CGRect? = nil) -> UIImage? {
         
         let tintColor: UIColor?
         var radius: CGFloat = 20.0
@@ -52,7 +52,7 @@ public extension UIImage {
     ///   - color: The color to tint the are of the image with
     ///   - frame: The frame over which to apply the tint
     /// - Returns: The tinted and blurred image if sucessful
-    public func applyingTint(_ color: UIColor, in frame: CGRect? = nil) -> UIImage? {
+    func applyingTint(_ color: UIColor, in frame: CGRect? = nil) -> UIImage? {
         
         guard let frame = frame, frame.size != size || frame.origin != .zero else {
             return applyingBlurWith(radius: 10, tintColor: color, saturationDeltaFactor: 1.8, maskImage: nil)
@@ -70,7 +70,7 @@ public extension UIImage {
     ///   - saturationDeltaFactor: The saturation to apply as well as a blur
     ///   - maskImage: An image to mask the blur using
     /// - Returns: The image blurred and tinted if the operation was sucessful
-    public func applyingBlurWith(radius blurRadius: CGFloat, tintColor: UIColor? = nil, saturationDeltaFactor: CGFloat = 1.8, maskImage: UIImage? = nil) -> UIImage? {
+    func applyingBlurWith(radius blurRadius: CGFloat, tintColor: UIColor? = nil, saturationDeltaFactor: CGFloat = 1.8, maskImage: UIImage? = nil) -> UIImage? {
         
         guard size.width >= 1, size.height >= 1 else {
             os_log("Invalid size: (%{public}.2f x %{public}.2f). Both dimensions must be >= 1: %{public}@", log: imageEffectsLog, type: .error, size.width, size.height, self)
@@ -142,7 +142,8 @@ public extension UIImage {
                 // ... if d is odd, use three box-blurs of size 'd', centered on the output pixel.
                 //
                 let inputRadius = blurRadius * UIScreen.main.scale
-                var radius = floor(inputRadius * 3.0 * sqrt(2.0 * .pi) / 4 + 0.5)
+                let sqrt2pi = CGFloat(sqrt(2.0 * .pi))
+                var radius = floor(inputRadius * 3.0 * sqrt2pi / 4 + 0.5)
                 
                 if radius.truncatingRemainder(dividingBy: 2) != 1 {
                     radius += 1 // force radius to be odd so that the three box-blur methodology works.
@@ -276,7 +277,7 @@ public extension UIImage {
     ///   - tintColor: The colour of the tint effect to apply
     ///   - blur: Whether to blur the image too (defaults to true)
     /// - Returns: The tinted (and blurred) image if sucessful
-    public func applyingTintEffectWith(color tintColor: UIColor, blur: Bool = true) -> UIImage? {
+    func applyingTintEffectWith(color tintColor: UIColor, blur: Bool = true) -> UIImage? {
         
         let effectColorAlpha: CGFloat = 0.6
         var effectColor = tintColor
