@@ -18,7 +18,7 @@ public extension UIFont {
 	///   - symbolicTraits: Symbolic constraints to apply to the default font
 	///   - traitCollection: The trait collection the font should be for
 	/// - Returns: A font converted given the above parameters
-	public class func preferredFont(forTextStyle style: UIFont.TextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptor.SymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
+    class func preferredFont(forTextStyle style: UIFont.TextStyle, scaledBy scale: CGFloat, withSymbolicTraits symbolicTraits: UIFontDescriptor.SymbolicTraits? = nil, attributes: [UIFontDescriptor.AttributeName: Any]? = nil, compatibleWith traitCollection: UITraitCollection? = nil) -> UIFont {
 		
 		var descriptor: UIFontDescriptor
 		
@@ -48,7 +48,7 @@ public extension UIFont {
 	/// - Parameters:
 	///   - family: The font family to convert this font to
 	///   - face: The font face to convert this font to
-	public func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
+    func withFontFamily(_ family: String, face: String? = nil) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
@@ -83,7 +83,7 @@ public extension UIFont {
 	///   - family: The font family to convert this font to
 	///   - weight: The font weight to convert this font to
 	///
-	public func withFontFamily(_ family: String, weight: UIFont.Weight) -> UIFont {
+    func withFontFamily(_ family: String, weight: UIFont.Weight) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
@@ -112,7 +112,7 @@ public extension UIFont {
 	///
 	/// - Parameters:
 	///   - weight: The font weight to convert this font to
-	public func withWeight(_ weight: UIFont.Weight) -> UIFont {
+    func withWeight(_ weight: UIFont.Weight) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		

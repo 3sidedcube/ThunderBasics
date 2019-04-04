@@ -104,47 +104,47 @@ public extension Date {
         return date?.addingTimeInterval(-1)
     }
 	
-	public var daysInWeek: Int? {
+    var daysInWeek: Int? {
 		return Calendar.current.maximumRange(of: .weekday)?.count
 	}
 	
-	public var daysInMonth: Int? {
+    var daysInMonth: Int? {
 		return Calendar.current.range(of: .day, in: .month, for: self)?.count
 	}
 	
-	public var monthsInYear: Int? {
+    var monthsInYear: Int? {
 		return Calendar.current.range(of: .month, in: .year, for: self)?.count
 	}
 	
-	public var isInToday: Bool {
+    var isInToday: Bool {
 		return Calendar.current.isDateInToday(self)
 	}
 	
-	public var isInYesterday: Bool {
+    var isInYesterday: Bool {
 		return Calendar.current.isDateInYesterday(self)
 	}
 	
-	public var isInTomorrow: Bool {
+    var isInTomorrow: Bool {
 		return Calendar.current.isDateInTomorrow(self)
 	}
 	
-	public var isInWeekend: Bool {
+    var isInWeekend: Bool {
 		return Calendar.current.isDateInWeekend(self)
 	}
 	
-	public var isInThisWeek: Bool {
+    var isInThisWeek: Bool {
 		return Calendar.current.compare(self, to: Date(), toGranularity: .weekOfYear) == .orderedSame && isInThisYear
 	}
 	
-	public var isInThisMonth: Bool {
+    var isInThisMonth: Bool {
 		return Calendar.current.compare(self, to: Date(), toGranularity: .month) == .orderedSame && isInThisYear
 	}
 	
-	public var isInThisYear: Bool {
+    var isInThisYear: Bool {
 		return Calendar.current.compare(self, to: Date(), toGranularity: .year) == .orderedSame
 	}
     
-	public func dateRange(for dateComponent: Calendar.Component, with options: DateRange.Options = []) -> DateRange? {
+    func dateRange(for dateComponent: Calendar.Component, with options: DateRange.Options = []) -> DateRange? {
 		
 		let calendar = Calendar.current
 		var dateComponents = calendar.dateComponents([.day, .weekday, .month, .weekOfYear, .year], from: self)
