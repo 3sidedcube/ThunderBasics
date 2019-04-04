@@ -17,7 +17,7 @@ public extension UIViewController {
 	///   - animated: Whether to animate the transition
 	///   - allowSubclasses: Whether subclasses of viewControllerClass should be popped to, or skipped
 	/// - Returns: A boolean as to whether a view controller of this class was popped to or not
-	public func popToLastViewController(of viewControllerClass: AnyClass, allowSubclasses: Bool = false, animated: Bool = true) -> Bool {
+    func popToLastViewController(of viewControllerClass: AnyClass, allowSubclasses: Bool = false, animated: Bool = true) -> Bool {
 		
 		guard let previousViewController = navigationController?.viewControllers.filter({ (viewController) -> Bool in
 			return (allowSubclasses ? viewController.isKind(of: viewControllerClass) : viewController.isMember(of: viewControllerClass))  && viewController != self
@@ -34,7 +34,7 @@ public extension UIViewController {
 	///   - animated: Whether to animate the transition
 	///   - excludeSubclasses: Whether subclasses of the exluded classes should also be excluded
 	/// - Returns: A boolean as to whether a valid view controller was found and popped to or not
-	@discardableResult public func popToLastViewController(excluding classes: [AnyClass], excludeSubclasses: Bool = false, animated: Bool = true) -> Bool {
+    @discardableResult func popToLastViewController(excluding classes: [AnyClass], excludeSubclasses: Bool = false, animated: Bool = true) -> Bool {
 		
 		guard let previousViewController = navigationController?.viewControllers.filter({ (viewController) -> Bool in
 			// If there is a class which this view controller is a member of, then don't allow popping to it
