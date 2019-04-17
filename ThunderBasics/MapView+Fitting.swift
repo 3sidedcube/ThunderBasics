@@ -19,7 +19,7 @@ public extension MKMapView {
 	///   - polygons: The polygons to show
 	///   - annotations: The annotations to show
 	///   - animated: Whether the region change should be animated or instantaneous
-	public func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
+    func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
 		
 		var regionRect = MKMapRect.null
 				

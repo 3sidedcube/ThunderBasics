@@ -135,7 +135,7 @@ public extension UIFont {
 	///
 	/// - Parameters:
 	///   - weight: The font weight to convert this font to
-	public func withWeight(_ weight: UIFont.Weight) -> UIFont {
+    func withWeight(_ weight: UIFont.Weight) -> UIFont {
 		
 		var traits: [UIFontDescriptor.TraitKey : Any] = [:]
 		
