@@ -426,7 +426,7 @@
         
     public extension TSCTextField {
         
-        override public func awakeFromNib() {
+        override func awakeFromNib() {
             
             super.awakeFromNib()
             wantsLayer = true
@@ -437,7 +437,7 @@
             layer?.borderWidth = borderWidth
         }
         
-        public override func prepareForInterfaceBuilder() {
+        override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
             
@@ -458,7 +458,7 @@
         /**
          The background color of the view
          */
-        @IBInspectable public var backgroundColor: NSColor? {
+        @IBInspectable var backgroundColor: NSColor? {
             get {
                 guard let _layer = layer, let color = _layer.backgroundColor else { return nil }
                 return NSColor(cgColor: color)
@@ -473,7 +473,7 @@
         /**
          The border color of the view
          */
-        @IBInspectable public var borderColor: NSColor? {
+        @IBInspectable var borderColor: NSColor? {
             get {
                 guard let _layer = layer, let color = _layer.borderColor else { return nil }
                 return NSColor(cgColor: color)
@@ -488,7 +488,7 @@
         /**
          The border width of the label
          */
-        @IBInspectable public var borderWidth: CGFloat {
+        @IBInspectable var borderWidth: CGFloat {
             get {
                 guard let _layer = layer else { return 0.0 }
                 return _layer.borderWidth
@@ -502,7 +502,7 @@
         /**
          The corner radius of the view
          */
-        @IBInspectable public var cornerRadius: CGFloat {
+        @IBInspectable var cornerRadius: CGFloat {
             get {
                 guard let _layer = layer else { return 0.0 }
                 return _layer.cornerRadius
