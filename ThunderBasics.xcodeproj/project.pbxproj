@@ -43,11 +43,9 @@
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
 		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234C71C91F66D001669BA /* NSView+TSCView.m */; };
-		B16234CF1C91F6CB001669BA /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234891C91F5A0001669BA /* NSColor+TSCColor.m */; };
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234881C91F5A0001669BA /* NSColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234EB1C91FA2A001669BA /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
@@ -69,7 +67,6 @@
 		B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */; };
 		B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */; };
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
-		C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C272EF9319C831AC004BD339 /* ThunderBasicsTests.swift */; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -418,7 +415,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
-				B16234EB1C91FA2A001669BA /* (null) in Headers */,
 				B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */,
 				B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */,
 				B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */,
@@ -512,7 +508,7 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = P645CBFH93;
 						DevelopmentTeamName = "3 Sided Cube Design Ltd";
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					C272EF8E19C831AC004BD339 = {
 						CreatedOnToolsVersion = 6.0;
@@ -525,6 +521,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = C272EF7A19C831AB004BD339;
@@ -575,7 +572,6 @@
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
 				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
-				B16234CF1C91F6CB001669BA /* (null) in Sources */,
 				B1E6FC2E218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,7 +628,6 @@
 			files = (
 				B146C3CF2190978F00A1DBCD /* UIColor+HexString.swift in Sources */,
 				B146C3CE2190978900A1DBCD /* UIColorHexStringTests.swift in Sources */,
-				C272EF9419C831AC004BD339 /* ThunderBasicsTests.swift in Sources */,
 				980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,9 +821,8 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -852,9 +846,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

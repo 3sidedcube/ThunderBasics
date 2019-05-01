@@ -84,6 +84,8 @@ public final class SingleRequestLocationManager: NSObject {
             #if os(iOS) || os(tvOS) || os(watchOS)
             locationManager.requestWhenInUseAuthorization()
             #endif
+        case (_, _):
+            fatalError("Unknown case hit requesting current location, please add support in `SingleRequestLocationManager.swift`'s `requestCurrentLocation` method")
         }
     }
     
@@ -145,6 +147,8 @@ extension SingleRequestLocationManager: CLLocationManagerDelegate {
             )
         case .notDetermined:
             break
+        @unknown default:
+            fatalError("Unknown `CLAuthorizationStatus` encountered, please add support in `SingleRequestLocationManager`")
         }
     }
     
