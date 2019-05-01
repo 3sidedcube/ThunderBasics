@@ -16,36 +16,8 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ThunderBasics/PublicHeader.h>
 
-// Main
-#import <ThunderBasics/TSCObject.h>
-#import <ThunderBasics/TSCSingleRequestLocationManager.h>
-
-// Views
-#import <ThunderBasics/MDCHUDActivityView.h>
-
 // Categories
-#import <ThunderBasics/UIColor+TSCColor.h>
-#import <ThunderBasics/UITabBarController+TSCTabBarController.h>
-#import <ThunderBasics/UIView+TSCView.h>
-#import <ThunderBasics/UILabel+TSCLabel.h>
-#import <ThunderBasics/UITabBarController+TSCTabBarController.h>
-#import <ThunderBasics/UIImage+TSCImage.h>
-#import <ThunderBasics/UIImage+Resize.h>
-#import <ThunderBasics/UIImage+ImageEffects.h>
-#import <ThunderBasics/NSDateFormatter+TSCDateFormatter.h>
-#import <ThunderBasics/UIWindow+VisibleViewController.h>
-#import <ThunderBasics/UIViewController+Dismiss.h>
 #import <ThunderBasics/NSObject+AddedProperties.h>
-#import <ThunderBasics/UIView+Pop.h>
-#import <ThunderBasics/CAGradientLayer+AutoGradient.h>
-#import <ThunderBasics/UIColor-Expanded.h>
-#import <ThunderBasics/ImageColorAnalyzer.h>
-
-//Toasts
-#import <ThunderBasics/TSCToast.h>
-#import <ThunderBasics/TSCToastView.h>
-#import <ThunderBasics/TSCToastNotificationController.h>
-#import <ThunderBasics/TSCToastViewController.h>
 
 //Controllers
 #import <ThunderBasics/TSCContactsController.h>
@@ -53,4 +25,3 @@ FOUNDATION_EXPORT const unsigned char ThunderBasicsVersionString[];
 
 //People
 #import <ThunderBasics/TSCPerson.h>
-#import <ThunderBasics/TSCCoreSpotlightIndexItem.h>
