@@ -43,9 +43,7 @@
 		B146C3F32191E47600A1DBCD /* NSDateFormatter+Strftime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
-		B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234891C91F5A0001669BA /* NSColor+TSCColor.m */; };
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234881C91F5A0001669BA /* NSColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
@@ -101,8 +99,6 @@
 		B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Strftime.swift"; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
-		B16234881C91F5A0001669BA /* NSColor+TSCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TSCColor.h"; sourceTree = "<group>"; };
-		B16234891C91F5A0001669BA /* NSColor+TSCColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+TSCColor.m"; sourceTree = "<group>"; };
 		B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasicsMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16234C41C91F625001669BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
@@ -279,8 +275,6 @@
 		B1B6CF941C4E483000CDC978 /* Colours */ = {
 			isa = PBXGroup;
 			children = (
-				B16234881C91F5A0001669BA /* NSColor+TSCColor.h */,
-				B16234891C91F5A0001669BA /* NSColor+TSCColor.m */,
 				B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */,
 				B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */,
 				B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */,
@@ -412,7 +406,6 @@
 			files = (
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
 				B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */,
-				B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +556,6 @@
 			files = (
 				B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */,
 				B13779302029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
-				B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */,
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
