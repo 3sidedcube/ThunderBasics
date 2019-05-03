@@ -19,6 +19,7 @@
 		980AE26B220AFF7400540E8E /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C272EF8419C831AB004BD339 /* ThunderBasics.framework */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */; };
+		B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
 		B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* LoadingButton.swift */; };
 		B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */; };
 		B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */; };
@@ -566,6 +567,7 @@
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
+				B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */,
 				B1E6FC2E218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

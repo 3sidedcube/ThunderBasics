@@ -6,7 +6,14 @@
 //  Copyright © 2018 threesidedcube. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+public typealias Color = UIColor
+#elseif os(macOS)
+import AppKit
+public typealias Color = NSColor
+#endif
+
 
 extension String {
     fileprivate func hexFloatAt(_ startIndex: Int, length: Int) -> CGFloat? {
@@ -24,12 +31,12 @@ extension String {
     }
 }
 
-extension UIColor {
+extension Color {
     
     /// Allocates a UIColor from a given hex string.
     ///
     /// - Parameter hexString: The hex string to return a `UIColor` for
-    @objc public convenience init?(hexString: String) {
+    public convenience init?(hexString: String) {
 
         let trimmedString = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "#"))
         
