@@ -18,6 +18,8 @@
 		980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
 		980AE26B220AFF7400540E8E /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C272EF8419C831AB004BD339 /* ThunderBasics.framework */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
+		B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */; };
+		B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
 		B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* LoadingButton.swift */; };
 		B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */; };
 		B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */; };
@@ -41,11 +43,7 @@
 		B146C3F32191E47600A1DBCD /* NSDateFormatter+Strftime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */; };
 		B152AC501F20BF020079372B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152AC4F1F20BF020079372B /* DateHelpers.swift */; };
 		B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C0E231D3628DC00F2C6E1 /* Notifier.swift */; };
-		B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234C61C91F66D001669BA /* NSView+TSCView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234C71C91F66D001669BA /* NSView+TSCView.m */; };
-		B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B16234891C91F5A0001669BA /* NSColor+TSCColor.m */; };
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234881C91F5A0001669BA /* NSColor+TSCColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
@@ -101,12 +99,8 @@
 		B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Strftime.swift"; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
-		B16234881C91F5A0001669BA /* NSColor+TSCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+TSCColor.h"; sourceTree = "<group>"; };
-		B16234891C91F5A0001669BA /* NSColor+TSCColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+TSCColor.m"; sourceTree = "<group>"; };
 		B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasicsMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16234C41C91F625001669BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B16234C61C91F66D001669BA /* NSView+TSCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+TSCView.h"; sourceTree = "<group>"; };
-		B16234C71C91F66D001669BA /* NSView+TSCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+TSCView.m"; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
 		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
 		B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddedProperties.h"; sourceTree = "<group>"; };
@@ -274,8 +268,6 @@
 				B146C3BB219071F700A1DBCD /* UIView+Pop.swift */,
 				B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */,
 				B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */,
-				B16234C61C91F66D001669BA /* NSView+TSCView.h */,
-				B16234C71C91F66D001669BA /* NSView+TSCView.m */,
 			);
 			name = "Views and Layers";
 			sourceTree = "<group>";
@@ -283,8 +275,6 @@
 		B1B6CF941C4E483000CDC978 /* Colours */ = {
 			isa = PBXGroup;
 			children = (
-				B16234881C91F5A0001669BA /* NSColor+TSCColor.h */,
-				B16234891C91F5A0001669BA /* NSColor+TSCColor.m */,
 				B146C3D02190A1AC00A1DBCD /* UIColor+Helpers.swift */,
 				B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */,
 				B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */,
@@ -416,8 +406,6 @@
 			files = (
 				B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */,
 				B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */,
-				B16234C81C91F66D001669BA /* NSView+TSCView.h in Headers */,
-				B16234E51C91F9AE001669BA /* NSColor+TSCColor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,10 +556,10 @@
 			files = (
 				B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */,
 				B13779302029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
-				B16234D01C91F6D7001669BA /* NSColor+TSCColor.m in Sources */,
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
+				B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */,
 				B13779332029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
-				B16234C91C91F66D001669BA /* NSView+TSCView.m in Sources */,
+				B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */,
 				B1E6FC2E218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

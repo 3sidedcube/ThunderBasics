@@ -6,11 +6,21 @@
 //  Copyright © 2018 threesidedcube. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
-public typealias ViewEnumerator = (_ view: UIView, _ stop: inout Bool) -> Void
+#if os(iOS)
+public typealias View = UIView
+#elseif os(macOS)
+public typealias View = NSView
+#endif
 
-extension UIView {
+public typealias ViewEnumerator = (_ view: View, _ stop: inout Bool) -> Void
+
+extension View {
     
     /// Adjust the height of the current view's frame to the given value
     ///
@@ -44,14 +54,22 @@ extension UIView {
     ///
     /// - Parameter minX: The x coordinate to set the frames center to
     public func set(centerX x: CGFloat) {
+        #if os(iOS)
         center = CGPoint(x: x, y: center.y)
+        #elseif os(macOS)
+        set(minX: x - bounds.width/2.0)
+        #endif
     }
     
     /// Adjusts the views y center to the given position
     ///
     /// - Parameter minX: The y coordinate to set the frames center to
     public func set(centerY y: CGFloat) {
+        #if os(iOS)
         center = CGPoint(x: center.x, y: y)
+        #elseif os(macOS)
+        set(minY: y - bounds.height)
+        #endif
     }
     
     /// Adjust the size of the current view's frame to the given value
@@ -68,7 +86,7 @@ extension UIView {
         frame = CGRect(origin: origin, size: frame.size)
     }
     
-    private func heightInformation(of views: [UIView]) -> (height: CGFloat, lowestMinY: CGFloat, heighestMaxY: CGFloat) {
+    private func heightInformation(of views: [View]) -> (height: CGFloat, lowestMinY: CGFloat, heighestMaxY: CGFloat) {
         
         var highestMaxY: CGFloat = -.greatestFiniteMagnitude
         var lowestMinY: CGFloat = .greatestFiniteMagnitude
@@ -99,7 +117,7 @@ extension UIView {
     ///
     /// - Parameter excluding: Any views to be excluded from the centering process
     /// - Parameter offset: The y offset from the center of the view
-    public func centerSubviewsVertically(excluding: [UIView] = [], offsetingBy offset: CGFloat = 0.0) {
+    public func centerSubviewsVertically(excluding: [View] = [], offsetingBy offset: CGFloat = 0.0) {
         
         guard !subviews.isEmpty else { return }
         
@@ -122,7 +140,7 @@ extension UIView {
         enumerateSubviewsOf(self, using: handler)
     }
     
-    private func enumerateSubviewsOf(_ view: UIView, using handler: @escaping ViewEnumerator) {
+    private func enumerateSubviewsOf(_ view: View, using handler: @escaping ViewEnumerator) {
         
         for subview in view.subviews { // I wrote this (Me, Simon)... Don't even ask me how it works! :D (Let's just pretend I know).
             
