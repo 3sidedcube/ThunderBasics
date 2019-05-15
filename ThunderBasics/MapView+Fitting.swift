@@ -19,9 +19,9 @@ public extension MKMapView {
 	///   - polygons: The polygons to show
 	///   - annotations: The annotations to show
 	///   - animated: Whether the region change should be animated or instantaneous
-	public func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
+    func showPolygons(_ polygons: [MKPolygon]?, annotations: [MKAnnotation]? = nil, animated: Bool = false) {
 		
-		var regionRect = MKMapRectNull
+		var regionRect = MKMapRect.null
 				
 	#if os(iOS)
 		var insets: UIEdgeInsets = UIEdgeInsets()
@@ -33,9 +33,9 @@ public extension MKMapView {
 			
 			annotations.forEach({
 				
-				let annotationPoint = MKMapPointForCoordinate($0.coordinate)
+				let annotationPoint = MKMapPoint.init($0.coordinate)
 				let pointRect = MKMapRect(origin: annotationPoint, size: MKMapSize(width: 0.1, height: 0.1))
-				regionRect = MKMapRectUnion(regionRect, pointRect)
+				regionRect = regionRect.union(pointRect)
 			})
 			
 			#if os(iOS)
@@ -47,16 +47,16 @@ public extension MKMapView {
 		
 		if let polygons = polygons, !polygons.isEmpty {
 			
-			if MKMapRectIsNull(regionRect) {
+			if regionRect.isNull {
 				regionRect = polygons[0].boundingMapRect
 			}
 			
 			polygons.forEach({
-				regionRect = MKMapRectUnion(regionRect, $0.boundingMapRect)
+				regionRect = regionRect.union($0.boundingMapRect)
 			})
 		}
 		
-		guard !MKMapRectIsNull(regionRect) else { return }
+		guard !regionRect.isNull else { return }
 		
 		setVisibleMapRect(regionRect, edgePadding: insets, animated: animated)
 	}
