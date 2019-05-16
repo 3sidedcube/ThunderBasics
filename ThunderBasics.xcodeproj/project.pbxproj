@@ -99,7 +99,7 @@
 		B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Strftime.swift"; sourceTree = "<group>"; };
 		B152AC4F1F20BF020079372B /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		B15C0E231D3628DC00F2C6E1 /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
-		B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasicsMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B16234AB1C91F5E3001669BA /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16234C41C91F625001669BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
 		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 			children = (
 				C272EF8419C831AB004BD339 /* ThunderBasics.framework */,
 				C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */,
-				B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */,
+				B16234AB1C91F5E3001669BA /* ThunderBasics.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -425,9 +425,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B16234AA1C91F5E3001669BA /* ThunderBasicsMac */ = {
+		B16234AA1C91F5E3001669BA /* ThunderBasics-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B16234BC1C91F5E3001669BA /* Build configuration list for PBXNativeTarget "ThunderBasicsMac" */;
+			buildConfigurationList = B16234BC1C91F5E3001669BA /* Build configuration list for PBXNativeTarget "ThunderBasics-macOS" */;
 			buildPhases = (
 				B16234A61C91F5E3001669BA /* Sources */,
 				B16234A71C91F5E3001669BA /* Frameworks */,
@@ -438,14 +438,14 @@
 			);
 			dependencies = (
 			);
-			name = ThunderBasicsMac;
+			name = "ThunderBasics-macOS";
 			productName = ThunderBasicsMac;
-			productReference = B16234AB1C91F5E3001669BA /* ThunderBasicsMac.framework */;
+			productReference = B16234AB1C91F5E3001669BA /* ThunderBasics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C272EF8319C831AB004BD339 /* ThunderBasics */ = {
+		C272EF8319C831AB004BD339 /* ThunderBasics-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C272EF9719C831AC004BD339 /* Build configuration list for PBXNativeTarget "ThunderBasics" */;
+			buildConfigurationList = C272EF9719C831AC004BD339 /* Build configuration list for PBXNativeTarget "ThunderBasics-iOS" */;
 			buildPhases = (
 				C272EF7F19C831AB004BD339 /* Sources */,
 				C272EF8019C831AB004BD339 /* Frameworks */,
@@ -456,7 +456,7 @@
 			);
 			dependencies = (
 			);
-			name = ThunderBasics;
+			name = "ThunderBasics-iOS";
 			productName = ThunderBasics;
 			productReference = C272EF8419C831AB004BD339 /* ThunderBasics.framework */;
 			productType = "com.apple.product-type.framework";
@@ -517,9 +517,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C272EF8319C831AB004BD339 /* ThunderBasics */,
+				C272EF8319C831AB004BD339 /* ThunderBasics-iOS */,
 				C272EF8E19C831AC004BD339 /* ThunderBasicsTests */,
-				B16234AA1C91F5E3001669BA /* ThunderBasicsMac */,
+				B16234AA1C91F5E3001669BA /* ThunderBasics-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -639,9 +639,10 @@
 				INFOPLIST_FILE = ThunderBasicsMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -667,9 +668,10 @@
 				INFOPLIST_FILE = ThunderBasicsMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -803,9 +805,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -830,8 +833,9 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
@@ -885,7 +889,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B16234BC1C91F5E3001669BA /* Build configuration list for PBXNativeTarget "ThunderBasicsMac" */ = {
+		B16234BC1C91F5E3001669BA /* Build configuration list for PBXNativeTarget "ThunderBasics-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B16234BD1C91F5E3001669BA /* Debug */,
@@ -903,7 +907,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C272EF9719C831AC004BD339 /* Build configuration list for PBXNativeTarget "ThunderBasics" */ = {
+		C272EF9719C831AC004BD339 /* Build configuration list for PBXNativeTarget "ThunderBasics-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C272EF9819C831AC004BD339 /* Debug */,
