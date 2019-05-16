@@ -48,6 +48,8 @@
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
 		B190A858228DBCB600E44821 /* ThunderBasicsTests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190A857228DBCB600E44821 /* ThunderBasicsTests_macOS.swift */; };
 		B190A85A228DBCB600E44821 /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16234AB1C91F5E3001669BA /* ThunderBasics.framework */; };
+		B190A860228DBE6000E44821 /* UIColorHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */; };
+		B190A861228DBE6300E44821 /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
 		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
@@ -633,6 +635,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B190A861228DBE6300E44821 /* Locale+ISO639_2Tests.swift in Sources */,
+				B190A860228DBE6000E44821 /* UIColorHexStringTests.swift in Sources */,
 				B190A858228DBCB600E44821 /* ThunderBasicsTests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
