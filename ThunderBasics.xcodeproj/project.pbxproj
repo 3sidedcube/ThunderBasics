@@ -50,6 +50,8 @@
 		B190A85A228DBCB600E44821 /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16234AB1C91F5E3001669BA /* ThunderBasics.framework */; };
 		B190A860228DBE6000E44821 /* UIColorHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */; };
 		B190A861228DBE6300E44821 /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
+		B190A862228DC6E400E44821 /* Locale+ISO639_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE1D32208968800540E8E /* Locale+ISO639_2.swift */; };
+		B190A863228DC6E700E44821 /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980AE1D5220896A700540E8E /* iso639_2.bundle */; };
 		B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
 		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
@@ -589,6 +591,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B190A863228DC6E700E44821 /* iso639_2.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */,
+				B190A862228DC6E400E44821 /* Locale+ISO639_2.swift in Sources */,
 				B13779302029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				B19C53371D8B458B00B30A35 /* DesignableView.swift in Sources */,
 				B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */,
