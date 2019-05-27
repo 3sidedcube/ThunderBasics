@@ -25,8 +25,11 @@ public class ToastView: UIView {
         }
     }
     
-    /// The colour of the text in the notification view
+    /// The visible duration of the toast view
     @objc public dynamic var visibleDuration: CGFloat = 2.0
+    
+    /// The margins to apply around the toast view
+    @objc public dynamic var margins: UIEdgeInsets = .zero
     
     private let titleLabel = UILabel()
     
@@ -91,12 +94,12 @@ public class ToastView: UIView {
     /// - Parameter completion: A completion block to be called when the toast notification has displayed and dismissed successfully
     func show(completion: @escaping () -> Void) {
         
-        frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44) // Add on 40 points so when it drops down you can't see the view behind it.
+        frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44)
         layout()
         
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: bounds.height))
         
-        transform = CGAffineTransform(translationX: 0, y: -frame.height)
+        transform = CGAffineTransform(translationX: 0, y: -(frame.height + frame.origin.y))
         
         coverWindow = UIWindow(frame: bounds)
         coverWindow?.isHidden = false
@@ -155,15 +158,15 @@ public class ToastView: UIView {
         }
         
         var labelContainerFrame = CGRect(
-            x: insets.left + safeAreaInsets.left,
-            y: insets.top + safeAreaInsets.top,
-            width: frame.width - (insets.left + safeAreaInsets.left) - (insets.right + safeAreaInsets.right),
+            x: insets.left + safeAreaInsets.left + margins.left,
+            y: insets.top + (margins.top <= 0 ? safeAreaInsets.top : 0),
+            width: frame.width - (insets.left + safeAreaInsets.left + margins.left) - (insets.right + safeAreaInsets.right + margins.right),
             height: .greatestFiniteMagnitude
         )
         
         // If we have an image adjust how much room we have for the labels.
         if imageView.image != nil {
-            imageView.frame = CGRect(x: insets.left + safeAreaInsets.left, y: 0, width: imageSize.width, height: imageSize.height)
+            imageView.frame = CGRect(x: insets.left + safeAreaInsets.left + margins.left, y: 0, width: imageSize.width, height: imageSize.height)
             labelContainerFrame.origin.x += imageViewRightMargin + imageSize.width
             labelContainerFrame.size.width -= imageViewRightMargin + imageSize.width
         }
@@ -176,7 +179,7 @@ public class ToastView: UIView {
         
         // Minimum height of 44pts
         let height = max(messageLabel.frame.maxY + insets.bottom, 44)
-        frame = CGRect(x: 0, y: -height, width: frame.width, height: height)
+        frame = CGRect(x: margins.left, y: -height + margins.top, width: frame.width - (margins.left + margins.right), height: height)
         imageView.center.y = frame.height/2
     }
     
