@@ -95,13 +95,15 @@ public class ToastView: UIView {
     func show(completion: @escaping () -> Void) {
         
         frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44)
-        layout()
         
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: bounds.height))
+        var safeAreaInsets: UIEdgeInsets = .zero
+        if #available(iOS 11.0, *) {
+            safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
+        }
         
-        transform = CGAffineTransform(translationX: 0, y: -(frame.height + frame.origin.y))
+        let containerView = UIView(frame: .zero)
         
-        coverWindow = UIWindow(frame: bounds)
+        coverWindow = UIWindow(frame: .zero)
         coverWindow?.isHidden = false
         coverWindow?.windowLevel = UIWindow.Level.statusBar + 1
         
@@ -109,10 +111,15 @@ public class ToastView: UIView {
         toastViewController.statusBarStyle = window?.visibleViewController?.preferredStatusBarStyle ?? .default
         
         coverWindow?.rootViewController = toastViewController
-        coverWindow?.backgroundColor = .clear
         coverWindow?.rootViewController?.view.addSubview(containerView)
         containerView.addSubview(self)
         
+        layout()
+        
+        containerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: bounds.height + margins.top + (margins.top > 0 ? safeAreaInsets.top : 0))
+        coverWindow?.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + margins.top + (margins.top > 0 ? safeAreaInsets.top : 0))
+        transform = CGAffineTransform(translationX: 0, y: -(frame.height + frame.origin.y))
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         coverWindow?.addGestureRecognizer(tapGesture)
         
@@ -128,7 +135,7 @@ public class ToastView: UIView {
         animator?.addBehavior(elasticBehaviour)
         
         let collisionBehaviour = UICollisionBehavior(items: [self])
-        collisionBehaviour.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: -self.frame.height-10, left: -10, bottom: 1, right: -10))
+        collisionBehaviour.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: -(self.frame.height)-10, left: -10, bottom: 1, right: -10))
         animator?.addBehavior(collisionBehaviour)
         
         self.completion = completion
@@ -158,7 +165,7 @@ public class ToastView: UIView {
         }
         
         var labelContainerFrame = CGRect(
-            x: insets.left + safeAreaInsets.left + margins.left,
+            x: insets.left,
             y: insets.top + (margins.top <= 0 ? safeAreaInsets.top : 0),
             width: frame.width - (insets.left + safeAreaInsets.left + margins.left) - (insets.right + safeAreaInsets.right + margins.right),
             height: .greatestFiniteMagnitude
