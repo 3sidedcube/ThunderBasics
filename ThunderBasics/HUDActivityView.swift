@@ -73,6 +73,7 @@ public class HUDActivityView: UIView {
         textLabel.lineBreakMode = .byWordWrapping
         textLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         textLabel.textColor = .white
+        textLabel.text = text
         
         addSubview(textLabel)
         
