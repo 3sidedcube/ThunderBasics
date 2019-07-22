@@ -7,6 +7,10 @@
 //
 
 import XCTest
+#if os(macOS)
+import AppKit
+typealias UIColor = NSColor
+#endif
 
 class UIColorHexStringTests: XCTestCase {
 
@@ -40,40 +44,56 @@ class UIColorHexStringTests: XCTestCase {
     
     func testWhiteAllocatesCorrectly() {
         
+        #if os(macOS)
+        let threePartWhite = UIColor(hexString: "FFF")?.usingColorSpace(.genericGray)
+        let fourPartWhite = UIColor(hexString: "FFFF")?.usingColorSpace(.genericGray)
+        let sixPartWhite = UIColor(hexString: "FFFFFF")?.usingColorSpace(.genericGray)
+        let eightPartWhite = UIColor(hexString: "FFFFFFFF")?.usingColorSpace(.genericGray)
+        #else
         let threePartWhite = UIColor(hexString: "FFF")
+        let fourPartWhite = UIColor(hexString: "FFFF")
+        let sixPartWhite = UIColor(hexString: "FFFFFF")
+        let eightPartWhite = UIColor(hexString: "FFFFFFFF")
+        #endif
         var white: CGFloat = 0.0
         threePartWhite?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 1.0, accuracy: 0.01)
         
-        let fourPartWhite = UIColor(hexString: "FFFF")
         fourPartWhite?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 1.0, accuracy: 0.01)
         
-        let sixPartWhite = UIColor(hexString: "FFFFFF")
+        
         sixPartWhite?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 1.0, accuracy: 0.01)
         
-        let eightPartWhite = UIColor(hexString: "FFFFFF")
         eightPartWhite?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 1.0, accuracy: 0.01)
     }
     
     func testBlackAllocatesCorrectly() {
         
+        #if os(macOS)
+        let threePartBlack = UIColor(hexString: "000")?.usingColorSpace(.genericGray)
+        let fourPartBlack = UIColor(hexString: "0000")?.usingColorSpace(.genericGray)
+        let sixPartBlack = UIColor(hexString: "000000")?.usingColorSpace(.genericGray)
+        let eightPartBlack = UIColor(hexString: "00000000")?.usingColorSpace(.genericGray)
+        #else
         let threePartBlack = UIColor(hexString: "000")
+        let fourPartBlack = UIColor(hexString: "0000")
+        let sixPartBlack = UIColor(hexString: "000000")
+        let eightPartBlack = UIColor(hexString: "00000000")
+        #endif
+        
         var white: CGFloat = 0.0
         threePartBlack?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 0.0, accuracy: 0.01)
         
-        let fourPartBlack = UIColor(hexString: "0000")
         fourPartBlack?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 0.0, accuracy: 0.01)
         
-        let sixPartBlack = UIColor(hexString: "000000")
         sixPartBlack?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 0.0, accuracy: 0.01)
         
-        let eightPartBlack = UIColor(hexString: "00000000")
         eightPartBlack?.getWhite(&white, alpha: nil)
         XCTAssertEqual(white, 0.0, accuracy: 0.01)
     }
