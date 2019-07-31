@@ -89,7 +89,7 @@ public class ToastView: UIView {
     /// Shows the toast notification on the screen
     ///
     /// - Parameter completion: A completion block to be called when the toast notification has displayed and dismissed successfully
-    public func show(completion: @escaping () -> Void) {
+    internal func show(completion: @escaping () -> Void) {
         
         frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44) // Add on 40 points so when it drops down you can't see the view behind it.
         layout()
