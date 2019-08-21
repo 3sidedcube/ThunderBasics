@@ -35,7 +35,6 @@ class AccessibilityRefreshingViewController: UIViewController {
         
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
-            strongSelf.reloadVisibleRowsWhilstMaintainingSelection()
             strongSelf.accessibilitySettingsDidChange()
         }
         
