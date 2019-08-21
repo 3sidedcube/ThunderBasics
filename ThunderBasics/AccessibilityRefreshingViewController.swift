@@ -9,7 +9,7 @@
 import UIKit
 
 /// A UIViewController which subscribes to accessibility setting change notifications such as `darkerSystemColorsStatusDidChangeNotification` and calls an overrideable function whenever they do change.
-class AccessibilityRefreshingViewController: UIViewController {
+public class AccessibilityRefreshingViewController: UIViewController {
     
     /// Observer listening to dynamic font changes
     private var dynamicChangeObserver: NSObjectProtocol?
