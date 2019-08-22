@@ -32,7 +32,7 @@ open class AccessibilityRefreshingViewController: UIViewController, UIContentSiz
         
         super.viewWillAppear(animated)
         
-        dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
+        dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] (notification) in
             guard let strongSelf = self, strongSelf.adjustsFontForContentSizeCategory else { return }
             strongSelf.accessibilitySettingsDidChange()
         }
@@ -67,6 +67,7 @@ open class AccessibilityRefreshingViewController: UIViewController, UIContentSiz
         accessibilityObservers = []
         guard let dynamicChangeObserver = dynamicChangeObserver else { return }
         NotificationCenter.default.removeObserver(dynamicChangeObserver)
+        self.dynamicChangeObserver = nil
     }
     
     /// A function called when accessibility settings on-device changed. Has no default implementation.
