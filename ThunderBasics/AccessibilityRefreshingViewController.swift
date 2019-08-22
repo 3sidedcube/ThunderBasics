@@ -9,7 +9,7 @@
 import UIKit
 
 /// A UIViewController which subscribes to accessibility setting change notifications such as `darkerSystemColorsStatusDidChangeNotification` and calls an overrideable function whenever they do change.
-open class AccessibilityRefreshingViewController: UIViewController {
+open class AccessibilityRefreshingViewController: UIViewController, UIContentSizeCategoryAdjusting {
     
     /// Observer listening to dynamic font changes
     private var dynamicChangeObserver: NSObjectProtocol?
@@ -17,8 +17,7 @@ open class AccessibilityRefreshingViewController: UIViewController {
     /// Observer listening to accessibility setting changed notifications
     private var accessibilityObservers: [Any] = []
 
-    /// Whether the table view should redraw when the devices content size changes
-    public var shouldRedrawWithContentSizeChange = true
+    public var adjustsFontForContentSizeCategory: Bool = true
     
     /// A list of notification names that should cause the table view to redraw itself
     public var accessibilityRedrawNotificationNames: [Notification.Name] = [
@@ -34,7 +33,7 @@ open class AccessibilityRefreshingViewController: UIViewController {
         super.viewWillAppear(animated)
         
         dynamicChangeObserver = NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: self, queue: .main) { [weak self] (notification) in
-            guard let strongSelf = self, strongSelf.shouldRedrawWithContentSizeChange else { return }
+            guard let strongSelf = self, strongSelf.adjustsFontForContentSizeCategory else { return }
             strongSelf.accessibilitySettingsDidChange()
         }
         
