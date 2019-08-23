@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     /// Returns the intrinsic content size an auto-layout based view will occupy when constrained
     /// to the given size and allowed to resize in the given axis.
