@@ -17,6 +17,7 @@ open class AccessibilityRefreshingViewController: UIViewController, UIContentSiz
     /// Observer listening to accessibility setting changed notifications
     private var accessibilityObservers: [Any] = []
 
+    /// Indicates whether the table view should call accessibilitySettingsDidChange automatically when the device's UIContentSizeCategory is changed.
     public var adjustsFontForContentSizeCategory: Bool = true
     
     /// A list of notification names that should cause the table view to redraw itself
