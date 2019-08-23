@@ -27,39 +27,29 @@ public extension UIView {
         // Keep track of these so we can re-set them after we're done calculating
         let translates = translatesAutoresizingMaskIntoConstraints
         translatesAutoresizingMaskIntoConstraints = false
+                    
+        let constrainingName = resizableAxis == .vertical ? "width" : "height"
+        let cgConstraintValue = resizableAxis == .vertical ? constrainedSize.width : constrainedSize.height
+        let constraintValue = NSNumber(value: Float(cgConstraintValue))
+        let temporaryConstraint = NSLayoutConstraint.constraints(
+            withVisualFormat: "[view(\(constrainingName))]",
+            options: [],
+            metrics: [constrainingName : constraintValue],
+            views: ["view": self]
+        )
+        addConstraints(temporaryConstraint)
         
-        if resizableAxis == .vertical {
-            
-            let width = NSNumber(value: Float(constrainedSize.width))
-            let temporaryWidthConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(width)]", options: [], metrics: ["width": width], views: ["view": self])
-            addConstraints(temporaryWidthConstraint)
-            
-            setNeedsUpdateConstraints()
-            setNeedsLayout()
-            
-            // Force the view to layout itself and any children
-            updateConstraintsIfNeeded()
-            layoutIfNeeded()
-            
-            size = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize, withHorizontalFittingPriority: .fittingSizeLevel, verticalFittingPriority: .defaultLow)
-            removeConstraints(temporaryWidthConstraint)
-            
-        } else {
-            
-            let height = NSNumber(value: Float(constrainedSize.height))
-            let temporaryHeightConstraint = NSLayoutConstraint.constraints(withVisualFormat: "[view(height)]", options: [], metrics: ["height": height], views: ["view": self])
-            addConstraints(temporaryHeightConstraint)
-            
-            setNeedsUpdateConstraints()
-            setNeedsLayout()
-            
-            // Force the view to layout itself and any children
-            updateConstraintsIfNeeded()
-            layoutIfNeeded()
-            
-            size = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize, withHorizontalFittingPriority: .defaultLow, verticalFittingPriority: .fittingSizeLevel)
-            removeConstraints(temporaryHeightConstraint)
-        }
+        setNeedsUpdateConstraints()
+        setNeedsLayout()
+        
+        // Force the view to layout itself and any children
+        updateConstraintsIfNeeded()
+        layoutIfNeeded()
+        
+        let horizontalPriority: UILayoutPriority = resizableAxis == .vertical ? .fittingSizeLevel : .defaultLow
+        let verticalPriority: UILayoutPriority = resizableAxis == .vertical ? .defaultLow : .fittingSizeLevel
+        size = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize, withHorizontalFittingPriority: horizontalPriority, verticalFittingPriority: verticalPriority)
+        removeConstraints(temporaryConstraint)
         
         translatesAutoresizingMaskIntoConstraints = translates
         
