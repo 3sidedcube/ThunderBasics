@@ -72,6 +72,7 @@
 		B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */; };
 		B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */; };
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
+		B1FA1795230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		B1E6FC48218C729500971DC3 /* UIColor+Comparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Comparison.swift"; sourceTree = "<group>"; };
 		B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Effects.swift"; sourceTree = "<group>"; };
 		B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
+		B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IntrinsicContentSize.swift"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */,
 				B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */,
+				B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */,
 				B146C3BB219071F700A1DBCD /* UIView+Pop.swift */,
 				B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */,
 				B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */,
@@ -678,6 +681,7 @@
 				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
 				B146C3F12191E15A00A1DBCD /* UITabBarController+EasyInit.swift in Sources */,
 				B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */,
+				B1FA1795230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift in Sources */,
 				980AE1D42208968800540E8E /* Locale+ISO639_2.swift in Sources */,
 				B15C0E241D3628DC00F2C6E1 /* Notifier.swift in Sources */,
 				B146C3B4219055BB00A1DBCD /* UIImage+RoundedCorners.swift in Sources */,
