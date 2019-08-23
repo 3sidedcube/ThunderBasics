@@ -46,6 +46,7 @@
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
+		B1898CD1230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */; };
 		B190A858228DBCB600E44821 /* ThunderBasicsTests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190A857228DBCB600E44821 /* ThunderBasicsTests_macOS.swift */; };
 		B190A85A228DBCB600E44821 /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16234AB1C91F5E3001669BA /* ThunderBasics.framework */; };
 		B190A860228DBE6000E44821 /* UIColorHexStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */; };
@@ -119,6 +120,7 @@
 		B16234C41C91F625001669BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
 		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
+		B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityRefreshingViewController.swift; sourceTree = "<group>"; };
 		B190A855228DBCB600E44821 /* ThunderBasicsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ThunderBasicsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B190A857228DBCB600E44821 /* ThunderBasicsTests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThunderBasicsTests_macOS.swift; sourceTree = "<group>"; };
 		B190A859228DBCB600E44821 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -287,6 +289,14 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		B1898CCF230D7A7600A1F5D1 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */,
+			);
+			name = Accessibility;
+			sourceTree = "<group>";
+		};
 		B190A856228DBCB600E44821 /* ThunderBasicsTests-macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +395,7 @@
 		C272EF8619C831AB004BD339 /* ThunderBasics */ = {
 			isa = PBXGroup;
 			children = (
+				B1898CCF230D7A7600A1F5D1 /* Accessibility */,
 				B163D2FC1FB33F5100BF4CEC /* Fonts */,
 				C272EFB919C8325D004BD339 /* ThunderBasics.h */,
 				B12BD5DE1C48043600D07A58 /* Views */,
@@ -683,6 +694,7 @@
 				B146C3E42191D36A00A1DBCD /* UIViewController+DismissAnimated.swift in Sources */,
 				B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */,
 				B146C3BA21906B8A00A1DBCD /* UIView+Frame.swift in Sources */,
+				B1898CD1230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift in Sources */,
 				B152AC501F20BF020079372B /* DateHelpers.swift in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
 				B146C3E22191CB2400A1DBCD /* UIWindow+VisibleViewController.swift in Sources */,
