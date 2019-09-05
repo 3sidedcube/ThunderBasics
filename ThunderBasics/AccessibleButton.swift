@@ -11,7 +11,7 @@ import UIKit
 /// A subclass of `TSCButton` which enables automatic font adjustments, and allows for multi-line text
 open class AccessibleButton: TSCButton {
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
