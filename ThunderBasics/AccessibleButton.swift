@@ -9,14 +9,14 @@
 import UIKit
 
 /// A subclass of `TSCButton` which enables automatic font adjustments, and allows for multi-line text
-class AccessibleButton: TSCButton {
+open class AccessibleButton: TSCButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
@@ -27,15 +27,15 @@ class AccessibleButton: TSCButton {
         titleLabel?.adjustsFontForContentSizeCategory = true
     }
     
-    override var intrinsicContentSize: CGSize {
+    override open var intrinsicContentSize: CGSize {
         return titleLabel?.intrinsicContentSize ?? super.intrinsicContentSize
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
         return titleLabel?.sizeThatFits(size) ?? super.sizeThatFits(size)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         if let titleLabel = titleLabel {
             titleLabel.preferredMaxLayoutWidth = titleLabel.frame.width
