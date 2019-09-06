@@ -40,7 +40,18 @@ open class AccessibleButton: TSCButton {
     }
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        return titleLabel?.sizeThatFits(size) ?? super.sizeThatFits(size)
+        
+        guard let titleLabel = titleLabel else {
+            return super.sizeThatFits(size)
+        }
+        
+        let contentWidth = bounds.width - contentEdgeInsets.left - contentEdgeInsets.right
+        let imageWidth = imageView?.bounds.width ?? 0 + imageEdgeInsets.left + imageEdgeInsets.right
+        let titleMaxWidth = contentWidth - imageWidth - titleEdgeInsets.left - titleEdgeInsets.right
+        
+        let titleSize = titleLabel.sizeThatFits(CGSize(width: titleMaxWidth, height: size.height))
+        
+        return CGSize(width: titleSize.width, height: titleSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom)
     }
     
     override open func layoutSubviews() {
