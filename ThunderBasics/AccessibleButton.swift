@@ -40,6 +40,5 @@ open class AccessibleButton: TSCButton {
         if let titleLabel = titleLabel {
             titleLabel.preferredMaxLayoutWidth = titleLabel.frame.width
         }
-        super.layoutSubviews()
     }
 }
