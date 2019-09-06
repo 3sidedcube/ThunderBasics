@@ -29,7 +29,14 @@ open class AccessibleButton: TSCButton {
     }
     
     override open var intrinsicContentSize: CGSize {
-        return titleLabel?.intrinsicContentSize ?? super.intrinsicContentSize
+        
+        guard let titleLabel = titleLabel else {
+            return super.intrinsicContentSize
+        }
+        
+        let intrinsicSize = titleLabel.intrinsicContentSize
+        
+        return CGSize(width: intrinsicSize.width, height: intrinsicSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom)
     }
     
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -37,9 +44,11 @@ open class AccessibleButton: TSCButton {
     }
     
     override open func layoutSubviews() {
-        if let titleLabel = titleLabel {
-            titleLabel.preferredMaxLayoutWidth = titleLabel.frame.width
-        }
+        let contentWidth = bounds.width - contentEdgeInsets.left - contentEdgeInsets.right
+        let imageWidth = imageView?.bounds.width ?? 0 + imageEdgeInsets.left + imageEdgeInsets.right
+        let titleMaxWidth = contentWidth - imageWidth - titleEdgeInsets.left - titleEdgeInsets.right
+        
+        titleLabel?.preferredMaxLayoutWidth = titleMaxWidth
         super.layoutSubviews()
     }
 }
