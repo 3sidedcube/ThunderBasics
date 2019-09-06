@@ -25,6 +25,7 @@ open class AccessibleButton: TSCButton {
         titleLabel?.numberOfLines = 0
         titleLabel?.lineBreakMode = .byWordWrapping
         titleLabel?.adjustsFontForContentSizeCategory = true
+        titleLabel?.textAlignment = .center
     }
     
     override open var intrinsicContentSize: CGSize {
