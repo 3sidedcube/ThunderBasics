@@ -55,6 +55,7 @@ open class AccessibleButton: TSCButton {
     }
     
     override open func layoutSubviews() {
+        super.layoutSubviews()
         let contentWidth = bounds.width - contentEdgeInsets.left - contentEdgeInsets.right
         let imageWidth = imageView?.bounds.width ?? 0 + imageEdgeInsets.left + imageEdgeInsets.right
         let titleMaxWidth = contentWidth - imageWidth - titleEdgeInsets.left - titleEdgeInsets.right
