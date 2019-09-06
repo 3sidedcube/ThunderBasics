@@ -20,6 +20,7 @@
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */; };
 		B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
+		B1212A252321643800B43379 /* AccessibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1212A242321643800B43379 /* AccessibleButton.swift */; };
 		B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12BD5DF1C48052000D07A58 /* LoadingButton.swift */; };
 		B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */; };
 		B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */; };
@@ -97,6 +98,7 @@
 		980AE1D5220896A700540E8E /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
 		980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2Tests.swift"; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		B1212A242321643800B43379 /* AccessibleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleButton.swift; sourceTree = "<group>"; };
 		B12BD5DF1C48052000D07A58 /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		B137792E2029F1F3006FE6D5 /* MapView+Fitting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Fitting.swift"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */,
+				B1212A242321643800B43379 /* AccessibleButton.swift */,
 			);
 			name = Accessibility;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				B146C3BE21908A6700A1DBCD /* UILabel+SizeToFit.swift in Sources */,
 				B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
+				B1212A252321643800B43379 /* AccessibleButton.swift in Sources */,
 				B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */,
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
 				B1E6FC32218C5D9A00971DC3 /* ToastView.swift in Sources */,
