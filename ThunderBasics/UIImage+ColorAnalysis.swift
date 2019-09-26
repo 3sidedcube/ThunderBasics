@@ -225,6 +225,7 @@ extension UIImage {
         let height = Int(size.height)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
+        // Create graphics context to render image to
         guard let context = CGContext(data: nil,
                                       width: width,
                                       height: height,
@@ -236,6 +237,7 @@ extension UIImage {
                 return nil
         }
         
+        // Re-create the image to make sure the image is RGBA rather than it's original colour space
         context.draw(cgImage, in: CGRect(origin: .zero, size: size))
         
         guard let pixelBuffer = context.data else { return nil }
@@ -243,6 +245,7 @@ extension UIImage {
         let pointer = pixelBuffer.bindMemory(to: UInt32.self, capacity: width * height)
         let pixel = pointer[Int(point.y) * width + Int(point.x)]
         
+        // Get pixel RGBA values
         let r: CGFloat = CGFloat(red(for: pixel))   / 255
         let g: CGFloat = CGFloat(green(for: pixel)) / 255
         let b: CGFloat = CGFloat(blue(for: pixel))  / 255
