@@ -219,16 +219,55 @@ extension UIImage {
     /// - Returns: The color of the selected pixel
     public func pixelColorAt(_ point: CGPoint) -> UIColor? {
         
-        guard let pixelData = cgImage?.dataProvider?.data else { return nil }
-        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        guard let cgImage = cgImage else { return nil }
         
-        let pixelInfo: Int = ((Int(size.width) * Int(point.y)) + Int(point.x)) * 4
+        let width = Int(size.width)
+        let height = Int(size.height)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
-        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
-        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
-        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+        guard let context = CGContext(data: nil,
+                                      width: width,
+                                      height: height,
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: width * 4,
+                                      space: colorSpace,
+                                      bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue)
+            else {
+                return nil
+        }
+        
+        context.draw(cgImage, in: CGRect(origin: .zero, size: size))
+        
+        guard let pixelBuffer = context.data else { return nil }
+        
+        let pointer = pixelBuffer.bindMemory(to: UInt32.self, capacity: width * height)
+        let pixel = pointer[Int(point.y) * width + Int(point.x)]
+        
+        let r: CGFloat = CGFloat(red(for: pixel))   / 255
+        let g: CGFloat = CGFloat(green(for: pixel)) / 255
+        let b: CGFloat = CGFloat(blue(for: pixel))  / 255
+        let a: CGFloat = CGFloat(alpha(for: pixel)) / 255
         
         return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+    
+    private func alpha(for pixelData: UInt32) -> UInt8 {
+        return UInt8((pixelData >> 24) & 255)
+    }
+    
+    private func red(for pixelData: UInt32) -> UInt8 {
+        return UInt8((pixelData >> 16) & 255)
+    }
+    
+    private func green(for pixelData: UInt32) -> UInt8 {
+        return UInt8((pixelData >> 8) & 255)
+    }
+    
+    private func blue(for pixelData: UInt32) -> UInt8 {
+        return UInt8((pixelData >> 0) & 255)
+    }
+    
+    private func rgba(red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8) -> UInt32 {
+        return (UInt32(alpha) << 24) | (UInt32(red) << 16) | (UInt32(green) << 8) | (UInt32(blue) << 0)
     }
 }
