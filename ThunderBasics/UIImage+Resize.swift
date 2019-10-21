@@ -90,8 +90,8 @@ extension UIImage {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         guard let context = CGContext(
             data: nil,
-            width: Int(size.width),
-            height: Int(size.height),
+            width: Int(newRect.size.width),
+            height: Int(newRect.size.height),
             bitsPerComponent: 8,
             bytesPerRow: Int(newRect.size.width * 4),
             space: colorSpace,
