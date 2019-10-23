@@ -46,7 +46,7 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     /// The current element which is selected in the carousel
     public var currentElement: Int = 0
     
-    override var accessibilityTraits: UIAccessibilityTraits {
+    override public var accessibilityTraits: UIAccessibilityTraits {
         get {
             return [.adjustable, .button]
         }
@@ -55,7 +55,7 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
         }
     }
     
-    override var accessibilityValue: String? {
+    override public var accessibilityValue: String? {
         get {
             return dataSource?.carouselAccessibilityElement(self, accessibilityValueAt: currentElement)
         }
