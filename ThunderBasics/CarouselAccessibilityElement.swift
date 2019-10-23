@@ -10,7 +10,7 @@ import UIKit
 
 /// A protocol which must be impelemented by users of `CarouselAccessibilityElement` which allows the provision of:
 ///  accessibility values, the number of items in the carousel and performs accessibility scrolling
-protocol CarouselAccessibilityElementDataSource {
+public protocol CarouselAccessibilityElementDataSource {
     
     /// This is used by a `CarouselAcccessibilityElement` to fetch the `accessibilityValue` for the element at a given index
     /// - Parameter element: The accessibility element which is asking for an `accessibilityValue`
@@ -30,21 +30,21 @@ protocol CarouselAccessibilityElementDataSource {
 
 /// A subclass of `UIAccessibilityElement` which simplifies all the logic that is needed to implement a carousel-like accessibility control.
 /// Return an instance of this class from your container element's `accessibilityElements` to implement carousel scrolling in Voice Over.
-class CarouselAccessibilityElement: UIAccessibilityElement {
+public class CarouselAccessibilityElement: UIAccessibilityElement {
     
     /// The source for the data which this accessibility element needs to function
-    var dataSource: CarouselAccessibilityElementDataSource?
+    public var dataSource: CarouselAccessibilityElementDataSource?
     
     /// Creates a new carousel accessibility element for the given container and dataSource
     /// - Parameter container: The container element for the accessibility element
     /// - Parameter dataSource: The data source used to perform accessibility functions
-    init(accessibilityContainer container: Any, dataSource: CarouselAccessibilityElementDataSource) {
+    public init(accessibilityContainer container: Any, dataSource: CarouselAccessibilityElementDataSource) {
         super.init(accessibilityContainer: container)
         self.dataSource = dataSource
     }
     
     /// The current element which is selected in the carousel
-    var currentElement: Int = 0
+    public var currentElement: Int = 0
     
     override var accessibilityTraits: UIAccessibilityTraits {
         get {
@@ -107,15 +107,15 @@ class CarouselAccessibilityElement: UIAccessibilityElement {
     
     // MARK: Accessibility
 
-    override func accessibilityIncrement() {
+    override public func accessibilityIncrement() {
         accessibilityScrollForward(announce: false)
     }
     
-    override func accessibilityDecrement() {
+    override public func accessibilityDecrement() {
         accessibilityScrollBackward(announce: false)
     }
 
-    override func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
+    override public func accessibilityScroll(_ direction: UIAccessibilityScrollDirection) -> Bool {
         if direction == .left {
             return accessibilityScrollForward(announce: true)
         } else if direction == .right {
