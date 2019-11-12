@@ -58,6 +58,7 @@
 		B1B6CF8D1C4E47DB00CDC978 /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
 		B1B6CFA81C4E5BC300CDC978 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */; };
+		B1D15F6B2360A18D0086E23F /* CarouselAccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D15F6A2360A18D0086E23F /* CarouselAccessibilityElement.swift */; };
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
@@ -130,6 +131,7 @@
 		B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AddedProperties.h"; sourceTree = "<group>"; };
 		B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AddedProperties.m"; sourceTree = "<group>"; };
 		B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		B1D15F6A2360A18D0086E23F /* CarouselAccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAccessibilityElement.swift; sourceTree = "<group>"; };
 		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
 		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
 		B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDActivityView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */,
 				B1212A242321643800B43379 /* AccessibleButton.swift */,
+				B1D15F6A2360A18D0086E23F /* CarouselAccessibilityElement.swift */,
 			);
 			name = Accessibility;
 			sourceTree = "<group>";
@@ -679,6 +682,7 @@
 				B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */,
 				B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */,
 				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
+				B1D15F6B2360A18D0086E23F /* CarouselAccessibilityElement.swift in Sources */,
 				B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */,
 				B146C3C021908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift in Sources */,
 				B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */,
@@ -750,7 +754,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
 				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
@@ -780,7 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
 				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
@@ -976,7 +980,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ThunderBasics;
@@ -1005,7 +1009,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
