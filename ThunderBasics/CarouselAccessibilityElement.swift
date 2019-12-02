@@ -55,7 +55,8 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     
     /// Whether the adjustable behaviour should be implemented for this element.
     /// Settings this to `false` disables the auto-appending of `adjustable` to the elements traits,
-    /// and disables the logic in `accessibilityIncrement` and `accessibilityDecrement`.
+    /// and disables the logic in `accessibilityIncrement` and `accessibilityDecrement`
+    /// (Unless `.adjustable` is returned by the data source method `carouselAccessibilityElement(_ element: CarouselAccessibilityElement, accessibilityTraitsForItemAt index: Int)`.
     public var adjustable: Bool = true
     
     override public var accessibilityTraits: UIAccessibilityTraits {
