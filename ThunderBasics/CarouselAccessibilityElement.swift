@@ -18,6 +18,8 @@ public protocol CarouselAccessibilityElementDataSource {
     func carouselAccessibilityElement(_ element: CarouselAccessibilityElement, accessibilityValueAt index: Int) -> String?
     
     /// This is used by a `CarouselAcccessibilityElement` to fetch the `UIAccessibilityTraits` for the element at a given index
+    ///
+    /// - Note: If `adjustable` is true on the `element` (It is true by default) the returned value here will have the `.adjustable` trait appended to it.
     /// - Parameter element: The accessibility element which is asking for the `UIAccessibilityTraits`
     /// - Parameter index: The index of the value to return
     func carouselAccessibilityElement(_ element: CarouselAccessibilityElement, accessibilityTraitsForItemAt index: Int) -> UIAccessibilityTraits
@@ -51,9 +53,20 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     /// The current element which is selected in the carousel
     public var currentElement: Int = 0
     
+    /// Whether the adjustable behaviour should be implemented for this element.
+    /// Settings this to `false` disables the auto-appending of `adjustable` to the elements traits,
+    /// and disables the logic in `accessibilityIncrement` and `accessibilityDecrement`.
+    public var adjustable: Bool = true
+    
     override public var accessibilityTraits: UIAccessibilityTraits {
         get {
-            return dataSource?.carouselAccessibilityElement(self, accessibilityTraitsForItemAt: currentElement) ?? [.adjustable, .button]
+            guard var dataSourceTraits = dataSource?.carouselAccessibilityElement(self, accessibilityTraitsForItemAt: currentElement) else {
+                return !adjustable ? [.adjustable, .button] : [.button]
+            }
+            if !dataSourceTraits.contains(.adjustable) && adjustable {
+                dataSourceTraits.insert(.adjustable)
+            }
+            return dataSourceTraits
         }
         set {
             super.accessibilityTraits = newValue
@@ -113,10 +126,12 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     // MARK: Accessibility
 
     override public func accessibilityIncrement() {
+        guard adjustable else { return }
         accessibilityScrollForward(announce: false)
     }
     
     override public func accessibilityDecrement() {
+        guard adjustable else { return }
         accessibilityScrollBackward(announce: false)
     }
 
