@@ -17,6 +17,11 @@ public protocol CarouselAccessibilityElementDataSource {
     /// - Parameter index: The index of the value to return
     func carouselAccessibilityElement(_ element: CarouselAccessibilityElement, accessibilityValueAt index: Int) -> String?
     
+    /// This is used by a `CarouselAcccessibilityElement` to fetch the `UIAccessibilityTraits` for the element at a given index
+    /// - Parameter element: The accessibility element which is asking for the `UIAccessibilityTraits`
+    /// - Parameter index: The index of the value to return
+    func carouselAccessibilityElement(_ element: CarouselAccessibilityElement, accessibilityTraitsForItemAt index: Int) -> UIAccessibilityTraits
+    
     /// This is used by a `CarouselAccessibilityElement` to fetch the number of items in the carousel to make sure we don't try and scroll too far
     /// - Parameter element: The accessibility element requesting the number of items
     func numberOfItems(in element: CarouselAccessibilityElement) -> Int
@@ -48,7 +53,7 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     
     override public var accessibilityTraits: UIAccessibilityTraits {
         get {
-            return [.adjustable, .button]
+            return dataSource?.carouselAccessibilityElement(self, accessibilityTraitsForItemAt: currentElement) ?? [.adjustable, .button]
         }
         set {
             super.accessibilityTraits = newValue
