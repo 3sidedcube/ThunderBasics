@@ -62,7 +62,7 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     override public var accessibilityTraits: UIAccessibilityTraits {
         get {
             guard var dataSourceTraits = dataSource?.carouselAccessibilityElement(self, accessibilityTraitsForItemAt: currentElement) else {
-                return !adjustable ? [.adjustable, .button] : [.button]
+                return adjustable ? [.adjustable, .button] : [.button]
             }
             if !dataSourceTraits.contains(.adjustable) && adjustable {
                 dataSourceTraits.insert(.adjustable)
