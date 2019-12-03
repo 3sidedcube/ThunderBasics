@@ -127,12 +127,12 @@ public class CarouselAccessibilityElement: UIAccessibilityElement {
     // MARK: Accessibility
 
     override public func accessibilityIncrement() {
-        guard adjustable || accessibilityTraits.contains(.adjustable) else { return }
+        guard accessibilityTraits.contains(.adjustable) else { return }
         accessibilityScrollForward(announce: false)
     }
     
     override public func accessibilityDecrement() {
-        guard adjustable || accessibilityTraits.contains(.adjustable) else { return }
+        guard accessibilityTraits.contains(.adjustable) else { return }
         accessibilityScrollBackward(announce: false)
     }
 
