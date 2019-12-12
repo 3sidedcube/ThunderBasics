@@ -189,10 +189,16 @@ public class HUDActivityView: UIView {
     ///   - view: The view that should present the loading HUD
     ///   - text: The text to display beneath the indicator
     ///   - style: The style of the HUD
-    public class func addHUDWith(identifier: String, to view: UIView?, withText text: String? = nil, style: Style = .default) {
+    ///   - isModalAccessibilityView: Whether the HUD should be considered a modal accessibility view, this will be forwarded to the `accessibilityViewIsModal` property on the view, and also call `screenChanged` accessibility notification when the HUD is shown
+    public class func addHUDWith(identifier: String, to view: UIView?, withText text: String? = nil, style: Style = .default, isModalAccessibilityView: Bool = true) {
         
         let activityView = HUDActivityView(style: style, identifier: identifier, text: text)
+        activityView.accessibilityViewIsModal = isModalAccessibilityView
         activityView.show(in: view)
+        
+        if isModalAccessibilityView {
+            UIAccessibility.post(notification: .screenChanged, argument: activityView)
+        }
         
         guard style == .logo else {
             return
@@ -211,16 +217,24 @@ public class HUDActivityView: UIView {
     /// - Parameters:
     ///   - identifier: The identifier of the activity view we want to finish.
     ///   - view: The view which the HUD is shown in.
-    public class func removeHUDWith(identifier: String, in view: UIView?) {
-        view?.HUDActivityViewWith(identifier: identifier)?.animateOut()
+    ///   - completion: A closure to be called when the HUD was sucessfully dismissed, if this returns a value, then this will be sent to the `screenChanged` notification once the hud has been dismissed
+    public class func removeHUDWith(identifier: String, in view: UIView?, completion: (() -> Any?)? = nil) {
+        guard let hud = view?.HUDActivityViewWith(identifier: identifier) else {
+            return
+        }
+        hud.animateOut {
+            guard hud.accessibilityViewIsModal else { return }
+            UIAccessibility.post(notification: .screenChanged, argument: completion?())
+        }
     }
     
-    private func animateOut() {
+    private func animateOut(completion: @escaping () -> Void) {
         
         UIView.animate(withDuration: 0.35, animations: {
             self.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             self.alpha = 0.0
         }) { (_) in
+            completion()
             self.removeFromSuperview()
         }
     }
