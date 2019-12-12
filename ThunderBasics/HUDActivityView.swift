@@ -372,6 +372,7 @@ public class HUDActivityView: UIView {
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         guard previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory else { return }
         guard let superView = superview else { return }
+        textLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         let size = sizeThatFits(CGSize(width: superView.frame.width - margins.left - margins.right, height: superView.frame.width - margins.top - margins.bottom))
         var viewFrame = CGRect()
         viewFrame.size = size
