@@ -89,6 +89,34 @@ public class HUDActivityView: UIView {
         }
     }
     
+    public override var isAccessibilityElement: Bool {
+        get {
+            return true
+        }
+        set {  }
+    }
+    
+    public override var accessibilityTraits: UIAccessibilityTraits {
+        get {
+            return activityIndicator?.accessibilityTraits ?? []
+        }
+        set { }
+    }
+    
+    public override var accessibilityLabel: String? {
+        get {
+            return [activityIndicator?.accessibilityLabel, textLabel.text].compactMap({ $0 }).joined(separator: ". ")
+        }
+        set { }
+    }
+    
+    public override var accessibilityValue: String? {
+        get {
+            return activityIndicator?.accessibilityValue
+        }
+        set { }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         identifier = ""
         super.init(coder: aDecoder)
