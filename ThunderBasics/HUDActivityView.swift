@@ -38,6 +38,8 @@ public class HUDActivityView: UIView {
     private var logoView: UIImageView?
     
     private let textLabel: UILabel = UILabel()
+    
+    private let backgroundView: UIView?
 
     /// Creates a new instance with a particular style and identifier
     ///
@@ -49,15 +51,21 @@ public class HUDActivityView: UIView {
         
         self.identifier = identifier
         
+        if style != .minimal {
+            backgroundView = UIView(frame: .zero)
+        } else {
+            backgroundView = nil
+        }
+        
         super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         if style != .minimal {
-            
-            let backgroundView = UIView(frame: bounds)
-            backgroundView.backgroundColor = .black
-            backgroundView.alpha = 0.7
-            backgroundView.cornerRadius = 8
-            addSubview(backgroundView)
+            backgroundView?.backgroundColor = .black
+            backgroundView?.alpha = 0.7
+            backgroundView?.cornerRadius = 8
+            if let bgView = backgroundView {
+                addSubview(bgView)
+            }
         }
         
         if style != .logo {
@@ -74,6 +82,7 @@ public class HUDActivityView: UIView {
         textLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
         textLabel.textColor = .white
         textLabel.text = text
+        textLabel.adjustsFontForContentSizeCategory = true
         
         addSubview(textLabel)
         
@@ -88,6 +97,14 @@ public class HUDActivityView: UIView {
             break
         }
     }
+    
+    /// These margins will be used to make sure the activity indicator doesn't come within this distance of the edge of the view
+    public var margins: UIEdgeInsets = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+    
+    /// The padding between the hud container and it's subviews
+    public var padding: UIEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    
+    private static let activityLabelVerticalPadding: CGFloat = 12.0
     
     public override var isAccessibilityElement: Bool {
         get {
@@ -119,6 +136,7 @@ public class HUDActivityView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         identifier = ""
+        backgroundView = nil
         super.init(coder: aDecoder)
     }
     
@@ -126,16 +144,18 @@ public class HUDActivityView: UIView {
         
         super.layoutSubviews()
         
+        backgroundView?.frame = bounds
+        
         activityIndicator?.frame = CGRect(
-            x: frame.width/2 - 15,
-            y: frame.height/2 - 15,
+            x: frame.width/2,
+            y: frame.height/2,
             width: 30,
             height: 30
         )
         
         logoView?.frame = CGRect(
-            x: frame.width/2 - 20,
-            y: frame.height/2 - 20,
+            x: frame.width/2,
+            y: frame.height/2,
             width: 40,
             height: 40
         )
@@ -145,8 +165,28 @@ public class HUDActivityView: UIView {
             logoView?.frame = (logoView?.frame ?? .zero).offsetBy(dx: 0, dy: -7)
         }
         
-        let textLabelSize = textLabel.sizeThatFits(CGSize(width: frame.width - 10, height: frame.height))
-        textLabel.frame = CGRect(x: 5, y: frame.height - textLabelSize.height - 4, width: frame.width - 10, height: textLabelSize.height)
+        let textLabelSize = textLabel.sizeThatFits(CGSize(width: frame.width - padding.left - padding.right, height: .greatestFiniteMagnitude))
+        textLabel.frame = CGRect(x: padding.left, y: frame.height - textLabelSize.height - padding.bottom, width: frame.width - padding.left - padding.right, height: textLabelSize.height)
+        
+        activityIndicator?.center = CGPoint(x: frame.width/2, y: textLabel.frame.minY/2)
+        logoView?.center = CGPoint(x: frame.width/2, y: textLabel.frame.minY/2)
+    }
+    
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+        
+        var totalSize = activityIndicator?.frame.size ?? logoView?.frame.size ?? .zero
+        totalSize.width += padding.left + padding.right
+        totalSize.height += padding.top + padding.bottom
+        
+        if textLabel.text != nil {
+            let textLabelSize = textLabel.sizeThatFits(CGSize(width: size.width - padding.left - padding.right, height: .greatestFiniteMagnitude))
+            totalSize = CGSize(
+                width: max(textLabelSize.width + padding.left + padding.right, totalSize.width) ,
+                height: totalSize.height + textLabelSize.height + HUDActivityView.activityLabelVerticalPadding + padding.top + padding.bottom
+            )
+        }
+        
+        return CGSize(width: min(size.width, max(100, totalSize.width)), height: min(size.height, max(100, totalSize.height)))
     }
     
     //MARK: - Animations
@@ -189,9 +229,11 @@ public class HUDActivityView: UIView {
         
         view.addSubview(self)
         
-        var _frame = frame
-        _frame.origin = CGPoint(x: (view.bounds.width/2) - (_frame.width/2), y: (view.bounds.height/2) - (_frame.height/2))
-        frame = _frame
+        let size = sizeThatFits(CGSize(width: view.frame.width - margins.left - margins.right, height: view.frame.width - margins.top - margins.bottom))
+        var viewFrame = CGRect()
+        viewFrame.size = size
+        viewFrame.origin = CGPoint(x: (view.bounds.width/2) - (size.width/2), y: (view.bounds.height/2) - (size.height/2))
+        frame = viewFrame
         
         // Pop
         let animation = CAKeyframeAnimation(keyPath: "transform")
@@ -325,6 +367,16 @@ public class HUDActivityView: UIView {
     ///   - view: The view which already contains a loading HUD.
     public class func removeTextFromHUDWith(identifier: String, in view: UIView?) {
         updateText(nil, forHUDWithId: identifier, in: view)
+    }
+    
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        guard previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory else { return }
+        guard let superView = superview else { return }
+        let size = sizeThatFits(CGSize(width: superView.frame.width - margins.left - margins.right, height: superView.frame.width - margins.top - margins.bottom))
+        var viewFrame = CGRect()
+        viewFrame.size = size
+        viewFrame.origin = CGPoint(x: (superView.bounds.width/2) - (size.width/2), y: (superView.bounds.height/2) - (size.height/2))
+        frame = viewFrame
     }
 }
 
