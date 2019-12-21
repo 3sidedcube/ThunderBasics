@@ -43,7 +43,9 @@ public final class ToastNotificationController {
     ///   - message: The message text to display on the toast
     ///   - image: The image to display on the left hand side of the toast
     ///   - action: A closure to call when the user taps the toast notification
-    public func displayToastWith(title: String?, message: String?, image: UIImage? = nil, action: ToastActionHandler? = nil) {
-        display(ToastView(title: title, message: message, image: image, action: action))
+    public func displayToastWith(title: String?, message: String?, image: UIImage? = nil, screenPosition: ToastView.ScreenPosition = .top, action: ToastActionHandler? = nil) {
+        let toastView = ToastView(title: title, message: message, image: image, action: action)
+        toastView.screenPosition = screenPosition
+        display(toastView)
     }
 }

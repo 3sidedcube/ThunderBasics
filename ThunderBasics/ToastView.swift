@@ -14,6 +14,15 @@ public typealias ToastActionHandler = (_ toastView: ToastView) -> Void
 /// A visual representation of a `Toast` that will be displayed to the user from the top of their screen
 public class ToastView: UIView {
     
+    /// Defines where the toast should appear on-screen
+    public enum ScreenPosition {
+        case top
+        case bottom
+    }
+    
+    /// Where the toast should appear on-screen
+    var screenPosition: ScreenPosition = .top
+    
     /// The action to be called if the user taps the toast
     var action: ToastActionHandler?
     
@@ -116,9 +125,31 @@ public class ToastView: UIView {
         
         layout()
         
-        containerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: bounds.height + margins.top + (margins.top > 0 ? safeAreaInsets.top : 0))
-        coverWindow?.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + margins.top + (margins.top > 0 ? safeAreaInsets.top : 0))
-        transform = CGAffineTransform(translationX: 0, y: -(frame.height + frame.origin.y))
+        let marginV = margins.top + margins.bottom
+        let safeArea = screenPosition == .top ? safeAreaInsets.top : safeAreaInsets.bottom
+        var containerHeight = bounds.height + marginV
+        
+        switch screenPosition {
+        case .top:
+            if margins.top > 0 {
+                containerHeight += safeArea
+            }
+        default:
+            if margins.bottom >  0 {
+                containerHeight += safeArea
+            }
+        }
+
+        containerView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: containerHeight)
+        let coverFrame = CGRect(
+            x: 0,
+            y: screenPosition == .top ? 0 : UIScreen.main.bounds.height - containerHeight,
+            width:  UIScreen.main.bounds.width,
+            height: containerHeight
+        )
+        coverWindow?.frame = coverFrame
+        
+        frame = frame.offsetBy(dx: 0, dy: screenPosition == .top ? -coverFrame.height : (coverFrame.height - margins.top))
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         coverWindow?.addGestureRecognizer(tapGesture)
@@ -127,7 +158,7 @@ public class ToastView: UIView {
         
         let _gravity = UIGravityBehavior(items: [self])
         gravity = _gravity
-        _gravity.gravityDirection = CGVector(dx: 0.0, dy: 1.0)
+        _gravity.gravityDirection = CGVector(dx: 0.0, dy: screenPosition == .top ? 1.0 : -1.0)
         animator?.addBehavior(_gravity)
         
         let elasticBehaviour = UIDynamicItemBehavior(items: [self])
@@ -135,7 +166,15 @@ public class ToastView: UIView {
         animator?.addBehavior(elasticBehaviour)
         
         let collisionBehaviour = UICollisionBehavior(items: [self])
-        collisionBehaviour.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: -(self.frame.height)-10, left: -10, bottom: 1, right: -10))
+        let collisionInsets =  UIEdgeInsets(
+            top: screenPosition == .top ? -(coverFrame.height + 10) : margins.top,
+            left: -10,
+            bottom: screenPosition == .top ? margins.bottom : (coverFrame.height + 10),
+            right: -10
+        )
+        collisionBehaviour.translatesReferenceBoundsIntoBoundary = true
+
+        collisionBehaviour.setTranslatesReferenceBoundsIntoBoundary(with: collisionInsets)
         animator?.addBehavior(collisionBehaviour)
         
         self.completion = completion
@@ -164,9 +203,15 @@ public class ToastView: UIView {
             safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
         }
         
+        // Need to inset at top if margin == 0 so we cover the safe area on-screen
+        var topInset = insets.top
+        if screenPosition == .top, margins.top <= 0 {
+            topInset += safeAreaInsets.top
+        }
+        
         var labelContainerFrame = CGRect(
             x: insets.left,
-            y: insets.top + (margins.top <= 0 ? safeAreaInsets.top : 0),
+            y: topInset,
             width: frame.width - (insets.left + safeAreaInsets.left + margins.left) - (insets.right + safeAreaInsets.right + margins.right),
             height: .greatestFiniteMagnitude
         )
@@ -185,8 +230,16 @@ public class ToastView: UIView {
         messageLabel.frame = CGRect(origin: labelContainerFrame.offsetBy(dx: 0, dy: titleLabel.frame.height).origin, size: messageSize)
         
         // Minimum height of 44pts
-        let height = max(messageLabel.frame.maxY + insets.bottom, 44)
-        frame = CGRect(x: margins.left, y: -height + margins.top, width: frame.width - (margins.left + margins.right), height: height)
+        var height = max(messageLabel.frame.maxY + insets.bottom, 44)
+        switch screenPosition {
+        case .top:
+            break
+        default:
+            if margins.bottom <= 0 {
+                height += safeAreaInsets.bottom
+            }
+        }
+        frame = CGRect(x: margins.left, y: margins.top, width: frame.width - (margins.left + margins.right), height: height)
         imageView.center.y = frame.height/2
     }
     
@@ -198,7 +251,7 @@ public class ToastView: UIView {
         animator?.removeAllBehaviors()
         
         let gravityBehaviour = UIGravityBehavior(items: [self])
-        gravityBehaviour.gravityDirection = CGVector(dx: 0, dy: -2.4)
+        gravityBehaviour.gravityDirection = CGVector(dx: 0, dy: screenPosition == .top ? -2.4 : 2.4)
         animator?.addBehavior(gravityBehaviour)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in
