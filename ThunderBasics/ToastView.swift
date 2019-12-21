@@ -21,7 +21,7 @@ public class ToastView: UIView {
     }
     
     /// Where the toast should appear on-screen
-    var screenPosition: ScreenPosition = .top
+    public var screenPosition: ScreenPosition = .top
     
     /// The action to be called if the user taps the toast
     var action: ToastActionHandler?
