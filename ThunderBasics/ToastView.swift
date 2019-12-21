@@ -55,7 +55,7 @@ public class ToastView: UIView {
     ///   - message: The message text to display on the toast
     ///   - image: The image to display on the left hand side of the toast
     ///   - action: The action to be called if the user taps the toast
-    init(title: String?, message: String?, image: UIImage?, action: ToastActionHandler?) {
+    public init(title: String?, message: String?, image: UIImage?, action: ToastActionHandler?) {
         
         super.init(frame: .zero)
         
