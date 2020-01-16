@@ -95,7 +95,7 @@ public extension UIImage {
         
         if hasBlur || hasSaturationChange {
             
-            UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
             guard let effectInContext = UIGraphicsGetCurrentContext() else {
                 return nil
             }
@@ -113,7 +113,7 @@ public extension UIImage {
                     rowBytes: effectInContext.bytesPerRow
             )
             
-            UIGraphicsBeginImageContextWithOptions(size, true, UIScreen.main.scale)
+            UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
             
             guard let effectOutContext = UIGraphicsGetCurrentContext() else {
                 return nil
@@ -186,7 +186,7 @@ public extension UIImage {
                 )
             }
             
-            let effectImageBuffersAreSwapped = hasBlur
+            var effectImageBuffersAreSwapped = false
             
             if hasSaturationChange {
                 
@@ -206,6 +206,8 @@ public extension UIImage {
                 saturationMatrix = floatingPointSaturationMatrix.map({ (saturation) -> Int16 in
                     return Int16(round(saturation * divisor))
                 })
+                
+                effectImageBuffersAreSwapped = hasBlur
                 
                 var srcBuffer = hasBlur ? effectOutBuffer : effectInBuffer
                 var destBuffer = hasBlur ? effectInBuffer : effectOutBuffer
