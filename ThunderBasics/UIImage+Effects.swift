@@ -88,7 +88,7 @@ public extension UIImage {
         }
         
         let imageRect = CGRect(origin: .zero, size: size)
-        var effectImage = self
+        var effectImage: UIImage?
         
         let hasBlur = blurRadius > .ulpOfOne
         let hasSaturationChange = abs(saturationDeltaFactor - 1.0) > .ulpOfOne
@@ -108,8 +108,8 @@ public extension UIImage {
             var effectInBuffer =
                 vImage_Buffer(
                     data: effectInContext.data,
-                    height: vImagePixelCount(effectInContext.width),
-                    width: vImagePixelCount(effectInContext.height),
+                    height: vImagePixelCount(effectInContext.height),
+                    width: vImagePixelCount(effectInContext.width),
                     rowBytes: effectInContext.bytesPerRow
             )
             
@@ -122,8 +122,8 @@ public extension UIImage {
             var effectOutBuffer =
                 vImage_Buffer(
                     data: effectOutContext.data,
-                    height: vImagePixelCount(effectOutContext.width),
-                    width: vImagePixelCount(effectOutContext.height),
+                    height: vImagePixelCount(effectOutContext.height),
+                    width: vImagePixelCount(effectOutContext.width),
                     rowBytes: effectOutContext.bytesPerRow
             )
             
@@ -197,20 +197,21 @@ public extension UIImage {
                     0.2126 - 0.2126 * s, 0.2126 - 0.2126 * s, 0.2126 + 0.7873 * s, 0,
                     0, 0, 0, 1
                 ]
-                
+
                 let divisor: CGFloat = 256
                 let matrixSize = MemoryLayout.size(ofValue: floatingPointSaturationMatrix) / MemoryLayout.size(ofValue: floatingPointSaturationMatrix[0])
-                
+
                 var saturationMatrix = [Int16](repeating: 0, count: matrixSize)
-                
+
                 saturationMatrix = floatingPointSaturationMatrix.map({ (saturation) -> Int16 in
                     return Int16(round(saturation * divisor))
                 })
-                
+
                 effectImageBuffersAreSwapped = hasBlur
-                
+
                 var srcBuffer = hasBlur ? effectOutBuffer : effectInBuffer
                 var destBuffer = hasBlur ? effectInBuffer : effectOutBuffer
+
                 vImageMatrixMultiply_ARGB8888(
                     &srcBuffer,
                     &destBuffer,
@@ -223,13 +224,13 @@ public extension UIImage {
             }
             
             if !effectImageBuffersAreSwapped {
-                effectImage = UIGraphicsGetImageFromCurrentImageContext()!
+                effectImage = UIGraphicsGetImageFromCurrentImageContext()
             }
             
             UIGraphicsEndImageContext()
             
             if effectImageBuffersAreSwapped {
-                effectImage = UIGraphicsGetImageFromCurrentImageContext()!
+                effectImage = UIGraphicsGetImageFromCurrentImageContext()
             }
             
             UIGraphicsEndImageContext()
@@ -250,7 +251,7 @@ public extension UIImage {
             if let maskCGImage = maskImage?.cgImage {
                 outputContext.clip(to: imageRect, mask: maskCGImage)
             }
-            if let effectCGImage = effectImage.cgImage {
+            if let effectCGImage = (effectImage ?? self).cgImage {
                 outputContext.draw(effectCGImage, in: imageRect)
             }
             outputContext.restoreGState()
