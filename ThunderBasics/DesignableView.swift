@@ -62,13 +62,18 @@
 		*/
 		@IBInspectable open var bottomInset: CGFloat = 0
         
+        /**
+         Insets as `UIEdgeInsets`
+         */
 		private var edgeInsets: UIEdgeInsets {
-			get {
-				return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-			}
+            return UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
 		}
-
         
+        override open func layoutSubviews() {
+            super.layoutSubviews()
+            preferredMaxLayoutWidth = frame.width - (leftInset + rightInset)
+        }
+
 		open override func prepareForInterfaceBuilder() {
             
             super.prepareForInterfaceBuilder()
@@ -85,20 +90,18 @@
         }
         
 		override open func sizeThatFits(_ size: CGSize) -> CGSize {
-            
-            var adjSize = super.sizeThatFits(size)
-			adjSize.width += leftInset + rightInset
-			adjSize.height += topInset + bottomInset
-            
-            return adjSize
+            return addInsets(to: super.sizeThatFits(size))
         }
 		
 		open override var intrinsicContentSize: CGSize {
-			var superSize = super.intrinsicContentSize
-			superSize.width += leftInset + rightInset
-			superSize.height += topInset + bottomInset
-			return superSize
+            return addInsets(to: super.intrinsicContentSize)
 		}
+        
+        private func addInsets(to size: CGSize) -> CGSize {
+            let width = size.width + leftInset + rightInset
+            let height = size.height + topInset + bottomInset
+            return CGSize(width: width, height: height)
+        }
     }
     /**
      A designable subclass of UITextField that allows customisation of border color and width, as well as other properties

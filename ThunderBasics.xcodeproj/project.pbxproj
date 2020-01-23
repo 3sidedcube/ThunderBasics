@@ -75,6 +75,10 @@
 		B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */; };
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
 		B1FA1795230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */; };
+		B834865923D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */; };
+		B834865D23D9E62E00F52BA6 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865C23D9E62E00F52BA6 /* DateFormatter+Extensions.swift */; };
+		B834865F23D9E89F00F52BA6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865E23D9E89F00F52BA6 /* String+Extensions.swift */; };
+		B834866123D9E93B00F52BA6 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834866023D9E93B00F52BA6 /* UIView+Shadow.swift */; };
 		C272EFE819C8325D004BD339 /* ThunderBasics.h in Headers */ = {isa = PBXBuildFile; fileRef = C272EFB919C8325D004BD339 /* ThunderBasics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -146,6 +150,10 @@
 		B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Effects.swift"; sourceTree = "<group>"; };
 		B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
 		B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IntrinsicContentSize.swift"; sourceTree = "<group>"; };
+		B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		B834865C23D9E62E00F52BA6 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		B834865E23D9E89F00F52BA6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B834866023D9E93B00F52BA6 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		C272EF8419C831AB004BD339 /* ThunderBasics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ThunderBasics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF8F19C831AC004BD339 /* ThunderBasicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThunderBasicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C272EF9219C831AC004BD339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,6 +240,8 @@
 				B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */,
 				B13779312029F7EF006FE6D5 /* JSONSerialization+FromFile.swift */,
 				980AE1D22208965A00540E8E /* Locale Language Codes */,
+				B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */,
+				B834865E23D9E89F00F52BA6 /* String+Extensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -323,6 +333,7 @@
 				B146C3BB219071F700A1DBCD /* UIView+Pop.swift */,
 				B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */,
 				B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */,
+				B834866023D9E93B00F52BA6 /* UIView+Shadow.swift */,
 			);
 			name = "Views and Layers";
 			sourceTree = "<group>";
@@ -355,6 +366,7 @@
 			children = (
 				B152AC4F1F20BF020079372B /* DateHelpers.swift */,
 				B146C3F22191E47600A1DBCD /* NSDateFormatter+Strftime.swift */,
+				B834865C23D9E62E00F52BA6 /* DateFormatter+Extensions.swift */,
 			);
 			name = "Date and Time";
 			sourceTree = "<group>";
@@ -696,6 +708,7 @@
 				B137792F2029F1F3006FE6D5 /* MapView+Fitting.swift in Sources */,
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				B1212A252321643800B43379 /* AccessibleButton.swift in Sources */,
+				B834866123D9E93B00F52BA6 /* UIView+Shadow.swift in Sources */,
 				B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */,
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
 				B1E6FC32218C5D9A00971DC3 /* ToastView.swift in Sources */,
@@ -709,9 +722,12 @@
 				B1898CD1230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift in Sources */,
 				B152AC501F20BF020079372B /* DateHelpers.swift in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
+				B834865923D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift in Sources */,
 				B146C3E22191CB2400A1DBCD /* UIWindow+VisibleViewController.swift in Sources */,
+				B834865F23D9E89F00F52BA6 /* String+Extensions.swift in Sources */,
 				B146C3C221908FB900A1DBCD /* UIColor+HexString.swift in Sources */,
 				B1E6FC36218C6BC000971DC3 /* ToastNotificationController.swift in Sources */,
+				B834865D23D9E62E00F52BA6 /* DateFormatter+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
