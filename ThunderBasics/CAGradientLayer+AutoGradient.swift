@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CAGradientLayer {
+public extension CAGradientLayer {
     
     /// Creates a `CAGradientLayer` transitioning from one color to another.
     /// A transparent color can be parsed to create dark to translucent gradients.
