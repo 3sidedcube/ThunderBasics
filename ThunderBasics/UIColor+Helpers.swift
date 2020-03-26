@@ -330,7 +330,7 @@ extension UIColor {
     }
     
     /// The hexidecimal string from the color
-    var hexString: String? {
+    public var hexString: String? {
         guard let rgbHex = rgbHex else { return nil }
         return String(format: "#%06x", rgbHex)
     }
