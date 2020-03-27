@@ -37,8 +37,12 @@ public class ToastView: UIView {
     /// The visible duration of the toast view
     @objc public dynamic var visibleDuration: CGFloat = 2.0
     
-    /// The margins to apply around the toast view
+    /// The margins to apply around the toast view if safe area insets are zero. If top or bottom (dependent on position) are > 1
+    /// the view will be inset also by the safe area insets of the window and in this case `safeAreaMargin` will override this value (Assuming safe area insets are non-zero). This allows users to change margins dependent on if the user is on a notched or non-notched device.
     @objc public dynamic var margins: UIEdgeInsets = .zero
+    
+    /// The margins to apply around the toast view if safe area insets are non-zero
+    @objc public dynamic var safeAreaMargin: CGFloat = 0
     
     private let titleLabel = UILabel()
     
@@ -46,7 +50,11 @@ public class ToastView: UIView {
     
     private let imageView = UIImageView()
     
+    /// The padding to apply to the inside of the toast view. The safe area insets of the window will be added to this if `margins.top` or `margins.bottom` are zero, but this can be disabled by setting `safeAreaInset`.
     @objc public dynamic var insets: UIEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    
+    /// The padding to apply to the relevant side of the toast view if safe area insets are non-zero.
+    @objc public dynamic var safeAreaInset: CGFloat = 0
 
     /// Creates a toast view with a title, message and image
     ///
@@ -125,8 +133,8 @@ public class ToastView: UIView {
         
         layout()
         
-        let marginV = margins.top + margins.bottom
         let safeArea = screenPosition == .top ? safeAreaInsets.top : safeAreaInsets.bottom
+        let marginV = safeArea > 0 ? (screenPosition == .top ? safeAreaMargin + margins.bottom : safeAreaMargin + margins.top) : margins.top + margins.bottom
         var containerHeight = bounds.height + marginV
         
         switch screenPosition {
@@ -135,7 +143,7 @@ public class ToastView: UIView {
                 containerHeight += safeArea
             }
         default:
-            if margins.bottom >  0 {
+            if margins.bottom > 0 {
                 containerHeight += safeArea
             }
         }
@@ -206,6 +214,8 @@ public class ToastView: UIView {
         // Need to inset at top if margin == 0 so we cover the safe area on-screen
         var topInset = insets.top
         if screenPosition == .top, margins.top <= 0 {
+            // Override insets.top in this case so we don't end up with more padding than the user wants!
+            topInset = safeAreaInsets.top > 0 ? safeAreaInset : topInset
             topInset += safeAreaInsets.top
         }
         
@@ -229,8 +239,11 @@ public class ToastView: UIView {
         let messageSize = messageLabel.sizeThatFits(labelContainerFrame.size)
         messageLabel.frame = CGRect(origin: labelContainerFrame.offsetBy(dx: 0, dy: titleLabel.frame.height).origin, size: messageSize)
         
+        // If we're flush with the bottom, on a device with bottom safe area insets and the toast is at the bottom of the screen override
+        // insets.bottom with safeAreaInset
+        let bottomInset = (margins.bottom <= 0 && safeAreaInsets.bottom > 0 && screenPosition == .bottom) ? safeAreaInset : insets.bottom
         // Minimum height of 44pts
-        var height = max(messageLabel.frame.maxY + insets.bottom, 44)
+        var height = max(messageLabel.frame.maxY + bottomInset, 44)
         switch screenPosition {
         case .top:
             break
