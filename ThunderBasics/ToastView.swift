@@ -112,12 +112,7 @@ public class ToastView: UIView {
     internal func show(completion: @escaping () -> Void) {
         
         frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44)
-        
-        var safeAreaInsets: UIEdgeInsets = .zero
-        if #available(iOS 11.0, *) {
-            safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
-        }
-        
+                
         let containerView = UIView(frame: .zero)
         
         coverWindow = UIWindow(frame: .zero)
@@ -133,6 +128,17 @@ public class ToastView: UIView {
         
         layout()
         
+        // For some reason margins is only available at this point!
+        var safeAreaInsets: UIEdgeInsets = .zero
+        if #available(iOS 11.0, *) {
+            safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
+            // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
+            // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
+            if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
+                safeAreaInsets = .zero
+            }
+        }
+                
         let safeArea = screenPosition == .top ? safeAreaInsets.top : safeAreaInsets.bottom
         let marginV = safeArea > 0 ? (screenPosition == .top ? safeAreaMargin + margins.bottom : safeAreaMargin + margins.top) : margins.top + margins.bottom
         var containerHeight = bounds.height + marginV
@@ -209,6 +215,11 @@ public class ToastView: UIView {
         var safeAreaInsets: UIEdgeInsets = .zero
         if #available(iOS 11.0, *) {
             safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
+            // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
+            // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
+            if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
+                safeAreaInsets = .zero
+            }
         }
         
         // Need to inset at top if margin == 0 so we cover the safe area on-screen
