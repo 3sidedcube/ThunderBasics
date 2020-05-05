@@ -18,6 +18,15 @@ public class ToastView: UIView {
     public enum ScreenPosition {
         case top
         case bottom
+        
+        func insetFor(safeAreaInsets: UIEdgeInsets) -> CGFloat {
+            switch self {
+            case .top:
+                return safeAreaInsets.top
+            case .bottom:
+                return safeAreaInsets.bottom
+            }
+        }
     }
     
     /// Where the toast should appear on-screen
@@ -139,8 +148,21 @@ public class ToastView: UIView {
             }
         }
                 
-        let safeArea = screenPosition == .top ? safeAreaInsets.top : safeAreaInsets.bottom
-        let marginV = safeArea > 0 ? (screenPosition == .top ? safeAreaMargin + margins.bottom : safeAreaMargin + margins.top) : margins.top + margins.bottom
+        let safeArea = screenPosition.insetFor(safeAreaInsets: safeAreaInsets)
+        
+        // We add the opposite side's margin because the side that relates to the screenposition is added on later based on `margins`
+        var marginV: CGFloat = 0.0
+        if safeArea > 0 {
+            switch screenPosition {
+            case .top:
+                marginV = safeAreaMargin + margins.bottom
+            case .bottom:
+                marginV = safeAreaMargin + margins.top
+            }
+        } else {
+            marginV = margins.top + margins.bottom
+        }
+        
         var containerHeight = bounds.height + marginV
         
         switch screenPosition {
@@ -148,7 +170,7 @@ public class ToastView: UIView {
             if margins.top > 0 {
                 containerHeight += safeArea
             }
-        default:
+        case .bottom:
             if margins.bottom > 0 {
                 containerHeight += safeArea
             }
