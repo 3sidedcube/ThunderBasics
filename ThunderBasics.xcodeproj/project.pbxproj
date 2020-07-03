@@ -75,6 +75,7 @@
 		B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */; };
 		B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */; };
 		B1FA1795230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */; };
+		B811830F246070E200D0EC88 /* DateFormatterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811830E246070E200D0EC88 /* DateFormatterExtensionsTests.swift */; };
 		B834865923D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */; };
 		B834865D23D9E62E00F52BA6 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865C23D9E62E00F52BA6 /* DateFormatter+Extensions.swift */; };
 		B834865F23D9E89F00F52BA6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865E23D9E89F00F52BA6 /* String+Extensions.swift */; };
@@ -150,6 +151,7 @@
 		B1E6FC4A218CAA8800971DC3 /* UIImage+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Effects.swift"; sourceTree = "<group>"; };
 		B1E6FC4C218CABF900971DC3 /* UIImage+Crop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Crop.swift"; sourceTree = "<group>"; };
 		B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IntrinsicContentSize.swift"; sourceTree = "<group>"; };
+		B811830E246070E200D0EC88 /* DateFormatterExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensionsTests.swift; sourceTree = "<group>"; };
 		B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		B834865C23D9E62E00F52BA6 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		B834865E23D9E89F00F52BA6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				C272EF9119C831AC004BD339 /* Supporting Files */,
 				B146C3CD2190978900A1DBCD /* UIColorHexStringTests.swift */,
 				980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */,
+				B811830E246070E200D0EC88 /* DateFormatterExtensionsTests.swift */,
 			);
 			path = ThunderBasicsTests;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 			files = (
 				B146C3CF2190978F00A1DBCD /* UIColor+HexString.swift in Sources */,
 				B146C3CE2190978900A1DBCD /* UIColorHexStringTests.swift in Sources */,
+				B811830F246070E200D0EC88 /* DateFormatterExtensionsTests.swift in Sources */,
 				980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,7 +774,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
 				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
@@ -800,7 +804,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.threesidedcube.ThunderBasicsMac;
 				PRODUCT_NAME = ThunderBasics;
 				SDKROOT = macosx;
@@ -996,7 +1000,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.6.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ThunderBasics;
@@ -1025,7 +1029,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = mh_dylib;
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threesidedcube.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ThunderBasics;
 				SKIP_INSTALL = YES;
