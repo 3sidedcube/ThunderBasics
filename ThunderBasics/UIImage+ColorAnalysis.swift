@@ -46,6 +46,8 @@ public class ImageColorAnalyzer {
     /// The image will not be analyzed until the `analyze` method is called
     ///
     /// - Parameter image: The `UIImage` to be color analyzed.
+    /// - Parameter pixelThreshold: The threshold to use for picking a colour, this defaults to 2. Set to `nil` to have
+    /// a value calculated from the image size
     public init(image: UIImage, pixelThreshold: Int? = 2) {
         self.image = image
         self.pixelThreshold = pixelThreshold
