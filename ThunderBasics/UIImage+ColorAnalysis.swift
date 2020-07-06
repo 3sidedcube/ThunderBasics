@@ -34,15 +34,21 @@ public class ImageColorAnalyzer {
     /// The color of the text that should overlay the image. This color will normally be black or white
     public var detailColor: UIColor?
     
+    /// The background color from the image, picked from
     public var backgroundColor: UIColor?
+    
+    /// The pixel threshold to use for picking colours. If provided as `nil` this will be calculated from
+    /// the image's size.
+    public var pixelThreshold: Int?
     
     /// Initializes the `ImageColorAnalyzer` with a `UIImage`
     ///
     /// The image will not be analyzed until the `analyze` method is called
     ///
     /// - Parameter image: The `UIImage` to be color analyzed.
-    public init(image: UIImage) {
+    public init(image: UIImage, pixelThreshold: Int? = 2) {
         self.image = image
+        self.pixelThreshold = pixelThreshold
     }
     
     /// Performs the image analysis
@@ -103,12 +109,14 @@ public class ImageColorAnalyzer {
             }
         }
         
+        let threshold = pixelThreshold ?? Int(CGFloat(pixelsHigh) * 0.01)
+        
         var countedColours: [(UIColor, Int)] = leftEdgeColours.compactMap({
             guard let colour = $0 as? UIColor else {
                 return nil
             }
             let count = leftEdgeColours.count(for: colour)
-            guard count > 2 else { return nil } // Prevent using random colours, threshold should be based in input image size
+            guard count > threshold else { return nil } // Prevent using random colours, threshold should be based in input image size
             return (colour, count)
         })
         
