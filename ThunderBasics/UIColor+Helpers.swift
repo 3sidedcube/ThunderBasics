@@ -10,6 +10,31 @@ import UIKit
 
 extension UIColor {
     
+    /// A structual representation of a colour's RGBA components
+    public struct RGBAComponents: Equatable {
+        
+        public let red: CGFloat
+        
+        public let green: CGFloat
+        
+        public let blue: CGFloat
+        
+        public let alpha: CGFloat
+        
+        /// Public default memberwise initialiser
+        /// - Parameters:
+        ///   - red: The red component of the colour
+        ///   - green: The green component of the colour
+        ///   - blue: The blue component of the colour
+        ///   - alpha: The alpha component of the colour
+        public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+            self.red = red
+            self.green = green
+            self.blue = blue
+            self.alpha = alpha
+        }
+    }
+    
     /// Returns a random colour
     public var random: UIColor {
         let red = CGFloat.random(in: 0 ... 1)
@@ -24,7 +49,7 @@ extension UIColor {
     }
     
     /// Returns the RGBA components of the colour
-    public var rgbaComponents: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+    public var rgbaComponents: RGBAComponents? {
         
         var red: CGFloat = 0.0
         var green: CGFloat = 0.0
@@ -35,7 +60,7 @@ extension UIColor {
             return nil
         }
         
-        return (red, green, blue, alpha)
+        return .init(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     /// Returns the HSBA components of the colour
