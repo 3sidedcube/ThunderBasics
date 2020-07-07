@@ -17,6 +17,8 @@
 		980AE1D6220896A700540E8E /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980AE1D5220896A700540E8E /* iso639_2.bundle */; };
 		980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
 		980AE26B220AFF7400540E8E /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C272EF8419C831AB004BD339 /* ThunderBasics.framework */; };
+		B10F06C324B4B3EA00B3F8BC /* nebraska.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */; };
+		B10F06C524B4C01300B3F8BC /* mit.png in Resources */ = {isa = PBXBuildFile; fileRef = B10F06C424B4C01300B3F8BC /* mit.png */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
 		B11266EB227C7AA000D68360 /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */; };
 		B11266EC227C7D3900D68360 /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B146C3C121908FB900A1DBCD /* UIColor+HexString.swift */; };
@@ -113,6 +115,8 @@
 		980AE1D32208968800540E8E /* Locale+ISO639_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2.swift"; sourceTree = "<group>"; };
 		980AE1D5220896A700540E8E /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
 		980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2Tests.swift"; sourceTree = "<group>"; };
+		B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nebraska.jpg; sourceTree = "<group>"; };
+		B10F06C424B4C01300B3F8BC /* mit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mit.png; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		B1212A242321643800B43379 /* AccessibleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleButton.swift; sourceTree = "<group>"; };
 		B12BD5DF1C48052000D07A58 /* LoadingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -478,6 +482,8 @@
 		C272EF9119C831AC004BD339 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B10F06C424B4C01300B3F8BC /* mit.png */,
+				B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */,
 				B1EDB95B24B4949800B427A6 /* nyt.png */,
 				B1EDB95724B48A4200B427A6 /* arcLogo.jpg */,
 				B1EDB95924B4939D00B427A6 /* camrote.png */,
@@ -679,10 +685,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10F06C524B4C01300B3F8BC /* mit.png in Resources */,
 				B1EDB94C24B3C7D400B427A6 /* 3scLogo.png in Resources */,
 				B1EDB93F24B3828D00B427A6 /* flowers.jpg in Resources */,
 				B1EDB95A24B4939D00B427A6 /* camrote.png in Resources */,
 				B1EDB94E24B4604300B427A6 /* jacksonPollock.jpg in Resources */,
+				B10F06C324B4B3EA00B3F8BC /* nebraska.jpg in Resources */,
 				B1EDB94A24B3C40300B427A6 /* colouredBg.png in Resources */,
 				B1EDB94624B3B8B500B427A6 /* nonEdgePrimary.png in Resources */,
 				B1EDB95C24B4949800B427A6 /* nyt.png in Resources */,

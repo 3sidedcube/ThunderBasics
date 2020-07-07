@@ -172,6 +172,18 @@ class ImageColorAnalysisTests: XCTestCase {
                 primary: UIColor.white.rgbaComponents,
                 secondary: nil,
                 detail: nil
+            ),
+            image(named: "nebraska"): .init(
+                background: .init(red: 0.9, green: 0.23, blue: 0.33, alpha: 1),
+                primary: UIColor.white.rgbaComponents,
+                secondary: .init(red: 1, green: 0.74, blue: 0.78, alpha: 1),
+                detail: nil
+            ),
+            image(named: "mit", extension: "png"): .init(
+                background: .init(red: 0.64, green: 0.12, blue: 0.2, alpha: 1),
+                primary: UIColor.white.rgbaComponents,
+                secondary: .init(red: 0.87, green: 0.69, blue: 0.72, alpha: 1),
+                detail: nil
             )
         ]
         

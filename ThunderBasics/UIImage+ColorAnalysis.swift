@@ -63,6 +63,10 @@ public final class ImageColorAnalyzer {
         // in the logo itself.
         analyser.blackAndWhiteThreshold = 0.14
         
+        // Set this quite low because quite often icons are a single large background colour
+        // with a small amount of another colour.
+        analyser.subsequentColorRatioThreshold = 0.075
+        
         return analyser
     }
     
@@ -96,6 +100,11 @@ public final class ImageColorAnalyzer {
     /// picked. This is a fractional value, so should be between 0 and 1.
     /// defaults to 0.09
     public var blackAndWhiteThreshold: CGFloat = 0.09
+    
+    /// Defines the ratio of the next picked colour to the previous most widely
+    /// found colour that is required to return a colour in the results.
+    /// defaults to 0.3, but this is quite agressive and we suggest setting it lower
+    public var subsequentColorRatioThreshold: CGFloat = 0.3
     
     /// Initializes the `ImageColorAnalyzer` with a `UIImage`
     ///
@@ -230,7 +239,7 @@ public final class ImageColorAnalyzer {
             let nextColour = countedColours[element.offset + 1]
             
             // make sure the second choice color is 30% as common as the first choice, or we're on the next colour after the first choice (which was white or black)
-            guard element.offset == 0 || Double(nextColour.1) / Double(element.element.1) > 0.3 else {
+            guard element.offset == 0 || Double(nextColour.1) / Double(element.element.1) > Double(subsequentColorRatioThreshold) else {
                 break
             }
                 
