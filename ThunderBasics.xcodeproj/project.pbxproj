@@ -49,6 +49,7 @@
 		B16234D21C91F775001669BA /* ThunderBasicsMac.h in Headers */ = {isa = PBXBuildFile; fileRef = B16234D11C91F775001669BA /* ThunderBasicsMac.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16234EC1C91FA3C001669BA /* NSObject+AddedProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B6CF891C4E47DB00CDC978 /* NSObject+AddedProperties.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B163D2FE1FB33F6C00BF4CEC /* DynamicFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */; };
+		B1740ACF24B5BDCF00915122 /* nyt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1740ACE24B5BDCF00915122 /* nyt.jpg */; };
 		B1898CD1230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */; };
 		B190A858228DBCB600E44821 /* ThunderBasicsTests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190A857228DBCB600E44821 /* ThunderBasicsTests_macOS.swift */; };
 		B190A85A228DBCB600E44821 /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16234AB1C91F5E3001669BA /* ThunderBasics.framework */; };
@@ -85,7 +86,6 @@
 		B1EDB95524B47CE200B427A6 /* vincent.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1EDB95424B47CE100B427A6 /* vincent.jpg */; };
 		B1EDB95824B48A4200B427A6 /* arcLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1EDB95724B48A4200B427A6 /* arcLogo.jpg */; };
 		B1EDB95A24B4939D00B427A6 /* camrote.png in Resources */ = {isa = PBXBuildFile; fileRef = B1EDB95924B4939D00B427A6 /* camrote.png */; };
-		B1EDB95C24B4949800B427A6 /* nyt.png in Resources */ = {isa = PBXBuildFile; fileRef = B1EDB95B24B4949800B427A6 /* nyt.png */; };
 		B1FA1795230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */; };
 		B811830F246070E200D0EC88 /* DateFormatterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B811830E246070E200D0EC88 /* DateFormatterExtensionsTests.swift */; };
 		B834865923D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */; };
@@ -143,6 +143,7 @@
 		B16234C41C91F625001669BA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16234D11C91F775001669BA /* ThunderBasicsMac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThunderBasicsMac.h; sourceTree = "<group>"; };
 		B163D2FD1FB33F6C00BF4CEC /* DynamicFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFont.swift; sourceTree = "<group>"; };
+		B1740ACE24B5BDCF00915122 /* nyt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nyt.jpg; sourceTree = "<group>"; };
 		B1898CD0230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityRefreshingViewController.swift; sourceTree = "<group>"; };
 		B190A855228DBCB600E44821 /* ThunderBasicsTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ThunderBasicsTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B190A857228DBCB600E44821 /* ThunderBasicsTests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThunderBasicsTests_macOS.swift; sourceTree = "<group>"; };
@@ -173,7 +174,6 @@
 		B1EDB95424B47CE100B427A6 /* vincent.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vincent.jpg; sourceTree = "<group>"; };
 		B1EDB95724B48A4200B427A6 /* arcLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arcLogo.jpg; sourceTree = "<group>"; };
 		B1EDB95924B4939D00B427A6 /* camrote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camrote.png; sourceTree = "<group>"; };
-		B1EDB95B24B4949800B427A6 /* nyt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nyt.png; sourceTree = "<group>"; };
 		B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IntrinsicContentSize.swift"; sourceTree = "<group>"; };
 		B811830E246070E200D0EC88 /* DateFormatterExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtensionsTests.swift; sourceTree = "<group>"; };
 		B834865823D9E47A00F52BA6 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 			children = (
 				B10F06C424B4C01300B3F8BC /* mit.png */,
 				B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */,
-				B1EDB95B24B4949800B427A6 /* nyt.png */,
+				B1740ACE24B5BDCF00915122 /* nyt.jpg */,
 				B1EDB95724B48A4200B427A6 /* arcLogo.jpg */,
 				B1EDB95924B4939D00B427A6 /* camrote.png */,
 				B1EDB94D24B4604200B427A6 /* jacksonPollock.jpg */,
@@ -693,7 +693,7 @@
 				B10F06C324B4B3EA00B3F8BC /* nebraska.jpg in Resources */,
 				B1EDB94A24B3C40300B427A6 /* colouredBg.png in Resources */,
 				B1EDB94624B3B8B500B427A6 /* nonEdgePrimary.png in Resources */,
-				B1EDB95C24B4949800B427A6 /* nyt.png in Resources */,
+				B1740ACF24B5BDCF00915122 /* nyt.jpg in Resources */,
 				B1EDB95824B48A4200B427A6 /* arcLogo.jpg in Resources */,
 				B1EDB95524B47CE200B427A6 /* vincent.jpg in Resources */,
 			);

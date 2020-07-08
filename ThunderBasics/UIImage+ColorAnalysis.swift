@@ -170,7 +170,13 @@ public final class ImageColorAnalyzer {
         
         context.draw(imageRef, in: CGRect(x: 0, y: 0, width: pixelsHigh, height: pixelsWide))
         
+        var isGrayscaleImage: Bool = true
+        let dontUseAllPixelsForBgColor = !options.contains(.useAllPixelsForBackgroundColor)
+        
         for x in 0..<pixelsWide {
+            
+            let leftEdge = x == 0
+            
             for y in 0..<pixelsHigh {
                 
                 let byteIndex = (bytesPerRow * y) + x * bytesPerPixel
@@ -181,6 +187,11 @@ public final class ImageColorAnalyzer {
                 let green = CGFloat(rawData[byteIndex + 1]) / (alpha * 255.0)
                 let blue = CGFloat(rawData[byteIndex + 2]) / (alpha * 255.0)
                 
+                // Only do this check if not already marked as coloured image
+                if isGrayscaleImage && (red, green) != (green, blue) {
+                    isGrayscaleImage = false
+                }
+                
                 guard alpha > alphaThreshold else {
                     continue
                 }
@@ -188,7 +199,7 @@ public final class ImageColorAnalyzer {
                 let colour = UIColor(red: red, green: green, blue: blue, alpha: alpha)
                 
                 // Don't bother adding them to array if we aren't going to use them!
-                if x == 0 && !options.contains(.useAllPixelsForBackgroundColor) {
+                if leftEdge && dontUseAllPixelsForBgColor {
                     leftEdgeColours.add(colour)
                 }
                 
@@ -227,8 +238,8 @@ public final class ImageColorAnalyzer {
             return nil
         }
         
-        // Pick a proper colour over black and white
-        guard proposedEdgeColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) else {
+        // Pick a proper colour over black and white, unless we're looking at a grayscale image
+        guard proposedEdgeColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) && !isGrayscaleImage else {
             return (proposedEdgeColour.0, imageColours)
         }
         
@@ -243,7 +254,7 @@ public final class ImageColorAnalyzer {
                 break
             }
                 
-            guard !nextColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) else {
+            guard !nextColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) || isGrayscaleImage else {
                 continue
             }
             

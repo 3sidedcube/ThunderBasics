@@ -167,7 +167,7 @@ class ImageColorAnalysisTests: XCTestCase {
                 secondary: .init(red: 0.98, green: 0.71, blue: 0.25, alpha: 1),
                 detail: nil
             ),
-            image(named: "nyt", extension: "png"): .init(
+            image(named: "nyt"): .init(
                 background: UIColor.black.rgbaComponents,
                 primary: UIColor.white.rgbaComponents,
                 secondary: nil,
@@ -207,7 +207,23 @@ class ImageColorAnalysisTests: XCTestCase {
             detail: nil
         )
         
-        let analyser = ImageColorAnalyzer.createFor(logo: image(named: "nyt", extension: "png"))
+        let analyser = ImageColorAnalyzer.createFor(logo: image(named: "nyt"))
+        analyser.analyze()
+        
+        XCTAssertEqual(analyser.backgroundColor?.rgbaComponents?.rounded(to: 2), result.background)
+        XCTAssertEqual(analyser.primaryColor?.rgbaComponents?.rounded(to: 2), result.primary)
+    }
+    
+    func testDoesntIgnoreBlackAndWhiteIfGreyscaleImage() {
+        
+        let result = TestCaseResult.init(
+            background: UIColor.black.rgbaComponents,
+            primary: UIColor.white.rgbaComponents,
+            secondary: nil,
+            detail: nil
+        )
+        
+        let analyser = ImageColorAnalyzer.createFor(logo: image(named: "nyt"))
         analyser.analyze()
         
         XCTAssertEqual(analyser.backgroundColor?.rgbaComponents?.rounded(to: 2), result.background)
