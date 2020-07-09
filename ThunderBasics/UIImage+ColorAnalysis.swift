@@ -32,10 +32,10 @@ public final class ImageColorAnalyzer {
         /// Whether to use all of the image's pixels to calculate the background colour.
         /// This is useful if you know that your image's background colour may not be on the lhs edge
         /// of the image which is the default place `ImageColorAnalyzer` checks.
-        public static let useAllPixelsForBackgroundColor = Options(rawValue: 1 << 1)
+        public static let useAllPixelsForBackgroundColor = Options(rawValue: 1 << 0)
         
         /// Whether to make sure the calculated text colours have a minimum saturation value of 0.15
-        public static let increaseTextColourSaturation = Options(rawValue: 1 << 2)
+        public static let increaseTextColourSaturation = Options(rawValue: 1 << 1)
     }
     
     /// An enumeration representing the pixel threshold to use when analysing the image
