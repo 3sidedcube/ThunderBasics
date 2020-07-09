@@ -10,15 +10,20 @@ import UIKit
 
 extension UIColor {
     
-    /// A structual representation of a colour's RGBA components
+    /// A structual representation of a colour's RGBA components as floats
+    /// between 0 and 1
     public struct RGBAComponents: Equatable {
         
+        /// Red component of the colour [0, 1]
         public let red: CGFloat
         
+        /// Green component of the colour [0, 1]
         public let green: CGFloat
         
+        /// Blue component of the colour [0, 1]
         public let blue: CGFloat
         
+        /// The alpha component of the colour [0, 1]
         public let alpha: CGFloat
         
         /// Public default memberwise initialiser
