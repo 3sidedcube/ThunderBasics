@@ -6,11 +6,22 @@ Thunder Basics is a set of useful utilities for handling basic iOS development t
 
 # Installation
 
-Setting up your app to use Thunder Basics is a simple and quick process. For now Thunder Basics is built as a static framework, meaning you will need to include the whole Xcode project in your workspace.
+Setting up your app to use ThunderBasics is a simple and quick process. You can choose between a manual installation, or use Carthage.
 
-+ Import ThunderBasics.xcproject into your project
-+ Add ThunderBasics.framework to your Embedded Binaries.
-+ Wherever you want to use ThunderBasics use `import ThunderBasics` if you're using swift.
+## Carthage
+
+- Add `github "3sidedcube/ThunderBasics" == 1.7.0` to your Cartfile.
+- Run `carthage update --platform ios` to fetch the framework.
+- Drag `ThunderBasics` into your project's _Linked Frameworks and Libraries_ section from the `Carthage/Build` folder.
+- Add the Build Phases script step as defined [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+
+## Manual
+
+- Clone as a submodule, or download this repo
+- Import ThunderBasics.xcproject into your project
+- Add ThunderBasics.framework to your Embedded Binaries.
+- Wherever you want to use ThunderBasics use `import ThunderBasics` if you're using swift.
+
 
 # Code level documentation
 
