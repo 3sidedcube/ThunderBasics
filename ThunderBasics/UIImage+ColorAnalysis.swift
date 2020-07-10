@@ -18,7 +18,59 @@ import UIKit
 //MARK: - ImageColorAnalyzer -
 
 /// `ImageColorAnalyzer` Analyzes a `UIImage` and picks out its main colors
-public class ImageColorAnalyzer {
+public final class ImageColorAnalyzer {
+    
+    /// Options set to be used with for configuring `ImageColorAnalyzer`'s behaviour
+    public struct Options: OptionSet {
+        
+        public let rawValue: Int
+        
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        /// Whether to use all of the image's pixels to calculate the background colour.
+        /// This is useful if you know that your image's background colour may not be on the lhs edge
+        /// of the image which is the default place `ImageColorAnalyzer` checks.
+        public static let useAllPixelsForBackgroundColor = Options(rawValue: 1 << 0)
+        
+        /// Whether to make sure the calculated text colours have a minimum saturation value of 0.15
+        public static let increaseTextColourSaturation = Options(rawValue: 1 << 1)
+    }
+    
+    /// An enumeration representing the pixel threshold to use when analysing the image
+    public enum PixelThreshold {
+        case calculated
+        case fixed(Int)
+    }
+    
+    /// Returns an image color analyzer optimised for pulling images from logos
+    /// - Parameter image: The image to analyse
+    /// - Returns: An instance of `ImageColorAnalyzer`
+    public static func createFor(logo image: UIImage) -> ImageColorAnalyzer {
+        // - Use all pixels for background color makes sure logos which have a white
+        // background don't produce useless results.
+        // - `calculated` pixel threshold means the pixel threshold will adjust to the size
+        // of the icon provided
+        let analyser = ImageColorAnalyzer(
+            image: image,
+            options: [.useAllPixelsForBackgroundColor],
+            pixelThreshold: .calculated
+        )
+        
+        // Bumping this slightly ensures that logos with grey shadows (like the ARC logo)
+        // don't have any of the greys in the shadow picked rather than any prominent colour
+        // in the logo itself.
+        analyser.blackAndWhiteThreshold = 0.14
+        
+        // Set this quite low because quite often icons are a single large background colour
+        // with a small amount of another colour.
+        analyser.subsequentColorRatioThreshold = 0.075
+        
+        return analyser
+    }
+    
+    public var options: Options
     
     /// The image that is being Analyzed
     public var image: UIImage
@@ -34,15 +86,38 @@ public class ImageColorAnalyzer {
     /// The color of the text that should overlay the image. This color will normally be black or white
     public var detailColor: UIColor?
     
+    /// The background color from the image, picked from
     public var backgroundColor: UIColor?
+    
+    /// The pixel threshold to use for picking colours. If provided as `nil` this will be calculated from
+    /// the image's size.
+    public var pixelThreshold: PixelThreshold
+    
+    /// The alpha threshold for picked colours, defaults to `0.2`
+    public var alphaThreshold: CGFloat = 0.2
+    
+    /// The threshold a colour must be away from black or white to be favourably
+    /// picked. This is a fractional value, so should be between 0 and 1.
+    /// defaults to 0.09
+    public var blackAndWhiteThreshold: CGFloat = 0.09
+    
+    /// Defines the ratio of the next picked colour to the previous most widely
+    /// found colour that is required to return a colour in the results.
+    /// defaults to 0.3, but this is quite agressive and we suggest setting it lower
+    public var subsequentColorRatioThreshold: CGFloat = 0.3
     
     /// Initializes the `ImageColorAnalyzer` with a `UIImage`
     ///
     /// The image will not be analyzed until the `analyze` method is called
     ///
     /// - Parameter image: The `UIImage` to be color analyzed.
-    public init(image: UIImage) {
+    /// - Parameter options: Options to be used when performing colour analysis
+    /// - Parameter pixelThreshold: The threshold to use for picking a colour, this defaults to 2. Set to `nil` to have
+    /// a value calculated from the image size
+    public init(image: UIImage, options: Options = [.increaseTextColourSaturation], pixelThreshold: PixelThreshold = .fixed(2)) {
         self.image = image
+        self.pixelThreshold = pixelThreshold
+        self.options = options
     }
     
     /// Performs the image analysis
@@ -62,7 +137,9 @@ public class ImageColorAnalyzer {
     
     private func findEdgeColourIn(_ image: UIImage) -> (color: UIColor?, colours: NSCountedSet?)? {
         
-        guard let imageRef = image.cgImage else { return nil }
+        guard let imageRef = image.cgImage else {
+            return nil
+        }
         
         let pixelsWide = imageRef.width
         let pixelsHigh = imageRef.height
@@ -70,6 +147,8 @@ public class ImageColorAnalyzer {
         let imageColours = NSCountedSet(capacity: pixelsHigh * pixelsWide)
         let leftEdgeColours = NSCountedSet(capacity: pixelsHigh)
         
+        // Values are hard-coded because this is what we want to convert the image to,
+        // not what the original image IS
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bytesPerPixel = 4
         let bytesPerRow = bytesPerPixel * pixelsWide
@@ -77,25 +156,50 @@ public class ImageColorAnalyzer {
         
         var rawData = [UInt8](repeating: 0, count: Int(pixelsHigh * pixelsWide * bytesPerPixel))
         
-        guard let context = CGContext(data: &rawData, width: pixelsWide, height: pixelsHigh, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: imageRef.bitmapInfo.rawValue) else {
+        guard let context = CGContext(
+            data: &rawData,
+            width: pixelsWide,
+            height: pixelsHigh,
+            bitsPerComponent: bitsPerComponent,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
+        ) else {
             return nil
         }
         
         context.draw(imageRef, in: CGRect(x: 0, y: 0, width: pixelsHigh, height: pixelsWide))
         
+        var isGrayscaleImage: Bool = true
+        let dontUseAllPixelsForBgColor = !options.contains(.useAllPixelsForBackgroundColor)
+        
         for x in 0..<pixelsWide {
+            
+            let leftEdge = x == 0
+            
             for y in 0..<pixelsHigh {
                 
                 let byteIndex = (bytesPerRow * y) + x * bytesPerPixel
                 
-                let red = CGFloat(rawData[byteIndex]) / 255.0
-                let green = CGFloat(rawData[byteIndex + 1]) / 255.0
-                let blue = CGFloat(rawData[byteIndex + 2]) / 255.0
+                // Because we use `premultipliedLast` we have to get alpha and divide each component by alpha
                 let alpha = CGFloat(rawData[byteIndex + 3]) / 255.0
+                let red = CGFloat(rawData[byteIndex]) / (alpha * 255.0)
+                let green = CGFloat(rawData[byteIndex + 1]) / (alpha * 255.0)
+                let blue = CGFloat(rawData[byteIndex + 2]) / (alpha * 255.0)
+                
+                // Only do this check if not already marked as coloured image
+                if isGrayscaleImage && (red, green) != (green, blue) {
+                    isGrayscaleImage = false
+                }
+                
+                guard alpha > alphaThreshold else {
+                    continue
+                }
                 
                 let colour = UIColor(red: red, green: green, blue: blue, alpha: alpha)
                 
-                if x == 0 {
+                // Don't bother adding them to array if we aren't going to use them!
+                if leftEdge && dontUseAllPixelsForBgColor {
                     leftEdgeColours.add(colour)
                 }
                 
@@ -103,12 +207,26 @@ public class ImageColorAnalyzer {
             }
         }
         
-        var countedColours: [(UIColor, Int)] = leftEdgeColours.compactMap({
+        let threshold: Int
+        
+        switch pixelThreshold {
+        case .calculated:
+            threshold = Int(CGFloat(pixelsHigh) * 0.01)
+        case .fixed(let thresh):
+            threshold = thresh
+        }
+        
+        let backgroundColors = options.contains(.useAllPixelsForBackgroundColor) ? imageColours : leftEdgeColours
+        
+        var countedColours: [(UIColor, Int)] = backgroundColors.compactMap({
             guard let colour = $0 as? UIColor else {
                 return nil
             }
-            let count = leftEdgeColours.count(for: colour)
-            guard count > 2 else { return nil } // Prevent using random colours, threshold should be based in input image size
+            let count = backgroundColors.count(for: colour)
+            // Prevent using random colours, threshold should be based in input image size
+            guard count > threshold else {
+                return nil
+            }
             return (colour, count)
         })
         
@@ -116,10 +234,14 @@ public class ImageColorAnalyzer {
             return pair1.1 > pair2.1
         })
         
-        guard var proposedEdgeColour = countedColours.first else { return nil }
+        guard var proposedEdgeColour = countedColours.first else {
+            return nil
+        }
         
-        // Pick a proper colour over black and white
-        guard proposedEdgeColour.0.isNearBlackOrWhite else { return (proposedEdgeColour.0, imageColours) }
+        // Pick a proper colour over black and white, unless we're looking at a grayscale image
+        guard proposedEdgeColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) && !isGrayscaleImage else {
+            return (proposedEdgeColour.0, imageColours)
+        }
         
         for element in countedColours.enumerated() {
             
@@ -127,12 +249,12 @@ public class ImageColorAnalyzer {
             
             let nextColour = countedColours[element.offset + 1]
             
-            // make sure the second choice color is 30% as common as the first choice
-            guard Double(nextColour.1) / Double(element.element.1) > 0.3 else {
+            // make sure the second choice color is 30% as common as the first choice, or we're on the next colour after the first choice (which was white or black)
+            guard element.offset == 0 || Double(nextColour.1) / Double(element.element.1) > Double(subsequentColorRatioThreshold) else {
                 break
             }
                 
-            guard !nextColour.0.isNearBlackOrWhite else {
+            guard !nextColour.0.isNearBlackOrWhite(threshold: blackAndWhiteThreshold) || isGrayscaleImage else {
                 continue
             }
             
@@ -146,13 +268,14 @@ public class ImageColorAnalyzer {
     private func findTextColours(_ colours: NSCountedSet, backgroundColor: UIColor) -> (primary: UIColor?, secondary: UIColor?, detail: UIColor?)? {
         
         let findDarkTextColor = !backgroundColor.isDark
+        let adjustSaturation = options.contains(.increaseTextColourSaturation)
         
         var sortedColors: [(UIColor, Int)] = colours.compactMap { (object) -> (UIColor, Int)? in
             
             guard let color = object as? UIColor else { return nil }
             
             // Make sure color isn't too pale or washed out
-            let saturatedColor = color.with(minimumSaturation: 0.15)
+            let saturatedColor = adjustSaturation ? color.with(minimumSaturation: 0.15) : color
             guard findDarkTextColor == saturatedColor.isDark else { return nil }
             
             return (saturatedColor, colours.count(for: color))

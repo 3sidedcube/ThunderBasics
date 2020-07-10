@@ -71,6 +71,12 @@ extension UIColor {
     /// Returns whether the colour is near enough to black or white
     /// to be considered so
     public var isNearBlackOrWhite: Bool {
+        return isNearBlackOrWhite(threshold: 0.09)
+    }
+    
+    /// Returns whether the colour is near enough to black or white to be considered so
+    /// - Parameter threshold: The threshold to use when performing the calculation
+    public func isNearBlackOrWhite(threshold: CGFloat) -> Bool {
         
         var red: CGFloat = 0.0
         var green: CGFloat = 0.0
@@ -78,7 +84,7 @@ extension UIColor {
         getRed(&red, green: &green, blue: &blue, alpha: nil)
         
         let values = [red, green, blue]
-        return values.allSatisfy({ $0 > 0.91 }) || values.allSatisfy({ $0 < 0.09 })
+        return values.allSatisfy({ $0 > (1.0 - threshold) }) || values.allSatisfy({ $0 < threshold })
     }
     
     /// Returns the contrast ratio between two colours
