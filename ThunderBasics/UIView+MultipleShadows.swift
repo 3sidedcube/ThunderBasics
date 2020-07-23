@@ -17,6 +17,7 @@ internal class ShadowLayer: CALayer {
         cornerCurve: UIViewCornerCurve
     ) {
         super.init()
+        masksToBounds = false
         self.shadow = shadow
         self.cornerRadius = cornerRadius
         self.viewCornerCurve = cornerCurve
