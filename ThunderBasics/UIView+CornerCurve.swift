@@ -38,7 +38,7 @@ public enum UIViewCornerCurve {
     }
 }
 
-extension UIView {
+public extension UIView {
     
     /// Helper setter for setting corner curve on iOS 13 and above
     /// On earlier OS's this is simply ignored

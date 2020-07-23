@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CALayer {
+public extension CALayer {
     
     var viewCornerCurve: UIViewCornerCurve {
         set {
