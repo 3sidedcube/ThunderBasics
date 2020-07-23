@@ -17,6 +17,12 @@
 		980AE1D6220896A700540E8E /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980AE1D5220896A700540E8E /* iso639_2.bundle */; };
 		980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
 		980AE26B220AFF7400540E8E /* ThunderBasics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C272EF8419C831AB004BD339 /* ThunderBasics.framework */; };
+		B100A84924C9AF6800562777 /* MultipleShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A84824C9AF6800562777 /* MultipleShadowView.swift */; };
+		B100A84B24C9AF6C00562777 /* ShadowComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A84A24C9AF6C00562777 /* ShadowComponents.swift */; };
+		B100A85124C9AF7400562777 /* CALayer+CornerCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A84C24C9AF7300562777 /* CALayer+CornerCurve.swift */; };
+		B100A85224C9AF7400562777 /* CALayer+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A84D24C9AF7400562777 /* CALayer+Shadow.swift */; };
+		B100A85324C9AF7400562777 /* UIView+CornerCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A84E24C9AF7400562777 /* UIView+CornerCurve.swift */; };
+		B100A85524C9AF7400562777 /* UIView+MultipleShadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100A85024C9AF7400562777 /* UIView+MultipleShadows.swift */; };
 		B10F06C324B4B3EA00B3F8BC /* nebraska.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */; };
 		B10F06C524B4C01300B3F8BC /* mit.png in Resources */ = {isa = PBXBuildFile; fileRef = B10F06C424B4C01300B3F8BC /* mit.png */; };
 		B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11063B31F41ABC6003E5814 /* Navigation.swift */; };
@@ -115,6 +121,12 @@
 		980AE1D32208968800540E8E /* Locale+ISO639_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2.swift"; sourceTree = "<group>"; };
 		980AE1D5220896A700540E8E /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
 		980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2Tests.swift"; sourceTree = "<group>"; };
+		B100A84824C9AF6800562777 /* MultipleShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleShadowView.swift; sourceTree = "<group>"; };
+		B100A84A24C9AF6C00562777 /* ShadowComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowComponents.swift; sourceTree = "<group>"; };
+		B100A84C24C9AF7300562777 /* CALayer+CornerCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+CornerCurve.swift"; sourceTree = "<group>"; };
+		B100A84D24C9AF7400562777 /* CALayer+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Shadow.swift"; sourceTree = "<group>"; };
+		B100A84E24C9AF7400562777 /* UIView+CornerCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CornerCurve.swift"; sourceTree = "<group>"; };
+		B100A85024C9AF7400562777 /* UIView+MultipleShadows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MultipleShadows.swift"; sourceTree = "<group>"; };
 		B10F06C224B4B3EA00B3F8BC /* nebraska.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nebraska.jpg; sourceTree = "<group>"; };
 		B10F06C424B4C01300B3F8BC /* mit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mit.png; sourceTree = "<group>"; };
 		B11063B31F41ABC6003E5814 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
@@ -296,6 +308,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B100A84724C9AF3C00562777 /* Shadows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shadows;
+			sourceTree = "<group>";
+		};
 		B120905B1BBABE9500AAB2E9 /* Core Spotlighting */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,9 +326,11 @@
 		B12BD5DE1C48043600D07A58 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B100A84724C9AF3C00562777 /* Shadows */,
 				B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */,
 				B12BD5DF1C48052000D07A58 /* LoadingButton.swift */,
 				B1B6CFA71C4E5BC300CDC978 /* DesignableView.swift */,
+				B100A84824C9AF6800562777 /* MultipleShadowView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -353,13 +374,18 @@
 		B1B6CF931C4E482000CDC978 /* Views and Layers */ = {
 			isa = PBXGroup;
 			children = (
+				B100A84A24C9AF6C00562777 /* ShadowComponents.swift */,
+				B100A85024C9AF7400562777 /* UIView+MultipleShadows.swift */,
 				B13778DC20289820006FE6D5 /* UIView+AutoLayout.swift */,
 				B146C3B921906B8A00A1DBCD /* UIView+Frame.swift */,
 				B1FA1794230EE22C00AB9891 /* UIView+IntrinsicContentSize.swift */,
 				B146C3BB219071F700A1DBCD /* UIView+Pop.swift */,
 				B146C3BD21908A6700A1DBCD /* UILabel+SizeToFit.swift */,
 				B146C3BF21908AFA00A1DBCD /* CAGradientLayer+AutoGradient.swift */,
+				B100A84D24C9AF7400562777 /* CALayer+Shadow.swift */,
 				B834866023D9E93B00F52BA6 /* UIView+Shadow.swift */,
+				B100A84C24C9AF7300562777 /* CALayer+CornerCurve.swift */,
+				B100A84E24C9AF7400562777 /* UIView+CornerCurve.swift */,
 			);
 			name = "Views and Layers";
 			sourceTree = "<group>";
@@ -733,6 +759,7 @@
 			files = (
 				B1E6FC30218C5D3600971DC3 /* Toast.swift in Sources */,
 				B13779322029F7EF006FE6D5 /* JSONSerialization+FromFile.swift in Sources */,
+				B100A85524C9AF7400562777 /* UIView+MultipleShadows.swift in Sources */,
 				B1E6FC4B218CAA8800971DC3 /* UIImage+Effects.swift in Sources */,
 				B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */,
 				B1E6FC34218C65B300971DC3 /* ToastViewController.swift in Sources */,
@@ -743,6 +770,7 @@
 				B1B6CF8E1C4E47DB00CDC978 /* NSObject+AddedProperties.m in Sources */,
 				B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */,
 				B1E6FC4D218CABF900971DC3 /* UIImage+Crop.swift in Sources */,
+				B100A84B24C9AF6C00562777 /* ShadowComponents.swift in Sources */,
 				B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */,
 				B1D15F6B2360A18D0086E23F /* CarouselAccessibilityElement.swift in Sources */,
 				B146C3D12190A1AC00A1DBCD /* UIColor+Helpers.swift in Sources */,
@@ -763,12 +791,15 @@
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
 				B1E6FC32218C5D9A00971DC3 /* ToastView.swift in Sources */,
 				B146C3B62190570C00A1DBCD /* UIImage+Resize.swift in Sources */,
+				B100A84924C9AF6800562777 /* MultipleShadowView.swift in Sources */,
 				B12BD5E01C48052000D07A58 /* LoadingButton.swift in Sources */,
 				B11063B41F41ABC6003E5814 /* Navigation.swift in Sources */,
 				B146C3F32191E47600A1DBCD /* NSDateFormatter+Strftime.swift in Sources */,
 				B146C3E42191D36A00A1DBCD /* UIViewController+DismissAnimated.swift in Sources */,
 				B1E6FC49218C729500971DC3 /* UIColor+Comparison.swift in Sources */,
 				B146C3BA21906B8A00A1DBCD /* UIView+Frame.swift in Sources */,
+				B100A85124C9AF7400562777 /* CALayer+CornerCurve.swift in Sources */,
+				B100A85224C9AF7400562777 /* CALayer+Shadow.swift in Sources */,
 				B1898CD1230D7A9000A1F5D1 /* AccessibilityRefreshingViewController.swift in Sources */,
 				B152AC501F20BF020079372B /* DateHelpers.swift in Sources */,
 				49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */,
@@ -776,6 +807,7 @@
 				B146C3E22191CB2400A1DBCD /* UIWindow+VisibleViewController.swift in Sources */,
 				B834865F23D9E89F00F52BA6 /* String+Extensions.swift in Sources */,
 				B146C3C221908FB900A1DBCD /* UIColor+HexString.swift in Sources */,
+				B100A85324C9AF7400562777 /* UIView+CornerCurve.swift in Sources */,
 				B1E6FC36218C6BC000971DC3 /* ToastNotificationController.swift in Sources */,
 				B834865D23D9E62E00F52BA6 /* DateFormatter+Extensions.swift in Sources */,
 			);
