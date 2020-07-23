@@ -14,7 +14,7 @@ internal class ShadowLayer: CALayer {
     init(
         shadowComponents: ShadowComponents,
         cornerRadius: CGFloat,
-        cornerCurve: UIView.CornerCurve
+        cornerCurve: UIViewCornerCurve
     ) {
         super.init()
         self.shadow = shadow
@@ -27,7 +27,7 @@ internal class ShadowLayer: CALayer {
     }
 }
 
-extension UIView {
+public extension UIView {
     
     /// Sets multiple shadows on the UIView instance, this is suitable if your corner radius or bounds are not changing.
     /// If your bounds or corner radius change, and you want your shadows to reflect these changes consider using or subclassing
@@ -39,7 +39,7 @@ extension UIView {
     func setShadows(
         shadows: [ShadowComponents],
         cornerRadius: CGFloat? = nil,
-        cornerCurve: CornerCurve? = nil
+        cornerCurve: UIViewCornerCurve? = nil
     ) {
         removeExistingShadowLayers()
         reconstructShadowLayers(
@@ -60,7 +60,7 @@ extension UIView {
     private func reconstructShadowLayers(
         from shadows: [ShadowComponents],
         withCornerRadius cornerRadius: CGFloat,
-        cornerCurve: UIView.CornerCurve
+        cornerCurve: UIViewCornerCurve
     ) {
         
         shadows.forEach { (shadow) in
