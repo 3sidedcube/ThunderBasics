@@ -17,8 +17,7 @@ internal class ShadowLayer: CALayer {
         cornerCurve: UIViewCornerCurve
     ) {
         super.init()
-        masksToBounds = false
-        self.shadow = shadow
+        shadow = shadowComponents
         self.cornerRadius = cornerRadius
         self.viewCornerCurve = cornerCurve
     }
@@ -71,8 +70,10 @@ public extension UIView {
                 cornerRadius: cornerRadius,
                 cornerCurve: cornerCurve
             )
+            // This is important because layers with no background colour cannot render shadows
+            shadowLayer.backgroundColor = layer.backgroundColor
             shadowLayer.frame = bounds
-            layer.insertSublayer(shadowLayer, at: 0)
+            layer.addSublayer(shadowLayer)
         }
     }
 }
