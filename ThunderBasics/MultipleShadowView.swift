@@ -43,6 +43,14 @@ public class MultipleShadowView: UIView {
         return CornerObservableLayer.self
     }
     
+    public override var backgroundColor: UIColor? {
+        didSet {
+            forEachShadowLayer { (shadowLayer) in
+                shadowLayer.backgroundColor = layer.backgroundColor
+            }
+        }
+    }
+    
     /// Whether the shadow layers should update their corner radius to match the view's
     /// layer's corner radius
     public var matchShadowCornerRadius: Bool = true {
