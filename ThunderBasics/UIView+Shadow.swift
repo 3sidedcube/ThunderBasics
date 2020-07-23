@@ -42,6 +42,16 @@ public enum ShadowDirection {
 
 public extension UIView {
     
+    /// A variable that allows you to set the shadow of a view simply using `ShadowComponents`
+    var shadow: ShadowComponents? {
+        set {
+            layer.shadow = newValue
+        }
+        get {
+            return layer.shadow
+        }
+    }
+    
     /// Add shadow to a `UIView`.
     ///
     /// - Parameters:
