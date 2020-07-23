@@ -36,6 +36,8 @@ public extension UIView {
     ///   - shadows: The shadows to apply
     ///   - cornerRadius: The cornerRadius to give the shadows, if `nil` then this will be fetched from the view's own layer
     ///   - cornerCurve: The corner curve to give the shadows, if `nil` then this will be fetched from the view's own layer
+    /// - Important: This doesn't work well with `UIImageView` because the added `CALayer`s used to render shadows cover the image
+    /// itself. To apply a shadow to an image, we suggest wrapping it in a container view and using this method on the container
     func setShadows(
         shadows: [ShadowComponents],
         cornerRadius: CGFloat? = nil,
@@ -73,7 +75,7 @@ public extension UIView {
             // This is important because layers with no background colour cannot render shadows
             shadowLayer.backgroundColor = layer.backgroundColor
             shadowLayer.frame = bounds
-            layer.addSublayer(shadowLayer)
+            layer.insertSublayer(shadowLayer, at: 0)
         }
     }
 }
