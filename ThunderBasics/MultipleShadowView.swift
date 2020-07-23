@@ -48,9 +48,9 @@ public class MultipleShadowView: UIView {
     public var matchShadowCornerRadius: Bool = true {
         didSet {
             guard matchShadowCornerRadius else { return }
-            layer.sublayers?.filter({ $0 is ShadowLayer }).forEach({ (shadowLayer) in
+            forEachShadowLayer { (shadowLayer) in
                 shadowLayer.cornerRadius = layer.cornerRadius
-            })
+            }
         }
     }
     
@@ -59,11 +59,11 @@ public class MultipleShadowView: UIView {
     public var matchShadowCornerCurve: Bool = true {
         didSet {
             guard matchShadowCornerCurve else { return }
-            layer.sublayers?.filter({ $0 is ShadowLayer }).forEach({ (shadowLayer) in
-                if #available(iOS 13.0, *) {
+            if #available(iOS 13.0, *) {
+                forEachShadowLayer { (shadowLayer) in
                     shadowLayer.cornerCurve = layer.cornerCurve
                 }
-            })
+            }
         }
     }
     
@@ -79,9 +79,9 @@ public class MultipleShadowView: UIView {
 
     override public func layoutSubviews() {
         super.layoutSubviews()
-        layer.sublayers?.filter({ $0 is ShadowLayer }).forEach({ (shadowLayer) in
+        forEachShadowLayer { (shadowLayer) in
             shadowLayer.frame = bounds
-        })
+        }
     }
 }
 
@@ -89,17 +89,17 @@ extension MultipleShadowView: CornerObservableLayerDelegate {
     
     func cornerObservableLayer(_ layer: CornerObservableLayer, didUpdateCornerRadius cornerRadius: CGFloat) {
         guard matchShadowCornerRadius else { return }
-        layer.sublayers?.filter({ $0 is ShadowLayer }).forEach({ (shadowLayer) in
+        forEachShadowLayer { (shadowLayer) in
             shadowLayer.cornerRadius = cornerRadius
-        })
+        }
     }
     
     func cornerObservableLayer(_ layer: CornerObservableLayer, didUpdateCornerCurve cornerCurve: CALayerCornerCurve) {
         guard matchShadowCornerCurve else { return }
-        layer.sublayers?.filter({ $0 is ShadowLayer }).forEach({ (shadowLayer) in
-            if #available(iOS 13.0, *) {
-                shadowLayer.cornerCurve = cornerCurve
+        if #available(iOS 13.0, *) {
+            forEachShadowLayer { (shadowLayer) in
+                shadowLayer.cornerCurve = layer.cornerCurve
             }
-        })
+        }
     }
 }

@@ -50,13 +50,17 @@ public extension UIView {
             cornerCurve: cornerCurve ?? layer.viewCornerCurve
         )
     }
+    
+    internal func forEachShadowLayer(_ body: (ShadowLayer) -> Void) {
+        layer.sublayers?.compactMap({
+            $0 as? ShadowLayer
+        }).forEach({
+            body($0)
+        })
+    }
 
     private func removeExistingShadowLayers() {
-        layer.sublayers?.filter({
-            $0 is ShadowLayer
-        }).forEach({
-            $0.removeFromSuperlayer()
-        })
+        forEachShadowLayer { $0.removeFromSuperlayer() }
     }
     
     private func reconstructShadowLayers(
