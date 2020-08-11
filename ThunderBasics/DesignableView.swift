@@ -77,11 +77,12 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
     open override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
+        // We don't set layer.shadowColor here because it clashes when compiling
+        // with `UILabel`'s own `shadowColor` property.
         layer.cornerRadius = cornerRadius
         layer.borderColor = borderColor?.cgColor
         layer.borderWidth = borderWidth
         layer.shadowRadius = shadowRadius
-        layer.shadowColor = shadowColor?.cgColor
         layer.shadowOpacity = shadowOpacity
     }
     
