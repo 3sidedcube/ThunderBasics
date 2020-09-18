@@ -18,9 +18,9 @@ extension FileManager {
     func recursivePathsForResource(_ type: String?, directory: String) -> [String] {
         
         var filePaths: [String] = []
-        let enumerator = FileManager.default.enumerator(atPath: directory)
+        let fileEnumerator = enumerator(atPath: directory)
         
-        while let element = enumerator?.nextObject() as? NSString {
+        while let element = fileEnumerator?.nextObject() as? NSString {
             
             if type == nil || element.pathExtension == type {
                 filePaths.append(directory + "/" + (element as String))
