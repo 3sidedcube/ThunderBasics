@@ -19,24 +19,6 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
 }
 
 /**
- A designable subclass of UIView that allows customisation of border color and width, as well as other properties
- */
-@IBDesignable open class TSCView: UIView {
-    
-    open override func prepareForInterfaceBuilder() {
-        
-        super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = borderWidth
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOpacity = shadowOpacity
-    }
-}
-
-/**
  A designable subclass of UILabel that allows customisation of border color and width, as well as other properties
  */
 
@@ -72,18 +54,6 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
     override open func layoutSubviews() {
         super.layoutSubviews()
         preferredMaxLayoutWidth = frame.width - (leftInset + rightInset)
-    }
-    
-    open override func prepareForInterfaceBuilder() {
-        
-        super.prepareForInterfaceBuilder()
-        // We don't set layer.shadowColor here because it clashes when compiling
-        // with `UILabel`'s own `shadowColor` property.
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = borderWidth
-        layer.shadowRadius = shadowRadius
-        layer.shadowOpacity = shadowOpacity
     }
     
     override open func drawText(in rect: CGRect) {
@@ -135,20 +105,6 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
         }
     }
     
-    
-    open override func prepareForInterfaceBuilder() {
-        
-        super.prepareForInterfaceBuilder()
-        
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = borderWidth
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOpacity = shadowOpacity
-    }
-    
     public convenience init(insets: UIEdgeInsets) {
         self.init(frame: CGRect.zero)
         leftInset = insets.left
@@ -189,7 +145,7 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
 @IBDesignable open class TSCButton: UIButton {
     
     /**
-     Whether the primary/secondary color should be overriden by borderColor property
+     Whether the primary/secondary color should be overriden by layer's borderColor property
      */
     @IBInspectable open var useBorderColor: Bool = false {
         didSet {
@@ -258,13 +214,13 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
      */
     private func updateButtonColours() {
         
-        layer.borderWidth = borderWidth != 0 ? borderWidth : 2.0
-        layer.cornerRadius = roundCorners ? (cornerRadius != 0 ? cornerRadius : 5.0) : 0
+        layer.borderWidth = layer.borderWidth != 0 ? layer.borderWidth : 2.0
+        layer.cornerRadius = roundCorners ? (layer.cornerRadius != 0 ? layer.cornerRadius : 5.0) : 0
         layer.masksToBounds = false
         clipsToBounds = true
         
         //Default state
-        layer.borderColor = useBorderColor ? borderColor?.cgColor : primaryColor.cgColor
+        layer.borderColor = useBorderColor ? layer.borderColor : primaryColor.cgColor
         
         if solidMode == true {
             
@@ -281,140 +237,7 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
     open override func prepareForInterfaceBuilder() {
         
         super.prepareForInterfaceBuilder()
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOpacity = shadowOpacity
         updateButtonColours()
-    }
-}
-
-/**
- A designable subclass of UIImageView that allows customisation of border color and width, as well as other properties
- */
-@IBDesignable open class TSCImageView: UIImageView {
-    
-    open override func prepareForInterfaceBuilder() {
-        
-        super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = borderWidth
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOpacity = shadowOpacity
-    }
-}
-
-/**
- A designable subclass of UITextView that allows customisation of border color and width, as well as other properties
- */
-@IBDesignable open class TSCTextView: UITextView {
-    
-    open override func prepareForInterfaceBuilder() {
-        
-        super.prepareForInterfaceBuilder()
-        layer.cornerRadius = cornerRadius
-        layer.borderColor = borderColor?.cgColor
-        layer.borderWidth = borderWidth
-        layer.shadowRadius = shadowRadius
-        layer.shadowOffset = CGSize(width: shadowOffset.x,height: shadowOffset.y)
-        layer.shadowColor = shadowColor?.cgColor
-        layer.shadowOpacity = shadowOpacity
-    }
-}
-
-/**
- An inspectable extension of UIView that allows customisation of border color and width, as well as other properties
- */
-public extension UIView {
-    
-    /**
-     The border color of the view
-     */
-    @IBInspectable var borderColor: UIColor? {
-        get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
-        }
-        set {
-            layer.borderColor = newValue?.cgColor
-        }
-    }
-    
-    /**
-     The border width of the label
-     */
-    @IBInspectable var borderWidth: CGFloat {
-        get {
-            return layer.borderWidth
-        }
-        set {
-            layer.borderWidth = newValue
-        }
-    }
-    
-    /**
-     The corner radius of the view
-     */
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-    }
-    
-    /* The color of the shadow. Defaults to opaque black. Colors created
-     * from patterns are currently NOT supported. Animatable. */
-    @IBInspectable var shadowColor: UIColor? {
-        set {
-            layer.shadowColor = newValue!.cgColor
-        }
-        get {
-            if let color = layer.shadowColor {
-                return UIColor(cgColor:color)
-            }
-            else {
-                return nil
-            }
-        }
-    }
-    
-    /* The opacity of the shadow. Defaults to 0. Specifying a value outside the
-     * [0,1] range will give undefined results. Animatable. */
-    @IBInspectable var shadowOpacity: Float {
-        set {
-            layer.shadowOpacity = newValue
-        }
-        get {
-            return layer.shadowOpacity
-        }
-    }
-    
-    /* The shadow offset. Defaults to (0, -3). Animatable. */
-    @IBInspectable var shadowOffset: CGPoint {
-        set {
-            layer.shadowOffset = CGSize(width: newValue.x, height: newValue.y)
-        }
-        get {
-            return CGPoint(x: layer.shadowOffset.width, y:layer.shadowOffset.height)
-        }
-    }
-    
-    /* The blur radius used to create the shadow. Defaults to 3. Animatable. */
-    @IBInspectable var shadowRadius: CGFloat {
-        set {
-            layer.shadowRadius = newValue
-        }
-        get {
-            return layer.shadowRadius
-        }
     }
 }
 

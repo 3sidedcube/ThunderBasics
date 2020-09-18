@@ -62,7 +62,7 @@ public class HUDActivityView: UIView {
         if style != .minimal {
             backgroundView?.backgroundColor = .black
             backgroundView?.alpha = 0.7
-            backgroundView?.cornerRadius = 8
+            backgroundView?.layer.cornerRadius = 8
             if let bgView = backgroundView {
                 addSubview(bgView)
             }
