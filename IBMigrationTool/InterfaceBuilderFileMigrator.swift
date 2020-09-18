@@ -58,9 +58,13 @@ final class InterfaceBuilderFileMigrator {
         
         Self.removedCustomClasses.forEach { (customClass) in
             
+            // Have to catch all of this in one redux as could appear in either order but if we do one check before the other
+            // we may miss/break other cases!
+            //
+            // check for customModule="ThunderBasics" ... "customClass"=customClass || "customClass"=customClass ... customModule="ThunderBasics"
             string = string.replacingOccurrences(
-                of: "\\s+customClass=\"\(customClass)\"\\s?(customModule=\"ThunderBasics\")?",
-                with: "",
+                of: "(customModule=\"ThunderBasics\"([^>]*))?\\s*customClass=\"\(customClass)\"\\s*(([^>]*)customModule=\"ThunderBasics\")?",
+                with: "$2$4", // We will only either have $2 or $4 so we don't need a space between them!
                 options: .regularExpression,
                 range: nil
             )

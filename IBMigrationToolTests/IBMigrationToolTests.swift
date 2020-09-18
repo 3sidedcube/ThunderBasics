@@ -40,7 +40,7 @@ class IBMigrationToolTests: XCTestCase {
         guard let fileMigrator = migrator else { return }
         
         fileMigrator.migrate()
-        
+                
         // Remove whitespace when comparing because it's irrelevant and seems to cause issues when comparing!
         XCTAssertEqual(
             fileMigrator.string.replacingOccurrences(of: "\\s", with: "", options: .regularExpression, range: nil),
