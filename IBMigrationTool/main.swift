@@ -47,6 +47,7 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
     // Save file to disk!
     let newData = migrator.string.data(using: .utf8)
     do {
+        let fileURL = URL(fileURLWithPath: path)
         try newData?.write(to: fileURL)
         print("Wrote migrated file to \(path)")
     } catch {
@@ -55,7 +56,7 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
 }
 
 print("This tool will make changes to the Interface Builder (.xib/.storyboard) files in the chosen directory. Please make sure you have no changes in your index before continuing")
-print("Please enter the file path to the Project you want to migrate Interface Builder files to ThunderBasics 3.0.0")
+print("Please enter the file path to the Project you want to migrate Interface Builder files to ThunderBasics 2.0.0")
 var filePath = readLine(strippingNewline: true)
 while filePath == nil {
     filePath = readLine(strippingNewline: true)
