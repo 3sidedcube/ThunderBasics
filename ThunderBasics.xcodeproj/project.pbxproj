@@ -72,6 +72,11 @@
 		B1D791FC1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */; };
 		B1D791FD1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */; };
 		B1D85F7C1DA43B6E00469588 /* NSObject+AddedProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B6CF8A1C4E47DB00CDC978 /* NSObject+AddedProperties.m */; };
+		B1D8A8572514C4C7005C02F6 /* IBMigrationToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8A8562514C4C7005C02F6 /* IBMigrationToolTests.swift */; };
+		B1D8A8632514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8A8622514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift */; };
+		B1D8A8642514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8A8622514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift */; };
+		B1D8A8802514C794005C02F6 /* TestStoryboard.xml in Resources */ = {isa = PBXBuildFile; fileRef = B1D8A87F2514C794005C02F6 /* TestStoryboard.xml */; };
+		B1D8A89A2514CDA3005C02F6 /* TestStoryboard-Migrated.xml in Resources */ = {isa = PBXBuildFile; fileRef = B1D8A8992514CDA3005C02F6 /* TestStoryboard-Migrated.xml */; };
 		B1E6FC20218B608C00971DC3 /* HUDActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */; };
 		B1E6FC2B218C4EF100971DC3 /* CoreSpotlightIndexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */; };
 		B1E6FC2D218C510400971DC3 /* SingleRequestLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */; };
@@ -181,6 +186,12 @@
 		B1D15F6A2360A18D0086E23F /* CarouselAccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselAccessibilityElement.swift; sourceTree = "<group>"; };
 		B1D791FA1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+NetworkActivityIndicator.h"; sourceTree = "<group>"; };
 		B1D791FB1CBD58BA00EE5D45 /* UIApplication+NetworkActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+NetworkActivityIndicator.m"; sourceTree = "<group>"; };
+		B1D8A8542514C4C7005C02F6 /* IBMigrationToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IBMigrationToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D8A8562514C4C7005C02F6 /* IBMigrationToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBMigrationToolTests.swift; sourceTree = "<group>"; };
+		B1D8A8582514C4C7005C02F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1D8A8622514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderFileMigrator.swift; sourceTree = "<group>"; };
+		B1D8A87F2514C794005C02F6 /* TestStoryboard.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestStoryboard.xml; sourceTree = "<group>"; };
+		B1D8A8992514CDA3005C02F6 /* TestStoryboard-Migrated.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "TestStoryboard-Migrated.xml"; sourceTree = "<group>"; };
 		B1E6FC1F218B608C00971DC3 /* HUDActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDActivityView.swift; sourceTree = "<group>"; };
 		B1E6FC2A218C4EF100971DC3 /* CoreSpotlightIndexable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreSpotlightIndexable.swift; sourceTree = "<group>"; };
 		B1E6FC2C218C510400971DC3 /* SingleRequestLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRequestLocationManager.swift; sourceTree = "<group>"; };
@@ -231,6 +242,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B1AB3E702513BA6600E6823D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D8A8512514C4C7005C02F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				B1AB3E752513BA6600E6823D /* main.swift */,
+				B1D8A8622514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift */,
 			);
 			path = IBMigrationTool;
 			sourceTree = "<group>";
@@ -464,6 +483,17 @@
 			name = "View Controllers and Windows";
 			sourceTree = "<group>";
 		};
+		B1D8A8552514C4C7005C02F6 /* IBMigrationToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1D8A8562514C4C7005C02F6 /* IBMigrationToolTests.swift */,
+				B1D8A8582514C4C7005C02F6 /* Info.plist */,
+				B1D8A8992514CDA3005C02F6 /* TestStoryboard-Migrated.xml */,
+				B1D8A87F2514C794005C02F6 /* TestStoryboard.xml */,
+			);
+			path = IBMigrationToolTests;
+			sourceTree = "<group>";
+		};
 		B1E3C5D91B626DCC005CC1C1 /* Location Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +510,7 @@
 				B16234AC1C91F5E3001669BA /* ThunderBasicsMac */,
 				B190A856228DBCB600E44821 /* ThunderBasicsTests-macOS */,
 				B1AB3E742513BA6600E6823D /* IBMigrationTool */,
+				B1D8A8552514C4C7005C02F6 /* IBMigrationToolTests */,
 				C272EF8519C831AB004BD339 /* Products */,
 				980AE26A220AFF7400540E8E /* Frameworks */,
 			);
@@ -493,6 +524,7 @@
 				B16234AB1C91F5E3001669BA /* ThunderBasics.framework */,
 				B190A855228DBCB600E44821 /* ThunderBasicsTests-macOS.xctest */,
 				B1AB3E732513BA6600E6823D /* IBMigrationTool */,
+				B1D8A8542514C4C7005C02F6 /* IBMigrationToolTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -645,6 +677,23 @@
 			productReference = B1AB3E732513BA6600E6823D /* IBMigrationTool */;
 			productType = "com.apple.product-type.tool";
 		};
+		B1D8A8532514C4C7005C02F6 /* IBMigrationToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1D8A85B2514C4C7005C02F6 /* Build configuration list for PBXNativeTarget "IBMigrationToolTests" */;
+			buildPhases = (
+				B1D8A8502514C4C7005C02F6 /* Sources */,
+				B1D8A8512514C4C7005C02F6 /* Frameworks */,
+				B1D8A8522514C4C7005C02F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IBMigrationToolTests;
+			productName = IBMigrationToolTests;
+			productReference = B1D8A8542514C4C7005C02F6 /* IBMigrationToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C272EF8319C831AB004BD339 /* ThunderBasics-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C272EF9719C831AC004BD339 /* Build configuration list for PBXNativeTarget "ThunderBasics-iOS" */;
@@ -703,6 +752,11 @@
 						DevelopmentTeam = 25H7BM6YWK;
 						ProvisioningStyle = Automatic;
 					};
+					B1D8A8532514C4C7005C02F6 = {
+						CreatedOnToolsVersion = 12.0;
+						DevelopmentTeam = 25H7BM6YWK;
+						ProvisioningStyle = Automatic;
+					};
 					C272EF8319C831AB004BD339 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = P645CBFH93;
@@ -735,6 +789,7 @@
 				B16234AA1C91F5E3001669BA /* ThunderBasics-macOS */,
 				B190A854228DBCB600E44821 /* ThunderBasicsTests-macOS */,
 				B1AB3E722513BA6600E6823D /* IBMigrationTool */,
+				B1D8A8532514C4C7005C02F6 /* IBMigrationToolTests */,
 			);
 		};
 /* End PBXProject section */
@@ -752,6 +807,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D8A8522514C4C7005C02F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D8A8802514C794005C02F6 /* TestStoryboard.xml in Resources */,
+				B1D8A89A2514CDA3005C02F6 /* TestStoryboard-Migrated.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +877,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D8A8632514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift in Sources */,
 				B1AB3E762513BA6600E6823D /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1D8A8502514C4C7005C02F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1D8A8642514C54D005C02F6 /* InterfaceBuilderFileMigrator.swift in Sources */,
+				B1D8A8572514C4C7005C02F6 /* IBMigrationToolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1067,6 +1141,61 @@
 			};
 			name = Release;
 		};
+		B1D8A8592514C4C7005C02F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 25H7BM6YWK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = IBMigrationToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.IBMigrationToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1D8A85A2514C4C7005C02F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 25H7BM6YWK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = IBMigrationToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.3sidedcube.IBMigrationToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C272EF9519C831AC004BD339 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1309,6 +1438,15 @@
 			buildConfigurations = (
 				B1AB3E782513BA6600E6823D /* Debug */,
 				B1AB3E792513BA6600E6823D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1D8A85B2514C4C7005C02F6 /* Build configuration list for PBXNativeTarget "IBMigrationToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1D8A8592514C4C7005C02F6 /* Debug */,
+				B1D8A85A2514C4C7005C02F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
