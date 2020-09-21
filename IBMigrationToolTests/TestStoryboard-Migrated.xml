@@ -22,7 +22,7 @@
                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                <userDefinedRuntimeAttributes>
-                                   <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                   <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                        <color key="value" systemColor="systemRedColor"/>
                                    </userDefinedRuntimeAttribute>
                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -31,7 +31,7 @@
                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                        <real key="value" value="5"/>
                                    </userDefinedRuntimeAttribute>
-                                   <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                   <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                        <color key="value" systemColor="systemYellowColor"/>
                                    </userDefinedRuntimeAttribute>
                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">

@@ -241,6 +241,42 @@ public class ScaleBasedConstraint: NSLayoutConstraint {
     }
 }
 
+/**
+ An inspectable extension of UIView that allows customisation of border color and width, as well as other properties
+ */
+public extension UIView {
+    
+    /// The border color of the view
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            if let color = layer.borderColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+    
+    /// The color of the shadow. Defaults to opaque black. Colors created
+    /// from patterns are currently NOT supported. Animatable.
+    @IBInspectable var shadowColor: UIColor? {
+        set {
+            layer.shadowColor = newValue!.cgColor
+        }
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(cgColor:color)
+            }
+            else {
+                return nil
+            }
+        }
+    }
+}
+
+
 #elseif os(OSX) || os(macOS)
 import AppKit
 

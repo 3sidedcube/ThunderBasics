@@ -12,11 +12,13 @@ import Foundation
 /// when upgrading to `ThunderBasics` v2.0.0
 final class InterfaceBuilderFileMigrator {
     
+    // Don't migrate colours for now as `CGColor` isn't creatable from user defined attributes so
+    // this silently breaks a LOT of UI!
     static let directlyMappableAttributes: [(String, String)] = [
-        ("color", "borderColor"),
+//        ("color", "borderColor"),
         ("number", "borderWidth"),
         ("number", "cornerRadius"),
-        ("color", "shadowColor"),
+//        ("color", "shadowColor"),
         ("number", "shadowOpacity"),
         ("number", "shadowRadius")
     ]
