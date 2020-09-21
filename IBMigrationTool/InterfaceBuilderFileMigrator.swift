@@ -13,7 +13,7 @@ import Foundation
 final class InterfaceBuilderFileMigrator {
     
     // Don't migrate colours for now as `CGColor` isn't creatable from user defined attributes so
-    // this silently breaks a LOT of UI!
+    // otherwise doing this could silently break a LOT of UI!
     static let directlyMappableAttributes: [(String, String)] = [
 //        ("color", "borderColor"),
         ("number", "borderWidth"),
