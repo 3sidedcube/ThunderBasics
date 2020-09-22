@@ -43,13 +43,13 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
         print("=> Failed to read data as string from: \(path)")
         return false
     }
-    migrator.migrate()
+    let unmigratableMatches = migrator.migrate()
     
-    if !migrator.unmigratableMatches.isEmpty {
+    if !unmigratableMatches.isEmpty {
         print("""
             => Found un-migratable properties in \(path):
 
-            \(migrator.unmigratableMatches.compactMap({ (keyValue) -> String in
+            \(unmigratableMatches.compactMap({ (keyValue) -> String in
                 return "Line \(keyValue.key): \(keyValue.value)"
             }).joined(separator: "\n"))
             """

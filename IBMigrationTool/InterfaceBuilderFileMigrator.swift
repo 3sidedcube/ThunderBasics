@@ -65,9 +65,6 @@ final class InterfaceBuilderFileMigrator {
     /// represent the fixed version of the file!
     var string: String
     
-    /// String matches for un-migratable text. Map from line number to the string matched.
-    var unmigratableMatches: [Int: String] = [:]
-    
     convenience init?(filePath: String) {
         let fileURL = URL(fileURLWithPath: filePath)
         guard let data = try? Data(contentsOf: fileURL) else {
@@ -84,10 +81,11 @@ final class InterfaceBuilderFileMigrator {
     }
     
     /// Performs migration of the current file, storing the result in `string`
-    func migrate() {
-        unmigratableMatches = [:]
-        migrateUserDefinedRuntimeAttributes()
+    /// - Returns: An object mapping from lines that were unmigratable to the contents of the line
+    @discardableResult func migrate() -> [Int: String] {
+        let unmigratable = migrateUserDefinedRuntimeAttributes()
         migrateRemovedCustomClasses()
+        return unmigratable
     }
     
     private func migrateRemovedCustomClasses() {
@@ -107,7 +105,9 @@ final class InterfaceBuilderFileMigrator {
         }
     }
     
-    private func migrateUserDefinedRuntimeAttributes() {
+    private func migrateUserDefinedRuntimeAttributes() -> [Int: String] {
+        
+        var unmigratable: [Int: String] = [:]
         
         // These use the same type as `CALayer` equivalents, so can be
         // mapped simply using the same regex
@@ -131,7 +131,7 @@ final class InterfaceBuilderFileMigrator {
                         options: [],
                         range: NSRange(line.startIndex..<line.endIndex, in: line)
                     ) > 0 {
-                        self.unmigratableMatches[lineNumber] = line.trimmingCharacters(in: .whitespaces)
+                        unmigratable[lineNumber] = line.trimmingCharacters(in: .whitespaces)
                     }
                     lineNumber += 1
                 }
@@ -150,5 +150,7 @@ final class InterfaceBuilderFileMigrator {
             options: .regularExpression,
             range: nil
         )
+        
+        return unmigratable
     }
 }
