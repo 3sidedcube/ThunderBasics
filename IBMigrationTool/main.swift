@@ -34,7 +34,7 @@ extension FileManager {
 /// Converts all `UIView+Displayable` runtime attributes to use the
 /// `CALayer` equivalents in the file at the given path
 /// - Parameter path: The file path to convert
-/// - Returns: Whether there were un-migrateable attributes in the file.
+/// - Returns: Whether there were un-migratable attributes in the file.
 func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) -> Bool {
     
     print("=> Migrating user defined runtime attributes in \(path)")
@@ -47,7 +47,7 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
     
     if !migrator.unmigratableMatches.isEmpty {
         print("""
-            => Found umigrateable properties in \(path):
+            => Found un-migratable properties in \(path):
 
             \(migrator.unmigratableMatches.compactMap({ (keyValue) -> String in
                 return "Line \(keyValue.key): \(keyValue.value)"
@@ -96,34 +96,34 @@ while !yesStrings.contains(yesInput ?? "") {
 
 print("=> Finding Interface Builder files in \(filePath)")
 
-var seenUnmigrateableProperties: Bool = false
+var seenUnmigratableProperties: Bool = false
 var noFilesFound: Bool = true
 
 FileManager.default.recursivePathsForResource("xib", directory: filePath).forEach { (xibPath) in
     noFilesFound = false
-    let unmigrateable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: xibPath)
-    seenUnmigrateableProperties = unmigrateable || seenUnmigrateableProperties
+    let unmigratable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: xibPath)
+    seenUnmigratableProperties = unmigratable || seenUnmigratableProperties
 }
 
 FileManager.default.recursivePathsForResource("storyboard", directory: filePath).forEach { (storyboardPath) in
     noFilesFound = false
-    let unmigrateable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: storyboardPath)
-    seenUnmigrateableProperties = unmigrateable || seenUnmigrateableProperties
+    let unmigratable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: storyboardPath)
+    seenUnmigratableProperties = unmigratable || seenUnmigratableProperties
 }
 
 if noFilesFound {
     print("=> No Interface Builder files found in \(filePath) or any of it's sub-directories")
 }
 
-guard seenUnmigrateableProperties else { exit(0) }
+guard seenUnmigratableProperties else { exit(0) }
 
 print("""
-    => For all unmigrateable properties found above you will need to perform manual migration.
+    => For all un-migratable properties found above you will need to perform manual migration.
 
     The suggested steps for this are as follows:
     1. Search for the property in Xcode's search functionality.
     2. If the view in question doesn't have an IBOutlet, then create one.
     3. In the IBOutlet property for the view, add a `didSet` (If one doesn't already exist)
-    4. Set the unmigrateable property manually in the `didSet` method
+    4. Set the un-migratable property manually in the `didSet` method
     """
 )

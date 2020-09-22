@@ -22,7 +22,7 @@ final class InterfaceBuilderFileMigrator {
             
             case number
             
-            var isMigrateable: Bool {
+            var isMigratable: Bool {
                 switch self {
                 case .color:
                     return false
@@ -38,9 +38,9 @@ final class InterfaceBuilderFileMigrator {
         /// The key for the attribute
         let key: String
         
-        /// Returns whether the attribute is migrateable
-        var isMigrateable: Bool {
-            return type.isMigrateable
+        /// Returns whether the attribute is migratable
+        var isMigratable: Bool {
+            return type.isMigratable
         }
     }
     
@@ -65,7 +65,7 @@ final class InterfaceBuilderFileMigrator {
     /// represent the fixed version of the file!
     var string: String
     
-    /// String matches for umigrateable text. Map from line number to the string matched.
+    /// String matches for un-migratable text. Map from line number to the string matched.
     var unmigratableMatches: [Int: String] = [:]
     
     convenience init?(filePath: String) {
@@ -113,7 +113,7 @@ final class InterfaceBuilderFileMigrator {
         // mapped simply using the same regex
         Self.directlyMappableAttributes.forEach { (attribute)  in
             
-            if attribute.isMigrateable {
+            if attribute.isMigratable {
                 string = string.replacingOccurrences(
                     of: "<userDefinedRuntimeAttribute(\\s+)type=\"\(attribute.type.rawValue)\"(\\s+)keyPath=\"(\(attribute.key))\">",
                     with: "<userDefinedRuntimeAttribute$1type=\"\(attribute.type.rawValue)\"$2keyPath=\"layer.$3\">",
