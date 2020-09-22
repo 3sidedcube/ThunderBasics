@@ -12,13 +12,45 @@ import Foundation
 /// when upgrading to `ThunderBasics` v2.0.0
 final class InterfaceBuilderFileMigrator {
     
-    static let directlyMappableAttributes: [(String, String)] = [
-        ("color", "borderColor"),
-        ("number", "borderWidth"),
-        ("number", "cornerRadius"),
-        ("color", "shadowColor"),
-        ("number", "shadowOpacity"),
-        ("number", "shadowRadius")
+    /// A structural representation of a user-defined IB attribute
+    struct UserDefinedAttribute {
+        
+        /// A type for the given attribute
+        enum AttributeType: String {
+            
+            case color
+            
+            case number
+            
+            var isMigrateable: Bool {
+                switch self {
+                case .color:
+                    return false
+                default:
+                    return true
+                }
+            }
+        }
+        
+        /// The type of the attribute
+        let type: AttributeType
+        
+        /// The key for the attribute
+        let key: String
+        
+        /// Returns whether the attribute is migrateable
+        var isMigrateable: Bool {
+            return type.isMigrateable
+        }
+    }
+    
+    static let directlyMappableAttributes: [UserDefinedAttribute] = [
+        .init(type: .color, key: "borderColor"),
+        .init(type: .number, key: "borderWidth"),
+        .init(type: .number, key: "cornerRadius"),
+        .init(type: .color, key: "shadowColor"),
+        .init(type: .number, key: "shadowOpacity"),
+        .init(type: .number, key: "shadowRadius")
     ]
     
     static let removedCustomClasses: [String] = [
@@ -32,6 +64,9 @@ final class InterfaceBuilderFileMigrator {
     /// - Note: This will be changed by calling the `migrate` function to
     /// represent the fixed version of the file!
     var string: String
+    
+    /// String matches for umigrateable text. Map from line number to the string matched.
+    var unmigratableMatches: [Int: String] = [:]
     
     convenience init?(filePath: String) {
         let fileURL = URL(fileURLWithPath: filePath)
@@ -50,6 +85,7 @@ final class InterfaceBuilderFileMigrator {
     
     /// Performs migration of the current file, storing the result in `string`
     func migrate() {
+        unmigratableMatches = [:]
         migrateUserDefinedRuntimeAttributes()
         migrateRemovedCustomClasses()
     }
@@ -76,13 +112,30 @@ final class InterfaceBuilderFileMigrator {
         // These use the same type as `CALayer` equivalents, so can be
         // mapped simply using the same regex
         Self.directlyMappableAttributes.forEach { (attribute)  in
-                    
-            string = string.replacingOccurrences(
-                of: "<userDefinedRuntimeAttribute(\\s+)type=\"\(attribute.0)\"(\\s+)keyPath=\"(\(attribute.1))\">",
-                with: "<userDefinedRuntimeAttribute$1type=\"\(attribute.0)\"$2keyPath=\"layer.$3\">",
-                options: .regularExpression,
-                range: nil
-            )
+            
+            if attribute.isMigrateable {
+                string = string.replacingOccurrences(
+                    of: "<userDefinedRuntimeAttribute(\\s+)type=\"\(attribute.type.rawValue)\"(\\s+)keyPath=\"(\(attribute.key))\">",
+                    with: "<userDefinedRuntimeAttribute$1type=\"\(attribute.type.rawValue)\"$2keyPath=\"layer.$3\">",
+                    options: .regularExpression,
+                    range: nil
+                )
+            } else if let matchRegex = try? NSRegularExpression(
+                pattern: "<userDefinedRuntimeAttribute\\s+type=\"\(attribute.type.rawValue)\"\\s+keyPath=\"(\(attribute.key))\">",
+                options: []
+            ) {
+                var lineNumber: Int = 0
+                string.enumerateLines { (line, _) in
+                    if matchRegex.numberOfMatches(
+                        in: line,
+                        options: [],
+                        range: NSRange(line.startIndex..<line.endIndex, in: line)
+                    ) > 0 {
+                        self.unmigratableMatches[lineNumber] = line.trimmingCharacters(in: .whitespaces)
+                    }
+                    lineNumber += 1
+                }
+            }
         }
         
         // shadowOffset is a bit more complex because we used `CGPoint` but

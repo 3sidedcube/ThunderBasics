@@ -42,9 +42,13 @@ class IBMigrationToolTests: XCTestCase {
         fileMigrator.migrate()
                 
         // Remove whitespace when comparing because it's irrelevant and seems to cause issues when comparing!
+
         XCTAssertEqual(
             fileMigrator.string.replacingOccurrences(of: "\\s", with: "", options: .regularExpression, range: nil),
             finalString.replacingOccurrences(of: "\\s", with: "", options: .regularExpression, range: nil)
         )
+        
+        XCTAssertEqual(fileMigrator.unmigratableMatches[24], "<userDefinedRuntimeAttribute type=\"color\" keyPath=\"borderColor\">")
+        XCTAssertEqual(fileMigrator.unmigratableMatches[33], "<userDefinedRuntimeAttribute type=\"color\" keyPath=\"shadowColor\">")
     }
 }
