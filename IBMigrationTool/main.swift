@@ -37,17 +37,17 @@ extension FileManager {
 /// - Returns: Whether there were un-migrateable attributes in the file.
 func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) -> Bool {
     
-    print("Migrating user defined runtime attributes in \(path)")
+    print("=> Migrating user defined runtime attributes in \(path)")
     
     guard let migrator = InterfaceBuilderFileMigrator(filePath: path) else {
-        print("Failed to read data as string from: \(path)")
+        print("=> Failed to read data as string from: \(path)")
         return false
     }
     migrator.migrate()
     
     if !migrator.unmigratableMatches.isEmpty {
         print("""
-            Found umigrateable properties in \(path):
+            => Found umigrateable properties in \(path):
 
             \(migrator.unmigratableMatches.compactMap({ (keyValue) -> String in
                 return "Line \(keyValue.key): \(keyValue.value)"
@@ -61,40 +61,64 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
     do {
         let fileURL = URL(fileURLWithPath: path)
         try newData?.write(to: fileURL)
-        print("Wrote migrated file to \(path)")
+        print("=> Wrote migrated file to \(path)")
     } catch {
-        print("Failed to write migrated file to \(path)")
+        print("=> Failed to write migrated file to \(path)")
     }
     
     return !migrator.unmigratableMatches.isEmpty
 }
 
-print("This tool will make changes to the Interface Builder (.xib/.storyboard) files in the chosen directory. Please make sure you have no changes in your index before continuing")
-print("Please enter the file path to the Project you want to migrate Interface Builder files to ThunderBasics 2.0.0")
-var filePath = readLine(strippingNewline: true)
-while filePath == nil {
-    filePath = readLine(strippingNewline: true)
+var pValue: String?
+let yesStrings = ["y", "Y", "yes", "YES"]
+
+while case let option = getopt(CommandLine.argc, CommandLine.unsafeArgv, "p:"), option != -1 {
+    switch UnicodeScalar(CUnsignedChar(option)) {
+    case "p":
+        pValue = String(cString: optarg)
+    default:
+        fatalError("Unknown option")
+    }
 }
 
-filePath = filePath?.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\\ ", with: " ")
-print("Parsing contents of \(filePath!) for IB Files")
+if pValue == nil {
+    print("=> Running IBMigrationTool in your current working directory, to run in a different directory, provide the -p command line argument")
+}
+
+// See https://stackoverflow.com/questions/44193114/swift-3-read-terminal-current-working-directory for why we use `FileManager` here
+let filePath = pValue ?? FileManager.default.currentDirectoryPath
+
+print("=> This tool will make changes to the Interface Builder (.xib/.storyboard) files in the chosen directory. Please make sure you have no changes in your index before continuing. Please type \"yes\" when you have done this.")
+var yesInput = readLine(strippingNewline: true)
+while !yesStrings.contains(yesInput ?? "") {
+    yesInput = readLine(strippingNewline: true)
+}
+
+print("=> Finding Interface Builder files in \(filePath)")
 
 var seenUnmigrateableProperties: Bool = false
+var noFilesFound: Bool = true
 
-FileManager.default.recursivePathsForResource("xib", directory: filePath!).forEach { (xibPath) in
+FileManager.default.recursivePathsForResource("xib", directory: filePath).forEach { (xibPath) in
+    noFilesFound = false
     let unmigrateable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: xibPath)
     seenUnmigrateableProperties = unmigrateable || seenUnmigrateableProperties
 }
 
-FileManager.default.recursivePathsForResource("storyboard", directory: filePath!).forEach { (storyboardPath) in
+FileManager.default.recursivePathsForResource("storyboard", directory: filePath).forEach { (storyboardPath) in
+    noFilesFound = false
     let unmigrateable = migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at: storyboardPath)
     seenUnmigrateableProperties = unmigrateable || seenUnmigrateableProperties
+}
+
+if noFilesFound {
+    print("=> No Interface Builder files found in \(filePath) or any of it's sub-directories")
 }
 
 guard seenUnmigrateableProperties else { exit(0) }
 
 print("""
-    For all unmigrateable properties found above you will need to perform manual migration.
+    => For all unmigrateable properties found above you will need to perform manual migration.
 
     The suggested steps for this are as follows:
     1. Search for the property in Xcode's search functionality.
