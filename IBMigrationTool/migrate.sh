@@ -1,6 +1,6 @@
 
 bin_path="IBMigrationTool"
-migrationtool_binary_download_url="https://raw.githubusercontent.com/3sidedcube/ThunderBasics/feature/migration_tool_improvements/IBMigrationTool/IBMigrationTool"
+migrationtool_binary_download_url="https://raw.githubusercontent.com/3sidedcube/ThunderBasics/develop/IBMigrationTool/IBMigrationTool"
 
 echo "=> Downloading IBMigrationTool from (${migrationtool_binary_download_url})"
 
