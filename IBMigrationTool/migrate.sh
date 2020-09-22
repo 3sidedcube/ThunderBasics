@@ -4,7 +4,7 @@ migrationtool_binary_download_url="https://raw.githubusercontent.com/3sidedcube/
 
 echo " => Downloading IBMigrationTool from (${migrationtool_binary_download_url})
 
-curl -fL --progress-bar --output "IBMigrationTool" "$migrationtool_binary_download_url"
+curl -fL --progress-bar --output "IBMigrationTool" "${migrationtool_binary_download_url}"
 
 echo " => Making it executable ..."
 chmod +x "${bin_path}"
