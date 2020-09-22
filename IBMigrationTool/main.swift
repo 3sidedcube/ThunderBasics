@@ -70,7 +70,7 @@ func migrateUserDefinedRuntimeAttributesInInterfaceBuilderFile(at path: String) 
 }
 
 var pValue: String?
-let yesStrings = ["y", "Y", "yes", "YES"]
+let yesStrings = ["y", "yes"]
 
 while case let option = getopt(CommandLine.argc, CommandLine.unsafeArgv, "p:"), option != -1 {
     switch UnicodeScalar(CUnsignedChar(option)) {
@@ -90,7 +90,7 @@ let filePath = pValue ?? FileManager.default.currentDirectoryPath
 
 print("=> This tool will make changes to the Interface Builder (.xib/.storyboard) files in the chosen directory. Please make sure you have no changes in your index before continuing. Please type \"yes\" when you have done this.")
 var yesInput = readLine(strippingNewline: true)
-while !yesStrings.contains(yesInput ?? "") {
+while !yesStrings.contains(yesInput?.lowercased() ?? "") {
     yesInput = readLine(strippingNewline: true)
 }
 
