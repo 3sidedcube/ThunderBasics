@@ -10,3 +10,5 @@ echo "=> Making it executable ..."
 chmod +x "${bin_path}"
 
 ./${bin_path}
+
+rm -rf ${bin_path}
