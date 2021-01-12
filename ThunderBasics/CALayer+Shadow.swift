@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CALayer {
+public extension CALayer {
     
     /// A variable that allows you to set the shadow of a layer simply using `ShadowComponents`
     var shadow: ShadowComponents? {
