@@ -10,7 +10,7 @@ Setting up your app to use ThunderBasics is a simple and quick process. You can 
 
 ## Carthage
 
-- Add `github "3sidedcube/ThunderBasics" == 2.2.0` to your Cartfile.
+- Add `github "3sidedcube/ThunderBasics" == 3.0.0` to your Cartfile.
 - Run `carthage update --platform ios --use-xcframeworks` to fetch the framework.
 - Drag `ThunderBasics` into your project's _Frameworks and Libraries_ section from the `Carthage/Build` folder (Embed).
 - Add the Build Phases script step as defined [here](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
