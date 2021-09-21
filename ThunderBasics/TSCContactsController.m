@@ -85,7 +85,8 @@ static TSCContactsController *sharedController = nil;
     contactViewController.delegate = self;
     contactViewController.statusBarStyle = statusBarStyle;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
+    if (idiom == UIUserInterfaceIdiomPad) {
         
         presentingViewController.modalPresentationStyle = UIModalPresentationFormSheet;
         contactViewController.modalPresentationStyle = UIModalPresentationFormSheet;

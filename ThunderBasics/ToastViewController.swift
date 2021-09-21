@@ -19,8 +19,4 @@ class ToastViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return statusBarStyle
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return UIApplication.shared.isStatusBarHidden
-    }
 }

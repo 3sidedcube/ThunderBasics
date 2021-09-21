@@ -76,21 +76,13 @@ public class ToastView: UIView {
         
         super.init(frame: .zero)
         
-        if #available(iOS 11.0, *) {
-            titleLabel.font = UIFont.dynamicSystemFont(ofSize: 18, withTextStyle: .headline, weight: .bold)
-        } else {
-            titleLabel.font = UIFont.preferredFont(forTextStyle: .headline, scaledBy: 18.0/17.0).withWeight(.bold)
-        }
+        titleLabel.font = UIFont.dynamicSystemFont(ofSize: 18, withTextStyle: .headline, weight: .bold)
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.text = title
         titleLabel.textColor = textColour
         
-        if #available(iOS 11.0, *) {
-            messageLabel.font = UIFont.dynamicSystemFont(ofSize: 16, withTextStyle: .subheadline)
-        } else {
-            messageLabel.font = UIFont.preferredFont(forTextStyle: .subheadline, scaledBy: 16.0/16.0)
-        }
+        messageLabel.font = UIFont.dynamicSystemFont(ofSize: 16, withTextStyle: .subheadline)
         messageLabel.numberOfLines = 0
         messageLabel.lineBreakMode = .byWordWrapping
         messageLabel.text = message
@@ -138,16 +130,14 @@ public class ToastView: UIView {
         layout()
         
         // For some reason margins is only available at this point!
-        var safeAreaInsets: UIEdgeInsets = .zero
-        if #available(iOS 11.0, *) {
-            safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
-            // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
-            // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
-            if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
-                safeAreaInsets = .zero
-            }
+        let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        var safeAreaInsets = keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
+        // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
+        // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
+        if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
+            safeAreaInsets = .zero
         }
-                
+        
         let safeArea = screenPosition.insetFor(safeAreaInsets: safeAreaInsets)
         
         // We add the opposite side's margin because the side that relates to the screenposition is added on later based on `margins`
@@ -233,15 +223,12 @@ public class ToastView: UIView {
     public var imageViewRightMargin: CGFloat = 12.0
     
     private func layout() {
-        
-        var safeAreaInsets: UIEdgeInsets = .zero
-        if #available(iOS 11.0, *) {
-            safeAreaInsets = UIApplication.shared.keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
-            // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
-            // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
-            if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
-                safeAreaInsets = .zero
-            }
+        let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        var safeAreaInsets = keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
+        // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
+        // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
+        if margins.top <= 0 && safeAreaInsets.bottom == 0 && safeAreaInsets.left == 0 && safeAreaInsets.right == 0 {
+            safeAreaInsets = .zero
         }
         
         // Need to inset at top if margin == 0 so we cover the safe area on-screen
