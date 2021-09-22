@@ -31,15 +31,15 @@ extension UIButton {
     public func startLoading(colour: UIColor?, style: UIActivityIndicatorView.Style = .medium) {
         
         if let activityView = viewWithTag(456766999) as? UIActivityIndicatorView {
-            
+            activityView.color = colour
             activityView.tintColor = colour
             return
         }
     
         let activityIndicator = UIActivityIndicatorView(style: style)
-        
         activityIndicator.tag = 456766999
         if let activityColour = colour {
+            activityIndicator.color = colour
             activityIndicator.tintColor = activityColour
         }
         

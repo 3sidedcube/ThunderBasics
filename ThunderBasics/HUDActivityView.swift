@@ -71,6 +71,7 @@ public class HUDActivityView: UIView {
         if style != .logo {
             
             activityIndicator = UIActivityIndicatorView(style: .large)
+            activityIndicator?.color = .white
             addSubview(activityIndicator!)
             activityIndicator?.startAnimating()
         }
