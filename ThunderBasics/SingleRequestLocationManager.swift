@@ -54,8 +54,8 @@ public final class SingleRequestLocationManager: NSObject {
         locationManager.desiredAccuracy = accuracy
         locationManager.delegate = self
         completionHandlers.append(completion)
-        
-        switch (CLLocationManager.authorizationStatus(), authorization) {
+
+        switch (locationManager.authorizationStatus, authorization) {
         case (.denied, _):
             os_log("Location permissions denied, returning", log: log, type: .debug)
             callAllCompletionHandlersWith(location: nil, error: SingleRequestLocationManagerError.permissionsDenied)
