@@ -13,7 +13,6 @@
 		49CF13291AB6D88A00AA5971 /* TSCContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13251AB6D88A00AA5971 /* TSCContactsController.m */; };
 		49CF132A1AB6D88A00AA5971 /* TSCPerson.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CF13261AB6D88A00AA5971 /* TSCPerson.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CF13271AB6D88A00AA5971 /* TSCPerson.m */; };
-		7F416CDF2A794E4700F53176 /* UIApplication+AppKeyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F416CDE2A794E4700F53176 /* UIApplication+AppKeyWindow.swift */; };
 		980AE1D42208968800540E8E /* Locale+ISO639_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE1D32208968800540E8E /* Locale+ISO639_2.swift */; };
 		980AE1D6220896A700540E8E /* iso639_2.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 980AE1D5220896A700540E8E /* iso639_2.bundle */; };
 		980AE269220AFD8C00540E8E /* Locale+ISO639_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */; };
@@ -135,7 +134,6 @@
 		49CF13251AB6D88A00AA5971 /* TSCContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCContactsController.m; sourceTree = "<group>"; };
 		49CF13261AB6D88A00AA5971 /* TSCPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCPerson.h; sourceTree = "<group>"; };
 		49CF13271AB6D88A00AA5971 /* TSCPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCPerson.m; sourceTree = "<group>"; };
-		7F416CDE2A794E4700F53176 /* UIApplication+AppKeyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AppKeyWindow.swift"; sourceTree = "<group>"; };
 		980AE1D32208968800540E8E /* Locale+ISO639_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2.swift"; sourceTree = "<group>"; };
 		980AE1D5220896A700540E8E /* iso639_2.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iso639_2.bundle; sourceTree = "<group>"; };
 		980AE268220AFD8C00540E8E /* Locale+ISO639_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+ISO639_2Tests.swift"; sourceTree = "<group>"; };
@@ -475,7 +473,6 @@
 				B146C3E12191CB2400A1DBCD /* UIWindow+VisibleViewController.swift */,
 				B146C3E32191D36A00A1DBCD /* UIViewController+DismissAnimated.swift */,
 				B146C3F02191E15A00A1DBCD /* UITabBarController+EasyInit.swift */,
-				7F416CDE2A794E4700F53176 /* UIApplication+AppKeyWindow.swift */,
 			);
 			name = "View Controllers and Windows";
 			sourceTree = "<group>";
@@ -920,7 +917,6 @@
 				49CF132B1AB6D88A00AA5971 /* TSCPerson.m in Sources */,
 				B1212A252321643800B43379 /* AccessibleButton.swift in Sources */,
 				B834866123D9E93B00F52BA6 /* UIView+Shadow.swift in Sources */,
-				7F416CDF2A794E4700F53176 /* UIApplication+AppKeyWindow.swift in Sources */,
 				B146C3B221904B4E00A1DBCD /* UIImage+Conversion.swift in Sources */,
 				B13778DD20289820006FE6D5 /* UIView+AutoLayout.swift in Sources */,
 				B1E6FC32218C5D9A00971DC3 /* ToastView.swift in Sources */,
