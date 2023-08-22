@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 3 SIDED CUBE Design Ltd. All rights reserved.
 //
 
-@import AddressBook;
-@import AddressBookUI;
-@import Contacts;
-@import ContactsUI;
-@import UIKit;
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <Contacts/Contacts.h>
+#import <ContactsUI/ContactsUI.h>
+#import <UIKit/UIKit.h>
 
 @class TSCPerson;
 

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-@import AddressBook;
-@import UIKit;
-@import Contacts;
+#import <AddressBook/AddressBook.h>
+#import <UIKit/UIKit.h>
+#import <Contacts/Contacts.h>
 
 /**
  A TSCPerson is an object representation of a person in a users addressbook.
