@@ -9,8 +9,8 @@
 import Foundation
 
 /// An instance of a toast operation to be presented to the user
-class ToastOperation: Operation {
-    
+class ToastOperation: Operation, @unchecked Sendable {
+
     /// The view that will be displayed when the toast operation has begun
     let toastView: ToastView
     
