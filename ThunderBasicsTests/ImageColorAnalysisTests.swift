@@ -8,7 +8,7 @@
 
 import XCTest
 import UIKit
-@testable import ThunderBasics
+@testable import ThunderBasicsSwift
 
 extension CGFloat {
     

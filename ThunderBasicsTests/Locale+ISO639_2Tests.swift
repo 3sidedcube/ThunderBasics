@@ -6,7 +6,7 @@
 //  Copyright © 2019 threesidedcube. All rights reserved.
 //
 
-@testable import ThunderBasics
+@testable import ThunderBasicsSwift
 import XCTest
 
 class Locale_ISO639_2Tests: XCTestCase {

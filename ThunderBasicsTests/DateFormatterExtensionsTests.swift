@@ -6,7 +6,7 @@
 //  Copyright © 2020 threesidedcube. All rights reserved.
 //
 
-@testable import ThunderBasics
+@testable import ThunderBasicsSwift
 import XCTest
 
 class DateFormatterExtensionsTests: XCTestCase {
