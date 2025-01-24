@@ -13,8 +13,7 @@ let package = Package(
         .library(
             name: "ThunderBasics",
             targets: [
-                "ThunderBasicsSwift",
-                "ThunderBasicsObjC",
+                "ThunderBasics",
             ]
         )
     ],
@@ -22,8 +21,16 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "ThunderBasicsSwift",
+            name: "ThunderBasics",
+            dependencies: [
+                .target(name: "ThunderBasicsSwift"),
+                .target(name: "ThunderBasicsObjC")
+            ],
             path: "ThunderBasics"
+        ),
+        .target(
+            name: "ThunderBasicsSwift",
+            path: "ThunderBasicsSwift"
         ),
         .target(
             name: "ThunderBasicsObjC",
