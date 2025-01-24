@@ -6,8 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ThunderBasics",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v11)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -17,12 +16,6 @@ let package = Package(
                 "ThunderBasicsSwift",
                 "ThunderBasicsObjC",
             ]
-        ),
-        .library(
-            name: "ThunderBasicsMac",
-            targets: [
-                "ThunderBasicsMac"
-            ]
         )
     ],
     targets: [
@@ -30,15 +23,11 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "ThunderBasicsSwift",
-            path: "ThunderBasicsSwift"
+            path: "ThunderBasics"
         ),
         .target(
             name: "ThunderBasicsObjC",
             path: "ThunderBasicsObjC"
-        ),
-        .target(
-            name: "ThunderBasicsMac",
-            path: "ThunderBasicsMac"
         ),
         .testTarget(
             name: "ThunderBasicsTests",
