@@ -32,7 +32,7 @@ extension UIColor.RGBAComponents {
 class ImageColorAnalysisTests: XCTestCase {
     
     func image(named: String, extension resourceExtension: String = "jpg") -> UIImage {
-        guard let url = Bundle(for: ImageColorAnalysisTests.self).url(forResource: named, withExtension: resourceExtension) else {
+        guard let url = Bundle.module.url(forResource: named, withExtension: resourceExtension) else {
             fatalError("Missing resource in test target: \(named).\(resourceExtension)")
         }
         guard let data = try? Data(contentsOf: url) else {
