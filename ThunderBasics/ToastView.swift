@@ -130,7 +130,10 @@ public class ToastView: UIView {
         layout()
         
         // For some reason margins is only available at this point!
-        let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .first { $0.isKeyWindow }
         var safeAreaInsets = keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
         // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
         // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
@@ -223,7 +226,10 @@ public class ToastView: UIView {
     public var imageViewRightMargin: CGFloat = 12.0
     
     private func layout() {
-        let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        let keyWindow = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .first { $0.isKeyWindow }
         var safeAreaInsets = keyWindow?.rootViewController?.view.safeAreaInsets ?? .zero
         // If safe area insets only apply to `.top` we can ignore them as we're not on a notched device and the
         // toast already displays ABOVE the status bar so we don't need to worry about that, unless we have non-zero top margin
