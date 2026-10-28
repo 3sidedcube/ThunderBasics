@@ -42,7 +42,7 @@ extension Locale {
     /// - Returns: The ISO639-2 language code, if one is available.
     /// - Throws: An ISO639_2_Error, if the language code is unavailable.
     public func iso639_2_languageCode(from mapping: [String: String]? = Locale.iso639_2Dictionary) throws -> String {
-        guard let iso639_1_languageCode = self.languageCode else {
+        guard let iso639_1_languageCode = self.language.languageCode?.identifier else {
             throw ISO639_2_Error.NoBaseLanguageCode
         }
         
