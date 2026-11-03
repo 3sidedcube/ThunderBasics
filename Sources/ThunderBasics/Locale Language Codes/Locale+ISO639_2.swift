@@ -21,10 +21,10 @@ extension Locale {
     
     /// Provides the mapping from ISO639-1 to ISO639-2 language codes, so Locale language codes can be converted.
     public static var iso639_2Dictionary: [String: String]? = {
-        guard let bundleURL = Bundle(identifier: "com.threesidedcube.ThunderBasics")?.url(forResource: "iso639_2", withExtension: "bundle") else {
+        guard let bundleURL = Bundle.module.url(forResource: "iso639_2", withExtension: "bundle") else {
             return nil
         }
-        
+
         guard let plistURL = Bundle(url: bundleURL)?.url(forResource: "iso639_1_to_iso639_2", withExtension: "plist") else {
             return nil
         }
